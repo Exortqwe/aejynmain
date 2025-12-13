@@ -195,7 +195,6 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Log in here";
             linkLabel1.VisitedLinkColor = Color.FromArgb(51, 106, 140);
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // txtLastName
             // 

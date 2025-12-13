@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+    <PackageReference Include="Krypton.Toolkit" Version="100.25.11.328" />
     <PackageReference Include="MetroModernUI" Version="1.4.0" />
     <PackageReference Include="MySqlConnector" Version="2.5.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />

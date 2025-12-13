@@ -35,8 +35,6 @@
             label1 = new Label();
             btnNewCustomer = new Button();
             dataGridView1 = new DataGridView();
-            btnSearchCustomer = new Button();
-            btnViewCustomer = new Button();
             CustomerID = new DataGridViewTextBoxColumn();
             FirstName = new DataGridViewTextBoxColumn();
             LastName = new DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@
             LicenseNumber = new DataGridViewTextBoxColumn();
             LicenseExpiryDate = new DataGridViewTextBoxColumn();
             DateRegistered = new DataGridViewTextBoxColumn();
+            btnSearchCustomer = new Button();
+            btnViewCustomer = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -75,6 +75,7 @@
             btnNewCustomer.TabIndex = 1;
             btnNewCustomer.Text = "    Add New Customer";
             btnNewCustomer.UseVisualStyleBackColor = false;
+            btnNewCustomer.Click += btnNewCustomer_Click;
             // 
             // dataGridView1
             // 
@@ -119,36 +120,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1363, 494);
             dataGridView1.TabIndex = 72;
-            // 
-            // btnSearchCustomer
-            // 
-            btnSearchCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnSearchCustomer.FlatAppearance.BorderSize = 0;
-            btnSearchCustomer.FlatStyle = FlatStyle.Flat;
-            btnSearchCustomer.ForeColor = Color.White;
-            btnSearchCustomer.Image = (Image)resources.GetObject("btnSearchCustomer.Image");
-            btnSearchCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchCustomer.Location = new Point(153, 102);
-            btnSearchCustomer.Name = "btnSearchCustomer";
-            btnSearchCustomer.Size = new Size(187, 52);
-            btnSearchCustomer.TabIndex = 3;
-            btnSearchCustomer.Text = "    Search Customer";
-            btnSearchCustomer.UseVisualStyleBackColor = false;
-            // 
-            // btnViewCustomer
-            // 
-            btnViewCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnViewCustomer.FlatAppearance.BorderSize = 0;
-            btnViewCustomer.FlatStyle = FlatStyle.Flat;
-            btnViewCustomer.ForeColor = Color.White;
-            btnViewCustomer.Image = (Image)resources.GetObject("btnViewCustomer.Image");
-            btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnViewCustomer.Location = new Point(346, 102);
-            btnViewCustomer.Name = "btnViewCustomer";
-            btnViewCustomer.Size = new Size(187, 52);
-            btnViewCustomer.TabIndex = 4;
-            btnViewCustomer.Text = "    View Customer";
-            btnViewCustomer.UseVisualStyleBackColor = false;
             // 
             // CustomerID
             // 
@@ -237,6 +208,36 @@
             DateRegistered.MinimumWidth = 6;
             DateRegistered.Name = "DateRegistered";
             DateRegistered.Width = 144;
+            // 
+            // btnSearchCustomer
+            // 
+            btnSearchCustomer.BackColor = Color.FromArgb(58, 124, 165);
+            btnSearchCustomer.FlatAppearance.BorderSize = 0;
+            btnSearchCustomer.FlatStyle = FlatStyle.Flat;
+            btnSearchCustomer.ForeColor = Color.White;
+            btnSearchCustomer.Image = (Image)resources.GetObject("btnSearchCustomer.Image");
+            btnSearchCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSearchCustomer.Location = new Point(153, 102);
+            btnSearchCustomer.Name = "btnSearchCustomer";
+            btnSearchCustomer.Size = new Size(187, 52);
+            btnSearchCustomer.TabIndex = 3;
+            btnSearchCustomer.Text = "    Search Customer";
+            btnSearchCustomer.UseVisualStyleBackColor = false;
+            // 
+            // btnViewCustomer
+            // 
+            btnViewCustomer.BackColor = Color.FromArgb(58, 124, 165);
+            btnViewCustomer.FlatAppearance.BorderSize = 0;
+            btnViewCustomer.FlatStyle = FlatStyle.Flat;
+            btnViewCustomer.ForeColor = Color.White;
+            btnViewCustomer.Image = (Image)resources.GetObject("btnViewCustomer.Image");
+            btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnViewCustomer.Location = new Point(346, 102);
+            btnViewCustomer.Name = "btnViewCustomer";
+            btnViewCustomer.Size = new Size(187, 52);
+            btnViewCustomer.TabIndex = 4;
+            btnViewCustomer.Text = "    View Customer";
+            btnViewCustomer.UseVisualStyleBackColor = false;
             // 
             // UC_Customers
             // 

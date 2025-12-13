@@ -22,50 +22,62 @@ namespace aejynmain
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmCreateAccount ca = new frmCreateAccount();
-            ca.Show();
-            this.Hide();
+            using (frmCreateAccount ca = new frmCreateAccount())
+            {
+                ca.ShowDialog(this); // nag gamit og modal
+            }
+
+            //  mag resume ang runtime dri after sa create account close
+            this.Show();
+            txtUsername.Focus();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM tblUser WHERE UserName = @username AND Password = @password";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            commandDatabase.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
-            commandDatabase.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-            MySqlDataReader reader;
-
-            try
+            // validate input first
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
+                MessageBox.Show("Please enter your username and password.", "Missing Information",MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                if (reader.HasRows)
+                txtUsername.Focus();
+                return; // mag stop ang execution
+            }
+
+            //  Continue only if input is valid
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand("sp_Login", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+
+                con.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        MessageBox.Show("Welcome !!!");
+                        MessageBox.Show("Welcome!, You have successfully logged in.");
+
                         MainForm mf = new MainForm();
                         mf.Show();
                         this.Hide();
-
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Invalid username or password.",
+                            "Login Failed",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Oops! Something went wrong. Please try again. ");
-                }
-                databaseConnection.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void frmLogIn_Load(object sender, EventArgs e)
         {
 

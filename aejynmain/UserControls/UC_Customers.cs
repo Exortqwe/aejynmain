@@ -16,5 +16,11 @@ namespace aejynmain.UserControls
         {
             InitializeComponent();
         }
+
+        private void btnNewCustomer_Click(object sender, EventArgs e)
+        {
+            frmAddCustomer ac = new frmAddCustomer();
+            ac.Show();
+        }
     }
 }
