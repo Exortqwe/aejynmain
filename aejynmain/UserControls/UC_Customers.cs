@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_NewClient : UserControl
+    public partial class UC_Customers : UserControl
     {
-        public UC_NewClient()
+        public UC_Customers()
         {
             InitializeComponent();
         }

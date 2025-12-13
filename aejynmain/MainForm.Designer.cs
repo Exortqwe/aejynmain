@@ -35,7 +35,6 @@
             btnLogOut = new Button();
             btnReports = new Button();
             btnDamageClaims = new Button();
-            btnRates = new Button();
             btnUserManagement = new Button();
             btnFleetManagement = new Button();
             btnCustomers = new Button();
@@ -54,7 +53,6 @@
             panel1.Controls.Add(btnLogOut);
             panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnDamageClaims);
-            panel1.Controls.Add(btnRates);
             panel1.Controls.Add(btnUserManagement);
             panel1.Controls.Add(btnFleetManagement);
             panel1.Controls.Add(btnCustomers);
@@ -95,7 +93,7 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(0, 712);
+            btnLogOut.Location = new Point(3, 642);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
             btnLogOut.Size = new Size(250, 64);
@@ -103,6 +101,7 @@
             btnLogOut.Text = "            Log Out";
             btnLogOut.TextAlign = ContentAlignment.MiddleLeft;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnReports
             // 
@@ -114,7 +113,7 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(0, 642);
+            btnReports.Location = new Point(3, 572);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
             btnReports.Size = new Size(250, 64);
@@ -133,7 +132,7 @@
             btnDamageClaims.ForeColor = Color.White;
             btnDamageClaims.Image = (Image)resources.GetObject("btnDamageClaims.Image");
             btnDamageClaims.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDamageClaims.Location = new Point(0, 572);
+            btnDamageClaims.Location = new Point(3, 502);
             btnDamageClaims.Name = "btnDamageClaims";
             btnDamageClaims.Padding = new Padding(20, 0, 0, 0);
             btnDamageClaims.Size = new Size(250, 64);
@@ -141,25 +140,6 @@
             btnDamageClaims.Text = "            Damage Claims";
             btnDamageClaims.TextAlign = ContentAlignment.MiddleLeft;
             btnDamageClaims.UseVisualStyleBackColor = false;
-            // 
-            // btnRates
-            // 
-            btnRates.BackColor = Color.FromArgb(28, 73, 102);
-            btnRates.FlatAppearance.BorderSize = 0;
-            btnRates.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnRates.FlatStyle = FlatStyle.Flat;
-            btnRates.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnRates.ForeColor = Color.White;
-            btnRates.Image = (Image)resources.GetObject("btnRates.Image");
-            btnRates.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRates.Location = new Point(0, 502);
-            btnRates.Name = "btnRates";
-            btnRates.Padding = new Padding(20, 0, 0, 0);
-            btnRates.Size = new Size(250, 64);
-            btnRates.TabIndex = 9;
-            btnRates.Text = "             Rates";
-            btnRates.TextAlign = ContentAlignment.MiddleLeft;
-            btnRates.UseVisualStyleBackColor = false;
             // 
             // btnUserManagement
             // 
@@ -195,9 +175,10 @@
             btnFleetManagement.Padding = new Padding(20, 0, 0, 0);
             btnFleetManagement.Size = new Size(247, 64);
             btnFleetManagement.TabIndex = 7;
-            btnFleetManagement.Text = "            Fleet Management";
+            btnFleetManagement.Text = "            Vechicle Fleet";
             btnFleetManagement.TextAlign = ContentAlignment.MiddleLeft;
             btnFleetManagement.UseVisualStyleBackColor = false;
+            btnFleetManagement.Click += btnFleetManagement_Click;
             // 
             // btnCustomers
             // 
@@ -217,6 +198,7 @@
             btnCustomers.Text = "             Customers";
             btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomers.UseVisualStyleBackColor = false;
+            btnCustomers.Click += btnCustomers_Click;
             // 
             // btnReservations
             // 
@@ -286,13 +268,12 @@
         private Button btnDashboard;
         private Button btnReservations;
         private Button btnCustomers;
-        private Button btnFleetManagement;
-        private Button btnUserManagement;
-        private Button btnRates;
         private Button btnDamageClaims;
         private Button btnReports;
         private Button btnLogOut;
         private Panel panelMain;
         private System.Windows.Forms.Timer timer1;
+        private Button btnUserManagement;
+        private Button btnFleetManagement;
     }
 }

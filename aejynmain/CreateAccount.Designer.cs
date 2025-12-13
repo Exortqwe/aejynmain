@@ -33,7 +33,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            txtFname = new TextBox();
+            txtFirstName = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
@@ -41,12 +41,12 @@
             btnCreateAcc = new Button();
             label9 = new Label();
             linkLabel1 = new LinkLabel();
-            txtLName = new TextBox();
+            txtLastName = new TextBox();
             txtEmail = new TextBox();
             txtAddress = new TextBox();
             txtPhone = new TextBox();
             label10 = new Label();
-            txtUsername1 = new TextBox();
+            txtUsername = new TextBox();
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
@@ -54,14 +54,11 @@
             txtPassword = new TextBox();
             label15 = new Label();
             label16 = new Label();
-            dateTimeBOD = new DateTimePicker();
-            rbMale = new RadioButton();
-            rbFemale = new RadioButton();
-            panel1 = new Panel();
-            dateTimeDateCreated = new DateTimePicker();
-            comboBox1 = new ComboBox();
+            dtpBirthDate = new DateTimePicker();
+            DateTIme = new DateTimePicker();
+            cmbRole = new ComboBox();
+            cmbGender = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox2
@@ -107,14 +104,14 @@
             label3.TabIndex = 4;
             label3.Text = "First Name";
             // 
-            // txtFname
+            // txtFirstName
             // 
-            txtFname.BorderStyle = BorderStyle.FixedSingle;
-            txtFname.Location = new Point(82, 267);
-            txtFname.Multiline = true;
-            txtFname.Name = "txtFname";
-            txtFname.Size = new Size(164, 32);
-            txtFname.TabIndex = 5;
+            txtFirstName.BorderStyle = BorderStyle.FixedSingle;
+            txtFirstName.Location = new Point(82, 267);
+            txtFirstName.Multiline = true;
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(164, 32);
+            txtFirstName.TabIndex = 5;
             // 
             // label4
             // 
@@ -200,14 +197,14 @@
             linkLabel1.VisitedLinkColor = Color.FromArgb(51, 106, 140);
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // txtLName
+            // txtLastName
             // 
-            txtLName.BorderStyle = BorderStyle.FixedSingle;
-            txtLName.Location = new Point(300, 267);
-            txtLName.Multiline = true;
-            txtLName.Name = "txtLName";
-            txtLName.Size = new Size(164, 32);
-            txtLName.TabIndex = 19;
+            txtLastName.BorderStyle = BorderStyle.FixedSingle;
+            txtLastName.Location = new Point(300, 267);
+            txtLastName.Multiline = true;
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(164, 32);
+            txtLastName.TabIndex = 19;
             // 
             // txtEmail
             // 
@@ -247,14 +244,14 @@
             label10.TabIndex = 24;
             label10.Text = " Vehicle Rental Management";
             // 
-            // txtUsername1
+            // txtUsername
             // 
-            txtUsername1.BorderStyle = BorderStyle.FixedSingle;
-            txtUsername1.Location = new Point(82, 384);
-            txtUsername1.Multiline = true;
-            txtUsername1.Name = "txtUsername1";
-            txtUsername1.Size = new Size(164, 32);
-            txtUsername1.TabIndex = 26;
+            txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.Location = new Point(82, 384);
+            txtUsername.Multiline = true;
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(164, 32);
+            txtUsername.TabIndex = 26;
             // 
             // label11
             // 
@@ -309,6 +306,7 @@
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(164, 32);
             txtPassword.TabIndex = 34;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // label15
             // 
@@ -332,61 +330,39 @@
             label16.TabIndex = 35;
             label16.Text = "Date Created";
             // 
-            // dateTimeBOD
+            // dtpBirthDate
             // 
-            dateTimeBOD.Location = new Point(152, 328);
-            dateTimeBOD.Name = "dateTimeBOD";
-            dateTimeBOD.Size = new Size(246, 27);
-            dateTimeBOD.TabIndex = 37;
+            dtpBirthDate.Location = new Point(152, 328);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(246, 27);
+            dtpBirthDate.TabIndex = 37;
             // 
-            // rbMale
+            // DateTIme
             // 
-            rbMale.AutoSize = true;
-            rbMale.Location = new Point(11, 10);
-            rbMale.Name = "rbMale";
-            rbMale.Size = new Size(63, 24);
-            rbMale.TabIndex = 39;
-            rbMale.TabStop = true;
-            rbMale.Text = "Male";
-            rbMale.UseVisualStyleBackColor = true;
+            DateTIme.Location = new Point(300, 629);
+            DateTIme.Name = "DateTIme";
+            DateTIme.Size = new Size(243, 27);
+            DateTIme.TabIndex = 43;
             // 
-            // rbFemale
+            // cmbRole
             // 
-            rbFemale.AutoSize = true;
-            rbFemale.Location = new Point(80, 10);
-            rbFemale.Name = "rbFemale";
-            rbFemale.Size = new Size(78, 24);
-            rbFemale.TabIndex = 40;
-            rbFemale.TabStop = true;
-            rbFemale.Text = "Female";
-            rbFemale.UseVisualStyleBackColor = true;
+            cmbRole.Font = new Font("Segoe UI", 14F);
+            cmbRole.FormattingEnabled = true;
+            cmbRole.Items.AddRange(new object[] { "Admin", "Manager", "Rental Agent", "Staff Counter" });
+            cmbRole.Location = new Point(300, 452);
+            cmbRole.Name = "cmbRole";
+            cmbRole.Size = new Size(164, 39);
+            cmbRole.TabIndex = 44;
             // 
-            // panel1
+            // cmbGender
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(rbFemale);
-            panel1.Controls.Add(rbMale);
-            panel1.Location = new Point(81, 452);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(165, 41);
-            panel1.TabIndex = 41;
-            // 
-            // dateTimeDateCreated
-            // 
-            dateTimeDateCreated.Location = new Point(300, 629);
-            dateTimeDateCreated.Name = "dateTimeDateCreated";
-            dateTimeDateCreated.Size = new Size(243, 27);
-            dateTimeDateCreated.TabIndex = 43;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Font = new Font("Segoe UI", 14F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin", "Manager", "Rental Agent", "Staff Counter" });
-            comboBox1.Location = new Point(300, 452);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(164, 39);
-            comboBox1.TabIndex = 44;
+            cmbGender.Font = new Font("Segoe UI", 14F);
+            cmbGender.FormattingEnabled = true;
+            cmbGender.Items.AddRange(new object[] { "Male", "Female" });
+            cmbGender.Location = new Point(82, 452);
+            cmbGender.Name = "cmbGender";
+            cmbGender.Size = new Size(151, 39);
+            cmbGender.TabIndex = 45;
             // 
             // frmCreateAccount
             // 
@@ -394,23 +370,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(612, 833);
-            Controls.Add(comboBox1);
-            Controls.Add(dateTimeDateCreated);
-            Controls.Add(panel1);
-            Controls.Add(dateTimeBOD);
+            Controls.Add(cmbGender);
+            Controls.Add(cmbRole);
+            Controls.Add(DateTIme);
+            Controls.Add(dtpBirthDate);
             Controls.Add(label16);
             Controls.Add(txtPassword);
             Controls.Add(label15);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(label12);
-            Controls.Add(txtUsername1);
+            Controls.Add(txtUsername);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(txtPhone);
             Controls.Add(txtAddress);
             Controls.Add(txtEmail);
-            Controls.Add(txtLName);
+            Controls.Add(txtLastName);
             Controls.Add(linkLabel1);
             Controls.Add(label9);
             Controls.Add(btnCreateAcc);
@@ -418,7 +394,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(txtFname);
+            Controls.Add(txtFirstName);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -428,8 +404,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateAccount";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -440,7 +414,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox txtFname;
+        private TextBox txtFirstName;
         private Label label4;
         private Label label5;
         private Label label6;
@@ -448,12 +422,12 @@
         private Button btnCreateAcc;
         private Label label9;
         private LinkLabel linkLabel1;
-        private TextBox txtLName;
+        private TextBox txtLastName;
         private TextBox txtEmail;
         private TextBox txtAddress;
         private TextBox txtPhone;
         private Label label10;
-        private TextBox txtUsername1;
+        private TextBox txtUsername;
         private Label label11;
         private Label label12;
         private Label label13;
@@ -461,11 +435,9 @@
         private TextBox txtPassword;
         private Label label15;
         private Label label16;
-        private DateTimePicker dateTimeBOD;
-        private RadioButton rbMale;
-        private RadioButton rbFemale;
-        private Panel panel1;
-        private DateTimePicker dateTimeDateCreated;
-        private ComboBox comboBox1;
+        private DateTimePicker dtpBirthDate;
+        private DateTimePicker DateTIme;
+        private ComboBox cmbRole;
+        private ComboBox cmbGender;
     }
 }

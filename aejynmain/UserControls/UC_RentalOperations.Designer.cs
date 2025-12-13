@@ -73,7 +73,6 @@
             iconButton3 = new FontAwesome.Sharp.IconButton();
             textBox2 = new TextBox();
             iconButton4 = new FontAwesome.Sharp.IconButton();
-            btnNewClient = new Button();
             groupBox2 = new GroupBox();
             label24 = new Label();
             label23 = new Label();
@@ -549,7 +548,7 @@
             iconButton3.IconColor = Color.White;
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 32;
-            iconButton3.Location = new Point(528, 46);
+            iconButton3.Location = new Point(639, 46);
             iconButton3.Name = "iconButton3";
             iconButton3.Size = new Size(45, 27);
             iconButton3.TabIndex = 1;
@@ -559,7 +558,7 @@
             // 
             textBox2.Location = new Point(233, 46);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(289, 27);
+            textBox2.Size = new Size(407, 27);
             textBox2.TabIndex = 2;
             // 
             // iconButton4
@@ -571,25 +570,11 @@
             iconButton4.IconColor = Color.White;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 32;
-            iconButton4.Location = new Point(579, 45);
+            iconButton4.Location = new Point(690, 46);
             iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(45, 28);
+            iconButton4.Size = new Size(45, 27);
             iconButton4.TabIndex = 3;
             iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // btnNewClient
-            // 
-            btnNewClient.BackColor = Color.FromArgb(58, 124, 165);
-            btnNewClient.FlatAppearance.BorderSize = 0;
-            btnNewClient.FlatStyle = FlatStyle.Flat;
-            btnNewClient.ForeColor = Color.White;
-            btnNewClient.Location = new Point(630, 45);
-            btnNewClient.Name = "btnNewClient";
-            btnNewClient.Size = new Size(168, 28);
-            btnNewClient.TabIndex = 4;
-            btnNewClient.Text = "+ Walk-in/New Client";
-            btnNewClient.UseVisualStyleBackColor = false;
-            btnNewClient.Click += btnNewClient_Click;
             // 
             // groupBox2
             // 
@@ -600,7 +585,7 @@
             groupBox2.Controls.Add(label21);
             groupBox2.Location = new Point(233, 87);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(494, 215);
+            groupBox2.Size = new Size(502, 215);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Text = "Customer Info";
@@ -654,6 +639,7 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(dateTimePicker4);
             panel4.Controls.Add(dateTimePicker3);
             panel4.Controls.Add(label27);
@@ -665,22 +651,22 @@
             // 
             // dateTimePicker4
             // 
-            dateTimePicker4.Location = new Point(45, 136);
+            dateTimePicker4.Location = new Point(21, 136);
             dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.Size = new Size(406, 27);
+            dateTimePicker4.Size = new Size(430, 27);
             dateTimePicker4.TabIndex = 3;
             // 
             // dateTimePicker3
             // 
-            dateTimePicker3.Location = new Point(45, 57);
+            dateTimePicker3.Location = new Point(21, 57);
             dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(406, 27);
+            dateTimePicker3.Size = new Size(430, 27);
             dateTimePicker3.TabIndex = 2;
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(45, 113);
+            label27.Location = new Point(13, 113);
             label27.Name = "label27";
             label27.Size = new Size(88, 20);
             label27.TabIndex = 1;
@@ -689,7 +675,7 @@
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new Point(45, 34);
+            label26.Location = new Point(13, 32);
             label26.Name = "label26";
             label26.Size = new Size(94, 20);
             label26.TabIndex = 0;
@@ -708,6 +694,7 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(label33);
             panel5.Controls.Add(label32);
             panel5.Controls.Add(label31);
@@ -793,10 +780,7 @@
             // 
             // dataGridView2
             // 
-            dataGridView2.AllowUserToAddRows = false;
-            dataGridView2.AllowUserToDeleteRows = false;
-            dataGridView2.AllowUserToResizeColumns = false;
-            dataGridView2.AllowUserToResizeRows = false;
+            dataGridView2.AllowDrop = true;
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -809,64 +793,69 @@
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6, Column7, Column8, Column9 });
-            dataGridView2.Enabled = false;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.GridColor = Color.White;
+            dataGridView2.GridColor = SystemColors.GrayText;
             dataGridView2.Location = new Point(799, 128);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(51, 106, 140);
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.ForeColor = Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(51, 106, 140);
             dataGridViewCellStyle6.SelectionForeColor = Color.White;
             dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(769, 782);
+            dataGridView2.Size = new Size(530, 782);
             dataGridView2.TabIndex = 11;
             // 
             // Column5
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column5.HeaderText = "Plate Number";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
+            Column5.Width = 128;
             // 
             // Column6
             // 
-            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column6.HeaderText = "Model";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
+            Column6.Width = 80;
             // 
             // Column7
             // 
-            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column7.HeaderText = "Category";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
+            Column7.Width = 97;
             // 
             // Column8
             // 
-            Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column8.HeaderText = "Daily Rate";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
+            Column8.Width = 105;
             // 
             // Column9
             // 
-            Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column9.HeaderText = "Total ";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
+            Column9.Width = 74;
             // 
             // UC_RentalOperations
             // 
@@ -879,7 +868,6 @@
             Controls.Add(panel4);
             Controls.Add(label25);
             Controls.Add(groupBox2);
-            Controls.Add(btnNewClient);
             Controls.Add(iconButton4);
             Controls.Add(textBox2);
             Controls.Add(iconButton3);
@@ -947,7 +935,6 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private TextBox textBox2;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private Button btnNewClient;
         private GroupBox groupBox2;
         private Label label24;
         private Label label23;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_RentalOperations : UserControl
+    public partial class UC_VehicleFleet : UserControl
     {
-        public UC_RentalOperations()
+        public UC_VehicleFleet()
         {
             InitializeComponent();
         }

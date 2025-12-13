@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aejynmain.UserControls
+namespace aejynmain
 {
-    public partial class UC_RentalOperations : UserControl
+    public partial class frmNewClient : Form
     {
-        public UC_RentalOperations()
+        public frmNewClient()
         {
             InitializeComponent();
         }

@@ -13,12 +13,13 @@ namespace aejynmain
 {
     public partial class MainForm : Form
     {
-        UC_Dashboard dash = new UC_Dashboard();
-        UC_RentalOperations rv = new UC_RentalOperations();
+        UC_Dashboard dashboard = new UC_Dashboard();
+        UC_RentalOperations reservations = new UC_RentalOperations();
+        UC_Customers customers = new UC_Customers();
         public MainForm()
         {
             InitializeComponent();
-            addUserControls(dash);
+            addUserControls(dashboard);
         }
 
         private void addUserControls(UserControl userControl)
@@ -30,15 +31,37 @@ namespace aejynmain
         }
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            UC_Dashboard dash = new UC_Dashboard();
-            addUserControls(dash);
+            UC_Dashboard dashboard = new UC_Dashboard();
+            addUserControls(dashboard);
         }
 
         private void btnReservations_Click(object sender, EventArgs e)
         {
-            UC_RentalOperations rv = new UC_RentalOperations();
-            addUserControls(rv);
+            UC_RentalOperations reservations = new UC_RentalOperations();
+            addUserControls(reservations);
         }
 
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            UC_Customers customers = new UC_Customers();
+            addUserControls(customers);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You've been logged out successfully");
+            frmLogIn login = new frmLogIn();
+            login.Show();
+            this.Hide();
+
+
+
+        }
+
+        private void btnFleetManagement_Click(object sender, EventArgs e)
+        {
+            UC_VehicleFleet vehiclefleet = new UC_VehicleFleet();
+            addUserControls(vehiclefleet);
+        }
     }
 }
