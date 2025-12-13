@@ -18,69 +18,42 @@ namespace aejynmain
             InitializeComponent();
         }
         string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmLogIn ob = new frmLogIn();
-            ob.Show();
-            this.Hide();
-        }
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand("sp_CreateUser", conn))
             {
-                string firstName = txtFirstName.Text.Trim();
-                string lastName = txtLastName.Text.Trim();
-                string username = txtUsername.Text.Trim();
-                string password = txtPassword.Text.Trim();
-                string gender = cmbGender.Text;
-                string role = cmbRole.Text;
-                string phone = txtPhone.Text.Trim();
-                string email = txtEmail.Text.Trim();
-                string address = txtAddress.Text.Trim();
-                DateTime birthDate = dtpBirthDate.Value;
-                DateTime dateCreated = DateTime.Now;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                // Basic validation
-                if (firstName == "" || lastName == "" || username == "" || password == "")
+                cmd.Parameters.AddWithValue("p_FirstName", txtFirstName.Text.Trim());
+                cmd.Parameters.AddWithValue("p_LastName", txtLastName.Text.Trim());
+                cmd.Parameters.AddWithValue("p_UserName", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("p_Password", txtPassword.Text.Trim()); 
+                cmd.Parameters.AddWithValue("p_Role", cmbRole.Text);
+                cmd.Parameters.AddWithValue("p_Gender", cmbGender.Text);
+                cmd.Parameters.AddWithValue("p_BirthDate", dtpBirthDate.Value.Date);
+                cmd.Parameters.AddWithValue("p_ContactNumber", txtPhone.Text.Trim());
+                cmd.Parameters.AddWithValue("p_EmailAddress", txtEmail.Text.Trim());
+                cmd.Parameters.AddWithValue("p_Address", txtAddress.Text.Trim());
+                cmd.Parameters.AddWithValue("p_DateCreated", DateTime.Now);
+
+                try
                 {
-                    MessageBox.Show("Please fill in all required fields.");
-                    return;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Account created successfully!", "Success");
+                    this.Close();
+
                 }
-
-                string query = @"INSERT INTO tbluser
-        (FirstName, LastName, UserName, Password, Role, Gender, BirthDate, ContactNumber, EmailAddress, Address, DateCreated)
-        VALUES
-        (@FirstName, @LastName, @UserName, @Password, @Role, @Gender, @BirthDate, @ContactNumber, @EmailAddress, @Address, @DateCreated)";
-
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                catch (Exception ex)
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@UserName", username);
-                    cmd.Parameters.AddWithValue("@Password", password); // plain for now
-                    cmd.Parameters.AddWithValue("@Role", role);
-                    cmd.Parameters.AddWithValue("@Gender", gender);
-                    cmd.Parameters.AddWithValue("@BirthDate", birthDate);
-                    cmd.Parameters.AddWithValue("@ContactNumber", phone);
-                    cmd.Parameters.AddWithValue("@EmailAddress", email);
-                    cmd.Parameters.AddWithValue("@Address", address);
-                    cmd.Parameters.AddWithValue("@DateCreated", dateCreated);
-
-                    try
-                    {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Account created successfully!");
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
+                    MessageBox.Show(ex.Message, "Error");
                 }
+               
             }
         }
     }
+        
+    
 }

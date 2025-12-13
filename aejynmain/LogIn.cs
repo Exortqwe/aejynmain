@@ -22,47 +22,43 @@ namespace aejynmain
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmCreateAccount ca = new frmCreateAccount();
-            ca.Show();
-            this.Hide();
+            using (frmCreateAccount ca = new frmCreateAccount())
+            {
+                ca.ShowDialog(this); // modal
+            }
+
+            //  mag resume ang runtime dri after sa create account close
+            this.Show();
+            txtUsername.Focus();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM tblUser WHERE UserName = @username AND Password = @password";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            commandDatabase.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
-            commandDatabase.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-            MySqlDataReader reader;
-
-            try
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand("sp_Login", con))
             {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                if (reader.HasRows)
+                cmd.Parameters.AddWithValue("@p_username", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@p_password", txtPassword.Text.Trim());
+
+                con.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        MessageBox.Show("Welcome !!!");
+                        MessageBox.Show("Welcome!");
+
                         MainForm mf = new MainForm();
                         mf.Show();
                         this.Hide();
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Oops! Something went wrong. Please try again. ");
-                }
-                databaseConnection.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
