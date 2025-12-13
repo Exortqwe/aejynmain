@@ -18,11 +18,6 @@ namespace aejynmain
             InitializeComponent();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
         private void btnSaveCustomerDetails_Click(object sender, EventArgs e)
         {
            

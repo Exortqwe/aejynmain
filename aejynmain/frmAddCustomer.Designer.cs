@@ -54,7 +54,6 @@
             txtLicenseNumber = new TextBox();
             label12 = new Label();
             btnSaveCustomerDetails = new Button();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -282,30 +281,12 @@
             btnSaveCustomerDetails.UseVisualStyleBackColor = false;
             btnSaveCustomerDetails.Click += btnSaveCustomerDetails_Click;
             // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.FromArgb(201, 74, 74);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatAppearance.MouseOverBackColor = Color.FromArgb(180, 63, 63);
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 28;
-            iconButton1.Location = new Point(750, 12);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(56, 33);
-            iconButton1.TabIndex = 29;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
             // frmAddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(818, 469);
-            Controls.Add(iconButton1);
             Controls.Add(btnSaveCustomerDetails);
             Controls.Add(label12);
             Controls.Add(txtLicenseNumber);
@@ -331,7 +312,7 @@
             Controls.Add(label1);
             Controls.Add(kryptonPictureBox1);
             Controls.Add(kryptonBorderEdge1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmAddCustomer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmAddCustomer";
@@ -367,7 +348,6 @@
         private TextBox txtLicenseNumber;
         private Label label12;
         private Button btnSaveCustomerDetails;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private ComboBox comboBox2;
     }
 }
