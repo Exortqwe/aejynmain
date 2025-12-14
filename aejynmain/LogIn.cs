@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using aejynmain.UserControls;
-using MySqlConnector;
+using MySql.Data.MySqlClient;
 
 namespace aejynmain
 {
@@ -24,17 +24,18 @@ namespace aejynmain
         {
             using (frmCreateAccount ca = new frmCreateAccount())
             {
-                ca.ShowDialog(this); // nag gamit og modal
+                ca.ShowDialog(this); //modal ni siya
+
             }
 
-            //  mag resume ang runtime dri after sa create account close
+            //mag resume ang runtime dri after sa create account
             this.Show();
             txtUsername.Focus();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            // validate input first
+            // una e validate input
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
             {
@@ -44,7 +45,7 @@ namespace aejynmain
                 return; // mag stop ang execution
             }
 
-            //  Continue only if input is valid
+            //mag continue siya if valid ang input
             using (MySqlConnection con = new MySqlConnection(connectionString))
             using (MySqlCommand cmd = new MySqlCommand("sp_Login", con))
             {
@@ -52,7 +53,6 @@ namespace aejynmain
 
                 cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-
                 con.Open();
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -61,18 +61,16 @@ namespace aejynmain
                     {
                         MessageBox.Show("Welcome!, You have successfully logged in.");
 
+
                         MainForm mf = new MainForm();
                         mf.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show(
-                            "Invalid username or password.",
-                            "Login Failed",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
+
+                        MessageBox.Show("Invalid username or password.","Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
                     }
                 }
             }

@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySqlConnector;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace aejynmain
 {
@@ -17,7 +18,7 @@ namespace aejynmain
         {
             InitializeComponent();
         }
-        string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+        string connectionString = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
