@@ -55,7 +55,7 @@
             label15 = new Label();
             label16 = new Label();
             dtpBirthDate = new DateTimePicker();
-            DateTIme = new DateTimePicker();
+            dtpDateCreated = new DateTimePicker();
             cmbRole = new ComboBox();
             cmbGender = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -336,12 +336,12 @@
             dtpBirthDate.Size = new Size(246, 27);
             dtpBirthDate.TabIndex = 37;
             // 
-            // DateTIme
+            // dtpDateCreated
             // 
-            DateTIme.Location = new Point(300, 629);
-            DateTIme.Name = "DateTIme";
-            DateTIme.Size = new Size(243, 27);
-            DateTIme.TabIndex = 43;
+            dtpDateCreated.Location = new Point(300, 629);
+            dtpDateCreated.Name = "dtpDateCreated";
+            dtpDateCreated.Size = new Size(243, 27);
+            dtpDateCreated.TabIndex = 43;
             // 
             // cmbRole
             // 
@@ -371,7 +371,7 @@
             ClientSize = new Size(612, 833);
             Controls.Add(cmbGender);
             Controls.Add(cmbRole);
-            Controls.Add(DateTIme);
+            Controls.Add(dtpDateCreated);
             Controls.Add(dtpBirthDate);
             Controls.Add(label16);
             Controls.Add(txtPassword);
@@ -435,7 +435,7 @@
         private Label label15;
         private Label label16;
         private DateTimePicker dtpBirthDate;
-        private DateTimePicker DateTIme;
+        private DateTimePicker dtpDateCreated;
         private ComboBox cmbRole;
         private ComboBox cmbGender;
     }

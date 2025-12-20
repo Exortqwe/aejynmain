@@ -34,7 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             btnNewCustomer = new Button();
-            dataGridView1 = new DataGridView();
+            dgAddCustomer = new DataGridView();
             CustomerID = new DataGridViewTextBoxColumn();
             FirstName = new DataGridViewTextBoxColumn();
             LastName = new DataGridViewTextBoxColumn();
@@ -48,7 +48,8 @@
             DateRegistered = new DataGridViewTextBoxColumn();
             btnSearchCustomer = new Button();
             btnViewCustomer = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)dgAddCustomer).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -75,16 +76,16 @@
             btnNewCustomer.TabIndex = 1;
             btnNewCustomer.Text = "    Add New Customer";
             btnNewCustomer.UseVisualStyleBackColor = false;
-            btnNewCustomer.Click += btnNewCustomer_Click;
+            btnNewCustomer.Click += btnNewCustomer_Click_1;
             // 
-            // dataGridView1
+            // dgAddCustomer
             // 
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = Color.FromArgb(245, 247, 250);
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgAddCustomer.AllowUserToResizeColumns = false;
+            dgAddCustomer.AllowUserToResizeRows = false;
+            dgAddCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgAddCustomer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgAddCustomer.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgAddCustomer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -92,9 +93,9 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { CustomerID, FirstName, LastName, Gender, BirthDate, ContactNumber, EmailAddress, Address, LicenseNumber, LicenseExpiryDate, DateRegistered });
+            dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgAddCustomer.ColumnHeadersHeight = 30;
+            dgAddCustomer.Columns.AddRange(new DataGridViewColumn[] { CustomerID, FirstName, LastName, Gender, BirthDate, ContactNumber, EmailAddress, Address, LicenseNumber, LicenseExpiryDate, DateRegistered });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -102,12 +103,12 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = SystemColors.GrayText;
-            dataGridView1.Location = new Point(153, 175);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
+            dgAddCustomer.EnableHeadersVisualStyles = false;
+            dgAddCustomer.GridColor = SystemColors.GrayText;
+            dgAddCustomer.Location = new Point(153, 183);
+            dgAddCustomer.Name = "dgAddCustomer";
+            dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -115,11 +116,11 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1363, 494);
-            dataGridView1.TabIndex = 72;
+            dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgAddCustomer.RowHeadersVisible = false;
+            dgAddCustomer.RowHeadersWidth = 51;
+            dgAddCustomer.Size = new Size(1363, 494);
+            dgAddCustomer.TabIndex = 72;
             // 
             // CustomerID
             // 
@@ -239,19 +240,34 @@
             btnViewCustomer.Text = "    View Customer";
             btnViewCustomer.UseVisualStyleBackColor = false;
             // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.FromArgb(58, 124, 165);
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(741, 102);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(94, 52);
+            iconButton1.TabIndex = 73;
+            iconButton1.UseVisualStyleBackColor = false;
+            // 
             // UC_Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(iconButton1);
             Controls.Add(btnViewCustomer);
             Controls.Add(btnSearchCustomer);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgAddCustomer);
             Controls.Add(btnNewCustomer);
             Controls.Add(label1);
             Name = "UC_Customers";
             Size = new Size(1685, 1219);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgAddCustomer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -260,7 +276,7 @@
 
         private Label label1;
         private Button btnNewCustomer;
-        private DataGridView dataGridView1;
+        private DataGridView dgAddCustomer;
         private Button btnSearchCustomer;
         private Button btnViewCustomer;
         private DataGridViewTextBoxColumn CustomerID;
@@ -274,5 +290,6 @@
         private DataGridViewTextBoxColumn LicenseNumber;
         private DataGridViewTextBoxColumn LicenseExpiryDate;
         private DataGridViewTextBoxColumn DateRegistered;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

@@ -32,18 +32,18 @@
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
             kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             label1 = new Label();
-            txtFname1 = new TextBox();
+            txtFirstName = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            txtLname1 = new TextBox();
+            txtLastName = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            txtContactNum1 = new TextBox();
-            cbGender1 = new ComboBox();
+            txtContactNum = new TextBox();
+            cbGender = new ComboBox();
             label6 = new Label();
-            txtEmail1 = new TextBox();
+            txtEmailAddress = new TextBox();
             label7 = new Label();
-            txtAddress1 = new TextBox();
+            txtAddress = new TextBox();
             dtLicenseExpiry = new DateTimePicker();
             dtBoDate = new DateTimePicker();
             dtDateRegistered = new DateTimePicker();
@@ -83,14 +83,14 @@
             label1.TabIndex = 5;
             label1.Text = "Customer Details";
             // 
-            // txtFname1
+            // txtFirstName
             // 
-            txtFname1.BorderStyle = BorderStyle.FixedSingle;
-            txtFname1.Location = new Point(12, 131);
-            txtFname1.Multiline = true;
-            txtFname1.Name = "txtFname1";
-            txtFname1.Size = new Size(165, 34);
-            txtFname1.TabIndex = 6;
+            txtFirstName.BorderStyle = BorderStyle.FixedSingle;
+            txtFirstName.Location = new Point(12, 131);
+            txtFirstName.Multiline = true;
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(165, 34);
+            txtFirstName.TabIndex = 6;
             // 
             // label2
             // 
@@ -110,14 +110,14 @@
             label3.TabIndex = 9;
             label3.Text = "Last Name";
             // 
-            // txtLname1
+            // txtLastName
             // 
-            txtLname1.BorderStyle = BorderStyle.FixedSingle;
-            txtLname1.Location = new Point(212, 131);
-            txtLname1.Multiline = true;
-            txtLname1.Name = "txtLname1";
-            txtLname1.Size = new Size(165, 34);
-            txtLname1.TabIndex = 8;
+            txtLastName.BorderStyle = BorderStyle.FixedSingle;
+            txtLastName.Location = new Point(212, 131);
+            txtLastName.Multiline = true;
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(165, 34);
+            txtLastName.TabIndex = 8;
             // 
             // label4
             // 
@@ -137,23 +137,23 @@
             label5.TabIndex = 13;
             label5.Text = "Contact Number";
             // 
-            // txtContactNum1
+            // txtContactNum
             // 
-            txtContactNum1.BorderStyle = BorderStyle.FixedSingle;
-            txtContactNum1.Location = new Point(409, 131);
-            txtContactNum1.Multiline = true;
-            txtContactNum1.Name = "txtContactNum1";
-            txtContactNum1.Size = new Size(165, 34);
-            txtContactNum1.TabIndex = 12;
+            txtContactNum.BorderStyle = BorderStyle.FixedSingle;
+            txtContactNum.Location = new Point(409, 131);
+            txtContactNum.Multiline = true;
+            txtContactNum.Name = "txtContactNum";
+            txtContactNum.Size = new Size(165, 34);
+            txtContactNum.TabIndex = 12;
             // 
-            // cbGender1
+            // cbGender
             // 
-            cbGender1.FormattingEnabled = true;
-            cbGender1.Items.AddRange(new object[] { "Male", "Female" });
-            cbGender1.Location = new Point(406, 231);
-            cbGender1.Name = "cbGender1";
-            cbGender1.Size = new Size(165, 28);
-            cbGender1.TabIndex = 14;
+            cbGender.FormattingEnabled = true;
+            cbGender.Items.AddRange(new object[] { "Male", "Female" });
+            cbGender.Location = new Point(406, 231);
+            cbGender.Name = "cbGender";
+            cbGender.Size = new Size(165, 28);
+            cbGender.TabIndex = 14;
             // 
             // label6
             // 
@@ -164,14 +164,14 @@
             label6.TabIndex = 16;
             label6.Text = "Email Address";
             // 
-            // txtEmail1
+            // txtEmailAddress
             // 
-            txtEmail1.BorderStyle = BorderStyle.FixedSingle;
-            txtEmail1.Location = new Point(611, 131);
-            txtEmail1.Multiline = true;
-            txtEmail1.Name = "txtEmail1";
-            txtEmail1.Size = new Size(165, 34);
-            txtEmail1.TabIndex = 15;
+            txtEmailAddress.BorderStyle = BorderStyle.FixedSingle;
+            txtEmailAddress.Location = new Point(611, 131);
+            txtEmailAddress.Multiline = true;
+            txtEmailAddress.Name = "txtEmailAddress";
+            txtEmailAddress.Size = new Size(165, 34);
+            txtEmailAddress.TabIndex = 15;
             // 
             // label7
             // 
@@ -182,14 +182,14 @@
             label7.TabIndex = 18;
             label7.Text = "Address";
             // 
-            // txtAddress1
+            // txtAddress
             // 
-            txtAddress1.BorderStyle = BorderStyle.FixedSingle;
-            txtAddress1.Location = new Point(12, 231);
-            txtAddress1.Multiline = true;
-            txtAddress1.Name = "txtAddress1";
-            txtAddress1.Size = new Size(365, 36);
-            txtAddress1.TabIndex = 17;
+            txtAddress.BorderStyle = BorderStyle.FixedSingle;
+            txtAddress.Location = new Point(12, 231);
+            txtAddress.Multiline = true;
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(365, 36);
+            txtAddress.TabIndex = 17;
             // 
             // dtLicenseExpiry
             // 
@@ -298,17 +298,17 @@
             Controls.Add(dtBoDate);
             Controls.Add(dtLicenseExpiry);
             Controls.Add(label7);
-            Controls.Add(txtAddress1);
+            Controls.Add(txtAddress);
             Controls.Add(label6);
-            Controls.Add(txtEmail1);
-            Controls.Add(cbGender1);
+            Controls.Add(txtEmailAddress);
+            Controls.Add(cbGender);
             Controls.Add(label5);
-            Controls.Add(txtContactNum1);
+            Controls.Add(txtContactNum);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(txtLname1);
+            Controls.Add(txtLastName);
             Controls.Add(label2);
-            Controls.Add(txtFname1);
+            Controls.Add(txtFirstName);
             Controls.Add(label1);
             Controls.Add(kryptonPictureBox1);
             Controls.Add(kryptonBorderEdge1);
@@ -326,18 +326,18 @@
         private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
         private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
         private Label label1;
-        private TextBox txtFname1;
+        private TextBox txtFirstName;
         private Label label2;
         private Label label3;
-        private TextBox txtLname1;
+        private TextBox txtLastName;
         private Label label4;
         private Label label5;
-        private TextBox txtContactNum1;
-        private ComboBox cbGender1;
+        private TextBox txtContactNum;
+        private ComboBox cbGender;
         private Label label6;
-        private TextBox txtEmail1;
+        private TextBox txtEmailAddress;
         private Label label7;
-        private TextBox txtAddress1;
+        private TextBox txtAddress;
         private DateTimePicker dtLicenseExpiry;
         private DateTimePicker dtBoDate;
         private DateTimePicker dtDateRegistered;
