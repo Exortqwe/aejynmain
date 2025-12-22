@@ -39,14 +39,14 @@
             label4 = new Label();
             label5 = new Label();
             txtContactNum = new TextBox();
-            cbGender = new ComboBox();
+            cmbGender = new ComboBox();
             label6 = new Label();
             txtEmailAddress = new TextBox();
             label7 = new Label();
             txtAddress = new TextBox();
-            dtLicenseExpiry = new DateTimePicker();
-            dtBoDate = new DateTimePicker();
-            dtDateRegistered = new DateTimePicker();
+            dtpLicenseExpiry = new DateTimePicker();
+            dtpBirthDate = new DateTimePicker();
+            dtpDateRegistered = new DateTimePicker();
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
@@ -146,14 +146,14 @@
             txtContactNum.Size = new Size(165, 34);
             txtContactNum.TabIndex = 12;
             // 
-            // cbGender
+            // cmbGender
             // 
-            cbGender.FormattingEnabled = true;
-            cbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cbGender.Location = new Point(406, 231);
-            cbGender.Name = "cbGender";
-            cbGender.Size = new Size(165, 28);
-            cbGender.TabIndex = 14;
+            cmbGender.FormattingEnabled = true;
+            cmbGender.Items.AddRange(new object[] { "Male", "Female" });
+            cmbGender.Location = new Point(406, 231);
+            cmbGender.Name = "cmbGender";
+            cmbGender.Size = new Size(165, 28);
+            cmbGender.TabIndex = 14;
             // 
             // label6
             // 
@@ -191,26 +191,26 @@
             txtAddress.Size = new Size(365, 36);
             txtAddress.TabIndex = 17;
             // 
-            // dtLicenseExpiry
+            // dtpLicenseExpiry
             // 
-            dtLicenseExpiry.Location = new Point(10, 337);
-            dtLicenseExpiry.Name = "dtLicenseExpiry";
-            dtLicenseExpiry.Size = new Size(239, 27);
-            dtLicenseExpiry.TabIndex = 19;
+            dtpLicenseExpiry.Location = new Point(10, 337);
+            dtpLicenseExpiry.Name = "dtpLicenseExpiry";
+            dtpLicenseExpiry.Size = new Size(239, 27);
+            dtpLicenseExpiry.TabIndex = 19;
             // 
-            // dtBoDate
+            // dtpBirthDate
             // 
-            dtBoDate.Location = new Point(286, 337);
-            dtBoDate.Name = "dtBoDate";
-            dtBoDate.Size = new Size(239, 27);
-            dtBoDate.TabIndex = 20;
+            dtpBirthDate.Location = new Point(286, 337);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(239, 27);
+            dtpBirthDate.TabIndex = 20;
             // 
-            // dtDateRegistered
+            // dtpDateRegistered
             // 
-            dtDateRegistered.Location = new Point(563, 337);
-            dtDateRegistered.Name = "dtDateRegistered";
-            dtDateRegistered.Size = new Size(239, 27);
-            dtDateRegistered.TabIndex = 21;
+            dtpDateRegistered.Location = new Point(563, 337);
+            dtpDateRegistered.Name = "dtpDateRegistered";
+            dtpDateRegistered.Size = new Size(239, 27);
+            dtpDateRegistered.TabIndex = 21;
             // 
             // label8
             // 
@@ -294,14 +294,14 @@
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
-            Controls.Add(dtDateRegistered);
-            Controls.Add(dtBoDate);
-            Controls.Add(dtLicenseExpiry);
+            Controls.Add(dtpDateRegistered);
+            Controls.Add(dtpBirthDate);
+            Controls.Add(dtpLicenseExpiry);
             Controls.Add(label7);
             Controls.Add(txtAddress);
             Controls.Add(label6);
             Controls.Add(txtEmailAddress);
-            Controls.Add(cbGender);
+            Controls.Add(cmbGender);
             Controls.Add(label5);
             Controls.Add(txtContactNum);
             Controls.Add(label4);
@@ -333,14 +333,14 @@
         private Label label4;
         private Label label5;
         private TextBox txtContactNum;
-        private ComboBox cbGender;
+        private ComboBox cmbGender;
         private Label label6;
         private TextBox txtEmailAddress;
         private Label label7;
         private TextBox txtAddress;
-        private DateTimePicker dtLicenseExpiry;
-        private DateTimePicker dtBoDate;
-        private DateTimePicker dtDateRegistered;
+        private DateTimePicker dtpLicenseExpiry;
+        private DateTimePicker dtpBirthDate;
+        private DateTimePicker dtpDateRegistered;
         private Label label8;
         private Label label9;
         private Label label10;

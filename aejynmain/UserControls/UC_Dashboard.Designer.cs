@@ -72,6 +72,8 @@
             panel2 = new Panel();
             label18 = new Label();
             label5 = new Label();
+            panel9 = new Panel();
+            label12 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel7.SuspendLayout();
@@ -82,11 +84,13 @@
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             panel2.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(panel9);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(iconButton2);
@@ -129,11 +133,11 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column11, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10 });
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = SystemColors.GrayText;
-            dataGridView1.Location = new Point(11, 401);
+            dataGridView1.Location = new Point(15, 513);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1651, 759);
+            dataGridView1.Size = new Size(1651, 423);
             dataGridView1.TabIndex = 72;
             // 
             // Column1
@@ -220,7 +224,7 @@
             comboBox1.Font = new Font("Segoe UI", 9F);
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(517, 344);
+            comboBox1.Location = new Point(521, 451);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(160, 28);
             comboBox1.TabIndex = 71;
@@ -235,7 +239,7 @@
             iconButton2.IconColor = Color.White;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 32;
-            iconButton2.Location = new Point(448, 344);
+            iconButton2.Location = new Point(452, 451);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(63, 28);
             iconButton2.TabIndex = 70;
@@ -250,7 +254,7 @@
             iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 32;
-            iconButton1.Location = new Point(379, 344);
+            iconButton1.Location = new Point(383, 451);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(63, 28);
             iconButton1.TabIndex = 69;
@@ -259,7 +263,7 @@
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(56, 344);
+            textBox1.Location = new Point(60, 451);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(329, 28);
@@ -270,7 +274,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             label9.ForeColor = Color.FromArgb(46, 46, 46);
-            label9.Location = new Point(56, 309);
+            label9.Location = new Point(60, 416);
             label9.Name = "label9";
             label9.Size = new Size(154, 23);
             label9.TabIndex = 67;
@@ -281,7 +285,7 @@
             panel7.BackColor = Color.FromArgb(58, 124, 165);
             panel7.Controls.Add(label11);
             panel7.Controls.Add(label21);
-            panel7.Location = new Point(766, 166);
+            panel7.Location = new Point(770, 273);
             panel7.Name = "panel7";
             panel7.Size = new Size(356, 125);
             panel7.TabIndex = 65;
@@ -313,7 +317,7 @@
             panel6.BackColor = Color.FromArgb(58, 124, 165);
             panel6.Controls.Add(label8);
             panel6.Controls.Add(label19);
-            panel6.Location = new Point(388, 166);
+            panel6.Location = new Point(392, 273);
             panel6.Name = "panel6";
             panel6.Size = new Size(356, 125);
             panel6.TabIndex = 64;
@@ -345,7 +349,7 @@
             panel5.BackColor = Color.FromArgb(58, 124, 165);
             panel5.Controls.Add(label6);
             panel5.Controls.Add(label7);
-            panel5.Location = new Point(11, 166);
+            panel5.Location = new Point(15, 273);
             panel5.Name = "panel5";
             panel5.Size = new Size(356, 125);
             panel5.TabIndex = 63;
@@ -377,7 +381,7 @@
             panel4.BackColor = Color.FromArgb(58, 124, 165);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(388, 19);
+            panel4.Location = new Point(392, 126);
             panel4.Name = "panel4";
             panel4.Size = new Size(356, 125);
             panel4.TabIndex = 62;
@@ -410,7 +414,7 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(766, 19);
+            panel3.Location = new Point(770, 126);
             panel3.Name = "panel3";
             panel3.Size = new Size(356, 125);
             panel3.TabIndex = 61;
@@ -451,7 +455,7 @@
             // 
             panel8.BackColor = Color.FromArgb(58, 124, 165);
             panel8.Controls.Add(chart1);
-            panel8.Location = new Point(1151, 19);
+            panel8.Location = new Point(1155, 126);
             panel8.Name = "panel8";
             panel8.Size = new Size(511, 272);
             panel8.TabIndex = 66;
@@ -477,7 +481,7 @@
             panel2.BackColor = Color.FromArgb(58, 124, 165);
             panel2.Controls.Add(label18);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(11, 19);
+            panel2.Location = new Point(15, 126);
             panel2.Name = "panel2";
             panel2.Size = new Size(356, 125);
             panel2.TabIndex = 60;
@@ -504,6 +508,27 @@
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
             // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(58, 124, 165);
+            panel9.Controls.Add(label12);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(1685, 75);
+            panel9.TabIndex = 73;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(15, 12);
+            label12.Name = "label12";
+            label12.Size = new Size(188, 46);
+            label12.TabIndex = 36;
+            label12.Text = "Dashboard";
+            // 
             // UC_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -528,6 +553,8 @@
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -572,5 +599,7 @@
         private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
+        private Panel panel9;
+        private Label label12;
     }
 }

@@ -28,55 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customers));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customers));
             label1 = new Label();
-            btnNewCustomer = new Button();
             dgAddCustomer = new DataGridView();
-            CustomerID = new DataGridViewTextBoxColumn();
-            FirstName = new DataGridViewTextBoxColumn();
-            LastName = new DataGridViewTextBoxColumn();
-            Gender = new DataGridViewTextBoxColumn();
-            BirthDate = new DataGridViewTextBoxColumn();
-            ContactNumber = new DataGridViewTextBoxColumn();
-            EmailAddress = new DataGridViewTextBoxColumn();
-            Address = new DataGridViewTextBoxColumn();
-            LicenseNumber = new DataGridViewTextBoxColumn();
-            LicenseExpiryDate = new DataGridViewTextBoxColumn();
-            DateRegistered = new DataGridViewTextBoxColumn();
-            btnSearchCustomer = new Button();
+            panel1 = new Panel();
+            btnRefresh = new FontAwesome.Sharp.IconButton();
+            btnNewCustomer = new Button();
             btnViewCustomer = new Button();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            txtSearch = new TextBox();
+            btnSearch = new FontAwesome.Sharp.IconButton();
+            btnDelete = new FontAwesome.Sharp.IconButton();
+            btnEdit = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label1.Location = new Point(153, 29);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(22, 15);
             label1.Name = "label1";
             label1.Size = new Size(169, 46);
             label1.TabIndex = 0;
             label1.Text = "Customer";
-            // 
-            // btnNewCustomer
-            // 
-            btnNewCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnNewCustomer.FlatAppearance.BorderSize = 0;
-            btnNewCustomer.FlatStyle = FlatStyle.Flat;
-            btnNewCustomer.ForeColor = Color.White;
-            btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
-            btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(539, 102);
-            btnNewCustomer.Name = "btnNewCustomer";
-            btnNewCustomer.Size = new Size(196, 52);
-            btnNewCustomer.TabIndex = 1;
-            btnNewCustomer.Text = "    Add New Customer";
-            btnNewCustomer.UseVisualStyleBackColor = false;
-            btnNewCustomer.Click += btnNewCustomer_Click_1;
             // 
             // dgAddCustomer
             // 
@@ -95,7 +74,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgAddCustomer.ColumnHeadersHeight = 30;
-            dgAddCustomer.Columns.AddRange(new DataGridViewColumn[] { CustomerID, FirstName, LastName, Gender, BirthDate, ContactNumber, EmailAddress, Address, LicenseNumber, LicenseExpiryDate, DateRegistered });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -106,7 +84,7 @@
             dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
-            dgAddCustomer.Location = new Point(153, 183);
+            dgAddCustomer.Location = new Point(152, 205);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -122,152 +100,146 @@
             dgAddCustomer.Size = new Size(1363, 494);
             dgAddCustomer.TabIndex = 72;
             // 
-            // CustomerID
+            // panel1
             // 
-            CustomerID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            CustomerID.HeaderText = "Customer ID";
-            CustomerID.MinimumWidth = 6;
-            CustomerID.Name = "CustomerID";
-            CustomerID.Width = 119;
+            panel1.BackColor = Color.FromArgb(58, 124, 165);
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1685, 75);
+            panel1.TabIndex = 74;
             // 
-            // FirstName
+            // btnRefresh
             // 
-            FirstName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            FirstName.HeaderText = "First Name";
-            FirstName.MinimumWidth = 6;
-            FirstName.Name = "FirstName";
-            FirstName.Width = 108;
+            btnRefresh.BackColor = Color.FromArgb(58, 124, 165);
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            btnRefresh.IconColor = Color.White;
+            btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRefresh.Location = new Point(822, 141);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(94, 41);
+            btnRefresh.TabIndex = 73;
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
-            // LastName
+            // btnNewCustomer
             // 
-            LastName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            LastName.HeaderText = "Last Name";
-            LastName.MinimumWidth = 6;
-            LastName.Name = "LastName";
-            LastName.Width = 107;
-            // 
-            // Gender
-            // 
-            Gender.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Gender.HeaderText = "Gender";
-            Gender.MinimumWidth = 6;
-            Gender.Name = "Gender";
-            Gender.Width = 85;
-            // 
-            // BirthDate
-            // 
-            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            BirthDate.HeaderText = "Birth of Date";
-            BirthDate.MinimumWidth = 6;
-            BirthDate.Name = "BirthDate";
-            BirthDate.Width = 122;
-            // 
-            // ContactNumber
-            // 
-            ContactNumber.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ContactNumber.HeaderText = "Contact Number";
-            ContactNumber.MinimumWidth = 6;
-            ContactNumber.Name = "ContactNumber";
-            ContactNumber.Width = 146;
-            // 
-            // EmailAddress
-            // 
-            EmailAddress.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            EmailAddress.HeaderText = "Email Address";
-            EmailAddress.MinimumWidth = 6;
-            EmailAddress.Name = "EmailAddress";
-            EmailAddress.Width = 131;
-            // 
-            // Address
-            // 
-            Address.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Address.HeaderText = "Address";
-            Address.MinimumWidth = 6;
-            Address.Name = "Address";
-            Address.Width = 90;
-            // 
-            // LicenseNumber
-            // 
-            LicenseNumber.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            LicenseNumber.HeaderText = "License Number";
-            LicenseNumber.MinimumWidth = 6;
-            LicenseNumber.Name = "LicenseNumber";
-            LicenseNumber.Width = 143;
-            // 
-            // LicenseExpiryDate
-            // 
-            LicenseExpiryDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            LicenseExpiryDate.HeaderText = "License Expiry Date";
-            LicenseExpiryDate.MinimumWidth = 6;
-            LicenseExpiryDate.Name = "LicenseExpiryDate";
-            LicenseExpiryDate.Width = 165;
-            // 
-            // DateRegistered
-            // 
-            DateRegistered.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            DateRegistered.HeaderText = "Date Registered";
-            DateRegistered.MinimumWidth = 6;
-            DateRegistered.Name = "DateRegistered";
-            DateRegistered.Width = 144;
-            // 
-            // btnSearchCustomer
-            // 
-            btnSearchCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnSearchCustomer.FlatAppearance.BorderSize = 0;
-            btnSearchCustomer.FlatStyle = FlatStyle.Flat;
-            btnSearchCustomer.ForeColor = Color.White;
-            btnSearchCustomer.Image = (Image)resources.GetObject("btnSearchCustomer.Image");
-            btnSearchCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchCustomer.Location = new Point(153, 102);
-            btnSearchCustomer.Name = "btnSearchCustomer";
-            btnSearchCustomer.Size = new Size(187, 52);
-            btnSearchCustomer.TabIndex = 3;
-            btnSearchCustomer.Text = "    Search Customer";
-            btnSearchCustomer.UseVisualStyleBackColor = false;
+            btnNewCustomer.BackColor = Color.FromArgb(58, 124, 165);
+            btnNewCustomer.FlatAppearance.BorderSize = 0;
+            btnNewCustomer.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnNewCustomer.FlatStyle = FlatStyle.Flat;
+            btnNewCustomer.ForeColor = Color.White;
+            btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
+            btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNewCustomer.Location = new Point(625, 141);
+            btnNewCustomer.Name = "btnNewCustomer";
+            btnNewCustomer.Size = new Size(191, 41);
+            btnNewCustomer.TabIndex = 1;
+            btnNewCustomer.Text = "    Add New Customer";
+            btnNewCustomer.UseVisualStyleBackColor = false;
+            btnNewCustomer.Click += btnNewCustomer_Click;
             // 
             // btnViewCustomer
             // 
             btnViewCustomer.BackColor = Color.FromArgb(58, 124, 165);
             btnViewCustomer.FlatAppearance.BorderSize = 0;
+            btnViewCustomer.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
             btnViewCustomer.FlatStyle = FlatStyle.Flat;
             btnViewCustomer.ForeColor = Color.White;
             btnViewCustomer.Image = (Image)resources.GetObject("btnViewCustomer.Image");
             btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnViewCustomer.Location = new Point(346, 102);
+            btnViewCustomer.Location = new Point(450, 141);
             btnViewCustomer.Name = "btnViewCustomer";
-            btnViewCustomer.Size = new Size(187, 52);
+            btnViewCustomer.Size = new Size(169, 41);
             btnViewCustomer.TabIndex = 4;
             btnViewCustomer.Text = "    View Customer";
             btnViewCustomer.UseVisualStyleBackColor = false;
             // 
-            // iconButton1
+            // txtSearch
             // 
-            iconButton1.BackColor = Color.FromArgb(58, 124, 165);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Refresh;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(741, 102);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(94, 52);
-            iconButton1.TabIndex = 73;
-            iconButton1.UseVisualStyleBackColor = false;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(152, 141);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(232, 41);
+            txtSearch.TabIndex = 75;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(58, 124, 165);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnSearch.IconColor = Color.White;
+            btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSearch.IconSize = 32;
+            btnSearch.Location = new Point(381, 141);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(63, 41);
+            btnSearch.TabIndex = 76;
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(201, 74, 74);
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatAppearance.MouseOverBackColor = Color.FromArgb(180, 63, 63);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.ForeColor = Color.White;
+            btnDelete.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnDelete.IconColor = Color.White;
+            btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDelete.IconSize = 32;
+            btnDelete.Location = new Point(1449, 141);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(66, 41);
+            btnDelete.TabIndex = 77;
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.FromArgb(58, 124, 165);
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.ForeColor = Color.White;
+            btnEdit.IconChar = FontAwesome.Sharp.IconChar.Pencil;
+            btnEdit.IconColor = Color.White;
+            btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEdit.IconSize = 32;
+            btnEdit.Location = new Point(1377, 141);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(66, 41);
+            btnEdit.TabIndex = 78;
+            btnEdit.UseVisualStyleBackColor = false;
             // 
             // UC_Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            Controls.Add(iconButton1);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(panel1);
+            Controls.Add(btnRefresh);
             Controls.Add(btnViewCustomer);
-            Controls.Add(btnSearchCustomer);
             Controls.Add(dgAddCustomer);
             Controls.Add(btnNewCustomer);
-            Controls.Add(label1);
             Name = "UC_Customers";
             Size = new Size(1685, 1219);
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -275,21 +247,14 @@
         #endregion
 
         private Label label1;
-        private Button btnNewCustomer;
         private DataGridView dgAddCustomer;
-        private Button btnSearchCustomer;
+        private Panel panel1;
+        private FontAwesome.Sharp.IconButton btnRefresh;
+        private Button btnNewCustomer;
         private Button btnViewCustomer;
-        private DataGridViewTextBoxColumn CustomerID;
-        private DataGridViewTextBoxColumn FirstName;
-        private DataGridViewTextBoxColumn LastName;
-        private DataGridViewTextBoxColumn Gender;
-        private DataGridViewTextBoxColumn BirthDate;
-        private DataGridViewTextBoxColumn ContactNumber;
-        private DataGridViewTextBoxColumn EmailAddress;
-        private DataGridViewTextBoxColumn Address;
-        private DataGridViewTextBoxColumn LicenseNumber;
-        private DataGridViewTextBoxColumn LicenseExpiryDate;
-        private DataGridViewTextBoxColumn DateRegistered;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private TextBox txtSearch;
+        private FontAwesome.Sharp.IconButton btnSearch;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnEdit;
     }
 }

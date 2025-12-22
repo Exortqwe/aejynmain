@@ -22,17 +22,17 @@ namespace aejynmain
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
-            bool success = UserManager.CreateAccount(
-                txtFirstName.Text.Trim(),
-                txtLastName.Text.Trim(),
-                txtUsername.Text.Trim(),
-                txtPassword.Text.Trim(),
+            bool success = AuthManager.UserManager.CreateAccount(
+                txtFirstName.Text,
+                txtLastName.Text,
+                txtUsername.Text,
+                txtPassword.Text,
                 cmbRole.Text,
                 cmbGender.Text,
                 dtpBirthDate.Value.Date,
-                txtPhone.Text.Trim(),
-                txtEmail.Text.Trim(),
-                txtAddress.Text.Trim(),
+                txtPhone.Text,
+                txtEmail.Text,
+                txtAddress.Text,
                 dtpDateCreated.Value.Date
             );
 

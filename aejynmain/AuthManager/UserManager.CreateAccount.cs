@@ -10,8 +10,7 @@ namespace aejynmain.AuthManager
 {
     internal class UserManager
     {
-        private static readonly string connectionString =
-            "server=localhost;port=3306;database=aejyndb;uid=root;pwd=;";
+        private static string connectionString ="datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
 
         public static bool CreateAccount(
             string firstName,
@@ -44,7 +43,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_ContactNumber", contactNumber);
                     cmd.Parameters.AddWithValue("p_EmailAddress", email);
                     cmd.Parameters.AddWithValue("p_Address", address);
-                    cmd.Parameters.AddWithValue("p_DateCreated", DateTime.Now);
+                    cmd.Parameters.AddWithValue("p_DateCreated", DateCreated);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

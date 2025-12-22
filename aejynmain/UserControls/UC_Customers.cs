@@ -13,48 +13,86 @@ namespace aejynmain.UserControls
 {
     public partial class UC_Customers : UserControl
     {
+        private DataTable tblcustomer;
         public UC_Customers()
         {
             InitializeComponent();
+            LoadCustomers();
         }
+
         public void LoadCustomers()
         {
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                MySqlCommand cmd = new MySqlCommand("sp_AddCustomer", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                dgAddCustomer.DataSource = dt;
+                dgAddCustomer.DataSource = AuthManager.AddCustomer.GetCustomers(); // ang sulod sa database ge butang sa datagrid
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load customers: " + ex.Message); // if mag error mo gawas ni
             }
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            
+            frmAddCustomer ac = new frmAddCustomer(this); //mag pop-up ang form add customer
+            ac.ShowDialog();
         }
 
-        private void dgAddCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            LoadCustomers(); // e refresh ang form
         }
 
-        private void btnNewCustomer_Click_1(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            
-                frmAddCustomer ac = new frmAddCustomer();
+            if (tblcustomer == null) return;
+            string filter = txtSearch.Text.Trim();
+            tblcustomer.DefaultView.RowFilter = $"Convert(CustomerID, 'System.String') LIKE '%{filter}%' OR " +
+                $"FirstName LIKE '%{filter}%' OR" +
+                $"LastName LIKE '%{filter}%'"; // apply rowfilter para lang sa ID, Fname, Lname
+        }
 
-                ac.CustomerSaved += () =>
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            // Make sure tblcustomer is loaded
+            if (tblcustomer == null) return;
+
+            // Get the value typed in txtSearch
+            string filter = txtSearch.Text.Trim();
+
+            // If textbox is empty, show all customers
+            if (string.IsNullOrEmpty(filter))
+            {
+                tblcustomer.DefaultView.RowFilter = string.Empty; // remove filter
+            }
+            else
+            {
+                // Apply filter for CustomerID, FirstName, LastName
+                tblcustomer.DefaultView.RowFilter =
+                    $"Convert(CustomerID, 'System.String') LIKE '%{filter}%' OR " +
+                    $"FirstName LIKE '%{filter}%' OR LastName LIKE '%{filter}%'";
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgAddCustomer.CurrentRow == null) return;
+            int CustomerID = Convert.ToInt32(dgAddCustomer.CurrentRow.Cells["CustomerID"].Value);
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this customer?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                bool success = AuthManager.AddCustomer.DeleteCustomer(CustomerID);
+                if (success)
                 {
-                    LoadCustomers(); // refresh datagridview
-                };
-
-                ac.ShowDialog(); // mas maayo kaysa Show()
-            
+                    MessageBox.Show("Customer deleted successfully");
+                    LoadCustomers();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete customer.");
+                }
+            }
         }
     }
+
 }
