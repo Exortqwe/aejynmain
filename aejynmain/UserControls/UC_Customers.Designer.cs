@@ -37,7 +37,6 @@
             panel1 = new Panel();
             btnRefresh = new FontAwesome.Sharp.IconButton();
             btnNewCustomer = new Button();
-            btnViewCustomer = new Button();
             txtSearch = new TextBox();
             btnSearch = new FontAwesome.Sharp.IconButton();
             btnDelete = new FontAwesome.Sharp.IconButton();
@@ -119,7 +118,7 @@
             btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.Location = new Point(822, 141);
+            btnRefresh.Location = new Point(647, 141);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(94, 41);
             btnRefresh.TabIndex = 73;
@@ -135,29 +134,13 @@
             btnNewCustomer.ForeColor = Color.White;
             btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
             btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(625, 141);
+            btnNewCustomer.Location = new Point(450, 141);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(191, 41);
             btnNewCustomer.TabIndex = 1;
             btnNewCustomer.Text = "    Add New Customer";
             btnNewCustomer.UseVisualStyleBackColor = false;
             btnNewCustomer.Click += btnNewCustomer_Click;
-            // 
-            // btnViewCustomer
-            // 
-            btnViewCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnViewCustomer.FlatAppearance.BorderSize = 0;
-            btnViewCustomer.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
-            btnViewCustomer.FlatStyle = FlatStyle.Flat;
-            btnViewCustomer.ForeColor = Color.White;
-            btnViewCustomer.Image = (Image)resources.GetObject("btnViewCustomer.Image");
-            btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnViewCustomer.Location = new Point(450, 141);
-            btnViewCustomer.Name = "btnViewCustomer";
-            btnViewCustomer.Size = new Size(169, 41);
-            btnViewCustomer.TabIndex = 4;
-            btnViewCustomer.Text = "    View Customer";
-            btnViewCustomer.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
@@ -232,7 +215,6 @@
             Controls.Add(txtSearch);
             Controls.Add(panel1);
             Controls.Add(btnRefresh);
-            Controls.Add(btnViewCustomer);
             Controls.Add(dgAddCustomer);
             Controls.Add(btnNewCustomer);
             Name = "UC_Customers";
@@ -251,7 +233,6 @@
         private Panel panel1;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private Button btnNewCustomer;
-        private Button btnViewCustomer;
         private TextBox txtSearch;
         private FontAwesome.Sharp.IconButton btnSearch;
         private FontAwesome.Sharp.IconButton btnDelete;

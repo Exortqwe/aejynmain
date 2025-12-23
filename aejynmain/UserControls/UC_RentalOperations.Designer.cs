@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label19 = new Label();
             button2 = new Button();
@@ -69,10 +69,14 @@
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             label20 = new Label();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            textBox2 = new TextBox();
+            btnSearch = new FontAwesome.Sharp.IconButton();
+            txtSearch = new TextBox();
             iconButton4 = new FontAwesome.Sharp.IconButton();
             groupBox2 = new GroupBox();
+            lblAddress = new Label();
+            lblContactNumber = new Label();
+            lblLicenseNumber = new Label();
+            lblFullName = new Label();
             label24 = new Label();
             label23 = new Label();
             label22 = new Label();
@@ -93,11 +97,6 @@
             button3 = new Button();
             label34 = new Label();
             dataGridView3 = new DataGridView();
-            Column10 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
-            Column14 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -377,29 +376,29 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(46, 46, 46);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(46, 46, 46);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.White;
             dataGridView1.Location = new Point(739, 152);
@@ -534,31 +533,33 @@
             label20.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.Location = new Point(233, 8);
             label20.Name = "label20";
-            label20.Size = new Size(165, 35);
+            label20.Size = new Size(208, 35);
             label20.TabIndex = 0;
-            label20.Text = "Search Client";
+            label20.Text = "Search Customer";
             // 
-            // iconButton3
+            // btnSearch
             // 
-            iconButton3.BackColor = Color.FromArgb(58, 124, 165);
-            iconButton3.FlatAppearance.BorderSize = 0;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Search;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 32;
-            iconButton3.Location = new Point(639, 46);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(45, 27);
-            iconButton3.TabIndex = 1;
-            iconButton3.UseVisualStyleBackColor = false;
+            btnSearch.BackColor = Color.FromArgb(58, 124, 165);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnSearch.IconColor = Color.White;
+            btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSearch.IconSize = 32;
+            btnSearch.Location = new Point(639, 46);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(45, 27);
+            btnSearch.TabIndex = 1;
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // textBox2
+            // txtSearch
             // 
-            textBox2.Location = new Point(233, 46);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(407, 27);
-            textBox2.TabIndex = 2;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(233, 46);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(407, 27);
+            txtSearch.TabIndex = 2;
             // 
             // iconButton4
             // 
@@ -578,6 +579,10 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.White;
+            groupBox2.Controls.Add(lblAddress);
+            groupBox2.Controls.Add(lblContactNumber);
+            groupBox2.Controls.Add(lblLicenseNumber);
+            groupBox2.Controls.Add(lblFullName);
             groupBox2.Controls.Add(label24);
             groupBox2.Controls.Add(label23);
             groupBox2.Controls.Add(label22);
@@ -588,6 +593,38 @@
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Text = "Customer Info";
+            // 
+            // lblAddress
+            // 
+            lblAddress.AutoSize = true;
+            lblAddress.Location = new Point(85, 162);
+            lblAddress.Name = "lblAddress";
+            lblAddress.Size = new Size(0, 20);
+            lblAddress.TabIndex = 7;
+            // 
+            // lblContactNumber
+            // 
+            lblContactNumber.AutoSize = true;
+            lblContactNumber.Location = new Point(138, 124);
+            lblContactNumber.Name = "lblContactNumber";
+            lblContactNumber.Size = new Size(0, 20);
+            lblContactNumber.TabIndex = 6;
+            // 
+            // lblLicenseNumber
+            // 
+            lblLicenseNumber.AutoSize = true;
+            lblLicenseNumber.Location = new Point(138, 84);
+            lblLicenseNumber.Name = "lblLicenseNumber";
+            lblLicenseNumber.Size = new Size(0, 20);
+            lblLicenseNumber.TabIndex = 5;
+            // 
+            // lblFullName
+            // 
+            lblFullName.AutoSize = true;
+            lblFullName.Location = new Point(139, 45);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(0, 20);
+            lblFullName.TabIndex = 4;
             // 
             // label24
             // 
@@ -603,27 +640,27 @@
             label23.AutoSize = true;
             label23.Location = new Point(10, 124);
             label23.Name = "label23";
-            label23.Size = new Size(67, 20);
+            label23.Size = new Size(125, 20);
             label23.TabIndex = 2;
-            label23.Text = "Contact :";
+            label23.Text = "Contact Number :";
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Location = new Point(10, 84);
             label22.Name = "label22";
-            label22.Size = new Size(64, 20);
+            label22.Size = new Size(122, 20);
             label22.TabIndex = 1;
-            label22.Text = "License :";
+            label22.Text = "License Number :";
             // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Location = new Point(10, 41);
             label21.Name = "label21";
-            label21.Size = new Size(98, 20);
+            label21.Size = new Size(123, 20);
             label21.TabIndex = 0;
-            label21.Text = "Client Name :";
+            label21.Text = "Customer Name :";
             // 
             // label25
             // 
@@ -781,67 +818,31 @@
             // 
             dataGridView3.BackgroundColor = Color.White;
             dataGridView3.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView3.ColumnHeadersHeight = 29;
-            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { Column10, Column11, Column12, Column13, Column14 });
             dataGridView3.EnableHeadersVisualStyles = false;
             dataGridView3.GridColor = SystemColors.GrayText;
             dataGridView3.Location = new Point(799, 124);
             dataGridView3.Name = "dataGridView3";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView3.RowHeadersVisible = false;
             dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(713, 767);
+            dataGridView3.Size = new Size(713, 786);
             dataGridView3.TabIndex = 11;
-            // 
-            // Column10
-            // 
-            Column10.HeaderText = "Plate Number";
-            Column10.MinimumWidth = 6;
-            Column10.Name = "Column10";
-            Column10.Width = 150;
-            // 
-            // Column11
-            // 
-            Column11.HeaderText = "Model";
-            Column11.MinimumWidth = 6;
-            Column11.Name = "Column11";
-            Column11.Width = 140;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Category";
-            Column12.MinimumWidth = 6;
-            Column12.Name = "Column12";
-            Column12.Width = 130;
-            // 
-            // Column13
-            // 
-            Column13.HeaderText = "Daily Rate";
-            Column13.MinimumWidth = 6;
-            Column13.Name = "Column13";
-            Column13.Width = 140;
-            // 
-            // Column14
-            // 
-            Column14.HeaderText = "Total";
-            Column14.MinimumWidth = 6;
-            Column14.Name = "Column14";
-            Column14.Width = 150;
             // 
             // UC_RentalOperations
             // 
@@ -855,8 +856,8 @@
             Controls.Add(label25);
             Controls.Add(groupBox2);
             Controls.Add(iconButton4);
-            Controls.Add(textBox2);
-            Controls.Add(iconButton3);
+            Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
             Controls.Add(label20);
             Name = "UC_RentalOperations";
             Size = new Size(1685, 1219);
@@ -918,8 +919,8 @@
         private Label label12;
         private Label label8;
         private Label label20;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private TextBox textBox2;
+        private FontAwesome.Sharp.IconButton btnSearch;
+        private TextBox txtSearch;
         private FontAwesome.Sharp.IconButton iconButton4;
         private GroupBox groupBox2;
         private Label label24;
@@ -942,10 +943,9 @@
         private Button button3;
         private Label label34;
         private DataGridView dataGridView3;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
-        private DataGridViewTextBoxColumn Column14;
+        private Label lblAddress;
+        private Label lblContactNumber;
+        private Label lblLicenseNumber;
+        private Label lblFullName;
     }
 }
