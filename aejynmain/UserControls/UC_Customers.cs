@@ -93,6 +93,12 @@ namespace aejynmain.UserControls
                 }
             }
         }
+
+        private void btnViewCustomer_Click(object sender, EventArgs e)
+        {
+            frmCustomerHistory ch = new frmCustomerHistory();
+            ch.Show();
+        }
     }
 
 }

@@ -30,9 +30,9 @@ namespace aejynmain
                 txtAddress.Text,
                 cmbGender.Text,
                 txtLicenseNumber.Text,
-                dtpLicenseExpiry.Value,
-                dtpBirthDate.Value,
-                dtpDateRegistered.Value.Date
+                dateTimePicker1.Value,
+                dateTimePicker1.Value,
+                dateTimePicker1.Value.Date
             );
 
             if (success)

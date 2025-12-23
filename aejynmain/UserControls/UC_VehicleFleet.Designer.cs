@@ -29,81 +29,115 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_VehicleFleet));
-            label1 = new Label();
-            btnNewCustomer = new Button();
-            label2 = new Label();
-            comboBox1 = new ComboBox();
+            btnSearch = new FontAwesome.Sharp.IconButton();
+            panel1 = new Panel();
+            label35 = new Label();
+            textBox1 = new TextBox();
+            btnAddVehicle = new Button();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // btnSearch
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label1.Location = new Point(177, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(213, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Vehicle Fleet";
+            btnSearch.BackColor = Color.FromArgb(58, 124, 165);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnSearch.IconColor = Color.White;
+            btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSearch.IconSize = 32;
+            btnSearch.Location = new Point(255, 128);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(68, 38);
+            btnSearch.TabIndex = 5;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
-            // btnNewCustomer
+            // panel1
             // 
-            btnNewCustomer.BackColor = Color.FromArgb(58, 124, 165);
-            btnNewCustomer.FlatAppearance.BorderSize = 0;
-            btnNewCustomer.FlatStyle = FlatStyle.Flat;
-            btnNewCustomer.Font = new Font("Segoe UI", 13F);
-            btnNewCustomer.ForeColor = Color.White;
-            btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
-            btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(177, 133);
-            btnNewCustomer.Name = "btnNewCustomer";
-            btnNewCustomer.Size = new Size(171, 55);
-            btnNewCustomer.TabIndex = 2;
-            btnNewCustomer.Text = "    Add Vehicle";
-            btnNewCustomer.UseVisualStyleBackColor = false;
+            panel1.BackColor = Color.FromArgb(58, 124, 165);
+            panel1.Controls.Add(label35);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1685, 75);
+            panel1.TabIndex = 6;
             // 
-            // label2
+            // label35
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(177, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(295, 28);
-            label2.TabIndex = 3;
-            label2.Text = "Monitor and manage all vehicles";
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label35.ForeColor = Color.White;
+            label35.Location = new Point(22, 15);
+            label35.Name = "label35";
+            label35.Size = new Size(213, 46);
+            label35.TabIndex = 7;
+            label35.Text = "Vehicle Fleet";
             // 
-            // comboBox1
+            // textBox1
             // 
-            comboBox1.BackColor = Color.FromArgb(58, 124, 165);
-            comboBox1.Font = new Font("Segoe UI", 15F);
-            comboBox1.ForeColor = Color.White;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Available", "Rented", "Reserved", "Maintenance", "Out of Service", "Retired/Sold" });
-            comboBox1.Location = new Point(354, 145);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 43);
-            comboBox1.TabIndex = 4;
-            comboBox1.Text = "Status";
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(34, 128);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(227, 38);
+            textBox1.TabIndex = 7;
+            // 
+            // btnAddVehicle
+            // 
+            btnAddVehicle.BackColor = Color.FromArgb(58, 124, 165);
+            btnAddVehicle.FlatAppearance.BorderSize = 0;
+            btnAddVehicle.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnAddVehicle.FlatStyle = FlatStyle.Flat;
+            btnAddVehicle.ForeColor = Color.White;
+            btnAddVehicle.Image = (Image)resources.GetObject("btnAddVehicle.Image");
+            btnAddVehicle.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddVehicle.Location = new Point(329, 128);
+            btnAddVehicle.Name = "btnAddVehicle";
+            btnAddVehicle.Size = new Size(149, 38);
+            btnAddVehicle.TabIndex = 8;
+            btnAddVehicle.Text = "          Add Vehicle";
+            btnAddVehicle.UseVisualStyleBackColor = false;
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.FromArgb(58, 124, 165);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(484, 128);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(94, 38);
+            iconButton1.TabIndex = 9;
+            iconButton1.Text = "iconButton1";
+            iconButton1.UseVisualStyleBackColor = false;
             // 
             // UC_VehicleFleet
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            Controls.Add(comboBox1);
-            Controls.Add(label2);
-            Controls.Add(btnNewCustomer);
-            Controls.Add(label1);
+            Controls.Add(iconButton1);
+            Controls.Add(btnAddVehicle);
+            Controls.Add(textBox1);
+            Controls.Add(panel1);
+            Controls.Add(btnSearch);
             Name = "UC_VehicleFleet";
             Size = new Size(1685, 1219);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Button btnNewCustomer;
-        private Label label2;
-        private ComboBox comboBox1;
+        private FontAwesome.Sharp.IconButton btnSearch;
+        private Panel panel1;
+        private Label label35;
+        private TextBox textBox1;
+        private Button btnAddVehicle;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

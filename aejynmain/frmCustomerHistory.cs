@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace aejynmain
 {
-    public partial class frmNewClient : Form
+    public partial class frmCustomerHistory : Form
     {
-        public frmNewClient()
+        public frmCustomerHistory()
         {
             InitializeComponent();
         }

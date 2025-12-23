@@ -41,6 +41,7 @@
             btnSearch = new FontAwesome.Sharp.IconButton();
             btnDelete = new FontAwesome.Sharp.IconButton();
             btnEdit = new FontAwesome.Sharp.IconButton();
+            btnViewCustomer = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -69,7 +70,7 @@
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgAddCustomer.ColumnHeadersHeight = 30;
@@ -83,7 +84,7 @@
             dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
-            dgAddCustomer.Location = new Point(152, 205);
+            dgAddCustomer.Location = new Point(164, 176);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -96,7 +97,7 @@
             dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgAddCustomer.RowHeadersVisible = false;
             dgAddCustomer.RowHeadersWidth = 51;
-            dgAddCustomer.Size = new Size(1363, 494);
+            dgAddCustomer.Size = new Size(1372, 686);
             dgAddCustomer.TabIndex = 72;
             // 
             // panel1
@@ -118,7 +119,7 @@
             btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.Location = new Point(647, 141);
+            btnRefresh.Location = new Point(660, 129);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(94, 41);
             btnRefresh.TabIndex = 73;
@@ -134,7 +135,7 @@
             btnNewCustomer.ForeColor = Color.White;
             btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
             btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(450, 141);
+            btnNewCustomer.Location = new Point(463, 129);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(191, 41);
             btnNewCustomer.TabIndex = 1;
@@ -145,7 +146,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(152, 141);
+            txtSearch.Location = new Point(165, 129);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(232, 41);
@@ -162,7 +163,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(381, 141);
+            btnSearch.Location = new Point(394, 129);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(63, 41);
             btnSearch.TabIndex = 76;
@@ -180,7 +181,7 @@
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
-            btnDelete.Location = new Point(1449, 141);
+            btnDelete.Location = new Point(1470, 129);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(66, 41);
             btnDelete.TabIndex = 77;
@@ -198,17 +199,36 @@
             btnEdit.IconColor = Color.White;
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
-            btnEdit.Location = new Point(1377, 141);
+            btnEdit.Location = new Point(1398, 129);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(66, 41);
             btnEdit.TabIndex = 78;
             btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnViewCustomer
+            // 
+            btnViewCustomer.BackColor = Color.FromArgb(58, 124, 165);
+            btnViewCustomer.FlatAppearance.BorderSize = 0;
+            btnViewCustomer.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnViewCustomer.FlatStyle = FlatStyle.Flat;
+            btnViewCustomer.ForeColor = Color.White;
+            btnViewCustomer.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            btnViewCustomer.IconColor = Color.White;
+            btnViewCustomer.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnViewCustomer.IconSize = 32;
+            btnViewCustomer.Location = new Point(1326, 129);
+            btnViewCustomer.Name = "btnViewCustomer";
+            btnViewCustomer.Size = new Size(66, 41);
+            btnViewCustomer.TabIndex = 79;
+            btnViewCustomer.UseVisualStyleBackColor = false;
+            btnViewCustomer.Click += btnViewCustomer_Click;
             // 
             // UC_Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(btnViewCustomer);
             Controls.Add(btnEdit);
             Controls.Add(btnDelete);
             Controls.Add(btnSearch);
@@ -218,7 +238,7 @@
             Controls.Add(dgAddCustomer);
             Controls.Add(btnNewCustomer);
             Name = "UC_Customers";
-            Size = new Size(1685, 1219);
+            Size = new Size(1685, 951);
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -237,5 +257,6 @@
         private FontAwesome.Sharp.IconButton btnSearch;
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnEdit;
+        private FontAwesome.Sharp.IconButton btnViewCustomer;
     }
 }

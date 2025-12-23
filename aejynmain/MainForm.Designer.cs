@@ -215,7 +215,7 @@
             btnReservations.Padding = new Padding(20, 0, 0, 0);
             btnReservations.Size = new Size(247, 64);
             btnReservations.TabIndex = 4;
-            btnReservations.Text = "            Reservations";
+            btnReservations.Text = "            Rentals Operations";
             btnReservations.TextAlign = ContentAlignment.MiddleLeft;
             btnReservations.UseVisualStyleBackColor = false;
             btnReservations.Click += btnReservations_Click;
