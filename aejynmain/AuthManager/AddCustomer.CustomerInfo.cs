@@ -74,10 +74,10 @@ namespace aejynmain.AuthManager
         {
             try
             {
-                using(MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    using(MySqlCommand cmd = new MySqlCommand("DELETE FROM tblcustomer WHERE CustomerID = @id", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM tblcustomer WHERE CustomerID = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", CustomerID);
                         cmd.ExecuteNonQuery();
@@ -90,7 +90,32 @@ namespace aejynmain.AuthManager
                 MessageBox.Show(ex.Message);
                 return false;
             }
-            
+
         }
+        public DataTable GetCustomerHistory(int CustomerID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlCommand cmd = new MySqlCommand("sp_GetCustomerHistory", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("p_CustomerID", CustomerID);
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error fetching customer history", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return dt;
+
+        }
+
     }
 }
