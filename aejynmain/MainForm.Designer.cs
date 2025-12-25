@@ -175,7 +175,7 @@
             btnFleetManagement.Padding = new Padding(20, 0, 0, 0);
             btnFleetManagement.Size = new Size(247, 64);
             btnFleetManagement.TabIndex = 7;
-            btnFleetManagement.Text = "            Vechicle Fleet";
+            btnFleetManagement.Text = "            Vehicle Fleet";
             btnFleetManagement.TextAlign = ContentAlignment.MiddleLeft;
             btnFleetManagement.UseVisualStyleBackColor = false;
             btnFleetManagement.Click += btnFleetManagement_Click;

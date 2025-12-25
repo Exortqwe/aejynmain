@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_VehicleFleet));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnSearch = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             label35 = new Label();
             textBox1 = new TextBox();
             btnAddVehicle = new Button();
             iconButton1 = new FontAwesome.Sharp.IconButton();
+            dgVehicleFleet = new DataGridView();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgVehicleFleet).BeginInit();
             SuspendLayout();
             // 
             // btnSearch
@@ -49,7 +54,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(255, 128);
+            btnSearch.Location = new Point(355, 148);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(68, 38);
             btnSearch.TabIndex = 5;
@@ -79,10 +84,10 @@
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(34, 128);
+            textBox1.Location = new Point(55, 148);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(227, 38);
+            textBox1.Size = new Size(306, 38);
             textBox1.TabIndex = 7;
             // 
             // btnAddVehicle
@@ -94,31 +99,80 @@
             btnAddVehicle.ForeColor = Color.White;
             btnAddVehicle.Image = (Image)resources.GetObject("btnAddVehicle.Image");
             btnAddVehicle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddVehicle.Location = new Point(329, 128);
+            btnAddVehicle.Location = new Point(429, 148);
             btnAddVehicle.Name = "btnAddVehicle";
             btnAddVehicle.Size = new Size(149, 38);
             btnAddVehicle.TabIndex = 8;
             btnAddVehicle.Text = "          Add Vehicle";
             btnAddVehicle.UseVisualStyleBackColor = false;
+            btnAddVehicle.Click += btnAddVehicle_Click;
             // 
             // iconButton1
             // 
             iconButton1.BackColor = Color.FromArgb(58, 124, 165);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButton1.IconColor = Color.Black;
+            iconButton1.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.ForeColor = Color.White;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            iconButton1.IconColor = Color.White;
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(484, 128);
+            iconButton1.IconSize = 32;
+            iconButton1.Location = new Point(584, 148);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(94, 38);
+            iconButton1.Size = new Size(51, 38);
             iconButton1.TabIndex = 9;
-            iconButton1.Text = "iconButton1";
             iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // dgVehicleFleet
+            // 
+            dgVehicleFleet.AllowUserToResizeColumns = false;
+            dgVehicleFleet.AllowUserToResizeRows = false;
+            dgVehicleFleet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgVehicleFleet.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgVehicleFleet.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgVehicleFleet.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgVehicleFleet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgVehicleFleet.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgVehicleFleet.DefaultCellStyle = dataGridViewCellStyle2;
+            dgVehicleFleet.EnableHeadersVisualStyles = false;
+            dgVehicleFleet.GridColor = SystemColors.GrayText;
+            dgVehicleFleet.Location = new Point(55, 192);
+            dgVehicleFleet.Name = "dgVehicleFleet";
+            dgVehicleFleet.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgVehicleFleet.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgVehicleFleet.RowHeadersVisible = false;
+            dgVehicleFleet.RowHeadersWidth = 51;
+            dgVehicleFleet.Size = new Size(1589, 537);
+            dgVehicleFleet.TabIndex = 72;
+            dgVehicleFleet.CellContentClick += dgVehicleFleet_CellContentClick;
             // 
             // UC_VehicleFleet
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(dgVehicleFleet);
             Controls.Add(iconButton1);
             Controls.Add(btnAddVehicle);
             Controls.Add(textBox1);
@@ -126,8 +180,10 @@
             Controls.Add(btnSearch);
             Name = "UC_VehicleFleet";
             Size = new Size(1685, 1219);
+            Load += UC_VehicleFleet_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgVehicleFleet).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,5 +195,6 @@
         private TextBox textBox1;
         private Button btnAddVehicle;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private DataGridView dgVehicleFleet;
     }
 }

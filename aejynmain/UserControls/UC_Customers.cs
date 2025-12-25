@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 namespace aejynmain.UserControls
 {
     public partial class UC_Customers : UserControl
@@ -98,6 +97,11 @@ namespace aejynmain.UserControls
         {
             frmCustomerHistory ch = new frmCustomerHistory();
             ch.Show();
+        }
+
+        private void dgAddCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

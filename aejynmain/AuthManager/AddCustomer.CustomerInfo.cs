@@ -99,7 +99,7 @@ namespace aejynmain.AuthManager
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand("sp_GetCustomerHistory", conn))
+                using (MySqlCommand cmd = new MySqlCommand("sp_CustomerHistory", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("p_CustomerID", CustomerID);
