@@ -23,7 +23,7 @@ namespace aejynmain.UserControls
         {
             try
             {
-                dgVehicleFleet.DataSource = AuthManager.VehicleFleet.GetVehicle(); // ang sulod sa database ge butang sa datagrid
+                dgVehicleFleet.DataSource = AuthManager.VehicleFleet.GetVehicles(); // ang sulod sa database ge butang sa datagrid
             }
             catch (Exception ex)
             {
@@ -44,6 +44,11 @@ namespace aejynmain.UserControls
         private void UC_VehicleFleet_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            LoadVehicles();
         }
     }
 }
