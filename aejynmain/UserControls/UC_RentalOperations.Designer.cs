@@ -104,8 +104,9 @@
             dgAvailableVehicles = new DataGridView();
             panel6 = new Panel();
             label35 = new Label();
-            checkBox1 = new CheckBox();
-            btnRentNow = new RadioButton();
+            rbRentNow = new RadioButton();
+            gbTransaction = new GroupBox();
+            rbReservation = new RadioButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -116,6 +117,7 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).BeginInit();
             panel6.SuspendLayout();
+            gbTransaction.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -705,7 +707,6 @@
             dtpReturnDate.Name = "dtpReturnDate";
             dtpReturnDate.Size = new Size(430, 27);
             dtpReturnDate.TabIndex = 3;
-            dtpReturnDate.ValueChanged += dtpReturnDate_ValueChanged;
             // 
             // dtpPickUpDate
             // 
@@ -713,7 +714,6 @@
             dtpPickUpDate.Name = "dtpPickUpDate";
             dtpPickUpDate.Size = new Size(430, 27);
             dtpPickUpDate.TabIndex = 2;
-            dtpPickUpDate.ValueChanged += dtpPickupDate_ValueChanged;
             // 
             // label27
             // 
@@ -859,13 +859,12 @@
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(1022, 999);
+            btnConfirm.Location = new Point(696, 954);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(296, 52);
             btnConfirm.TabIndex = 9;
             btnConfirm.Text = "Confirm";
             btnConfirm.UseVisualStyleBackColor = false;
-            btnConfirm.Click += btnConfirm_Click;
             // 
             // label34
             // 
@@ -906,7 +905,6 @@
             dgAvailableVehicles.RowHeadersWidth = 51;
             dgAvailableVehicles.Size = new Size(1503, 455);
             dgAvailableVehicles.TabIndex = 11;
-            dgAvailableVehicles.CellClick += dgAvailableVehicles_CellClick;
             // 
             // panel6
             // 
@@ -929,36 +927,49 @@
             label35.TabIndex = 1;
             label35.Text = "Rentals Operations";
             // 
-            // checkBox1
+            // rbRentNow
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 15F);
-            checkBox1.Location = new Point(688, 906);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(152, 39);
-            checkBox1.TabIndex = 13;
-            checkBox1.Text = "Rent Now!";
-            checkBox1.UseVisualStyleBackColor = true;
+            rbRentNow.AutoSize = true;
+            rbRentNow.BackColor = Color.FromArgb(58, 124, 165);
+            rbRentNow.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbRentNow.ForeColor = Color.White;
+            rbRentNow.Location = new Point(6, 35);
+            rbRentNow.Name = "rbRentNow";
+            rbRentNow.Size = new Size(144, 39);
+            rbRentNow.TabIndex = 14;
+            rbRentNow.TabStop = true;
+            rbRentNow.Text = "Rent now";
+            rbRentNow.UseVisualStyleBackColor = false;
             // 
-            // btnRentNow
+            // gbTransaction
             // 
-            btnRentNow.AutoSize = true;
-            btnRentNow.BackColor = Color.FromArgb(58, 124, 165);
-            btnRentNow.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRentNow.ForeColor = Color.White;
-            btnRentNow.Location = new Point(688, 968);
-            btnRentNow.Name = "btnRentNow";
-            btnRentNow.Size = new Size(144, 39);
-            btnRentNow.TabIndex = 14;
-            btnRentNow.TabStop = true;
-            btnRentNow.Text = "Rent now";
-            btnRentNow.UseVisualStyleBackColor = false;
+            gbTransaction.Controls.Add(rbReservation);
+            gbTransaction.Controls.Add(rbRentNow);
+            gbTransaction.Location = new Point(670, 853);
+            gbTransaction.Name = "gbTransaction";
+            gbTransaction.Size = new Size(347, 95);
+            gbTransaction.TabIndex = 15;
+            gbTransaction.TabStop = false;
+            gbTransaction.Text = "Transaction Type";
+            // 
+            // rbReservation
+            // 
+            rbReservation.AutoSize = true;
+            rbReservation.BackColor = Color.FromArgb(58, 124, 165);
+            rbReservation.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbReservation.ForeColor = Color.White;
+            rbReservation.Location = new Point(172, 35);
+            rbReservation.Name = "rbReservation";
+            rbReservation.Size = new Size(170, 39);
+            rbReservation.TabIndex = 15;
+            rbReservation.TabStop = true;
+            rbReservation.Text = "Reservation";
+            rbReservation.UseVisualStyleBackColor = false;
             // 
             // UC_RentalOperations
             // 
             BackColor = Color.FromArgb(245, 247, 250);
-            Controls.Add(btnRentNow);
-            Controls.Add(checkBox1);
+            Controls.Add(gbTransaction);
             Controls.Add(panel6);
             Controls.Add(dgAvailableVehicles);
             Controls.Add(label34);
@@ -992,6 +1003,8 @@
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            gbTransaction.ResumeLayout(false);
+            gbTransaction.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1069,7 +1082,8 @@
         private Label lblDays;
         private Label lblDates;
         private Label lblVehicle;
-        private CheckBox checkBox1;
-        private RadioButton btnRentNow;
+        private RadioButton rbRentNow;
+        private GroupBox gbTransaction;
+        private RadioButton rbReservation;
     }
 }

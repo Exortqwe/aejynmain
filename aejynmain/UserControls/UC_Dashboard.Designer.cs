@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel10 = new Panel();
             lblUnderMaintenance = new Label();
@@ -131,20 +131,21 @@
             // 
             // chartVehicleStatus
             // 
-            chartArea3.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend1);
             chartVehicleStatus.Location = new Point(754, 467);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chartVehicleStatus.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartVehicleStatus.Series.Add(series1);
             chartVehicleStatus.Size = new Size(730, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
+            chartVehicleStatus.Click += chartVehicleStatus_Click;
             // 
             // panel8
             // 
@@ -179,16 +180,16 @@
             // 
             // chartRevenue
             // 
-            chartArea4.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chartRevenue.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartRevenue.Legends.Add(legend2);
             chartRevenue.Location = new Point(18, 467);
             chartRevenue.Name = "chartRevenue";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chartRevenue.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartRevenue.Series.Add(series2);
             chartRevenue.Size = new Size(730, 501);
             chartRevenue.TabIndex = 34;
             chartRevenue.Text = "chart1";

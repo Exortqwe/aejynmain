@@ -37,7 +37,7 @@ namespace aejynmain.UserControls
                 chartRevenue.Series[0].Points.Clear();
                 foreach (DataRow row in dtRevenue.Rows)
                 {
-                    chartRevenue.Series[0].Points.AddXY(Convert.ToDateTime(row["payDate"]).ToString("MM dd"),
+                    chartRevenue.Series[0].Points.AddXY(Convert.ToDateTime(row["payDate"]).ToString("MMM dd"),
                     Convert.ToDecimal(row["totalRevenue"]));
                 }
 
@@ -52,11 +52,16 @@ namespace aejynmain.UserControls
                 }
 
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error loading dashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-             
+
+        }
+
+        private void chartVehicleStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
