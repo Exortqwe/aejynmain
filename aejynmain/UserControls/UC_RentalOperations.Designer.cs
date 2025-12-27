@@ -104,6 +104,8 @@
             dgAvailableVehicles = new DataGridView();
             panel6 = new Panel();
             label35 = new Label();
+            checkBox1 = new CheckBox();
+            btnRentNow = new RadioButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -857,11 +859,11 @@
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(688, 881);
+            btnConfirm.Location = new Point(1022, 999);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(296, 49);
+            btnConfirm.Size = new Size(296, 52);
             btnConfirm.TabIndex = 9;
-            btnConfirm.Text = "Confirm Reservation";
+            btnConfirm.Text = "Confirm";
             btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += btnConfirm_Click;
             // 
@@ -927,9 +929,36 @@
             label35.TabIndex = 1;
             label35.Text = "Rentals Operations";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 15F);
+            checkBox1.Location = new Point(688, 906);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(152, 39);
+            checkBox1.TabIndex = 13;
+            checkBox1.Text = "Rent Now!";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // btnRentNow
+            // 
+            btnRentNow.AutoSize = true;
+            btnRentNow.BackColor = Color.FromArgb(58, 124, 165);
+            btnRentNow.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRentNow.ForeColor = Color.White;
+            btnRentNow.Location = new Point(688, 968);
+            btnRentNow.Name = "btnRentNow";
+            btnRentNow.Size = new Size(144, 39);
+            btnRentNow.TabIndex = 14;
+            btnRentNow.TabStop = true;
+            btnRentNow.Text = "Rent now";
+            btnRentNow.UseVisualStyleBackColor = false;
+            // 
             // UC_RentalOperations
             // 
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(btnRentNow);
+            Controls.Add(checkBox1);
             Controls.Add(panel6);
             Controls.Add(dgAvailableVehicles);
             Controls.Add(label34);
@@ -1040,5 +1069,7 @@
         private Label lblDays;
         private Label lblDates;
         private Label lblVehicle;
+        private CheckBox checkBox1;
+        private RadioButton btnRentNow;
     }
 }

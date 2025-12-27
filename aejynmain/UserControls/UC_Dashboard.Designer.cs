@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel10 = new Panel();
             lblUnderMaintenance = new Label();
             label6 = new Label();
-            piechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chartVehicleStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel8 = new Panel();
-            lblOverDue = new Label();
+            lblLateReturn = new Label();
             label3 = new Label();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel9 = new Panel();
             label12 = new Label();
             panel7 = new Panel();
@@ -55,7 +55,7 @@
             lblDamageLost = new Label();
             label7 = new Label();
             panel4 = new Panel();
-            lblVehiclesAvailable = new Label();
+            lblAvailableVehicles = new Label();
             label4 = new Label();
             panel3 = new Panel();
             label10 = new Label();
@@ -66,9 +66,9 @@
             label5 = new Label();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)piechart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).BeginInit();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
@@ -82,9 +82,9 @@
             // 
             panel1.BackColor = Color.FromArgb(245, 247, 250);
             panel1.Controls.Add(panel10);
-            panel1.Controls.Add(piechart);
+            panel1.Controls.Add(chartVehicleStatus);
             panel1.Controls.Add(panel8);
-            panel1.Controls.Add(chart1);
+            panel1.Controls.Add(chartRevenue);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
@@ -129,42 +129,42 @@
             label6.TabIndex = 19;
             label6.Text = "Under Maintenance";
             // 
-            // piechart
+            // chartVehicleStatus
             // 
-            chartArea1.Name = "ChartArea1";
-            piechart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            piechart.Legends.Add(legend1);
-            piechart.Location = new Point(754, 467);
-            piechart.Name = "piechart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            piechart.Series.Add(series1);
-            piechart.Size = new Size(730, 501);
-            piechart.TabIndex = 74;
-            piechart.Text = "chart2";
+            chartArea3.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend3);
+            chartVehicleStatus.Location = new Point(754, 467);
+            chartVehicleStatus.Name = "chartVehicleStatus";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartVehicleStatus.Series.Add(series3);
+            chartVehicleStatus.Size = new Size(730, 501);
+            chartVehicleStatus.TabIndex = 74;
+            chartVehicleStatus.Text = "chart2";
             // 
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(58, 124, 165);
-            panel8.Controls.Add(lblOverDue);
+            panel8.Controls.Add(lblLateReturn);
             panel8.Controls.Add(label3);
             panel8.Location = new Point(770, 273);
             panel8.Name = "panel8";
             panel8.Size = new Size(356, 125);
             panel8.TabIndex = 66;
             // 
-            // lblOverDue
+            // lblLateReturn
             // 
-            lblOverDue.AutoSize = true;
-            lblOverDue.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblOverDue.ForeColor = Color.White;
-            lblOverDue.Location = new Point(15, 69);
-            lblOverDue.Name = "lblOverDue";
-            lblOverDue.Size = new Size(0, 46);
-            lblOverDue.TabIndex = 36;
+            lblLateReturn.AutoSize = true;
+            lblLateReturn.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblLateReturn.ForeColor = Color.White;
+            lblLateReturn.Location = new Point(15, 69);
+            lblLateReturn.Name = "lblLateReturn";
+            lblLateReturn.Size = new Size(0, 46);
+            lblLateReturn.TabIndex = 36;
             // 
             // label3
             // 
@@ -177,21 +177,21 @@
             label3.TabIndex = 19;
             label3.Text = "Late Return";
             // 
-            // chart1
+            // chartRevenue
             // 
-            chartArea2.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chart1.Legends.Add(legend2);
-            chart1.Location = new Point(18, 467);
-            chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart1.Series.Add(series2);
-            chart1.Size = new Size(730, 501);
-            chart1.TabIndex = 34;
-            chart1.Text = "chart1";
+            chartArea4.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartRevenue.Legends.Add(legend4);
+            chartRevenue.Location = new Point(18, 467);
+            chartRevenue.Name = "chartRevenue";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartRevenue.Series.Add(series4);
+            chartRevenue.Size = new Size(730, 501);
+            chartRevenue.TabIndex = 34;
+            chartRevenue.Text = "chart1";
             // 
             // panel9
             // 
@@ -310,22 +310,22 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(58, 124, 165);
-            panel4.Controls.Add(lblVehiclesAvailable);
+            panel4.Controls.Add(lblAvailableVehicles);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(392, 126);
             panel4.Name = "panel4";
             panel4.Size = new Size(356, 125);
             panel4.TabIndex = 62;
             // 
-            // lblVehiclesAvailable
+            // lblAvailableVehicles
             // 
-            lblVehiclesAvailable.AutoSize = true;
-            lblVehiclesAvailable.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblVehiclesAvailable.ForeColor = Color.White;
-            lblVehiclesAvailable.Location = new Point(15, 70);
-            lblVehiclesAvailable.Name = "lblVehiclesAvailable";
-            lblVehiclesAvailable.Size = new Size(0, 46);
-            lblVehiclesAvailable.TabIndex = 35;
+            lblAvailableVehicles.AutoSize = true;
+            lblAvailableVehicles.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblAvailableVehicles.ForeColor = Color.White;
+            lblAvailableVehicles.Location = new Point(15, 70);
+            lblAvailableVehicles.Name = "lblAvailableVehicles";
+            lblAvailableVehicles.Size = new Size(0, 46);
+            lblAvailableVehicles.TabIndex = 35;
             // 
             // label4
             // 
@@ -336,7 +336,7 @@
             label4.Name = "label4";
             label4.Size = new Size(293, 46);
             label4.TabIndex = 19;
-            label4.Text = "Vehicles Available";
+            label4.Text = "Available Vehicles";
             // 
             // panel3
             // 
@@ -421,10 +421,10 @@
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)piechart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
@@ -454,7 +454,7 @@
         private Label lblDamageLost;
         private Label label7;
         private Panel panel4;
-        private Label lblVehiclesAvailable;
+        private Label lblAvailableVehicles;
         private Label label4;
         private Panel panel3;
         private Label lblActiveRentals;
@@ -467,10 +467,10 @@
         private Panel panel9;
         private Label label12;
         private Panel panel8;
-        private Label lblOverDue;
+        private Label lblLateReturn;
         private Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart piechart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartVehicleStatus;
         private Panel panel10;
         private Label lblUnderMaintenance;
         private Label label6;
