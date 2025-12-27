@@ -28,31 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
+            panel10 = new Panel();
+            lblUnderMaintenance = new Label();
+            label6 = new Label();
+            piechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panel8 = new Panel();
+            lblOverDue = new Label();
+            label3 = new Label();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel9 = new Panel();
             label12 = new Label();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            Column10 = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            textBox1 = new TextBox();
-            label9 = new Label();
             panel7 = new Panel();
             lblRevenueToday = new Label();
             label21 = new Label();
@@ -69,46 +61,137 @@
             label10 = new Label();
             lblActiveRentals = new Label();
             label2 = new Label();
-            panel8 = new Panel();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2 = new Panel();
             lblTotalVehicles = new Label();
             label5 = new Label();
             panel1.SuspendLayout();
+            panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)piechart).BeginInit();
+            panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(panel10);
+            panel1.Controls.Add(piechart);
+            panel1.Controls.Add(panel8);
+            panel1.Controls.Add(chart1);
             panel1.Controls.Add(panel9);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(iconButton2);
-            panel1.Controls.Add(iconButton1);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label9);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 1219);
+            panel1.Size = new Size(1509, 1219);
             panel1.TabIndex = 0;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.FromArgb(58, 124, 165);
+            panel10.Controls.Add(lblUnderMaintenance);
+            panel10.Controls.Add(label6);
+            panel10.Location = new Point(1145, 273);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(356, 125);
+            panel10.TabIndex = 67;
+            // 
+            // lblUnderMaintenance
+            // 
+            lblUnderMaintenance.AutoSize = true;
+            lblUnderMaintenance.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblUnderMaintenance.ForeColor = Color.White;
+            lblUnderMaintenance.Location = new Point(15, 69);
+            lblUnderMaintenance.Name = "lblUnderMaintenance";
+            lblUnderMaintenance.Size = new Size(0, 46);
+            lblUnderMaintenance.TabIndex = 36;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 13);
+            label6.Name = "label6";
+            label6.Size = new Size(324, 46);
+            label6.TabIndex = 19;
+            label6.Text = "Under Maintenance";
+            // 
+            // piechart
+            // 
+            chartArea1.Name = "ChartArea1";
+            piechart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            piechart.Legends.Add(legend1);
+            piechart.Location = new Point(754, 467);
+            piechart.Name = "piechart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            piechart.Series.Add(series1);
+            piechart.Size = new Size(730, 501);
+            piechart.TabIndex = 74;
+            piechart.Text = "chart2";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(58, 124, 165);
+            panel8.Controls.Add(lblOverDue);
+            panel8.Controls.Add(label3);
+            panel8.Location = new Point(770, 273);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(356, 125);
+            panel8.TabIndex = 66;
+            // 
+            // lblOverDue
+            // 
+            lblOverDue.AutoSize = true;
+            lblOverDue.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblOverDue.ForeColor = Color.White;
+            lblOverDue.Location = new Point(15, 69);
+            lblOverDue.Name = "lblOverDue";
+            lblOverDue.Size = new Size(0, 46);
+            lblOverDue.TabIndex = 36;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 13);
+            label3.Name = "label3";
+            label3.Size = new Size(197, 46);
+            label3.TabIndex = 19;
+            label3.Text = "Late Return";
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
+            chart1.Location = new Point(18, 467);
+            chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
+            chart1.Size = new Size(730, 501);
+            chart1.TabIndex = 34;
+            chart1.Text = "chart1";
             // 
             // panel9
             // 
@@ -117,7 +200,7 @@
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(1685, 75);
+            panel9.Size = new Size(1509, 75);
             panel9.TabIndex = 73;
             // 
             // label12
@@ -131,182 +214,12 @@
             label12.TabIndex = 36;
             label12.Text = "Dashboard";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowDrop = true;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column11, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10 });
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = SystemColors.GrayText;
-            dataGridView1.Location = new Point(15, 513);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1651, 423);
-            dataGridView1.TabIndex = 72;
-            // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.HeaderText = "Client Name";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.HeaderText = "Vehicle";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            // 
-            // Column11
-            // 
-            Column11.HeaderText = "Plate Number";
-            Column11.MinimumWidth = 6;
-            Column11.Name = "Column11";
-            Column11.Width = 128;
-            // 
-            // Column3
-            // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column3.HeaderText = "Condition Before";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.HeaderText = "Condition After";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column5.HeaderText = "Status";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column6.HeaderText = "Rent Date";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column7.HeaderText = "Return Date";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column8.HeaderText = "Daily Rental Price";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column9.HeaderText = "Days";
-            Column9.MinimumWidth = 6;
-            Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            Column10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column10.HeaderText = "Total";
-            Column10.MinimumWidth = 6;
-            Column10.Name = "Column10";
-            // 
-            // comboBox1
-            // 
-            comboBox1.BackColor = Color.FromArgb(58, 124, 165);
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.Font = new Font("Segoe UI", 9F);
-            comboBox1.ForeColor = Color.White;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(521, 451);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(160, 28);
-            comboBox1.TabIndex = 71;
-            comboBox1.Text = "Status";
-            // 
-            // iconButton2
-            // 
-            iconButton2.BackColor = Color.FromArgb(58, 124, 165);
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Refresh;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 32;
-            iconButton2.Location = new Point(452, 451);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(63, 28);
-            iconButton2.TabIndex = 70;
-            iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.FromArgb(58, 124, 165);
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 32;
-            iconButton1.Location = new Point(383, 451);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(63, 28);
-            iconButton1.TabIndex = 69;
-            iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(60, 451);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(329, 28);
-            textBox1.TabIndex = 68;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label9.ForeColor = Color.FromArgb(46, 46, 46);
-            label9.Location = new Point(60, 416);
-            label9.Name = "label9";
-            label9.Size = new Size(154, 23);
-            label9.TabIndex = 67;
-            label9.Text = "Today Transactions";
-            // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(58, 124, 165);
             panel7.Controls.Add(lblRevenueToday);
             panel7.Controls.Add(label21);
-            panel7.Location = new Point(770, 273);
+            panel7.Location = new Point(393, 273);
             panel7.Name = "panel7";
             panel7.Size = new Size(356, 125);
             panel7.TabIndex = 65;
@@ -337,7 +250,7 @@
             panel6.BackColor = Color.FromArgb(58, 124, 165);
             panel6.Controls.Add(lblCustomers);
             panel6.Controls.Add(label19);
-            panel6.Location = new Point(392, 273);
+            panel6.Location = new Point(15, 273);
             panel6.Name = "panel6";
             panel6.Size = new Size(356, 125);
             panel6.TabIndex = 64;
@@ -359,16 +272,16 @@
             label19.ForeColor = Color.White;
             label19.Location = new Point(3, 13);
             label19.Name = "label19";
-            label19.Size = new Size(184, 46);
+            label19.Size = new Size(288, 46);
             label19.TabIndex = 19;
-            label19.Text = "Customers";
+            label19.Text = "Active Customers";
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(58, 124, 165);
             panel5.Controls.Add(lblDamageLost);
             panel5.Controls.Add(label7);
-            panel5.Location = new Point(15, 273);
+            panel5.Location = new Point(1145, 126);
             panel5.Name = "panel5";
             panel5.Size = new Size(356, 125);
             panel5.TabIndex = 63;
@@ -467,31 +380,6 @@
             label2.Size = new Size(0, 46);
             label2.TabIndex = 19;
             // 
-            // panel8
-            // 
-            panel8.BackColor = Color.FromArgb(58, 124, 165);
-            panel8.Controls.Add(chart1);
-            panel8.Location = new Point(1155, 126);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(511, 272);
-            panel8.TabIndex = 66;
-            // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chart1.Legends.Add(legend2);
-            chart1.Location = new Point(23, 13);
-            chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart1.Series.Add(series2);
-            chart1.Size = new Size(460, 240);
-            chart1.TabIndex = 34;
-            chart1.Text = "chart1";
-            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(58, 124, 165);
@@ -529,12 +417,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "UC_Dashboard";
-            Size = new Size(1685, 1219);
+            Size = new Size(1509, 1219);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)piechart).EndInit();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panel6.ResumeLayout(false);
@@ -545,8 +437,6 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -555,11 +445,6 @@
         #endregion
 
         private Panel panel1;
-        private ComboBox comboBox1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private TextBox textBox1;
-        private Label label9;
         private Panel panel7;
         private Label label21;
         private Panel panel6;
@@ -574,26 +459,20 @@
         private Panel panel3;
         private Label lblActiveRentals;
         private Label label2;
-        private Panel panel8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Panel panel2;
         private Label lblTotalVehicles;
         private Label label5;
-        private DataGridView dataGridView1;
         private Label lblRevenueToday;
         private Label label10;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
         private Panel panel9;
         private Label label12;
+        private Panel panel8;
+        private Label lblOverDue;
+        private Label label3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart piechart;
+        private Panel panel10;
+        private Label lblUnderMaintenance;
+        private Label label6;
     }
 }

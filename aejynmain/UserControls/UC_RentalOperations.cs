@@ -105,7 +105,7 @@ namespace aejynmain.UserControls
             }
 
             lblDays.Text = days.ToString();
-            lblTotalPrice.Text = total.ToString("₱#,##0.00");
+            lblTotalPrice.Text = total.ToString("₱#,###.00");
             UpdateSummaryDates();
         }
         private void UpdateSummaryDates()
