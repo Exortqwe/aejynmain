@@ -23,6 +23,7 @@ namespace aejynmain.AuthManager
                string Transmission,
                string FuelType,
                int    SeatingCapacity,
+               decimal HourlyRate,
                decimal DailyRate,
                decimal WeeklyRate,
                decimal MonthlyRate,
@@ -48,6 +49,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Color", Color);
                     cmd.Parameters.AddWithValue("p_FuelType", FuelType);
                     cmd.Parameters.AddWithValue("p_SeatingCapacity", SeatingCapacity);
+                    cmd.Parameters.AddWithValue("p_HourlyRate", HourlyRate);
                     cmd.Parameters.AddWithValue("p_DailyRate", DailyRate);
                     cmd.Parameters.AddWithValue("p_WeeklyRate", WeeklyRate);
                     cmd.Parameters.AddWithValue("p_MonthlyRate", MonthlyRate);

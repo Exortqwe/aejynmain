@@ -61,6 +61,8 @@
             btnSave = new Button();
             cmbFuelType = new ComboBox();
             cmbStatus = new ComboBox();
+            label16 = new Label();
+            txtHourlyRate = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1093, 80);
+            panel1.Size = new Size(1288, 80);
             panel1.TabIndex = 0;
             // 
             // label35
@@ -169,7 +171,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(445, 376);
+            label8.Location = new Point(663, 376);
             label8.Name = "label8";
             label8.Size = new Size(106, 23);
             label8.TabIndex = 10;
@@ -209,7 +211,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(663, 376);
+            label12.Location = new Point(881, 376);
             label12.Name = "label12";
             label12.Size = new Size(115, 23);
             label12.TabIndex = 14;
@@ -229,7 +231,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(889, 376);
+            label14.Location = new Point(1107, 376);
             label14.Name = "label14";
             label14.Size = new Size(57, 23);
             label14.TabIndex = 16;
@@ -239,7 +241,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(231, 376);
+            label15.Location = new Point(449, 376);
             label15.Name = "label15";
             label15.Size = new Size(88, 23);
             label15.TabIndex = 17;
@@ -320,7 +322,7 @@
             // txtDailyRate
             // 
             txtDailyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtDailyRate.Location = new Point(231, 402);
+            txtDailyRate.Location = new Point(449, 402);
             txtDailyRate.Multiline = true;
             txtDailyRate.Name = "txtDailyRate";
             txtDailyRate.Size = new Size(176, 36);
@@ -329,7 +331,7 @@
             // txtWeeklyRate
             // 
             txtWeeklyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtWeeklyRate.Location = new Point(445, 402);
+            txtWeeklyRate.Location = new Point(663, 402);
             txtWeeklyRate.Multiline = true;
             txtWeeklyRate.Name = "txtWeeklyRate";
             txtWeeklyRate.Size = new Size(176, 36);
@@ -338,7 +340,7 @@
             // txtMonthlyRate
             // 
             txtMonthlyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtMonthlyRate.Location = new Point(663, 402);
+            txtMonthlyRate.Location = new Point(881, 402);
             txtMonthlyRate.Multiline = true;
             txtMonthlyRate.Name = "txtMonthlyRate";
             txtMonthlyRate.Size = new Size(176, 36);
@@ -384,16 +386,37 @@
             cmbStatus.Font = new Font("Segoe UI", 12F);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Available", "Rented", "Reserved", "Maintenance", "Out of service", "Retired/Sold" });
-            cmbStatus.Location = new Point(886, 402);
+            cmbStatus.Location = new Point(1104, 402);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(176, 36);
             cmbStatus.TabIndex = 34;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(231, 376);
+            label16.Name = "label16";
+            label16.Size = new Size(102, 23);
+            label16.TabIndex = 36;
+            label16.Text = "Hourly Rate";
+            // 
+            // txtHourlyRate
+            // 
+            txtHourlyRate.BorderStyle = BorderStyle.FixedSingle;
+            txtHourlyRate.Location = new Point(231, 402);
+            txtHourlyRate.Multiline = true;
+            txtHourlyRate.Name = "txtHourlyRate";
+            txtHourlyRate.Size = new Size(176, 36);
+            txtHourlyRate.TabIndex = 37;
             // 
             // frmAddVehicle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1093, 570);
+            ClientSize = new Size(1288, 570);
+            Controls.Add(txtHourlyRate);
+            Controls.Add(label16);
             Controls.Add(cmbStatus);
             Controls.Add(cmbFuelType);
             Controls.Add(btnSave);
@@ -471,5 +494,7 @@
         private ComboBox cmbStatus;
         private Button btnSave;
         private ComboBox cmbFuelType;
+        private Label label16;
+        private TextBox txtHourlyRate;
     }
 }

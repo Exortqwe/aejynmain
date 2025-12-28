@@ -29,6 +29,7 @@ namespace aejynmain.UserControls
                 lblActiveRentals.Text = Dashboard.ActiveRentals().ToString();
                 lblLateReturn.Text = Dashboard.LateReturn().ToString();
                 lblRevenueToday.Text = Dashboard.RevenueToday().ToString("₱#,##0.00");
+                lblReservation.Text = Dashboard.PendingReservation().ToString();
 
                 // CHARTS
 

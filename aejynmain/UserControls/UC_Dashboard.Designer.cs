@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel10 = new Panel();
-            lblUnderMaintenance = new Label();
+            lblReservation = new Label();
             label6 = new Label();
             chartVehicleStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel8 = new Panel();
@@ -101,22 +101,22 @@
             // panel10
             // 
             panel10.BackColor = Color.FromArgb(58, 124, 165);
-            panel10.Controls.Add(lblUnderMaintenance);
+            panel10.Controls.Add(lblReservation);
             panel10.Controls.Add(label6);
             panel10.Location = new Point(1145, 273);
             panel10.Name = "panel10";
             panel10.Size = new Size(356, 125);
             panel10.TabIndex = 67;
             // 
-            // lblUnderMaintenance
+            // lblReservation
             // 
-            lblUnderMaintenance.AutoSize = true;
-            lblUnderMaintenance.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblUnderMaintenance.ForeColor = Color.White;
-            lblUnderMaintenance.Location = new Point(15, 69);
-            lblUnderMaintenance.Name = "lblUnderMaintenance";
-            lblUnderMaintenance.Size = new Size(0, 46);
-            lblUnderMaintenance.TabIndex = 36;
+            lblReservation.AutoSize = true;
+            lblReservation.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblReservation.ForeColor = Color.White;
+            lblReservation.Location = new Point(15, 69);
+            lblReservation.Name = "lblReservation";
+            lblReservation.Size = new Size(0, 46);
+            lblReservation.TabIndex = 36;
             // 
             // label6
             // 
@@ -125,23 +125,23 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(3, 13);
             label6.Name = "label6";
-            label6.Size = new Size(324, 46);
+            label6.Size = new Size(335, 46);
             label6.TabIndex = 19;
-            label6.Text = "Under Maintenance";
+            label6.Text = "Pending Reservation";
             // 
             // chartVehicleStatus
             // 
-            chartArea1.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend3);
             chartVehicleStatus.Location = new Point(754, 467);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartVehicleStatus.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartVehicleStatus.Series.Add(series3);
             chartVehicleStatus.Size = new Size(730, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -180,16 +180,16 @@
             // 
             // chartRevenue
             // 
-            chartArea2.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartRevenue.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartRevenue.Legends.Add(legend4);
             chartRevenue.Location = new Point(18, 467);
             chartRevenue.Name = "chartRevenue";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartRevenue.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartRevenue.Series.Add(series4);
             chartRevenue.Size = new Size(730, 501);
             chartRevenue.TabIndex = 34;
             chartRevenue.Text = "chart1";
@@ -473,7 +473,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVehicleStatus;
         private Panel panel10;
-        private Label lblUnderMaintenance;
+        private Label lblReservation;
         private Label label6;
     }
 }

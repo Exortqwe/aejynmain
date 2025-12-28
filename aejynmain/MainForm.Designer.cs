@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            btnReturns = new Button();
             btnDashboard = new Button();
             btnLogOut = new Button();
             btnReports = new Button();
@@ -49,6 +50,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
+            panel1.Controls.Add(btnReturns);
             panel1.Controls.Add(btnDashboard);
             panel1.Controls.Add(btnLogOut);
             panel1.Controls.Add(btnReports);
@@ -63,6 +65,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 861);
             panel1.TabIndex = 1;
+            // 
+            // btnReturns
+            // 
+            btnReturns.BackColor = Color.FromArgb(28, 73, 102);
+            btnReturns.FlatAppearance.BorderSize = 0;
+            btnReturns.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnReturns.FlatStyle = FlatStyle.Flat;
+            btnReturns.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnReturns.ForeColor = Color.White;
+            btnReturns.Image = (Image)resources.GetObject("btnReturns.Image");
+            btnReturns.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReturns.Location = new Point(0, 502);
+            btnReturns.Name = "btnReturns";
+            btnReturns.Padding = new Padding(20, 0, 0, 0);
+            btnReturns.Size = new Size(250, 64);
+            btnReturns.TabIndex = 13;
+            btnReturns.Text = "            Returns";
+            btnReturns.TextAlign = ContentAlignment.MiddleLeft;
+            btnReturns.UseVisualStyleBackColor = false;
+            btnReturns.Click += btnReturns_Click;
             // 
             // btnDashboard
             // 
@@ -93,7 +115,7 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(3, 642);
+            btnLogOut.Location = new Point(0, 712);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
             btnLogOut.Size = new Size(250, 64);
@@ -113,7 +135,7 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(3, 572);
+            btnReports.Location = new Point(0, 642);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
             btnReports.Size = new Size(250, 64);
@@ -132,10 +154,10 @@
             btnDamageClaims.ForeColor = Color.White;
             btnDamageClaims.Image = (Image)resources.GetObject("btnDamageClaims.Image");
             btnDamageClaims.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDamageClaims.Location = new Point(3, 502);
+            btnDamageClaims.Location = new Point(0, 572);
             btnDamageClaims.Name = "btnDamageClaims";
             btnDamageClaims.Padding = new Padding(20, 0, 0, 0);
-            btnDamageClaims.Size = new Size(250, 64);
+            btnDamageClaims.Size = new Size(247, 64);
             btnDamageClaims.TabIndex = 10;
             btnDamageClaims.Text = "            Damage Claims";
             btnDamageClaims.TextAlign = ContentAlignment.MiddleLeft;
@@ -215,7 +237,7 @@
             btnReservations.Padding = new Padding(20, 0, 0, 0);
             btnReservations.Size = new Size(247, 64);
             btnReservations.TabIndex = 4;
-            btnReservations.Text = "            Rentals Operations";
+            btnReservations.Text = "            Rentals ";
             btnReservations.TextAlign = ContentAlignment.MiddleLeft;
             btnReservations.UseVisualStyleBackColor = false;
             btnReservations.Click += btnReservations_Click;
@@ -275,5 +297,6 @@
         private System.Windows.Forms.Timer timer1;
         private Button btnUserManagement;
         private Button btnFleetManagement;
+        private Button btnReturns;
     }
 }

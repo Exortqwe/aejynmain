@@ -26,6 +26,10 @@ namespace aejynmain.AuthManager
         {
             return GetCount("sp_ActiveRentals");
         }
+        public static int PendingReservation()
+        {
+            return GetCount("sp_ReservedReservation");
+        }
         public static int LateReturn()
         {
             return GetCount("sp_LateReturnRentals");

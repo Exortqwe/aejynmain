@@ -107,6 +107,14 @@
             rbRentNow = new RadioButton();
             gbTransaction = new GroupBox();
             rbReservation = new RadioButton();
+            label36 = new Label();
+            cmbPaymentType = new ComboBox();
+            panel7 = new Panel();
+            cmbPaymentMethod = new ComboBox();
+            label37 = new Label();
+            label38 = new Label();
+            label39 = new Label();
+            txtAmount = new TextBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -118,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).BeginInit();
             panel6.SuspendLayout();
             gbTransaction.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -698,21 +707,21 @@
             panel4.Controls.Add(label26);
             panel4.Location = new Point(577, 135);
             panel4.Name = "panel4";
-            panel4.Size = new Size(502, 214);
+            panel4.Size = new Size(310, 217);
             panel4.TabIndex = 7;
             // 
             // dtpReturnDate
             // 
             dtpReturnDate.Location = new Point(21, 136);
             dtpReturnDate.Name = "dtpReturnDate";
-            dtpReturnDate.Size = new Size(430, 27);
+            dtpReturnDate.Size = new Size(262, 27);
             dtpReturnDate.TabIndex = 3;
             // 
             // dtpPickUpDate
             // 
             dtpPickUpDate.Location = new Point(21, 57);
             dtpPickUpDate.Name = "dtpPickUpDate";
-            dtpPickUpDate.Size = new Size(430, 27);
+            dtpPickUpDate.Size = new Size(262, 27);
             dtpPickUpDate.TabIndex = 2;
             // 
             // label27
@@ -737,7 +746,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.Location = new Point(1136, 91);
+            label28.Location = new Point(1296, 91);
             label28.Name = "label28";
             label28.Size = new Size(196, 35);
             label28.TabIndex = 8;
@@ -757,9 +766,9 @@
             panel5.Controls.Add(label31);
             panel5.Controls.Add(label30);
             panel5.Controls.Add(label29);
-            panel5.Location = new Point(1136, 135);
+            panel5.Location = new Point(1296, 138);
             panel5.Name = "panel5";
-            panel5.Size = new Size(502, 214);
+            panel5.Size = new Size(280, 214);
             panel5.TabIndex = 8;
             // 
             // lblTotalPrice
@@ -865,6 +874,7 @@
             btnConfirm.TabIndex = 9;
             btnConfirm.Text = "Confirm";
             btnConfirm.UseVisualStyleBackColor = false;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // label34
             // 
@@ -905,6 +915,7 @@
             dgAvailableVehicles.RowHeadersWidth = 51;
             dgAvailableVehicles.Size = new Size(1503, 455);
             dgAvailableVehicles.TabIndex = 11;
+            dgAvailableVehicles.CellClick += dgAvailableVehicles_CellClick;
             // 
             // panel6
             // 
@@ -940,6 +951,7 @@
             rbRentNow.TabStop = true;
             rbRentNow.Text = "Rent now";
             rbRentNow.UseVisualStyleBackColor = false;
+            rbRentNow.Click += rbRentNow_CheckedChanged;
             // 
             // gbTransaction
             // 
@@ -966,9 +978,89 @@
             rbReservation.Text = "Reservation";
             rbReservation.UseVisualStyleBackColor = false;
             // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label36.Location = new Point(933, 91);
+            label36.Name = "label36";
+            label36.Size = new Size(189, 35);
+            label36.TabIndex = 17;
+            label36.Text = "Select Payment";
+            // 
+            // cmbPaymentType
+            // 
+            cmbPaymentType.FormattingEnabled = true;
+            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Rent" });
+            cmbPaymentType.Location = new Point(17, 43);
+            cmbPaymentType.Name = "cmbPaymentType";
+            cmbPaymentType.Size = new Size(267, 28);
+            cmbPaymentType.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(txtAmount);
+            panel7.Controls.Add(label39);
+            panel7.Controls.Add(label38);
+            panel7.Controls.Add(label37);
+            panel7.Controls.Add(cmbPaymentMethod);
+            panel7.Controls.Add(cmbPaymentType);
+            panel7.Location = new Point(933, 135);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(312, 217);
+            panel7.TabIndex = 16;
+            // 
+            // cmbPaymentMethod
+            // 
+            cmbPaymentMethod.FormattingEnabled = true;
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Gcash" });
+            cmbPaymentMethod.Location = new Point(17, 163);
+            cmbPaymentMethod.Name = "cmbPaymentMethod";
+            cmbPaymentMethod.Size = new Size(267, 28);
+            cmbPaymentMethod.TabIndex = 1;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(17, 140);
+            label37.Name = "label37";
+            label37.Size = new Size(121, 20);
+            label37.TabIndex = 4;
+            label37.Text = "Payment Method";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(17, 16);
+            label38.Name = "label38";
+            label38.Size = new Size(100, 20);
+            label38.TabIndex = 5;
+            label38.Text = "Payment Type";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(17, 82);
+            label39.Name = "label39";
+            label39.Size = new Size(62, 20);
+            label39.TabIndex = 6;
+            label39.Text = "Amount";
+            // 
+            // txtAmount
+            // 
+            txtAmount.BorderStyle = BorderStyle.FixedSingle;
+            txtAmount.Location = new Point(17, 105);
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(267, 27);
+            txtAmount.TabIndex = 7;
+            // 
             // UC_RentalOperations
             // 
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(label36);
+            Controls.Add(panel7);
             Controls.Add(gbTransaction);
             Controls.Add(panel6);
             Controls.Add(dgAvailableVehicles);
@@ -1005,6 +1097,8 @@
             panel6.PerformLayout();
             gbTransaction.ResumeLayout(false);
             gbTransaction.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1085,5 +1179,13 @@
         private RadioButton rbRentNow;
         private GroupBox gbTransaction;
         private RadioButton rbReservation;
+        private Label label36;
+        private ComboBox cmbPaymentType;
+        private Panel panel7;
+        private ComboBox cmbPaymentMethod;
+        private TextBox txtAmount;
+        private Label label39;
+        private Label label38;
+        private Label label37;
     }
 }

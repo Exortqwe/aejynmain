@@ -16,6 +16,7 @@ namespace aejynmain
         UC_Dashboard dashboard = new UC_Dashboard();
         UC_RentalOperations reservations = new UC_RentalOperations();
         UC_Customers customers = new UC_Customers();
+        UC_Returns returns = new UC_Returns();
         public MainForm()
         {
             InitializeComponent();
@@ -62,6 +63,12 @@ namespace aejynmain
         {
             UC_VehicleFleet vehiclefleet = new UC_VehicleFleet();
             addUserControls(vehiclefleet);
+        }
+
+        private void btnReturns_Click(object sender, EventArgs e)
+        {
+            UC_Returns returns = new UC_Returns();
+            addUserControls(returns);
         }
     }
 }

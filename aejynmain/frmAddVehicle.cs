@@ -35,6 +35,7 @@ namespace aejynmain
                 cmbTransmission.Text,
                 cmbFuelType.Text,
                 int.Parse(txtSeatingCapacity.Text),
+                decimal.Parse(txtHourlyRate.Text),
                 decimal.Parse(txtDailyRate.Text),
                 decimal.Parse(txtWeeklyRate.Text),
                 decimal.Parse(txtMonthlyRate.Text),
@@ -53,5 +54,6 @@ namespace aejynmain
                 MessageBox.Show("Failed to add vehicle.");
             }
         }
+
     }
 }
