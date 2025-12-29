@@ -29,30 +29,12 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
-            panel2 = new Panel();
-            lblCustomerName = new Label();
-            label2 = new Label();
-            panel3 = new Panel();
-            lblTotalRentals = new Label();
-            label3 = new Label();
-            panel4 = new Panel();
-            lblTotalAmountSpent = new Label();
-            label4 = new Label();
-            panel5 = new Panel();
-            lblLateReturns = new Label();
-            label5 = new Label();
-            panel6 = new Panel();
-            lblDamages = new Label();
-            label6 = new Label();
             dgCustomerHistory = new DataGridView();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgCustomerHistory).BeginInit();
             SuspendLayout();
             // 
@@ -77,166 +59,6 @@
             label1.TabIndex = 6;
             label1.Text = "Customer History";
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(58, 124, 165);
-            panel2.Controls.Add(lblCustomerName);
-            panel2.Controls.Add(label2);
-            panel2.Location = new Point(12, 92);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(206, 87);
-            panel2.TabIndex = 1;
-            // 
-            // lblCustomerName
-            // 
-            lblCustomerName.AutoSize = true;
-            lblCustomerName.Font = new Font("Segoe UI", 10F);
-            lblCustomerName.ForeColor = Color.White;
-            lblCustomerName.Location = new Point(3, 51);
-            lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(19, 23);
-            lblCustomerName.TabIndex = 1;
-            lblCustomerName.Text = "e";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(0, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(166, 28);
-            label2.TabIndex = 0;
-            label2.Text = "Customer Name ";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(58, 124, 165);
-            panel3.Controls.Add(lblTotalRentals);
-            panel3.Controls.Add(label3);
-            panel3.Location = new Point(224, 92);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(206, 87);
-            panel3.TabIndex = 2;
-            // 
-            // lblTotalRentals
-            // 
-            lblTotalRentals.AutoSize = true;
-            lblTotalRentals.Font = new Font("Segoe UI", 10F);
-            lblTotalRentals.ForeColor = Color.White;
-            lblTotalRentals.Location = new Point(0, 51);
-            lblTotalRentals.Name = "lblTotalRentals";
-            lblTotalRentals.Size = new Size(19, 23);
-            lblTotalRentals.TabIndex = 2;
-            lblTotalRentals.Text = "e";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(132, 28);
-            label3.TabIndex = 1;
-            label3.Text = "Total Rentals ";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(58, 124, 165);
-            panel4.Controls.Add(lblTotalAmountSpent);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(436, 92);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(206, 87);
-            panel4.TabIndex = 3;
-            // 
-            // lblTotalAmountSpent
-            // 
-            lblTotalAmountSpent.AutoSize = true;
-            lblTotalAmountSpent.Font = new Font("Segoe UI", 10F);
-            lblTotalAmountSpent.ForeColor = Color.White;
-            lblTotalAmountSpent.Location = new Point(3, 51);
-            lblTotalAmountSpent.Name = "lblTotalAmountSpent";
-            lblTotalAmountSpent.Size = new Size(19, 23);
-            lblTotalAmountSpent.TabIndex = 3;
-            lblTotalAmountSpent.Text = "e";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(0, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(200, 28);
-            label4.TabIndex = 2;
-            label4.Text = "Total Amount Spent ";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(58, 124, 165);
-            panel5.Controls.Add(lblLateReturns);
-            panel5.Controls.Add(label5);
-            panel5.Location = new Point(648, 92);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(206, 87);
-            panel5.TabIndex = 4;
-            // 
-            // lblLateReturns
-            // 
-            lblLateReturns.AutoSize = true;
-            lblLateReturns.Font = new Font("Segoe UI", 10F);
-            lblLateReturns.ForeColor = Color.White;
-            lblLateReturns.Location = new Point(3, 51);
-            lblLateReturns.Name = "lblLateReturns";
-            lblLateReturns.Size = new Size(19, 23);
-            lblLateReturns.TabIndex = 4;
-            lblLateReturns.Text = "e";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(131, 28);
-            label5.TabIndex = 3;
-            label5.Text = "Late Returns ";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(58, 124, 165);
-            panel6.Controls.Add(lblDamages);
-            panel6.Controls.Add(label6);
-            panel6.Location = new Point(860, 92);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(206, 87);
-            panel6.TabIndex = 5;
-            // 
-            // lblDamages
-            // 
-            lblDamages.AutoSize = true;
-            lblDamages.Font = new Font("Segoe UI", 10F);
-            lblDamages.ForeColor = Color.White;
-            lblDamages.Location = new Point(0, 51);
-            lblDamages.Name = "lblDamages";
-            lblDamages.Size = new Size(19, 23);
-            lblDamages.TabIndex = 5;
-            lblDamages.Text = "e";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(0, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(96, 28);
-            label6.TabIndex = 4;
-            label6.Text = "Damages";
-            // 
             // dgCustomerHistory
             // 
             dgCustomerHistory.AllowUserToResizeColumns = false;
@@ -253,13 +75,31 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgCustomerHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgCustomerHistory.ColumnHeadersHeight = 32;
+            dgCustomerHistory.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgCustomerHistory.DefaultCellStyle = dataGridViewCellStyle2;
+            dgCustomerHistory.EnableHeadersVisualStyles = false;
             dgCustomerHistory.GridColor = SystemColors.GrayText;
-            dgCustomerHistory.Location = new Point(15, 201);
+            dgCustomerHistory.Location = new Point(12, 101);
             dgCustomerHistory.Name = "dgCustomerHistory";
             dgCustomerHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgCustomerHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgCustomerHistory.RowHeadersVisible = false;
             dgCustomerHistory.RowHeadersWidth = 51;
-            dgCustomerHistory.Size = new Size(1051, 428);
+            dgCustomerHistory.Size = new Size(1051, 528);
             dgCustomerHistory.TabIndex = 6;
             dgCustomerHistory.CellContentClick += dgCustomerHistory_CellContentClick;
             // 
@@ -270,27 +110,12 @@
             BackColor = Color.White;
             ClientSize = new Size(1081, 641);
             Controls.Add(dgCustomerHistory);
-            Controls.Add(panel6);
-            Controls.Add(panel5);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "frmCustomerHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CustomerHistory";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgCustomerHistory).EndInit();
             ResumeLayout(false);
         }
@@ -299,21 +124,6 @@
 
         private Panel panel1;
         private Label label1;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
-        private Panel panel5;
-        private Panel panel6;
         private DataGridView dgCustomerHistory;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label lblCustomerName;
-        private Label lblTotalRentals;
-        private Label lblTotalAmountSpent;
-        private Label lblLateReturns;
-        private Label lblDamages;
     }
 }

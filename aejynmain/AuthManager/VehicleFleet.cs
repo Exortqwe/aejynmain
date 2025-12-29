@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 using aejynmain.Models;
 
 namespace aejynmain.AuthManager
@@ -46,7 +47,9 @@ namespace aejynmain.AuthManager
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),
                             WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),
                             MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
-                            Status = dr["Status"].ToString()
+                            Features = dr["Features"].ToString(),
+                            Status = dr["Status"].ToString(),
+                            image_path = dr["image_path"].ToString()
                         });
                     }
                 }
@@ -77,7 +80,9 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Transmission", v.Transmission);
                     cmd.Parameters.AddWithValue("p_FuelType", v.FuelType);
                     cmd.Parameters.AddWithValue("p_SeatingCapacity", v.SeatingCapacity);
+                    cmd.Parameters.AddWithValue("p_Features", v.Features);
                     cmd.Parameters.AddWithValue("p_v_Status", v.Status);
+                    cmd.Parameters.AddWithValue("p_image_path", v.image_path);
 
                     conn.Open();
                     return cmd.ExecuteNonQuery() > 0;
@@ -86,6 +91,25 @@ namespace aejynmain.AuthManager
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding vehicle: " + ex.Message);
+                return false;
+            }
+        }
+        public static bool DeleteVehicle(int vehicleID)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlCommand cmd = new MySqlCommand("DELETE FROM tblvehicles WHERE VehicleID = @id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", vehicleID);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Deleting Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

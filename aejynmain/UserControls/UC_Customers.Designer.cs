@@ -84,7 +84,7 @@
             dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
-            dgAddCustomer.Location = new Point(164, 176);
+            dgAddCustomer.Location = new Point(185, 176);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -97,7 +97,7 @@
             dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgAddCustomer.RowHeadersVisible = false;
             dgAddCustomer.RowHeadersWidth = 51;
-            dgAddCustomer.Size = new Size(1372, 686);
+            dgAddCustomer.Size = new Size(1351, 686);
             dgAddCustomer.TabIndex = 72;
             // 
             // panel1
@@ -119,7 +119,7 @@
             btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.Location = new Point(660, 129);
+            btnRefresh.Location = new Point(681, 129);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(94, 41);
             btnRefresh.TabIndex = 73;
@@ -135,7 +135,7 @@
             btnNewCustomer.ForeColor = Color.White;
             btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
             btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(463, 129);
+            btnNewCustomer.Location = new Point(484, 129);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(191, 41);
             btnNewCustomer.TabIndex = 1;
@@ -146,7 +146,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(165, 129);
+            txtSearch.Location = new Point(186, 129);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(232, 41);
@@ -163,7 +163,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(394, 129);
+            btnSearch.Location = new Point(415, 129);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(63, 41);
             btnSearch.TabIndex = 76;

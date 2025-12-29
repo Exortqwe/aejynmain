@@ -43,7 +43,9 @@ namespace aejynmain
                     DailyRate = decimal.Parse(txtDailyRate.Text),
                     WeeklyRate = decimal.Parse(txtWeeklyRate.Text),
                     MonthlyRate = decimal.Parse(txtMonthlyRate.Text),
-                    Status = cmbStatus.Text
+                    Features = txtFeatures.Text, // Assuming you have a TextBox for Features
+                    Status = cmbStatus.Text,
+                    image_path = pbCarImage.ImageLocation
                 };
 
                 bool success = VehicleFleet.AddVehicle(v);
@@ -62,6 +64,19 @@ namespace aejynmain
             catch (Exception ex)
             {
                 MessageBox.Show("Invalid input: " + ex.Message);
+            }
+        }
+
+        private void btnSelectImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png"; 
+            openFileDialog.Title = "Select an Image";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Display the image in the PictureBox
+                pbCarImage.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
     }

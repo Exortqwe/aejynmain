@@ -143,6 +143,7 @@
             btnReports.Text = "            Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.UseVisualStyleBackColor = false;
+            btnReports.Click += btnReports_Click;
             // 
             // btnDamageClaims
             // 

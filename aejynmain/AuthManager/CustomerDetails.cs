@@ -125,9 +125,14 @@ namespace aejynmain.AuthManager
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("p_CustomerID", customerId);
+
                     using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                     {
-                        da.Fill(dt);
+                        int rowsAffected = da.Fill(dt);
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("No history found for this customer.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
@@ -136,6 +141,39 @@ namespace aejynmain.AuthManager
                 MessageBox.Show(ex.Message, "Error Fetching Customer History", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return dt;
+        }
+        public static bool UpdateCustomer(int customerID, string columnName, object newValue)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    // Create the SQL query to update the column of the customer based on the CustomerID
+                    string query = $"UPDATE tblcustomer SET {columnName} = @NewValue WHERE CustomerID = @CustomerID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        // Add the parameters to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.Parameters.AddWithValue("@NewValue", newValue);
+
+                        // Open the connection
+                        conn.Open();
+
+                        // Execute the query and check how many rows were affected
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // If rows were affected, return true (update successful)
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the update process
+                MessageBox.Show(ex.Message, "Error Updating Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

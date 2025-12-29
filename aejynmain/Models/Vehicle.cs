@@ -24,6 +24,8 @@ namespace aejynmain.Models
         public decimal DailyRate { get; set; }
         public decimal WeeklyRate { get; set; }
         public decimal MonthlyRate { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; }  
+        public string Features { get; set; }      
+        public string image_path { get; set; }
     }
 }

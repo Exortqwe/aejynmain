@@ -14,18 +14,16 @@ namespace aejynmain
 
         public void LoadCustomerHistory(int customerID)
         {
-            // Use static method from CustomerDetails instead of creating an instance
             DataTable dt = CustomerDetails.GetCustomerHistory(customerID);
 
-            if (dt.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
-                // Optional: Add FullName column if not exists
                 if (!dt.Columns.Contains("FullName"))
                     dt.Columns.Add("FullName", typeof(string));
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    row["FullName"] = row["FirstName"].ToString() + " " + row["LastName"].ToString();
+                    row["FullName"] = row["FirstName"] + " " + row["LastName"];
                 }
 
                 dgCustomerHistory.DataSource = dt;
@@ -35,7 +33,6 @@ namespace aejynmain
                 dgCustomerHistory.DataSource = null;
             }
         }
-
         private void dgCustomerHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Optional: handle cell clicks if needed

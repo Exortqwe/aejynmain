@@ -68,6 +68,8 @@ namespace aejynmain.AuthManager
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),
                             WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),
                             MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
+                            image_path = dr["image_path"].ToString(),
+                            Features = dr["Features"].ToString(),
                             Status = dr["Status"].ToString()
                         });
                     }

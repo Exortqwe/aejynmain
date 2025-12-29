@@ -63,7 +63,13 @@
             cmbStatus = new ComboBox();
             label16 = new Label();
             txtHourlyRate = new TextBox();
+            label17 = new Label();
+            txtFeatures = new TextBox();
+            pbCarImage = new PictureBox();
+            label18 = new Label();
+            btnSelectImage = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbCarImage).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -73,7 +79,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1288, 80);
+            panel1.Size = new Size(1391, 80);
             panel1.TabIndex = 0;
             // 
             // label35
@@ -91,7 +97,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(22, 139);
+            label1.Location = new Point(19, 101);
             label1.Name = "label1";
             label1.Size = new Size(132, 23);
             label1.TabIndex = 1;
@@ -102,7 +108,7 @@
             cmbCategoryName.Font = new Font("Segoe UI", 12F);
             cmbCategoryName.FormattingEnabled = true;
             cmbCategoryName.Items.AddRange(new object[] { "Sedan", "Hatchback", "SUV", "Truck\t", "Minivan", "Van" });
-            cmbCategoryName.Location = new Point(22, 165);
+            cmbCategoryName.Location = new Point(19, 127);
             cmbCategoryName.Name = "cmbCategoryName";
             cmbCategoryName.Size = new Size(176, 36);
             cmbCategoryName.TabIndex = 3;
@@ -111,7 +117,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(231, 139);
+            label2.Location = new Point(228, 101);
             label2.Name = "label2";
             label2.Size = new Size(53, 23);
             label2.TabIndex = 4;
@@ -121,7 +127,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(445, 139);
+            label3.Location = new Point(442, 101);
             label3.Name = "label3";
             label3.Size = new Size(59, 23);
             label3.TabIndex = 5;
@@ -131,7 +137,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(663, 139);
+            label4.Location = new Point(660, 101);
             label4.Name = "label4";
             label4.Size = new Size(108, 23);
             label4.TabIndex = 6;
@@ -141,7 +147,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(889, 139);
+            label5.Location = new Point(886, 101);
             label5.Name = "label5";
             label5.Size = new Size(71, 23);
             label5.TabIndex = 7;
@@ -151,7 +157,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(663, 255);
+            label6.Location = new Point(660, 195);
             label6.Name = "label6";
             label6.Size = new Size(107, 23);
             label6.TabIndex = 8;
@@ -161,7 +167,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(445, 255);
+            label7.Location = new Point(442, 195);
             label7.Name = "label7";
             label7.Size = new Size(51, 23);
             label7.TabIndex = 9;
@@ -171,7 +177,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(663, 376);
+            label8.Location = new Point(445, 288);
             label8.Name = "label8";
             label8.Size = new Size(106, 23);
             label8.TabIndex = 10;
@@ -181,7 +187,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(22, 376);
+            label9.Location = new Point(1098, 195);
             label9.Name = "label9";
             label9.Size = new Size(138, 23);
             label9.TabIndex = 11;
@@ -191,7 +197,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(22, 255);
+            label10.Location = new Point(19, 195);
             label10.Name = "label10";
             label10.Size = new Size(42, 23);
             label10.TabIndex = 12;
@@ -201,7 +207,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(886, 255);
+            label11.Location = new Point(883, 195);
             label11.Name = "label11";
             label11.Size = new Size(83, 23);
             label11.TabIndex = 13;
@@ -211,7 +217,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(881, 376);
+            label12.Location = new Point(663, 288);
             label12.Name = "label12";
             label12.Size = new Size(115, 23);
             label12.TabIndex = 14;
@@ -221,7 +227,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(231, 255);
+            label13.Location = new Point(228, 195);
             label13.Name = "label13";
             label13.Size = new Size(39, 23);
             label13.TabIndex = 15;
@@ -231,7 +237,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(1107, 376);
+            label14.Location = new Point(883, 288);
             label14.Name = "label14";
             label14.Size = new Size(57, 23);
             label14.TabIndex = 16;
@@ -241,7 +247,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(449, 376);
+            label15.Location = new Point(231, 288);
             label15.Name = "label15";
             label15.Size = new Size(88, 23);
             label15.TabIndex = 17;
@@ -250,7 +256,7 @@
             // txtMake
             // 
             txtMake.BorderStyle = BorderStyle.FixedSingle;
-            txtMake.Location = new Point(231, 165);
+            txtMake.Location = new Point(228, 127);
             txtMake.Multiline = true;
             txtMake.Name = "txtMake";
             txtMake.Size = new Size(176, 36);
@@ -259,7 +265,7 @@
             // txtModel
             // 
             txtModel.BorderStyle = BorderStyle.FixedSingle;
-            txtModel.Location = new Point(445, 165);
+            txtModel.Location = new Point(442, 127);
             txtModel.Multiline = true;
             txtModel.Name = "txtModel";
             txtModel.Size = new Size(176, 36);
@@ -268,7 +274,7 @@
             // txtLicensePlate
             // 
             txtLicensePlate.BorderStyle = BorderStyle.FixedSingle;
-            txtLicensePlate.Location = new Point(663, 165);
+            txtLicensePlate.Location = new Point(660, 127);
             txtLicensePlate.Multiline = true;
             txtLicensePlate.Name = "txtLicensePlate";
             txtLicensePlate.Size = new Size(176, 36);
@@ -277,7 +283,7 @@
             // txtMileage
             // 
             txtMileage.BorderStyle = BorderStyle.FixedSingle;
-            txtMileage.Location = new Point(886, 165);
+            txtMileage.Location = new Point(883, 127);
             txtMileage.Multiline = true;
             txtMileage.Name = "txtMileage";
             txtMileage.Size = new Size(176, 36);
@@ -286,7 +292,7 @@
             // txtYear
             // 
             txtYear.BorderStyle = BorderStyle.FixedSingle;
-            txtYear.Location = new Point(22, 281);
+            txtYear.Location = new Point(19, 221);
             txtYear.Multiline = true;
             txtYear.Name = "txtYear";
             txtYear.Size = new Size(176, 36);
@@ -295,7 +301,7 @@
             // txtVIN
             // 
             txtVIN.BorderStyle = BorderStyle.FixedSingle;
-            txtVIN.Location = new Point(231, 281);
+            txtVIN.Location = new Point(228, 221);
             txtVIN.Multiline = true;
             txtVIN.Name = "txtVIN";
             txtVIN.Size = new Size(176, 36);
@@ -304,7 +310,7 @@
             // txtColor
             // 
             txtColor.BorderStyle = BorderStyle.FixedSingle;
-            txtColor.Location = new Point(445, 281);
+            txtColor.Location = new Point(442, 221);
             txtColor.Multiline = true;
             txtColor.Name = "txtColor";
             txtColor.Size = new Size(176, 36);
@@ -313,7 +319,7 @@
             // txtSeatingCapacity
             // 
             txtSeatingCapacity.BorderStyle = BorderStyle.FixedSingle;
-            txtSeatingCapacity.Location = new Point(22, 402);
+            txtSeatingCapacity.Location = new Point(1098, 221);
             txtSeatingCapacity.Multiline = true;
             txtSeatingCapacity.Name = "txtSeatingCapacity";
             txtSeatingCapacity.Size = new Size(176, 36);
@@ -322,7 +328,7 @@
             // txtDailyRate
             // 
             txtDailyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtDailyRate.Location = new Point(449, 402);
+            txtDailyRate.Location = new Point(231, 314);
             txtDailyRate.Multiline = true;
             txtDailyRate.Name = "txtDailyRate";
             txtDailyRate.Size = new Size(176, 36);
@@ -331,7 +337,7 @@
             // txtWeeklyRate
             // 
             txtWeeklyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtWeeklyRate.Location = new Point(663, 402);
+            txtWeeklyRate.Location = new Point(445, 314);
             txtWeeklyRate.Multiline = true;
             txtWeeklyRate.Name = "txtWeeklyRate";
             txtWeeklyRate.Size = new Size(176, 36);
@@ -340,7 +346,7 @@
             // txtMonthlyRate
             // 
             txtMonthlyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtMonthlyRate.Location = new Point(881, 402);
+            txtMonthlyRate.Location = new Point(663, 314);
             txtMonthlyRate.Multiline = true;
             txtMonthlyRate.Name = "txtMonthlyRate";
             txtMonthlyRate.Size = new Size(176, 36);
@@ -351,7 +357,7 @@
             cmbTransmission.Font = new Font("Segoe UI", 12F);
             cmbTransmission.FormattingEnabled = true;
             cmbTransmission.Items.AddRange(new object[] { "Manual ", "Automatic" });
-            cmbTransmission.Location = new Point(663, 281);
+            cmbTransmission.Location = new Point(660, 221);
             cmbTransmission.Name = "cmbTransmission";
             cmbTransmission.Size = new Size(176, 36);
             cmbTransmission.TabIndex = 31;
@@ -363,7 +369,7 @@
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(415, 486);
+            btnSave.Location = new Point(442, 387);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(234, 43);
             btnSave.TabIndex = 32;
@@ -376,7 +382,7 @@
             cmbFuelType.Font = new Font("Segoe UI", 12F);
             cmbFuelType.FormattingEnabled = true;
             cmbFuelType.Items.AddRange(new object[] { "Gasoline", "Diesel", "Electric", "Hybrid" });
-            cmbFuelType.Location = new Point(886, 281);
+            cmbFuelType.Location = new Point(883, 221);
             cmbFuelType.Name = "cmbFuelType";
             cmbFuelType.Size = new Size(176, 36);
             cmbFuelType.TabIndex = 33;
@@ -386,16 +392,16 @@
             cmbStatus.Font = new Font("Segoe UI", 12F);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Available", "Rented", "Reserved", "Maintenance", "Out of service", "Retired/Sold" });
-            cmbStatus.Location = new Point(1104, 402);
+            cmbStatus.Location = new Point(883, 314);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(176, 36);
+            cmbStatus.Size = new Size(179, 36);
             cmbStatus.TabIndex = 34;
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(231, 376);
+            label16.Location = new Point(22, 288);
             label16.Name = "label16";
             label16.Size = new Size(102, 23);
             label16.TabIndex = 36;
@@ -404,17 +410,75 @@
             // txtHourlyRate
             // 
             txtHourlyRate.BorderStyle = BorderStyle.FixedSingle;
-            txtHourlyRate.Location = new Point(231, 402);
+            txtHourlyRate.Location = new Point(22, 314);
             txtHourlyRate.Multiline = true;
             txtHourlyRate.Name = "txtHourlyRate";
             txtHourlyRate.Size = new Size(176, 36);
             txtHourlyRate.TabIndex = 37;
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.Location = new Point(1098, 101);
+            label17.Name = "label17";
+            label17.Size = new Size(75, 23);
+            label17.TabIndex = 38;
+            label17.Text = "Features";
+            // 
+            // txtFeatures
+            // 
+            txtFeatures.BorderStyle = BorderStyle.FixedSingle;
+            txtFeatures.Location = new Point(1098, 127);
+            txtFeatures.Multiline = true;
+            txtFeatures.Name = "txtFeatures";
+            txtFeatures.Size = new Size(176, 36);
+            txtFeatures.TabIndex = 39;
+            // 
+            // pbCarImage
+            // 
+            pbCarImage.BackColor = Color.White;
+            pbCarImage.Location = new Point(1098, 300);
+            pbCarImage.Name = "pbCarImage";
+            pbCarImage.Size = new Size(281, 186);
+            pbCarImage.TabIndex = 40;
+            pbCarImage.TabStop = false;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Location = new Point(1098, 274);
+            label18.Name = "label18";
+            label18.Size = new Size(58, 23);
+            label18.TabIndex = 41;
+            label18.Text = "Image";
+            // 
+            // btnSelectImage
+            // 
+            btnSelectImage.BackColor = Color.FromArgb(58, 124, 165);
+            btnSelectImage.FlatAppearance.BorderSize = 0;
+            btnSelectImage.FlatStyle = FlatStyle.Flat;
+            btnSelectImage.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            btnSelectImage.ForeColor = Color.White;
+            btnSelectImage.Location = new Point(1164, 492);
+            btnSelectImage.Name = "btnSelectImage";
+            btnSelectImage.Size = new Size(176, 31);
+            btnSelectImage.TabIndex = 42;
+            btnSelectImage.Text = "Select";
+            btnSelectImage.UseVisualStyleBackColor = false;
+            btnSelectImage.Click += btnSelectImage_Click;
+            // 
             // frmAddVehicle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1288, 570);
+            ClientSize = new Size(1391, 546);
+            Controls.Add(btnSelectImage);
+            Controls.Add(label18);
+            Controls.Add(pbCarImage);
+            Controls.Add(txtFeatures);
+            Controls.Add(label17);
             Controls.Add(txtHourlyRate);
             Controls.Add(label16);
             Controls.Add(cmbStatus);
@@ -454,6 +518,7 @@
             Text = "frmAddVehicle";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbCarImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -496,5 +561,10 @@
         private ComboBox cmbFuelType;
         private Label label16;
         private TextBox txtHourlyRate;
+        private Label label17;
+        private TextBox txtFeatures;
+        private PictureBox pbCarImage;
+        private Label label18;
+        private Button btnSelectImage;
     }
 }

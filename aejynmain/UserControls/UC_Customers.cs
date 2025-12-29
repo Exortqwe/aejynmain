@@ -23,10 +23,10 @@ namespace aejynmain.UserControls
             {
                 // Get customers as List<Customer>
                 List<Customer> customers = CustomerDetails.GetCustomers();
-                
+
                 // Convert List<Customer> to DataTable
                 tblcustomer = ConvertToDataTable(customers);
-                
+
                 // Set DataSource to DataTable
                 dgAddCustomer.DataSource = tblcustomer;
             }
@@ -35,24 +35,24 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Failed to load customers: " + ex.Message);
             }
         }
-
+     
         private DataTable ConvertToDataTable(List<Customer> customers)
         {
             DataTable dt = new DataTable();
-            
+
             // Add columns
             dt.Columns.Add("CustomerID", typeof(int));
-            dt.Columns.Add("First Name", typeof(string));
-            dt.Columns.Add("Last Name", typeof(string));
-            dt.Columns.Add("Contact Number", typeof(string));
-            dt.Columns.Add("Email Address", typeof(string));
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("ContactNumber", typeof(string));
+            dt.Columns.Add("EmailAddress", typeof(string));
             dt.Columns.Add("Address", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
-            dt.Columns.Add("License Number", typeof(string));
-            dt.Columns.Add("License Expiry Date", typeof(DateTime));
-            dt.Columns.Add("Birth Date", typeof(DateTime));
-            dt.Columns.Add("Date Registered", typeof(DateTime));
-            
+            dt.Columns.Add("LicenseNumber", typeof(string));
+            dt.Columns.Add("LicenseExpiry Date", typeof(DateTime));
+            dt.Columns.Add("BirthDate", typeof(DateTime));
+            dt.Columns.Add("DateRegistered", typeof(DateTime));
+
             // Add rows
             foreach (Customer customer in customers)
             {
@@ -70,7 +70,7 @@ namespace aejynmain.UserControls
                     customer.DateRegistered
                 );
             }
-            
+
             return dt;
         }
 
@@ -136,8 +136,20 @@ namespace aejynmain.UserControls
 
         private void btnViewCustomer_Click(object sender, EventArgs e)
         {
+            if (dgAddCustomer.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a customer first.");
+                return;
+            }
+
+            // Get the selected customer ID from the DataGridView
+            int customerID = Convert.ToInt32(dgAddCustomer.CurrentRow.Cells["CustomerID"].Value);
+
+            // Open the frmCustomerHistory form and pass the customer ID
             frmCustomerHistory ch = new frmCustomerHistory();
+            ch.LoadCustomerHistory(customerID); // Call the method to load customer history with the customer ID
             ch.Show();
         }
+
     }
 }
