@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aejynmain.AuthManager;
+using aejynmain.Models;
 
 namespace aejynmain
 {
@@ -22,18 +24,18 @@ namespace aejynmain
         }
         private void btnSaveCustomerDetails_Click(object sender, EventArgs e)
         {
-            bool success = AuthManager.AddCustomer.Customer(
-                txtFirstName.Text,
-                txtLastName.Text,
-                txtContactNum.Text,
-                txtEmailAddress.Text,
-                txtAddress.Text,
-                cmbGender.Text,
-                txtLicenseNumber.Text,
-                dateTimePicker1.Value,
-                dateTimePicker1.Value,
-                dateTimePicker1.Value.Date
-            );
+            bool success = CustomerDetails.AddCustomer(
+             txtFirstName.Text,
+             txtLastName.Text,
+             txtContactNum.Text,
+             txtEmailAddress.Text,
+             txtAddress.Text,
+             cmbGender.Text,
+             txtLicenseNumber.Text,
+             dtpLicenseExpiry.Value,
+             dtpBirthDate.Value,
+             dtpDateRegistered.Value
+ );
 
             if (success)
             {

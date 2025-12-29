@@ -166,7 +166,6 @@
             dgVehicleFleet.RowHeadersWidth = 51;
             dgVehicleFleet.Size = new Size(1622, 537);
             dgVehicleFleet.TabIndex = 72;
-            dgVehicleFleet.CellContentClick += dgVehicleFleet_CellContentClick;
             // 
             // UC_VehicleFleet
             // 
@@ -181,7 +180,6 @@
             Controls.Add(btnSearch);
             Name = "UC_VehicleFleet";
             Size = new Size(1685, 1219);
-            Load += UC_VehicleFleet_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgVehicleFleet).EndInit();

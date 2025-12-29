@@ -1,4 +1,7 @@
-﻿using System;
+﻿using aejynmain.AuthManager;
+using aejynmain.Models;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using aejynmain.AuthManager;
 
 namespace aejynmain.UserControls
 {
@@ -23,27 +24,28 @@ namespace aejynmain.UserControls
         {
             try
             {
-                // MGA PANEL CARDS SA TAAS
-                lblTotalVehicles.Text = Dashboard.TotalVehicles().ToString();
-                lblAvailableVehicles.Text = Dashboard.AvailableVehicles().ToString();
-                lblActiveRentals.Text = Dashboard.ActiveRentals().ToString();
-                lblLateReturn.Text = Dashboard.LateReturn().ToString();
-                lblRevenueToday.Text = Dashboard.RevenueToday().ToString("₱#,##0.00");
-                lblReservation.Text = Dashboard.PendingReservation().ToString();
+                // Tawag sa service para makuha ang data
+                var dashboardData = DashboardService.GetDashboardData();
 
-                // CHARTS
+                // MGA PANEL CARDS
+                lblTotalVehicles.Text = dashboardData.TotalVehicles.ToString();
+                lblAvailableVehicles.Text = dashboardData.AvailableVehicles.ToString();
+                lblActiveRentals.Text = dashboardData.ActiveRentals.ToString();
+                lblReservation.Text = dashboardData.Reservation.ToString();
+                lblLateReturn.Text = dashboardData.LateReturn.ToString();
+                lblRevenueToday.Text = dashboardData.RevenueToday.ToString("₱#,###.00");
 
-                //REVENUE CHART
-                DataTable dtRevenue = Dashboard.RevenueByDate();
+                // Charts
+                DataTable dtRevenue = DashboardService.RevenueByDate(); // declare ug assign
                 chartRevenue.Series[0].Points.Clear();
                 foreach (DataRow row in dtRevenue.Rows)
                 {
-                    chartRevenue.Series[0].Points.AddXY(Convert.ToDateTime(row["payDate"]).ToString("MMM dd"),
-                    Convert.ToDecimal(row["totalRevenue"]));
+                    chartRevenue.Series[0].Points.AddXY(
+                        Convert.ToDateTime(row["payDate"]).ToString("MMM dd"),
+                        Convert.ToDecimal(row["totalRevenue"]));
                 }
 
-                // Vehicle Status Pie Chart
-                DataTable dtVehicle = Dashboard.VehicleStatus();
+                DataTable dtVehicle = DashboardService.VehicleStatus(); // declare ug assign
                 chartVehicleStatus.Series[0].Points.Clear();
                 foreach (DataRow row in dtVehicle.Rows)
                 {
@@ -51,7 +53,6 @@ namespace aejynmain.UserControls
                         row["v_Status"].ToString(),
                         Convert.ToInt32(row["total"]));
                 }
-
             }
             catch (Exception ex)
             {
@@ -61,6 +62,11 @@ namespace aejynmain.UserControls
         }
 
         private void chartVehicleStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartRevenue_Click(object sender, EventArgs e)
         {
 
         }

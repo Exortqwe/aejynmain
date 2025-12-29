@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace aejynmain
+namespace aejynmain.dbContext
 {
     public class aejyndb
     {

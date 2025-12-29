@@ -14,7 +14,7 @@ namespace aejynmain
     public partial class MainForm : Form
     {
         UC_Dashboard dashboard = new UC_Dashboard();
-        UC_RentalOperations reservations = new UC_RentalOperations();
+        UC_Rentals reservations = new UC_Rentals();
         UC_Customers customers = new UC_Customers();
         UC_Returns returns = new UC_Returns();
         public MainForm()
@@ -38,7 +38,7 @@ namespace aejynmain
 
         private void btnReservations_Click(object sender, EventArgs e)
         {
-            UC_RentalOperations reservations = new UC_RentalOperations();
+            UC_Rentals reservations = new UC_Rentals();
             addUserControls(reservations);
         }
 

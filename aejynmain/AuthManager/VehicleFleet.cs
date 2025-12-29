@@ -5,94 +5,91 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using aejynmain.Models;
 
 namespace aejynmain.AuthManager
 {
     internal class VehicleFleet
     {
-        private static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
-        public static bool AddVehicle(
-               string CategoryName,
-               string Make,
-               string Model,
-               string LicensePlate,
-               int Mileage,
-               int    Year,
-               string VIN,
-               string Color,
-               string Transmission,
-               string FuelType,
-               int    SeatingCapacity,
-               decimal HourlyRate,
-               decimal DailyRate,
-               decimal WeeklyRate,
-               decimal MonthlyRate,
-               string Status
-               )
+        private static string connectionString =
+            "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+
+        public static List<Vehicle> GetVehicleList()
+        {
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand("sp_GetVehicles", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        vehicles.Add(new Vehicle
+                        {
+                            VehicleID = Convert.ToInt32(dr["VehicleID"]),
+                            CategoryName = dr["CategoryName"].ToString(),
+                            Make = dr["Make"].ToString(),
+                            Model = dr["Model"].ToString(),
+                            LicensePlate = dr["LicensePlate"].ToString(),
+                            Mileage = Convert.ToInt32(dr["Mileage"]),
+                            Year = Convert.ToInt32(dr["Year"]),
+                            VIN = dr["VIN"].ToString(),
+                            Color = dr["Color"].ToString(),
+                            Transmission = dr["Transmission"].ToString(),
+                            FuelType = dr["FuelType"].ToString(),
+                            SeatingCapacity = Convert.ToInt32(dr["SeatingCapacity"]),
+                            HourlyRate = Convert.ToDecimal(dr["HourlyRate"]),
+                            DailyRate = Convert.ToDecimal(dr["DailyRate"]),
+                            WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),
+                            MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
+                            Status = dr["Status"].ToString()
+                        });
+                    }
+                }
+            }
+            return vehicles;
+        }
+        public static bool AddVehicle(Vehicle v)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand("sp_AddVehicle", conn)) // stored procedure
+                using (MySqlCommand cmd = new MySqlCommand("sp_AddVehicle", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameters
-                    cmd.Parameters.AddWithValue("p_CategoryName", CategoryName);
-                    cmd.Parameters.AddWithValue("p_Make", Make);
-                    cmd.Parameters.AddWithValue("p_Model", Model);
-                    cmd.Parameters.AddWithValue("p_LicensePlate", LicensePlate);
-                    cmd.Parameters.AddWithValue("p_Mileage", Mileage);
-                    cmd.Parameters.AddWithValue("p_V_Year", Year);
-                    cmd.Parameters.AddWithValue("p_VIN", VIN);
-                    cmd.Parameters.AddWithValue("p_Transmission", Transmission);
-                    cmd.Parameters.AddWithValue("p_Color", Color);
-                    cmd.Parameters.AddWithValue("p_FuelType", FuelType);
-                    cmd.Parameters.AddWithValue("p_SeatingCapacity", SeatingCapacity);
-                    cmd.Parameters.AddWithValue("p_HourlyRate", HourlyRate);
-                    cmd.Parameters.AddWithValue("p_DailyRate", DailyRate);
-                    cmd.Parameters.AddWithValue("p_WeeklyRate", WeeklyRate);
-                    cmd.Parameters.AddWithValue("p_MonthlyRate", MonthlyRate);
-                    cmd.Parameters.AddWithValue("p_v_Status", Status);
+                    cmd.Parameters.AddWithValue("p_CategoryName", v.CategoryName);
+                    cmd.Parameters.AddWithValue("p_HourlyRate", v.HourlyRate);
+                    cmd.Parameters.AddWithValue("p_DailyRate", v.DailyRate);
+                    cmd.Parameters.AddWithValue("p_WeeklyRate", v.WeeklyRate);
+                    cmd.Parameters.AddWithValue("p_MonthlyRate", v.MonthlyRate);
+                    cmd.Parameters.AddWithValue("p_Make", v.Make);
+                    cmd.Parameters.AddWithValue("p_Model", v.Model);
+                    cmd.Parameters.AddWithValue("p_LicensePlate", v.LicensePlate);
+                    cmd.Parameters.AddWithValue("p_Mileage", v.Mileage);
+                    cmd.Parameters.AddWithValue("p_V_Year", v.Year);
+                    cmd.Parameters.AddWithValue("p_VIN", v.VIN);
+                    cmd.Parameters.AddWithValue("p_Color", v.Color);
+                    cmd.Parameters.AddWithValue("p_Transmission", v.Transmission);
+                    cmd.Parameters.AddWithValue("p_FuelType", v.FuelType);
+                    cmd.Parameters.AddWithValue("p_SeatingCapacity", v.SeatingCapacity);
+                    cmd.Parameters.AddWithValue("p_v_Status", v.Status);
 
                     conn.Open();
-                    int rows = cmd.ExecuteNonQuery();
-                    return rows > 0; // success
+                    return cmd.ExecuteNonQuery() > 0;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding vehicle: " + ex.Message);
-                return false; // failed
+                return false;
             }
-        }
-        public static DataTable GetVehicles()
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                using (MySqlCommand cmd = new MySqlCommand("sp_GetVehicles", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
-                }
-            }
-            return dt;
-        }
-        public static DataTable GetAvailableVehicles()
-        {
-            DataTable dt = new DataTable();
-
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            using (MySqlCommand cmd = new MySqlCommand("sp_GetAvailableVehicles", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-
-            return dt;
         }
     }
 }
+
+    

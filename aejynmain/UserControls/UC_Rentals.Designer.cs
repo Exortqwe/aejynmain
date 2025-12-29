@@ -1,6 +1,6 @@
 ﻿namespace aejynmain.UserControls
 {
-    partial class UC_RentalOperations
+    partial class UC_Rentals
     {
         /// <summary> 
         /// Required designer variable.
@@ -110,11 +110,11 @@
             label36 = new Label();
             cmbPaymentType = new ComboBox();
             panel7 = new Panel();
-            cmbPaymentMethod = new ComboBox();
-            label37 = new Label();
-            label38 = new Label();
-            label39 = new Label();
             txtAmount = new TextBox();
+            label39 = new Label();
+            label38 = new Label();
+            label37 = new Label();
+            cmbPaymentMethod = new ComboBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -768,7 +768,7 @@
             panel5.Controls.Add(label29);
             panel5.Location = new Point(1296, 138);
             panel5.Name = "panel5";
-            panel5.Size = new Size(280, 214);
+            panel5.Size = new Size(364, 214);
             panel5.TabIndex = 8;
             // 
             // lblTotalPrice
@@ -868,7 +868,7 @@
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(696, 954);
+            btnConfirm.Location = new Point(694, 942);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(296, 52);
             btnConfirm.TabIndex = 9;
@@ -880,7 +880,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(72, 357);
+            label34.Location = new Point(30, 355);
             label34.Name = "label34";
             label34.Size = new Size(218, 35);
             label34.TabIndex = 10;
@@ -901,7 +901,7 @@
             dgAvailableVehicles.ColumnHeadersHeight = 29;
             dgAvailableVehicles.EnableHeadersVisualStyles = false;
             dgAvailableVehicles.GridColor = SystemColors.GrayText;
-            dgAvailableVehicles.Location = new Point(73, 392);
+            dgAvailableVehicles.Location = new Point(30, 392);
             dgAvailableVehicles.Name = "dgAvailableVehicles";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(58, 124, 165);
@@ -913,7 +913,7 @@
             dgAvailableVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgAvailableVehicles.RowHeadersVisible = false;
             dgAvailableVehicles.RowHeadersWidth = 51;
-            dgAvailableVehicles.Size = new Size(1503, 455);
+            dgAvailableVehicles.Size = new Size(1630, 455);
             dgAvailableVehicles.TabIndex = 11;
             dgAvailableVehicles.CellClick += dgAvailableVehicles_CellClick;
             // 
@@ -934,19 +934,19 @@
             label35.ForeColor = Color.White;
             label35.Location = new Point(22, 15);
             label35.Name = "label35";
-            label35.Size = new Size(312, 46);
+            label35.Size = new Size(141, 46);
             label35.TabIndex = 1;
-            label35.Text = "Rentals Operations";
+            label35.Text = "Rentals ";
             // 
             // rbRentNow
             // 
             rbRentNow.AutoSize = true;
             rbRentNow.BackColor = Color.FromArgb(58, 124, 165);
-            rbRentNow.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbRentNow.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             rbRentNow.ForeColor = Color.White;
             rbRentNow.Location = new Point(6, 35);
             rbRentNow.Name = "rbRentNow";
-            rbRentNow.Size = new Size(144, 39);
+            rbRentNow.Size = new Size(119, 32);
             rbRentNow.TabIndex = 14;
             rbRentNow.TabStop = true;
             rbRentNow.Text = "Rent now";
@@ -957,9 +957,9 @@
             // 
             gbTransaction.Controls.Add(rbReservation);
             gbTransaction.Controls.Add(rbRentNow);
-            gbTransaction.Location = new Point(670, 853);
+            gbTransaction.Location = new Point(688, 853);
             gbTransaction.Name = "gbTransaction";
-            gbTransaction.Size = new Size(347, 95);
+            gbTransaction.Size = new Size(317, 83);
             gbTransaction.TabIndex = 15;
             gbTransaction.TabStop = false;
             gbTransaction.Text = "Transaction Type";
@@ -968,11 +968,11 @@
             // 
             rbReservation.AutoSize = true;
             rbReservation.BackColor = Color.FromArgb(58, 124, 165);
-            rbReservation.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbReservation.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             rbReservation.ForeColor = Color.White;
             rbReservation.Location = new Point(172, 35);
             rbReservation.Name = "rbReservation";
-            rbReservation.Size = new Size(170, 39);
+            rbReservation.Size = new Size(139, 32);
             rbReservation.TabIndex = 15;
             rbReservation.TabStop = true;
             rbReservation.Text = "Reservation";
@@ -1012,32 +1012,13 @@
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 16;
             // 
-            // cmbPaymentMethod
+            // txtAmount
             // 
-            cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Gcash" });
-            cmbPaymentMethod.Location = new Point(17, 163);
-            cmbPaymentMethod.Name = "cmbPaymentMethod";
-            cmbPaymentMethod.Size = new Size(267, 28);
-            cmbPaymentMethod.TabIndex = 1;
-            // 
-            // label37
-            // 
-            label37.AutoSize = true;
-            label37.Location = new Point(17, 140);
-            label37.Name = "label37";
-            label37.Size = new Size(121, 20);
-            label37.TabIndex = 4;
-            label37.Text = "Payment Method";
-            // 
-            // label38
-            // 
-            label38.AutoSize = true;
-            label38.Location = new Point(17, 16);
-            label38.Name = "label38";
-            label38.Size = new Size(100, 20);
-            label38.TabIndex = 5;
-            label38.Text = "Payment Type";
+            txtAmount.BorderStyle = BorderStyle.FixedSingle;
+            txtAmount.Location = new Point(17, 105);
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(267, 27);
+            txtAmount.TabIndex = 7;
             // 
             // label39
             // 
@@ -1048,15 +1029,34 @@
             label39.TabIndex = 6;
             label39.Text = "Amount";
             // 
-            // txtAmount
+            // label38
             // 
-            txtAmount.BorderStyle = BorderStyle.FixedSingle;
-            txtAmount.Location = new Point(17, 105);
-            txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(267, 27);
-            txtAmount.TabIndex = 7;
+            label38.AutoSize = true;
+            label38.Location = new Point(17, 16);
+            label38.Name = "label38";
+            label38.Size = new Size(100, 20);
+            label38.TabIndex = 5;
+            label38.Text = "Payment Type";
             // 
-            // UC_RentalOperations
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(17, 140);
+            label37.Name = "label37";
+            label37.Size = new Size(121, 20);
+            label37.TabIndex = 4;
+            label37.Text = "Payment Method";
+            // 
+            // cmbPaymentMethod
+            // 
+            cmbPaymentMethod.FormattingEnabled = true;
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Gcash" });
+            cmbPaymentMethod.Location = new Point(17, 163);
+            cmbPaymentMethod.Name = "cmbPaymentMethod";
+            cmbPaymentMethod.Size = new Size(267, 28);
+            cmbPaymentMethod.TabIndex = 1;
+            // 
+            // UC_Rentals
             // 
             BackColor = Color.FromArgb(245, 247, 250);
             Controls.Add(label36);
@@ -1075,7 +1075,7 @@
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(label20);
-            Name = "UC_RentalOperations";
+            Name = "UC_Rentals";
             Size = new Size(1685, 1219);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

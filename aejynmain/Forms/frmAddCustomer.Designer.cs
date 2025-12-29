@@ -51,7 +51,7 @@
             cmbGender = new ComboBox();
             txtLicenseNumber = new TextBox();
             dtpLicenseExpiry = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            dtpBirthDate = new DateTimePicker();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -278,12 +278,12 @@
             dtpLicenseExpiry.Size = new Size(239, 27);
             dtpLicenseExpiry.TabIndex = 37;
             // 
-            // dateTimePicker1
+            // dtpBirthDate
             // 
-            dateTimePicker1.Location = new Point(286, 280);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(239, 27);
-            dateTimePicker1.TabIndex = 38;
+            dtpBirthDate.Location = new Point(286, 280);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(239, 27);
+            dtpBirthDate.TabIndex = 38;
             // 
             // frmAddCustomer
             // 
@@ -291,7 +291,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(818, 409);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpBirthDate);
             Controls.Add(dtpLicenseExpiry);
             Controls.Add(txtLicenseNumber);
             Controls.Add(cmbGender);
@@ -336,7 +336,7 @@
         private ComboBox cmbGender;
         private TextBox txtLicenseNumber;
         private DateTimePicker dtpLicenseExpiry;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpBirthDate;
         private Label label4;
         private Label label5;
         private Label label6;

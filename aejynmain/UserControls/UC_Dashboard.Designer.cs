@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel10 = new Panel();
             lblReservation = new Label();
@@ -48,12 +48,6 @@
             panel7 = new Panel();
             lblRevenueToday = new Label();
             label21 = new Label();
-            panel6 = new Panel();
-            lblCustomers = new Label();
-            label19 = new Label();
-            panel5 = new Panel();
-            lblDamageLost = new Label();
-            label7 = new Label();
             panel4 = new Panel();
             lblAvailableVehicles = new Label();
             label4 = new Label();
@@ -71,8 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
-            panel6.SuspendLayout();
-            panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -87,8 +79,6 @@
             panel1.Controls.Add(chartRevenue);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
-            panel1.Controls.Add(panel6);
-            panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
@@ -103,9 +93,9 @@
             panel10.BackColor = Color.FromArgb(58, 124, 165);
             panel10.Controls.Add(lblReservation);
             panel10.Controls.Add(label6);
-            panel10.Location = new Point(1145, 273);
+            panel10.Location = new Point(1343, 125);
             panel10.Name = "panel10";
-            panel10.Size = new Size(356, 125);
+            panel10.Size = new Size(255, 125);
             panel10.TabIndex = 67;
             // 
             // lblReservation
@@ -121,40 +111,39 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label6.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label6.ForeColor = Color.White;
             label6.Location = new Point(3, 13);
             label6.Name = "label6";
-            label6.Size = new Size(335, 46);
+            label6.Size = new Size(250, 35);
             label6.TabIndex = 19;
             label6.Text = "Pending Reservation";
             // 
             // chartVehicleStatus
             // 
-            chartArea3.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend3);
-            chartVehicleStatus.Location = new Point(754, 467);
+            chartArea1.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend1);
+            chartVehicleStatus.Location = new Point(821, 290);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chartVehicleStatus.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartVehicleStatus.Series.Add(series1);
             chartVehicleStatus.Size = new Size(730, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
-            chartVehicleStatus.Click += chartVehicleStatus_Click;
             // 
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(58, 124, 165);
             panel8.Controls.Add(lblLateReturn);
             panel8.Controls.Add(label3);
-            panel8.Location = new Point(770, 273);
+            panel8.Location = new Point(1082, 125);
             panel8.Name = "panel8";
-            panel8.Size = new Size(356, 125);
+            panel8.Size = new Size(255, 125);
             panel8.TabIndex = 66;
             // 
             // lblLateReturn
@@ -170,26 +159,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label3.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label3.ForeColor = Color.White;
             label3.Location = new Point(3, 13);
             label3.Name = "label3";
-            label3.Size = new Size(197, 46);
+            label3.Size = new Size(145, 35);
             label3.TabIndex = 19;
             label3.Text = "Late Return";
             // 
             // chartRevenue
             // 
-            chartArea4.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chartRevenue.Legends.Add(legend4);
-            chartRevenue.Location = new Point(18, 467);
+            chartArea2.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartRevenue.Legends.Add(legend2);
+            chartRevenue.Location = new Point(85, 290);
             chartRevenue.Name = "chartRevenue";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chartRevenue.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartRevenue.Series.Add(series2);
             chartRevenue.Size = new Size(730, 501);
             chartRevenue.TabIndex = 34;
             chartRevenue.Text = "chart1";
@@ -220,9 +209,9 @@
             panel7.BackColor = Color.FromArgb(58, 124, 165);
             panel7.Controls.Add(lblRevenueToday);
             panel7.Controls.Add(label21);
-            panel7.Location = new Point(393, 273);
+            panel7.Location = new Point(821, 125);
             panel7.Name = "panel7";
-            panel7.Size = new Size(356, 125);
+            panel7.Size = new Size(255, 125);
             panel7.TabIndex = 65;
             // 
             // lblRevenueToday
@@ -238,84 +227,22 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label21.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label21.ForeColor = Color.White;
             label21.Location = new Point(3, 13);
             label21.Name = "label21";
-            label21.Size = new Size(251, 46);
+            label21.Size = new Size(187, 35);
             label21.TabIndex = 19;
             label21.Text = "Revenue Today";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(58, 124, 165);
-            panel6.Controls.Add(lblCustomers);
-            panel6.Controls.Add(label19);
-            panel6.Location = new Point(15, 273);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(356, 125);
-            panel6.TabIndex = 64;
-            // 
-            // lblCustomers
-            // 
-            lblCustomers.AutoSize = true;
-            lblCustomers.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblCustomers.ForeColor = Color.White;
-            lblCustomers.Location = new Point(15, 69);
-            lblCustomers.Name = "lblCustomers";
-            lblCustomers.Size = new Size(0, 46);
-            lblCustomers.TabIndex = 35;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label19.ForeColor = Color.White;
-            label19.Location = new Point(3, 13);
-            label19.Name = "label19";
-            label19.Size = new Size(288, 46);
-            label19.TabIndex = 19;
-            label19.Text = "Active Customers";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(58, 124, 165);
-            panel5.Controls.Add(lblDamageLost);
-            panel5.Controls.Add(label7);
-            panel5.Location = new Point(1145, 126);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(356, 125);
-            panel5.TabIndex = 63;
-            // 
-            // lblDamageLost
-            // 
-            lblDamageLost.AutoSize = true;
-            lblDamageLost.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblDamageLost.ForeColor = Color.White;
-            lblDamageLost.Location = new Point(15, 69);
-            lblDamageLost.Name = "lblDamageLost";
-            lblDamageLost.Size = new Size(0, 46);
-            lblDamageLost.TabIndex = 35;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(3, 13);
-            label7.Name = "label7";
-            label7.Size = new Size(226, 46);
-            label7.TabIndex = 19;
-            label7.Text = "Damage/Lost";
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(58, 124, 165);
             panel4.Controls.Add(lblAvailableVehicles);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(392, 126);
+            panel4.Location = new Point(299, 125);
             panel4.Name = "panel4";
-            panel4.Size = new Size(356, 125);
+            panel4.Size = new Size(255, 125);
             panel4.TabIndex = 62;
             // 
             // lblAvailableVehicles
@@ -331,11 +258,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label4.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label4.ForeColor = Color.White;
             label4.Location = new Point(3, 13);
             label4.Name = "label4";
-            label4.Size = new Size(293, 46);
+            label4.Size = new Size(218, 35);
             label4.TabIndex = 19;
             label4.Text = "Available Vehicles";
             // 
@@ -345,19 +272,19 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(lblActiveRentals);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(770, 126);
+            panel3.Location = new Point(560, 125);
             panel3.Name = "panel3";
-            panel3.Size = new Size(356, 125);
+            panel3.Size = new Size(255, 125);
             panel3.TabIndex = 61;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label10.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label10.ForeColor = Color.White;
             label10.Location = new Point(9, 13);
             label10.Name = "label10";
-            label10.Size = new Size(236, 46);
+            label10.Size = new Size(176, 35);
             label10.TabIndex = 36;
             label10.Text = "Active Rentals";
             // 
@@ -386,9 +313,9 @@
             panel2.BackColor = Color.FromArgb(58, 124, 165);
             panel2.Controls.Add(lblTotalVehicles);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(15, 126);
+            panel2.Location = new Point(38, 125);
             panel2.Name = "panel2";
-            panel2.Size = new Size(356, 125);
+            panel2.Size = new Size(255, 125);
             panel2.TabIndex = 60;
             // 
             // lblTotalVehicles
@@ -404,11 +331,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label5.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
             label5.ForeColor = Color.White;
             label5.Location = new Point(3, 13);
             label5.Name = "label5";
-            label5.Size = new Size(229, 46);
+            label5.Size = new Size(170, 35);
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
             // 
@@ -430,10 +357,6 @@
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -448,12 +371,6 @@
         private Panel panel1;
         private Panel panel7;
         private Label label21;
-        private Panel panel6;
-        private Label lblCustomers;
-        private Label label19;
-        private Panel panel5;
-        private Label lblDamageLost;
-        private Label label7;
         private Panel panel4;
         private Label lblAvailableVehicles;
         private Label label4;

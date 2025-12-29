@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using aejynmain.AuthManager;
+using aejynmain.Models;
 
 namespace aejynmain.UserControls
 {
@@ -19,36 +20,33 @@ namespace aejynmain.UserControls
             InitializeComponent();
             LoadVehicles();
         }
+        // LOAD DATA
         public void LoadVehicles()
         {
             try
             {
-                dgVehicleFleet.DataSource = AuthManager.VehicleFleet.GetVehicles(); // ang sulod sa database ge butang sa datagrid
+                dgVehicleFleet.AutoGenerateColumns = true;
+                dgVehicleFleet.DataSource = VehicleFleet.GetVehicleList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load vehicles: " + ex.Message); // if mag error mo gawas ni
+                MessageBox.Show("Failed to load vehicles: " + ex.Message);
             }
         }
+
+        // ADD VEHICLE
         private void btnAddVehicle_Click(object sender, EventArgs e)
         {
-            frmAddVehicle av = new frmAddVehicle(this); // mag error if walaon ang this
-            av.Show();
+            frmAddVehicle av = new frmAddVehicle(this);
+            av.ShowDialog(); // mas maayo modal
         }
 
-        private void dgVehicleFleet_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void UC_VehicleFleet_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // REFRESH BUTTON
         private void iconButton1_Click(object sender, EventArgs e)
         {
             LoadVehicles();
         }
+
+        // OPTIONAL: double click to edit
     }
 }

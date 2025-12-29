@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aejynmain.Models;
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_RentalOperations : UserControl
+    public partial class UC_Rentals : UserControl
     {
         private decimal hourlyRate;
         private decimal dailyRate;
@@ -20,7 +21,7 @@ namespace aejynmain.UserControls
         private int selectedCustomerId = 0;
         private int selectedVehicleId = 0;
         private decimal computedTotal = 0;
-        public UC_RentalOperations()
+        public UC_Rentals()
         {
             InitializeComponent();
             LoadAvailableVehicles();
@@ -30,25 +31,22 @@ namespace aejynmain.UserControls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable dt = AddCustomer.GetCustomers();
+            List<Customer> customers = CustomerDetails.GetCustomers();
             string search = txtSearch.Text.Trim();
-
             selectedCustomerId = 0;
 
-            foreach (DataRow dr in dt.Rows)
+            foreach (Customer c in customers)
             {
-                string fullName = dr["FirstName"].ToString() + " " + dr["LastName"].ToString();
-                string license = dr["LicenseNumber"].ToString();
+                string fullName = c.FirstName + " " + c.LastName;
+                string license = c.LicenseNumber;
 
                 if (fullName.Contains(search) || license.Contains(search))
                 {
-                    selectedCustomerId = Convert.ToInt32(dr["CustomerID"]);
-
+                    selectedCustomerId = c.CustomerID;
                     lblFullName.Text = fullName;
                     lblLicenseNumber.Text = license;
-                    lblContactNumber.Text = dr["ContactNumber"].ToString();
-                    lblAddress.Text = dr["Address"].ToString();
-
+                    lblContactNumber.Text = c.ContactNumber;
+                    lblAddress.Text = c.Address;
                     return;
                 }
             }
@@ -61,7 +59,7 @@ namespace aejynmain.UserControls
         }
         private void LoadAvailableVehicles()
         {
-            dgAvailableVehicles.DataSource = VehicleFleet.GetAvailableVehicles();
+            dgAvailableVehicles.DataSource = RentalOperation.GetAvailableVehicles();
         }
         private int GetRentalDays()
         {
@@ -143,41 +141,49 @@ namespace aejynmain.UserControls
         {
             try
             {
-                // validations...
-
-                if (rbRentNow.Checked)
+                // --- BASIC VALIDATION ---
+                if (selectedCustomerId == 0 || selectedVehicleId == 0)
                 {
-                    SaveReservation("Rented");
-                    UpdateVehicleStatus("Rented");
-                    CreateRentalRecord();
-
-                    MessageBox.Show("Vehicle rented successfully!");
-                }
-                else
-                {
-                    SaveReservation("Reserved");
-                    UpdateVehicleStatus("Reserved");
-
-                    MessageBox.Show("Reservation confirmed successfully!");
+                    MessageBox.Show("Please select a customer and a vehicle.");
+                    return;
                 }
 
-                string rentalStatus = rbRentNow.Checked ? "Rented" : "Reserved";
-                RentalOperations.SaveRental(
-                  selectedCustomerId,
-                  selectedVehicleId,
-                  dtpPickUpDate.Value,
-                  dtpReturnDate.Value,
-                  computedTotal,
-                  rentalStatus
-                );
+                if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
+                {
+                    MessageBox.Show("Please enter a valid payment amount.");
+                    return;
+                }
 
+                // ✅ CREATE RENTAL OBJECT (IBUTANG DIRI)
+                Rental rental = new Rental
+                {
+                    CustomerID = selectedCustomerId,
+                    VehicleID = selectedVehicleId,
+                    PickUpDate = dtpPickUpDate.Value,
+                    ReturnDate = dtpReturnDate.Value,
+                    Status = rbRentNow.Checked ? "Rented" : "Reserved",
+                    TotalAmount = computedTotal,
+                    Payment = new Payment
+                    {
+                        PaymentType = cmbPaymentType.Text,
+                        Amount = amount,
+                        PaymentMethod = cmbPaymentMethod.Text,
+                        PaymentStatus = "Paid"
+                    }
+                };
+
+                RentalOperation.SaveRental(rental);
+
+                MessageBox.Show("Rental successfully saved!",
+                                "Success",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while confirming:\n\n" + ex.Message);
             }
         }
-
         private void rbRentNow_CheckedChanged(object sender, EventArgs e)
         {
             if (rbRentNow.Checked)
@@ -189,22 +195,5 @@ namespace aejynmain.UserControls
             }
         }
 
-        private void SaveReservation(string status)
-        {
-            // Simple placeholder logic
-            MessageBox.Show($"Reservation for {lblFullName.Text} and {lblVehicle.Text} saved as {status}.");
-        }
-
-        private void UpdateVehicleStatus(string status)
-        {
-            // Simple placeholder logic
-            MessageBox.Show($"Vehicle {lblVehicle.Text} status updated to {status}.");
-        }
-
-        private void CreateRentalRecord()
-        {
-            // Simple placeholder logic
-            MessageBox.Show($"Rental record created for {lblFullName.Text} from {dtpPickUpDate.Value:MMM dd} to {dtpReturnDate.Value:MMM dd}.");
-        }
     }
 }
