@@ -170,6 +170,8 @@
             dgVehicleFleet.RowHeadersWidth = 51;
             dgVehicleFleet.Size = new Size(1622, 582);
             dgVehicleFleet.TabIndex = 72;
+            dgVehicleFleet.CellContentClick += dgVehicleFleet_CellContentClick;
+            dgVehicleFleet.CellEndEdit += dgVehicleFleet_CellEndEdit;
             // 
             // btnEdit
             // 
@@ -182,11 +184,14 @@
             btnEdit.IconColor = Color.White;
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
-            btnEdit.Location = new Point(1516, 92);
+            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEdit.Location = new Point(1444, 92);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(65, 41);
+            btnEdit.Size = new Size(92, 41);
             btnEdit.TabIndex = 73;
+            btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -199,10 +204,12 @@
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
-            btnDelete.Location = new Point(1587, 92);
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(1542, 92);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(66, 41);
+            btnDelete.Size = new Size(111, 41);
             btnDelete.TabIndex = 78;
+            btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 

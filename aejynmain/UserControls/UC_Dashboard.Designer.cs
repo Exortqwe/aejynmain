@@ -11,14 +11,6 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         #region Component Designer generated code
 
@@ -35,14 +27,14 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
+            chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel10 = new Panel();
-            lblReservation = new Label();
+            lblReservedVehicles = new Label();
             label6 = new Label();
             chartVehicleStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel8 = new Panel();
             lblLateReturn = new Label();
             label3 = new Label();
-            chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel9 = new Panel();
             label12 = new Label();
             panel7 = new Panel();
@@ -59,10 +51,10 @@
             lblTotalVehicles = new Label();
             label5 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).BeginInit();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
@@ -73,10 +65,10 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(chartRevenue);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(chartVehicleStatus);
             panel1.Controls.Add(panel8);
-            panel1.Controls.Add(chartRevenue);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel4);
@@ -88,25 +80,42 @@
             panel1.Size = new Size(1509, 1219);
             panel1.TabIndex = 0;
             // 
+            // chartRevenue
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartRevenue.Legends.Add(legend1);
+            chartRevenue.Location = new Point(41, 290);
+            chartRevenue.Name = "chartRevenue";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartRevenue.Series.Add(series1);
+            chartRevenue.Size = new Size(747, 501);
+            chartRevenue.TabIndex = 75;
+            chartRevenue.Text = "chart1";
+            chartRevenue.Click += chartRevenue_Click;
+            // 
             // panel10
             // 
             panel10.BackColor = Color.FromArgb(58, 124, 165);
-            panel10.Controls.Add(lblReservation);
+            panel10.Controls.Add(lblReservedVehicles);
             panel10.Controls.Add(label6);
             panel10.Location = new Point(1343, 125);
             panel10.Name = "panel10";
             panel10.Size = new Size(255, 125);
             panel10.TabIndex = 67;
             // 
-            // lblReservation
+            // lblReservedVehicles
             // 
-            lblReservation.AutoSize = true;
-            lblReservation.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblReservation.ForeColor = Color.White;
-            lblReservation.Location = new Point(15, 69);
-            lblReservation.Name = "lblReservation";
-            lblReservation.Size = new Size(0, 46);
-            lblReservation.TabIndex = 36;
+            lblReservedVehicles.AutoSize = true;
+            lblReservedVehicles.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblReservedVehicles.ForeColor = Color.White;
+            lblReservedVehicles.Location = new Point(15, 69);
+            lblReservedVehicles.Name = "lblReservedVehicles";
+            lblReservedVehicles.Size = new Size(0, 46);
+            lblReservedVehicles.TabIndex = 36;
             // 
             // label6
             // 
@@ -115,23 +124,23 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(3, 13);
             label6.Name = "label6";
-            label6.Size = new Size(250, 35);
+            label6.Size = new Size(224, 35);
             label6.TabIndex = 19;
-            label6.Text = "Pending Reservation";
+            label6.Text = " Reserved Vehicles";
             // 
             // chartVehicleStatus
             // 
-            chartArea1.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend2);
             chartVehicleStatus.Location = new Point(821, 290);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartVehicleStatus.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartVehicleStatus.Series.Add(series2);
             chartVehicleStatus.Size = new Size(730, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -163,25 +172,9 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(3, 13);
             label3.Name = "label3";
-            label3.Size = new Size(145, 35);
+            label3.Size = new Size(112, 35);
             label3.TabIndex = 19;
-            label3.Text = "Late Return";
-            // 
-            // chartRevenue
-            // 
-            chartArea2.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartRevenue.Legends.Add(legend2);
-            chartRevenue.Location = new Point(85, 290);
-            chartRevenue.Name = "chartRevenue";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartRevenue.Series.Add(series2);
-            chartRevenue.Size = new Size(730, 501);
-            chartRevenue.TabIndex = 34;
-            chartRevenue.Text = "chart1";
+            label3.Text = "Overdue";
             // 
             // panel9
             // 
@@ -347,12 +340,12 @@
             Name = "UC_Dashboard";
             Size = new Size(1509, 1219);
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
@@ -387,10 +380,10 @@
         private Panel panel8;
         private Label lblLateReturn;
         private Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVehicleStatus;
         private Panel panel10;
-        private Label lblReservation;
+        private Label lblReservedVehicles;
         private Label label6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
     }
 }

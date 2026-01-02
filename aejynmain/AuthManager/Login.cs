@@ -5,47 +5,55 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using aejynmain.Models;
 
 namespace aejynmain.AuthManager
 {
-    internal class AuthManager
+    internal class Login
     {
-        private static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
-        public static int UserID { get; private set; }
-        public static string UserName { get; private set; }
-        public static string Role { get; private set; }
-        public static bool LoggedIn => UserID > 0;
+        private static string connectionString =
+            "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
 
         public static bool LogIn(string username, string password)
         {
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            using (MySqlCommand cmd = new MySqlCommand("sp_Login", con))
+            try
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("p_username", username);
-                cmd.Parameters.AddWithValue("p_password", password);
-                con.Open();
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
-                    if (reader.Read())
+                    con.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("sp_Login", con))
                     {
-                        UserID = Convert.ToInt32(reader["UserID"]);
-                        UserName = reader["UserName"].ToString();
-                        Role = reader["Role"].ToString();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_username", username);
+                        cmd.Parameters.AddWithValue("@p_password", password);
 
-                        return true;
-
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                User.SetUser(
+                                    Convert.ToInt32(reader["UserID"]),
+                                    reader["UserName"].ToString(),
+                                    reader["Role"].ToString()
+                                );
+                                return true;
+                            }
+                        }
                     }
                 }
-
             }
+            catch
+            {
+                return false;
+            }
+
             return false;
         }
+
         public static void Logout()
         {
-            UserID = 0;
-            UserName = null;
-            Role = null;
+            User.Logout();
         }
     }
 }

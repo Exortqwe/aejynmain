@@ -24,6 +24,16 @@ namespace aejynmain
         }
         private void btnSaveCustomerDetails_Click(object sender, EventArgs e)
         {
+            // --- AGE VERIFICATION ---
+            if (!CustomerDetails.IsAgeValid(dtpBirthDate.Value))
+            {
+                int age = DateTime.Today.Year - dtpBirthDate.Value.Year;
+                if (dtpBirthDate.Value.Date > DateTime.Today.AddYears(-age)) age--;
+                MessageBox.Show($"Customer must be at least 21 years old.\nCurrent age: {age} years old.", 
+                              "Age Verification Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             bool success = CustomerDetails.AddCustomer(
              txtFirstName.Text,
              txtLastName.Text,

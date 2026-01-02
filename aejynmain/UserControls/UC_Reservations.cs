@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_Rentals : UserControl
+    public partial class UC_Reservations : UserControl
     {
         private decimal hourlyRate;
         private decimal dailyRate;
@@ -18,7 +18,7 @@ namespace aejynmain.UserControls
         private int selectedVehicleId = 0;
         private decimal computedTotal = 0;
 
-        public UC_Rentals()
+        public UC_Reservations()
         {
             InitializeComponent();
             LoadAvailableVehicles();
@@ -59,7 +59,7 @@ namespace aejynmain.UserControls
         // ================= LOAD VEHICLES =================
         private void LoadAvailableVehicles()
         {
-            dgAvailableVehicles.DataSource = RentalManager.GetAvailableVehicles();
+            dgAvailableVehicles.DataSource = ReservationManager.GetAvailableVehicles();
 
             if (dgAvailableVehicles.Columns["HourlyRate"] != null)
                 dgAvailableVehicles.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
@@ -90,17 +90,15 @@ namespace aejynmain.UserControls
         // ================= DATE + TIME HELPERS =================
         private DateTime GetPickupDateTime()
         {
-            return dtpPickUpDate.Value.Date
-                .Add(dtpPickupTime.Value.TimeOfDay);
+            return dtpPickUpDate.Value.Date + dtpPickupTime.Value.TimeOfDay;
         }
 
         private DateTime GetReturnDateTime()
         {
-            return dtpReturnDate.Value.Date
-                .Add(dtpReturnTime.Value.TimeOfDay);
+            return dtpReturnDate.Value.Date + dtpReturnTime.Value.TimeOfDay;
         }
 
-        // ================= PRICE COMPUTATION (USING CALCULATOR) =================
+        // ================= PRICE COMPUTATION =================
         private void ComputeTotal()
         {
             if (selectedVehicleId == 0) return;
@@ -138,8 +136,8 @@ namespace aejynmain.UserControls
         private void dtpPickupTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpReturnTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
 
-        // ================= CONFIRM RENTAL =================
-        private void btnConfirm_Click(object sender, EventArgs e)
+        // ================= CONFIRM RESERVATION =================
+        private void btnConfirmReservation_Click(object send, EventArgs e)
         {
             try
             {
@@ -148,14 +146,13 @@ namespace aejynmain.UserControls
                     MessageBox.Show("Please select a customer and a vehicle.");
                     return;
                 }
-
                 if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
                 {
                     MessageBox.Show("Please enter a valid payment amount.");
                     return;
                 }
 
-                Rental rental = new Rental
+                Reservation reservation = new Reservation
                 {
 
                     UserID = User.UserID,
@@ -163,7 +160,7 @@ namespace aejynmain.UserControls
                     VehicleID = selectedVehicleId,
                     PickUpDate = GetPickupDateTime(),
                     ReturnDate = GetReturnDateTime(),
-                    Status = "Rented",
+                    Status = "Reserved",
                     TotalAmount = computedTotal,
                     Payment = new Payment
                     {
@@ -174,9 +171,9 @@ namespace aejynmain.UserControls
                     }
                 };
 
-                RentalManager.SaveRental(rental);
+                ReservationManager.SaveReservation(reservation);
 
-                MessageBox.Show("Rental successfully saved!");
+                MessageBox.Show("Reservation successfully saved!");
                 LoadAvailableVehicles();
             }
             catch (Exception ex)

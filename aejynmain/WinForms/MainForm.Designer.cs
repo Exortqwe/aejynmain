@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            btnReservation = new Button();
+            btnFleetManagement = new Button();
             btnReturns = new Button();
             btnDashboard = new Button();
             btnLogOut = new Button();
             btnReports = new Button();
             btnDamageClaims = new Button();
-            btnUserManagement = new Button();
-            btnFleetManagement = new Button();
             btnCustomers = new Button();
             btnReservations = new Button();
             pictureBox1 = new PictureBox();
             panelMain = new Panel();
-            timer1 = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -50,21 +49,62 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(btnReservation);
+            panel1.Controls.Add(btnFleetManagement);
             panel1.Controls.Add(btnReturns);
             panel1.Controls.Add(btnDashboard);
             panel1.Controls.Add(btnLogOut);
             panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnDamageClaims);
-            panel1.Controls.Add(btnUserManagement);
-            panel1.Controls.Add(btnFleetManagement);
             panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnReservations);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 861);
+            panel1.Size = new Size(250, 898);
             panel1.TabIndex = 1;
+            // 
+            // btnReservation
+            // 
+            btnReservation.BackColor = Color.FromArgb(28, 73, 102);
+            btnReservation.FlatAppearance.BorderSize = 0;
+            btnReservation.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnReservation.FlatStyle = FlatStyle.Flat;
+            btnReservation.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnReservation.ForeColor = Color.White;
+            btnReservation.Image = (Image)resources.GetObject("btnReservation.Image");
+            btnReservation.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReservation.Location = new Point(0, 432);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Padding = new Padding(20, 0, 0, 0);
+            btnReservation.Size = new Size(250, 64);
+            btnReservation.TabIndex = 14;
+            btnReservation.Text = "            Reservations";
+            btnReservation.TextAlign = ContentAlignment.MiddleLeft;
+            btnReservation.UseVisualStyleBackColor = false;
+            btnReservation.Click += btnReservation_Click;
+            // 
+            // btnFleetManagement
+            // 
+            btnFleetManagement.BackColor = Color.FromArgb(28, 73, 102);
+            btnFleetManagement.FlatAppearance.BorderSize = 0;
+            btnFleetManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnFleetManagement.FlatStyle = FlatStyle.Flat;
+            btnFleetManagement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFleetManagement.ForeColor = Color.White;
+            btnFleetManagement.Image = (Image)resources.GetObject("btnFleetManagement.Image");
+            btnFleetManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFleetManagement.Location = new Point(0, 292);
+            btnFleetManagement.Name = "btnFleetManagement";
+            btnFleetManagement.Padding = new Padding(20, 0, 0, 0);
+            btnFleetManagement.Size = new Size(250, 64);
+            btnFleetManagement.TabIndex = 7;
+            btnFleetManagement.Text = "            Vehicle Fleet";
+            btnFleetManagement.TextAlign = ContentAlignment.MiddleLeft;
+            btnFleetManagement.UseVisualStyleBackColor = false;
+            btnFleetManagement.Click += btnFleetManagement_Click;
             // 
             // btnReturns
             // 
@@ -135,7 +175,7 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(0, 642);
+            btnReports.Location = new Point(3, 642);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
             btnReports.Size = new Size(250, 64);
@@ -158,50 +198,11 @@
             btnDamageClaims.Location = new Point(0, 572);
             btnDamageClaims.Name = "btnDamageClaims";
             btnDamageClaims.Padding = new Padding(20, 0, 0, 0);
-            btnDamageClaims.Size = new Size(247, 64);
+            btnDamageClaims.Size = new Size(250, 64);
             btnDamageClaims.TabIndex = 10;
             btnDamageClaims.Text = "            Damage Claims";
             btnDamageClaims.TextAlign = ContentAlignment.MiddleLeft;
             btnDamageClaims.UseVisualStyleBackColor = false;
-            // 
-            // btnUserManagement
-            // 
-            btnUserManagement.BackColor = Color.FromArgb(28, 73, 102);
-            btnUserManagement.FlatAppearance.BorderSize = 0;
-            btnUserManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnUserManagement.FlatStyle = FlatStyle.Flat;
-            btnUserManagement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnUserManagement.ForeColor = Color.White;
-            btnUserManagement.Image = (Image)resources.GetObject("btnUserManagement.Image");
-            btnUserManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUserManagement.Location = new Point(3, 432);
-            btnUserManagement.Name = "btnUserManagement";
-            btnUserManagement.Padding = new Padding(20, 0, 0, 0);
-            btnUserManagement.Size = new Size(247, 64);
-            btnUserManagement.TabIndex = 8;
-            btnUserManagement.Text = "            User Management";
-            btnUserManagement.TextAlign = ContentAlignment.MiddleLeft;
-            btnUserManagement.UseVisualStyleBackColor = false;
-            // 
-            // btnFleetManagement
-            // 
-            btnFleetManagement.BackColor = Color.FromArgb(28, 73, 102);
-            btnFleetManagement.FlatAppearance.BorderSize = 0;
-            btnFleetManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnFleetManagement.FlatStyle = FlatStyle.Flat;
-            btnFleetManagement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnFleetManagement.ForeColor = Color.White;
-            btnFleetManagement.Image = (Image)resources.GetObject("btnFleetManagement.Image");
-            btnFleetManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFleetManagement.Location = new Point(3, 362);
-            btnFleetManagement.Name = "btnFleetManagement";
-            btnFleetManagement.Padding = new Padding(20, 0, 0, 0);
-            btnFleetManagement.Size = new Size(247, 64);
-            btnFleetManagement.TabIndex = 7;
-            btnFleetManagement.Text = "            Vehicle Fleet";
-            btnFleetManagement.TextAlign = ContentAlignment.MiddleLeft;
-            btnFleetManagement.UseVisualStyleBackColor = false;
-            btnFleetManagement.Click += btnFleetManagement_Click;
             // 
             // btnCustomers
             // 
@@ -213,7 +214,7 @@
             btnCustomers.ForeColor = Color.White;
             btnCustomers.Image = (Image)resources.GetObject("btnCustomers.Image");
             btnCustomers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCustomers.Location = new Point(0, 292);
+            btnCustomers.Location = new Point(0, 222);
             btnCustomers.Name = "btnCustomers";
             btnCustomers.Padding = new Padding(20, 0, 0, 0);
             btnCustomers.Size = new Size(250, 64);
@@ -233,7 +234,7 @@
             btnReservations.ForeColor = Color.White;
             btnReservations.Image = (Image)resources.GetObject("btnReservations.Image");
             btnReservations.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReservations.Location = new Point(3, 222);
+            btnReservations.Location = new Point(3, 362);
             btnReservations.Name = "btnReservations";
             btnReservations.Padding = new Padding(20, 0, 0, 0);
             btnReservations.Size = new Size(247, 64);
@@ -259,12 +260,19 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(250, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1058, 861);
+            panelMain.Size = new Size(1058, 898);
             panelMain.TabIndex = 2;
             // 
-            // timer1
+            // label1
             // 
-            timer1.Enabled = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(32, 123);
+            label1.Name = "label1";
+            label1.Size = new Size(182, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Welcome back! Admin";
             // 
             // MainForm
             // 
@@ -272,7 +280,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
-            ClientSize = new Size(1308, 861);
+            ClientSize = new Size(1308, 898);
             Controls.Add(panelMain);
             Controls.Add(panel1);
             MaximizeBox = false;
@@ -280,6 +288,7 @@
             Text = "MainForm";
             WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -295,9 +304,9 @@
         private Button btnReports;
         private Button btnLogOut;
         private Panel panelMain;
-        private System.Windows.Forms.Timer timer1;
-        private Button btnUserManagement;
         private Button btnFleetManagement;
         private Button btnReturns;
+        private Button btnReservation;
+        private Label label1;
     }
 }

@@ -83,6 +83,8 @@
             label21 = new Label();
             label25 = new Label();
             panel4 = new Panel();
+            dtpReturnTime = new DateTimePicker();
+            dtpPickupTime = new DateTimePicker();
             dtpReturnDate = new DateTimePicker();
             dtpPickUpDate = new DateTimePicker();
             label27 = new Label();
@@ -104,12 +106,11 @@
             dgAvailableVehicles = new DataGridView();
             panel6 = new Panel();
             label35 = new Label();
-            rbRentNow = new RadioButton();
-            gbTransaction = new GroupBox();
-            rbReservation = new RadioButton();
             label36 = new Label();
             cmbPaymentType = new ComboBox();
             panel7 = new Panel();
+            label40 = new Label();
+            cmbPaymentStatus = new ComboBox();
             txtAmount = new TextBox();
             label39 = new Label();
             label38 = new Label();
@@ -125,7 +126,6 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).BeginInit();
             panel6.SuspendLayout();
-            gbTransaction.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -701,6 +701,8 @@
             // 
             panel4.BackColor = Color.White;
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(dtpReturnTime);
+            panel4.Controls.Add(dtpPickupTime);
             panel4.Controls.Add(dtpReturnDate);
             panel4.Controls.Add(dtpPickUpDate);
             panel4.Controls.Add(label27);
@@ -710,37 +712,59 @@
             panel4.Size = new Size(310, 217);
             panel4.TabIndex = 7;
             // 
+            // dtpReturnTime
+            // 
+            dtpReturnTime.Format = DateTimePickerFormat.Time;
+            dtpReturnTime.Location = new Point(156, 143);
+            dtpReturnTime.Name = "dtpReturnTime";
+            dtpReturnTime.ShowUpDown = true;
+            dtpReturnTime.Size = new Size(128, 27);
+            dtpReturnTime.TabIndex = 5;
+            dtpReturnTime.ValueChanged += dtpReturnTime_ValueChanged;
+            // 
+            // dtpPickupTime
+            // 
+            dtpPickupTime.Format = DateTimePickerFormat.Time;
+            dtpPickupTime.Location = new Point(156, 62);
+            dtpPickupTime.Name = "dtpPickupTime";
+            dtpPickupTime.ShowUpDown = true;
+            dtpPickupTime.Size = new Size(128, 27);
+            dtpPickupTime.TabIndex = 4;
+            dtpPickupTime.ValueChanged += dtpPickupTime_ValueChanged;
+            // 
             // dtpReturnDate
             // 
-            dtpReturnDate.Location = new Point(21, 136);
+            dtpReturnDate.Format = DateTimePickerFormat.Custom;
+            dtpReturnDate.Location = new Point(13, 143);
             dtpReturnDate.Name = "dtpReturnDate";
-            dtpReturnDate.Size = new Size(262, 27);
+            dtpReturnDate.Size = new Size(129, 27);
             dtpReturnDate.TabIndex = 3;
             // 
             // dtpPickUpDate
             // 
-            dtpPickUpDate.Location = new Point(21, 57);
+            dtpPickUpDate.Format = DateTimePickerFormat.Custom;
+            dtpPickUpDate.Location = new Point(13, 62);
             dtpPickUpDate.Name = "dtpPickUpDate";
-            dtpPickUpDate.Size = new Size(262, 27);
+            dtpPickUpDate.Size = new Size(129, 27);
             dtpPickUpDate.TabIndex = 2;
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(13, 113);
+            label27.Location = new Point(5, 113);
             label27.Name = "label27";
-            label27.Size = new Size(88, 20);
+            label27.Size = new Size(154, 20);
             label27.TabIndex = 1;
-            label27.Text = "Return Date";
+            label27.Text = "Return Date and Time";
             // 
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new Point(13, 32);
+            label26.Location = new Point(5, 31);
             label26.Name = "label26";
-            label26.Size = new Size(94, 20);
+            label26.Size = new Size(160, 20);
             label26.TabIndex = 0;
-            label26.Text = "Pick-up Date";
+            label26.Text = "Pick-up Date and Time";
             // 
             // label28
             // 
@@ -868,11 +892,11 @@
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(694, 942);
+            btnConfirm.Location = new Point(688, 853);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(296, 52);
             btnConfirm.TabIndex = 9;
-            btnConfirm.Text = "Confirm";
+            btnConfirm.Text = "Confirm Rental";
             btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += btnConfirm_Click;
             // 
@@ -938,46 +962,6 @@
             label35.TabIndex = 1;
             label35.Text = "Rentals ";
             // 
-            // rbRentNow
-            // 
-            rbRentNow.AutoSize = true;
-            rbRentNow.BackColor = Color.FromArgb(58, 124, 165);
-            rbRentNow.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbRentNow.ForeColor = Color.White;
-            rbRentNow.Location = new Point(6, 35);
-            rbRentNow.Name = "rbRentNow";
-            rbRentNow.Size = new Size(119, 32);
-            rbRentNow.TabIndex = 14;
-            rbRentNow.TabStop = true;
-            rbRentNow.Text = "Rent now";
-            rbRentNow.UseVisualStyleBackColor = false;
-            rbRentNow.Click += rbRentNow_CheckedChanged;
-            // 
-            // gbTransaction
-            // 
-            gbTransaction.Controls.Add(rbReservation);
-            gbTransaction.Controls.Add(rbRentNow);
-            gbTransaction.Location = new Point(688, 853);
-            gbTransaction.Name = "gbTransaction";
-            gbTransaction.Size = new Size(317, 83);
-            gbTransaction.TabIndex = 15;
-            gbTransaction.TabStop = false;
-            gbTransaction.Text = "Transaction Type";
-            // 
-            // rbReservation
-            // 
-            rbReservation.AutoSize = true;
-            rbReservation.BackColor = Color.FromArgb(58, 124, 165);
-            rbReservation.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbReservation.ForeColor = Color.White;
-            rbReservation.Location = new Point(172, 35);
-            rbReservation.Name = "rbReservation";
-            rbReservation.Size = new Size(139, 32);
-            rbReservation.TabIndex = 15;
-            rbReservation.TabStop = true;
-            rbReservation.Text = "Reservation";
-            rbReservation.UseVisualStyleBackColor = false;
-            // 
             // label36
             // 
             label36.AutoSize = true;
@@ -991,8 +975,8 @@
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Rent" });
-            cmbPaymentType.Location = new Point(17, 43);
+            cmbPaymentType.Items.AddRange(new object[] { "Full Payment", "Partial" });
+            cmbPaymentType.Location = new Point(15, 24);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(267, 28);
             cmbPaymentType.TabIndex = 0;
@@ -1001,6 +985,8 @@
             // 
             panel7.BackColor = Color.White;
             panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(label40);
+            panel7.Controls.Add(cmbPaymentStatus);
             panel7.Controls.Add(txtAmount);
             panel7.Controls.Add(label39);
             panel7.Controls.Add(label38);
@@ -1012,10 +998,28 @@
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 16;
             // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new Point(15, 160);
+            label40.Name = "label40";
+            label40.Size = new Size(109, 20);
+            label40.TabIndex = 9;
+            label40.Text = "Payment Status";
+            // 
+            // cmbPaymentStatus
+            // 
+            cmbPaymentStatus.FormattingEnabled = true;
+            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Pending" });
+            cmbPaymentStatus.Location = new Point(15, 183);
+            cmbPaymentStatus.Name = "cmbPaymentStatus";
+            cmbPaymentStatus.Size = new Size(267, 28);
+            cmbPaymentStatus.TabIndex = 8;
+            // 
             // txtAmount
             // 
             txtAmount.BorderStyle = BorderStyle.FixedSingle;
-            txtAmount.Location = new Point(17, 105);
+            txtAmount.Location = new Point(15, 78);
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(267, 27);
             txtAmount.TabIndex = 7;
@@ -1023,7 +1027,7 @@
             // label39
             // 
             label39.AutoSize = true;
-            label39.Location = new Point(17, 82);
+            label39.Location = new Point(15, 55);
             label39.Name = "label39";
             label39.Size = new Size(62, 20);
             label39.TabIndex = 6;
@@ -1032,7 +1036,7 @@
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new Point(17, 16);
+            label38.Location = new Point(15, 0);
             label38.Name = "label38";
             label38.Size = new Size(100, 20);
             label38.TabIndex = 5;
@@ -1041,7 +1045,7 @@
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new Point(17, 140);
+            label37.Location = new Point(15, 108);
             label37.Name = "label37";
             label37.Size = new Size(121, 20);
             label37.TabIndex = 4;
@@ -1050,8 +1054,8 @@
             // cmbPaymentMethod
             // 
             cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Cash", "Credit Card", "Gcash" });
-            cmbPaymentMethod.Location = new Point(17, 163);
+            cmbPaymentMethod.Items.AddRange(new object[] { "Bank Transfer", "Cash", "Credit Card", "Gcash", "Paypal" });
+            cmbPaymentMethod.Location = new Point(15, 131);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
             cmbPaymentMethod.Size = new Size(267, 28);
             cmbPaymentMethod.TabIndex = 1;
@@ -1061,7 +1065,6 @@
             BackColor = Color.FromArgb(245, 247, 250);
             Controls.Add(label36);
             Controls.Add(panel7);
-            Controls.Add(gbTransaction);
             Controls.Add(panel6);
             Controls.Add(dgAvailableVehicles);
             Controls.Add(label34);
@@ -1095,8 +1098,6 @@
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            gbTransaction.ResumeLayout(false);
-            gbTransaction.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ResumeLayout(false);
@@ -1176,9 +1177,6 @@
         private Label lblDays;
         private Label lblDates;
         private Label lblVehicle;
-        private RadioButton rbRentNow;
-        private GroupBox gbTransaction;
-        private RadioButton rbReservation;
         private Label label36;
         private ComboBox cmbPaymentType;
         private Panel panel7;
@@ -1187,5 +1185,9 @@
         private Label label39;
         private Label label38;
         private Label label37;
+        private Label label40;
+        private ComboBox cmbPaymentStatus;
+        private DateTimePicker dtpReturnTime;
+        private DateTimePicker dtpPickupTime;
     }
 }

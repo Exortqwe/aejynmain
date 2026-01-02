@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aejynmain.AuthManager;
 using aejynmain.UserControls;
 using MySql.Data.MySqlClient;
 
@@ -42,23 +43,20 @@ namespace aejynmain
                 txtUsername.Focus();
                 return; // mag stop ang execution
             }
-
-            bool success = AuthManager.AuthManager.LogIn(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            bool success = Login.LogIn(txtUsername.Text.Trim(), txtPassword.Text.Trim());
 
             if (success)
             {
                 MessageBox.Show("Welcome!, You have successfully logged in.");
-
-
                 MainForm mf = new MainForm();
                 mf.Show();
                 this.Hide();
             }
             else
             {
-
-                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Incorrect password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Clear();
+                txtPassword.Focus();
             }
         }
                    

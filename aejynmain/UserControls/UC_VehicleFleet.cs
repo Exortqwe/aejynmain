@@ -35,6 +35,16 @@ namespace aejynmain.UserControls
                 // Set DataSource to DataTable
                 dgVehicleFleet.AutoGenerateColumns = true;
                 dgVehicleFleet.DataSource = tblVehicle;
+
+                // Format rate columns with currency
+                if (dgVehicleFleet.Columns["DailyRate"] != null)
+                    dgVehicleFleet.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+                if (dgVehicleFleet.Columns["WeeklyRate"] != null)
+                    dgVehicleFleet.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+                if (dgVehicleFleet.Columns["MonthlyRate"] != null)
+                    dgVehicleFleet.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+                if (dgVehicleFleet.Columns["HourlyRate"] != null)
+                    dgVehicleFleet.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
             }
             catch (Exception ex)
             {
@@ -117,7 +127,7 @@ namespace aejynmain.UserControls
             }
             else
             {
-                tblVehicle.DefaultView.RowFilter = 
+                tblVehicle.DefaultView.RowFilter =
                     $"Convert(VehicleID, 'System.String') LIKE '%{filter}%' OR " +
                     $"Make LIKE '%{filter}%' OR " +
                     $"Model LIKE '%{filter}%' OR " +
@@ -171,6 +181,77 @@ namespace aejynmain.UserControls
                     MessageBox.Show("Failed to delete vehicle.");
                 }
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            // Enable editing in DataGridView
+            dgVehicleFleet.ReadOnly = false;
+            dgVehicleFleet.EditMode = DataGridViewEditMode.EditOnEnter;
+
+            // Make VehicleID read-only (should not be edited)
+            if (dgVehicleFleet.Columns["VehicleID"] != null)
+                dgVehicleFleet.Columns["VehicleID"].ReadOnly = true;
+        }
+
+        private void dgVehicleFleet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgVehicleFleet.CurrentRow == null) return;
+
+            try
+            {
+                int vehicleID = Convert.ToInt32(
+                    dgVehicleFleet.CurrentRow.Cells["VehicleID"].Value
+                );
+
+                string columnName = dgVehicleFleet.Columns[e.ColumnIndex].Name;
+
+                // Protect VehicleID
+                if (columnName == "VehicleID")
+                    return;
+
+                object newValue = dgVehicleFleet.Rows[e.RowIndex]
+                    .Cells[e.ColumnIndex].Value;
+
+                // Column mapping 
+                string dbColumnName = columnName;
+                if (columnName == "Year")
+                    dbColumnName = "VehicleYear";
+                else if (columnName == "Status")
+                    dbColumnName = "VehicleStatus";
+
+                bool success = VehicleFleet.UpdateVehicle(
+                    vehicleID,
+                    dbColumnName,
+                    newValue
+                );
+
+                if (!success)
+                {
+                    MessageBox.Show(
+                        "Failed to update vehicle information.",
+                        "Update Failed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    LoadVehicles();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error updating vehicle:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                LoadVehicles();
+            }
+        }
+
+        private void dgVehicleFleet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

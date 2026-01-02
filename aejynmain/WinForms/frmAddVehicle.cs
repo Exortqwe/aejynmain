@@ -43,7 +43,7 @@ namespace aejynmain
                     DailyRate = decimal.Parse(txtDailyRate.Text),
                     WeeklyRate = decimal.Parse(txtWeeklyRate.Text),
                     MonthlyRate = decimal.Parse(txtMonthlyRate.Text),
-                    Features = txtFeatures.Text, // Assuming you have a TextBox for Features
+                    Features = txtFeatures.Text,
                     Status = cmbStatus.Text,
                     image_path = pbCarImage.ImageLocation
                 };

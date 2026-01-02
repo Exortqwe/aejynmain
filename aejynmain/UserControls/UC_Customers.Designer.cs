@@ -99,6 +99,7 @@
             dgAddCustomer.RowHeadersWidth = 51;
             dgAddCustomer.Size = new Size(1351, 686);
             dgAddCustomer.TabIndex = 72;
+            dgAddCustomer.CellEndEdit += dgAddCustomer_CellEndEdit;
             // 
             // panel1
             // 
@@ -181,10 +182,12 @@
             btnDelete.IconColor = Color.White;
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
-            btnDelete.Location = new Point(1470, 129);
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(1420, 129);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(66, 41);
+            btnDelete.Size = new Size(116, 41);
             btnDelete.TabIndex = 77;
+            btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
@@ -199,11 +202,14 @@
             btnEdit.IconColor = Color.White;
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
-            btnEdit.Location = new Point(1398, 129);
+            btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEdit.Location = new Point(1304, 129);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(66, 41);
+            btnEdit.Size = new Size(110, 41);
             btnEdit.TabIndex = 78;
+            btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnViewCustomer
             // 
@@ -216,10 +222,13 @@
             btnViewCustomer.IconColor = Color.White;
             btnViewCustomer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnViewCustomer.IconSize = 32;
-            btnViewCustomer.Location = new Point(1326, 129);
+            btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnViewCustomer.Location = new Point(1104, 129);
             btnViewCustomer.Name = "btnViewCustomer";
-            btnViewCustomer.Size = new Size(66, 41);
+            btnViewCustomer.Size = new Size(194, 41);
             btnViewCustomer.TabIndex = 79;
+            btnViewCustomer.Text = "View Customer History";
+            btnViewCustomer.TextAlign = ContentAlignment.MiddleRight;
             btnViewCustomer.UseVisualStyleBackColor = false;
             btnViewCustomer.Click += btnViewCustomer_Click;
             // 

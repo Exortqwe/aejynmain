@@ -27,11 +27,11 @@ namespace aejynmain.UserControls
                 // Tawag sa service para makuha ang data
                 var dashboardData = DashboardService.GetDashboardData();
 
-                // MGA PANEL CARDS
+                // mga panel cards
                 lblTotalVehicles.Text = dashboardData.TotalVehicles.ToString();
                 lblAvailableVehicles.Text = dashboardData.AvailableVehicles.ToString();
                 lblActiveRentals.Text = dashboardData.ActiveRentals.ToString();
-                lblReservation.Text = dashboardData.Reservation.ToString();
+                lblReservedVehicles.Text = dashboardData.Reservation.ToString();
                 lblLateReturn.Text = dashboardData.LateReturn.ToString();
                 lblRevenueToday.Text = dashboardData.RevenueToday.ToString("₱#,###.00");
 
@@ -41,7 +41,7 @@ namespace aejynmain.UserControls
                 foreach (DataRow row in dtRevenue.Rows)
                 {
                     chartRevenue.Series[0].Points.AddXY(
-                        Convert.ToDateTime(row["payDate"]).ToString("MMM dd"),
+                        Convert.ToDateTime(row["payDate"]).ToString("MM dd"),
                         Convert.ToDecimal(row["totalRevenue"]));
                 }
 
@@ -50,7 +50,7 @@ namespace aejynmain.UserControls
                 foreach (DataRow row in dtVehicle.Rows)
                 {
                     chartVehicleStatus.Series[0].Points.AddXY(
-                        row["v_Status"].ToString(),
+                        row["VehicleStatus"].ToString(),
                         Convert.ToInt32(row["total"]));
                 }
             }
@@ -61,15 +61,9 @@ namespace aejynmain.UserControls
 
         }
 
-        private void chartVehicleStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void chartRevenue_Click(object sender, EventArgs e)
         {
 
         }
     }
 }
-

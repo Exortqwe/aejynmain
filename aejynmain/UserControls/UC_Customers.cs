@@ -49,7 +49,7 @@ namespace aejynmain.UserControls
             dt.Columns.Add("Address", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
             dt.Columns.Add("LicenseNumber", typeof(string));
-            dt.Columns.Add("LicenseExpiry Date", typeof(DateTime));
+            dt.Columns.Add("LicenseExpiryDate", typeof(DateTime));
             dt.Columns.Add("BirthDate", typeof(DateTime));
             dt.Columns.Add("DateRegistered", typeof(DateTime));
 
@@ -151,5 +151,63 @@ namespace aejynmain.UserControls
             ch.Show();
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            dgAddCustomer.ReadOnly = false;
+            dgAddCustomer.EditMode = DataGridViewEditMode.EditOnEnter;
+            if (dgAddCustomer.Columns["CustomerID"] != null)
+                dgAddCustomer.Columns["CustomerID"].ReadOnly = true;
+            if (dgAddCustomer.Columns["DateRegistered"] != null)
+                dgAddCustomer.Columns["DateRegistered"].ReadOnly = true;
+
+        }
+
+        private void dgAddCustomer_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgAddCustomer.CurrentRow == null) return;
+
+            try
+            {
+                int customerID = Convert.ToInt32(
+                    dgAddCustomer.CurrentRow.Cells["CustomerID"].Value
+                );
+
+                string columnName = dgAddCustomer.Columns[e.ColumnIndex].Name;
+
+                // Protect non-editable columns
+                if (columnName == "CustomerID" || columnName == "DateRegistered")
+                    return;
+
+                object newValue = dgAddCustomer.Rows[e.RowIndex]
+                    .Cells[e.ColumnIndex].Value;
+
+                bool success = CustomerDetails.UpdateCustomer(
+                    customerID,
+                    columnName,
+                    newValue
+                );
+
+                if (!success)
+                {
+                    MessageBox.Show(
+                        "Failed to update customer information.",
+                        "Update Failed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    LoadCustomers(); // revert changes
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error updating customer:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                LoadCustomers(); // revert changes
+            }
+        }
     }
 }

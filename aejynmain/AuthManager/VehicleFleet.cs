@@ -37,7 +37,7 @@ namespace aejynmain.AuthManager
                             Model = dr["Model"].ToString(),
                             LicensePlate = dr["LicensePlate"].ToString(),
                             Mileage = Convert.ToInt32(dr["Mileage"]),
-                            Year = Convert.ToInt32(dr["Year"]),
+                            Year = Convert.ToInt32(dr["VehicleYear"]),
                             VIN = dr["VIN"].ToString(),
                             Color = dr["Color"].ToString(),
                             Transmission = dr["Transmission"].ToString(),
@@ -48,7 +48,7 @@ namespace aejynmain.AuthManager
                             WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),
                             MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
                             Features = dr["Features"].ToString(),
-                            Status = dr["Status"].ToString(),
+                            Status = dr["VehicleStatus"].ToString(),
                             image_path = dr["image_path"].ToString()
                         });
                     }
@@ -74,14 +74,14 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Model", v.Model);
                     cmd.Parameters.AddWithValue("p_LicensePlate", v.LicensePlate);
                     cmd.Parameters.AddWithValue("p_Mileage", v.Mileage);
-                    cmd.Parameters.AddWithValue("p_V_Year", v.Year);
+                    cmd.Parameters.AddWithValue("p_VehicleYear", v.Year);
                     cmd.Parameters.AddWithValue("p_VIN", v.VIN);
                     cmd.Parameters.AddWithValue("p_Color", v.Color);
                     cmd.Parameters.AddWithValue("p_Transmission", v.Transmission);
                     cmd.Parameters.AddWithValue("p_FuelType", v.FuelType);
                     cmd.Parameters.AddWithValue("p_SeatingCapacity", v.SeatingCapacity);
                     cmd.Parameters.AddWithValue("p_Features", v.Features);
-                    cmd.Parameters.AddWithValue("p_v_Status", v.Status);
+                    cmd.Parameters.AddWithValue("p_VehicleStatus", v.Status);
                     cmd.Parameters.AddWithValue("p_image_path", v.image_path);
 
                     conn.Open();
@@ -110,6 +110,40 @@ namespace aejynmain.AuthManager
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Deleting Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool UpdateVehicle(int vehicleID, string columnName, object newValue)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    // Create the SQL query to update the column of the vehicle based on the VehicleID
+                    string query = $"UPDATE tblvehicles SET {columnName} = @NewValue WHERE VehicleID = @VehicleID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        // Add the parameters to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@VehicleID", vehicleID);
+                        cmd.Parameters.AddWithValue("@NewValue", newValue ?? DBNull.Value);
+
+                        // Open the connection
+                        conn.Open();
+
+                        // Execute the query and check how many rows were affected
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // If rows were affected, return true (update successful)
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the update process
+                MessageBox.Show(ex.Message, "Error Updating Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

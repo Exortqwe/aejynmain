@@ -175,5 +175,13 @@ namespace aejynmain.AuthManager
                 return false;
             }
         }
+
+        // CHECK IF CUSTOMER MEETS MINIMUM AGE (21 years old)
+        public static bool IsAgeValid(DateTime birthDate)
+        {
+            int age = DateTime.Today.Year - birthDate.Year;
+            if (birthDate.Date > DateTime.Today.AddYears(-age)) age--;
+            return age >= 21;
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace aejynmain
         UC_Customers customers = new UC_Customers();
         UC_Returns returns = new UC_Returns();
         UC_Reports reports = new UC_Reports();
+        UC_Reservations reservation = new UC_Reservations();
         public MainForm()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace aejynmain
         }
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            UC_Dashboard dashboard = new UC_Dashboard();
+            dashboard = new UC_Dashboard();
             addUserControls(dashboard);
         }
 
@@ -76,6 +77,12 @@ namespace aejynmain
         {
             UC_Reports reports = new UC_Reports();
             addUserControls(reports);
+        }
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            UC_Reservations reservation = new UC_Reservations();
+            addUserControls(reservation);
         }
     }
 }

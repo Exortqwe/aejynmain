@@ -22,7 +22,7 @@ namespace aejynmain.AuthManager
                 TotalVehicles = GetCount("sp_TotalVehicles"),
                 AvailableVehicles = GetCount("sp_AvailableVehicles"),
                 ActiveRentals = GetCount("sp_ActiveRentals"),
-                Reservation = GetCount("sp_ReservedReservation"),
+                Reservation = GetCount("sp_ReservationCount"),
                 LateReturn = GetCount("sp_LateReturnRentals"),
                 RevenueToday = GetAmount("sp_RevenueToday")
             };
