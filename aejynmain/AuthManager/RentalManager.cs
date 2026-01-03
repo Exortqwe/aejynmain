@@ -21,7 +21,6 @@ namespace aejynmain.AuthManager
                 using (MySqlCommand cmd = new MySqlCommand("sp_SaveRental", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("p_UserID", User.UserID);
                     cmd.Parameters.AddWithValue("p_CustomerID", rental.CustomerID);
                     cmd.Parameters.AddWithValue("p_VehicleID", rental.VehicleID);
                     cmd.Parameters.AddWithValue("p_PickUpDate", rental.PickUpDate);
@@ -32,6 +31,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Amount", rental.Payment.Amount);
                     cmd.Parameters.AddWithValue("p_PaymentMethod", rental.Payment.PaymentMethod);
                     cmd.Parameters.AddWithValue("p_PaymentStatus", rental.Payment.PaymentStatus);
+                    cmd.Parameters.AddWithValue("p_PickupMileage", rental.PickupMileage);
                     cmd.Parameters.AddWithValue("p_UserID", User.UserID);
 
 
@@ -60,17 +60,18 @@ namespace aejynmain.AuthManager
                             CategoryName = dr["CategoryName"].ToString(),
                             Transmission = dr["Transmission"].ToString(),
                             FuelType = dr["FuelType"].ToString(),
+                            InitialCondition = dr["InitialCondition"].ToString(),
                             LicensePlate = dr["LicensePlate"].ToString(),
                             Color = dr["Color"].ToString(),
                             Mileage = Convert.ToInt32(dr["Mileage"]),
-                            Year = Convert.ToInt32(dr["VehicleYear"]),  
+                            Year = Convert.ToInt32(dr["VehicleYear"]),
                             VIN = dr["VIN"].ToString(),
                             SeatingCapacity = Convert.ToInt32(dr["SeatingCapacity"]),
                             HourlyRate = Convert.ToDecimal(dr["HourlyRate"]),
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),
                             WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),
                             MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
-                            Status = dr["VehicleStatus"].ToString(),   
+                            Status = dr["VehicleStatus"].ToString(),
                             Features = dr["Features"].ToString(),
                             image_path = dr["image_path"].ToString()
                         });

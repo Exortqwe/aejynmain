@@ -68,6 +68,10 @@
             pbCarImage = new PictureBox();
             label18 = new Label();
             btnSelectImage = new Button();
+            label19 = new Label();
+            cmbFuelLevel = new ComboBox();
+            label21 = new Label();
+            txtInitialCondition = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbCarImage).BeginInit();
             SuspendLayout();
@@ -369,7 +373,7 @@
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(442, 387);
+            btnSave.Location = new Point(445, 443);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(234, 43);
             btnSave.TabIndex = 32;
@@ -469,11 +473,55 @@
             btnSelectImage.UseVisualStyleBackColor = false;
             btnSelectImage.Click += btnSelectImage_Click;
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(22, 377);
+            label19.Name = "label19";
+            label19.Size = new Size(86, 23);
+            label19.TabIndex = 43;
+            label19.Text = "Fuel Level";
+            // 
+            // cmbFuelLevel
+            // 
+            cmbFuelLevel.Font = new Font("Segoe UI", 12F);
+            cmbFuelLevel.FormattingEnabled = true;
+            cmbFuelLevel.Items.AddRange(new object[] { "Full", "Half" });
+            cmbFuelLevel.Location = new Point(22, 413);
+            cmbFuelLevel.Name = "cmbFuelLevel";
+            cmbFuelLevel.Size = new Size(179, 36);
+            cmbFuelLevel.TabIndex = 44;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(242, 377);
+            label21.Name = "label21";
+            label21.Size = new Size(132, 23);
+            label21.TabIndex = 46;
+            label21.Text = "Initial Condition";
+            // 
+            // txtInitialCondition
+            // 
+            txtInitialCondition.BorderStyle = BorderStyle.FixedSingle;
+            txtInitialCondition.Location = new Point(231, 413);
+            txtInitialCondition.Multiline = true;
+            txtInitialCondition.Name = "txtInitialCondition";
+            txtInitialCondition.Size = new Size(176, 36);
+            txtInitialCondition.TabIndex = 47;
+            txtInitialCondition.TextChanged += lblInitialCondition_TextChanged;
+            // 
             // frmAddVehicle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1391, 546);
+            Controls.Add(txtInitialCondition);
+            Controls.Add(label21);
+            Controls.Add(cmbFuelLevel);
+            Controls.Add(label19);
             Controls.Add(btnSelectImage);
             Controls.Add(label18);
             Controls.Add(pbCarImage);
@@ -566,5 +614,9 @@
         private PictureBox pbCarImage;
         private Label label18;
         private Button btnSelectImage;
+        private Label label19;
+        private ComboBox cmbFuelLevel;
+        private Label label21;
+        private TextBox txtInitialCondition;
     }
 }

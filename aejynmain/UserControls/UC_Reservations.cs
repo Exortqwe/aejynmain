@@ -151,7 +151,8 @@ namespace aejynmain.UserControls
                     MessageBox.Show("Please enter a valid payment amount.");
                     return;
                 }
-
+                // Get pickup mileage gikan sa selected vehicle sa datagridview
+                int pickupMileage = Convert.ToInt32(dgAvailableVehicles.CurrentRow.Cells["Mileage"].Value);
                 Reservation reservation = new Reservation
                 {
 
@@ -161,6 +162,7 @@ namespace aejynmain.UserControls
                     PickUpDate = GetPickupDateTime(),
                     ReturnDate = GetReturnDateTime(),
                     Status = "Reserved",
+                    PickupMileage = pickupMileage,
                     TotalAmount = computedTotal,
                     Payment = new Payment
                     {
@@ -180,6 +182,11 @@ namespace aejynmain.UserControls
             {
                 MessageBox.Show("Error:\n" + ex.Message);
             }
+        }
+
+        private void dgAvailableVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

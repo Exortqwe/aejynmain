@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            label1 = new Label();
             btnReservation = new Button();
             btnFleetManagement = new Button();
             btnReturns = new Button();
@@ -41,7 +42,7 @@
             btnReservations = new Button();
             pictureBox1 = new PictureBox();
             panelMain = new Panel();
-            label1 = new Label();
+            btnMaintenance = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -49,6 +50,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
+            panel1.Controls.Add(btnMaintenance);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnReservation);
             panel1.Controls.Add(btnFleetManagement);
@@ -65,6 +67,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 898);
             panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(32, 123);
+            label1.Name = "label1";
+            label1.Size = new Size(182, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Welcome back! Admin";
             // 
             // btnReservation
             // 
@@ -155,7 +168,7 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(0, 712);
+            btnLogOut.Location = new Point(0, 782);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
             btnLogOut.Size = new Size(250, 64);
@@ -175,10 +188,10 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(3, 642);
+            btnReports.Location = new Point(0, 712);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
-            btnReports.Size = new Size(250, 64);
+            btnReports.Size = new Size(247, 64);
             btnReports.TabIndex = 11;
             btnReports.Text = "            Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
@@ -203,6 +216,7 @@
             btnDamageClaims.Text = "            Damage Claims";
             btnDamageClaims.TextAlign = ContentAlignment.MiddleLeft;
             btnDamageClaims.UseVisualStyleBackColor = false;
+            btnDamageClaims.Click += btnDamageClaims_Click;
             // 
             // btnCustomers
             // 
@@ -263,16 +277,25 @@
             panelMain.Size = new Size(1058, 898);
             panelMain.TabIndex = 2;
             // 
-            // label1
+            // btnMaintenance
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(32, 123);
-            label1.Name = "label1";
-            label1.Size = new Size(182, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Welcome back! Admin";
+            btnMaintenance.BackColor = Color.FromArgb(28, 73, 102);
+            btnMaintenance.FlatAppearance.BorderSize = 0;
+            btnMaintenance.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnMaintenance.FlatStyle = FlatStyle.Flat;
+            btnMaintenance.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnMaintenance.ForeColor = Color.White;
+            btnMaintenance.Image = (Image)resources.GetObject("btnMaintenance.Image");
+            btnMaintenance.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMaintenance.Location = new Point(-3, 642);
+            btnMaintenance.Name = "btnMaintenance";
+            btnMaintenance.Padding = new Padding(20, 0, 0, 0);
+            btnMaintenance.Size = new Size(247, 64);
+            btnMaintenance.TabIndex = 15;
+            btnMaintenance.Text = "            Maintenance";
+            btnMaintenance.TextAlign = ContentAlignment.MiddleLeft;
+            btnMaintenance.UseVisualStyleBackColor = false;
+            btnMaintenance.Click += btnMaintenance_Click;
             // 
             // MainForm
             // 
@@ -308,5 +331,6 @@
         private Button btnReturns;
         private Button btnReservation;
         private Label label1;
+        private Button btnMaintenance;
     }
 }

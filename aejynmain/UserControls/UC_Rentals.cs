@@ -154,15 +154,16 @@ namespace aejynmain.UserControls
                     MessageBox.Show("Please enter a valid payment amount.");
                     return;
                 }
-
+                // Get pickup mileage gikan sa selected vehicle sa datagridview
+                int pickupMileage = Convert.ToInt32(dgAvailableVehicles.CurrentRow.Cells["Mileage"].Value);
                 Rental rental = new Rental
                 {
-
                     UserID = User.UserID,
                     CustomerID = selectedCustomerId,
                     VehicleID = selectedVehicleId,
                     PickUpDate = GetPickupDateTime(),
                     ReturnDate = GetReturnDateTime(),
+                    PickupMileage = pickupMileage,
                     Status = "Rented",
                     TotalAmount = computedTotal,
                     Payment = new Payment

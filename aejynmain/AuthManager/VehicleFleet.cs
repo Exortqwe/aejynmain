@@ -17,6 +17,7 @@ namespace aejynmain.AuthManager
 
         public static List<Vehicle> GetVehicleList()
         {
+
             List<Vehicle> vehicles = new List<Vehicle>();
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
@@ -49,6 +50,7 @@ namespace aejynmain.AuthManager
                             MonthlyRate = Convert.ToDecimal(dr["MonthlyRate"]),
                             Features = dr["Features"].ToString(),
                             Status = dr["VehicleStatus"].ToString(),
+                            FuelLevel = dr["FuelLevel"].ToString(),
                             image_path = dr["image_path"].ToString()
                         });
                     }
@@ -79,12 +81,15 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Color", v.Color);
                     cmd.Parameters.AddWithValue("p_Transmission", v.Transmission);
                     cmd.Parameters.AddWithValue("p_FuelType", v.FuelType);
+                    cmd.Parameters.AddWithValue("p_FuelLevel", v.FuelLevel);
+                    cmd.Parameters.AddWithValue("p_InitialCondition", v.InitialCondition);
                     cmd.Parameters.AddWithValue("p_SeatingCapacity", v.SeatingCapacity);
                     cmd.Parameters.AddWithValue("p_Features", v.Features);
                     cmd.Parameters.AddWithValue("p_VehicleStatus", v.Status);
                     cmd.Parameters.AddWithValue("p_image_path", v.image_path);
 
                     conn.Open();
+
                     return cmd.ExecuteNonQuery() > 0;
                 }
             }

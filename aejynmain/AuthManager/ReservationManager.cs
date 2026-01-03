@@ -33,6 +33,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_Amount", reservation.Payment.Amount);
                     cmd.Parameters.AddWithValue("p_PaymentMethod", reservation.Payment.PaymentMethod);
                     cmd.Parameters.AddWithValue("p_PaymentStatus", reservation.Payment.PaymentStatus);
+                    cmd.Parameters.AddWithValue("p_PickupMileage", reservation.PickupMileage);
 
                     cmd.ExecuteNonQuery();
                 }

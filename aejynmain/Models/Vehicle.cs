@@ -27,5 +27,7 @@ namespace aejynmain.Models
         public string Status { get; set; }  
         public string Features { get; set; }      
         public string image_path { get; set; }
+        public string FuelLevel { get; set; }
+        public string InitialCondition { get; set; }
     }
 }

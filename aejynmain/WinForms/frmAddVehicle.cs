@@ -38,6 +38,8 @@ namespace aejynmain
                     Color = txtColor.Text,
                     Transmission = cmbTransmission.Text,
                     FuelType = cmbFuelType.Text,
+                    FuelLevel = cmbFuelLevel.Text,
+                    InitialCondition = txtInitialCondition.Text,
                     SeatingCapacity = int.Parse(txtSeatingCapacity.Text),
                     HourlyRate = decimal.Parse(txtHourlyRate.Text),
                     DailyRate = decimal.Parse(txtDailyRate.Text),
@@ -70,7 +72,7 @@ namespace aejynmain
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png"; 
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             openFileDialog.Title = "Select an Image";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -78,6 +80,11 @@ namespace aejynmain
                 // Display the image in the PictureBox
                 pbCarImage.Image = Image.FromFile(openFileDialog.FileName);
             }
+        }
+
+        private void lblInitialCondition_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

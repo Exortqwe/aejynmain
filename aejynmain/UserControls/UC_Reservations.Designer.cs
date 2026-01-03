@@ -486,6 +486,7 @@
             dgAvailableVehicles.Size = new Size(1630, 455);
             dgAvailableVehicles.TabIndex = 30;
             dgAvailableVehicles.CellClick += dgAvailableVehicles_CellClick;
+            dgAvailableVehicles.CellContentClick += dgAvailableVehicles_CellContentClick;
             // 
             // btnConfirmReservation
             // 

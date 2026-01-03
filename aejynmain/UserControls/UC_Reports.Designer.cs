@@ -28,58 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             label12 = new Label();
             panel9 = new Panel();
             panel1 = new Panel();
-            label1 = new Label();
-            lblFleetRate = new Label();
             label3 = new Label();
+            lblFleetRate = new Label();
+            label1 = new Label();
             panel2 = new Panel();
             label4 = new Label();
             lblRevenuePerVehicle = new Label();
             label6 = new Label();
             panel3 = new Panel();
-            label7 = new Label();
             lblAverageRentalRate = new Label();
             label9 = new Label();
             panel4 = new Panel();
-            label10 = new Label();
             lblCustomerRetentionRate = new Label();
             label13 = new Label();
             panel5 = new Panel();
-            dgAvailabilityStatus = new DataGridView();
+            dgFleetAvailabilityStatus = new DataGridView();
             label14 = new Label();
             panel6 = new Panel();
+            lblVehiclePercentage3 = new Label();
+            lblVehiclePercentage2 = new Label();
+            lblVehiclePercentage1 = new Label();
+            lblVehicle3 = new Label();
+            lblVehicle2 = new Label();
+            lblVehicle1 = new Label();
             label15 = new Label();
             panel7 = new Panel();
-            label16 = new Label();
-            lblVehicle1 = new Label();
-            lblVehicle2 = new Label();
-            lblVehicle3 = new Label();
-            lblVehiclePercentage1 = new Label();
-            lblVehiclePercentage2 = new Label();
-            lblVehiclePercentage3 = new Label();
-            lblLateReturn = new Label();
-            label5 = new Label();
-            lblAverageDelay = new Label();
             label11 = new Label();
+            lblAverageDelay = new Label();
+            label5 = new Label();
+            lblLateReturn = new Label();
+            label16 = new Label();
             panel8 = new Panel();
+            dgRentalScheduleAndDurationAnalysis = new DataGridView();
             label2 = new Label();
-            label8 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            dataGridView1 = new DataGridView();
             panel9.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgAvailabilityStatus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgFleetAvailabilityStatus).BeginInit();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgRentalScheduleAndDurationAnalysis).BeginInit();
             SuspendLayout();
             // 
             // label12
@@ -110,20 +111,19 @@
             panel1.Controls.Add(lblFleetRate);
             panel1.Controls.Add(label1);
             panel1.ForeColor = Color.White;
-            panel1.Location = new Point(32, 141);
+            panel1.Location = new Point(90, 96);
             panel1.Name = "panel1";
             panel1.Size = new Size(345, 125);
             panel1.TabIndex = 75;
             // 
-            // label1
+            // label3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(234, 31);
-            label1.TabIndex = 0;
-            label1.Text = "Fleet Utilization Rate ";
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 96);
+            label3.Name = "label3";
+            label3.Size = new Size(337, 20);
+            label3.TabIndex = 2;
+            label3.Text = "(Total Rental Days / Total Available Days) × 100%";
             // 
             // lblFleetRate
             // 
@@ -135,14 +135,15 @@
             lblFleetRate.TabIndex = 1;
             lblFleetRate.Text = "78.5%";
             // 
-            // label3
+            // label1
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 96);
-            label3.Name = "label3";
-            label3.Size = new Size(337, 20);
-            label3.TabIndex = 2;
-            label3.Text = "(Total Rental Days / Total Available Days) × 100%";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(234, 31);
+            label1.TabIndex = 0;
+            label1.Text = "Fleet Utilization Rate ";
             // 
             // panel2
             // 
@@ -151,7 +152,7 @@
             panel2.Controls.Add(lblRevenuePerVehicle);
             panel2.Controls.Add(label6);
             panel2.ForeColor = Color.White;
-            panel2.Location = new Point(404, 141);
+            panel2.Location = new Point(462, 96);
             panel2.Name = "panel2";
             panel2.Size = new Size(345, 125);
             panel2.TabIndex = 76;
@@ -188,23 +189,13 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(58, 124, 165);
-            panel3.Controls.Add(label7);
             panel3.Controls.Add(lblAverageRentalRate);
             panel3.Controls.Add(label9);
             panel3.ForeColor = Color.White;
-            panel3.Location = new Point(773, 141);
+            panel3.Location = new Point(834, 96);
             panel3.Name = "panel3";
             panel3.Size = new Size(345, 125);
             panel3.TabIndex = 77;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(3, 96);
-            label7.Name = "label7";
-            label7.Size = new Size(337, 20);
-            label7.TabIndex = 2;
-            label7.Text = "(Total Rental Days / Total Available Days) × 100%";
             // 
             // lblAverageRentalRate
             // 
@@ -229,23 +220,13 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(58, 124, 165);
-            panel4.Controls.Add(label10);
             panel4.Controls.Add(lblCustomerRetentionRate);
             panel4.Controls.Add(label13);
             panel4.ForeColor = Color.White;
-            panel4.Location = new Point(1142, 141);
+            panel4.Location = new Point(1202, 96);
             panel4.Name = "panel4";
             panel4.Size = new Size(345, 125);
             panel4.TabIndex = 78;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(3, 96);
-            label10.Name = "label10";
-            label10.Size = new Size(337, 20);
-            label10.TabIndex = 2;
-            label10.Text = "(Total Rental Days / Total Available Days) × 100%";
             // 
             // lblCustomerRetentionRate
             // 
@@ -270,21 +251,55 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(58, 124, 165);
+            panel5.Controls.Add(dgFleetAvailabilityStatus);
             panel5.Controls.Add(label14);
-            panel5.Controls.Add(dgAvailabilityStatus);
-            panel5.Location = new Point(32, 291);
+            panel5.Location = new Point(90, 234);
             panel5.Name = "panel5";
             panel5.Size = new Size(720, 336);
             panel5.TabIndex = 79;
             // 
-            // dgAvailabilityStatus
+            // dgFleetAvailabilityStatus
             // 
-            dgAvailabilityStatus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgAvailabilityStatus.Location = new Point(13, 51);
-            dgAvailabilityStatus.Name = "dgAvailabilityStatus";
-            dgAvailabilityStatus.RowHeadersWidth = 51;
-            dgAvailabilityStatus.Size = new Size(689, 268);
-            dgAvailabilityStatus.TabIndex = 0;
+            dgFleetAvailabilityStatus.AllowUserToResizeColumns = false;
+            dgFleetAvailabilityStatus.AllowUserToResizeRows = false;
+            dgFleetAvailabilityStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgFleetAvailabilityStatus.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgFleetAvailabilityStatus.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgFleetAvailabilityStatus.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgFleetAvailabilityStatus.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgFleetAvailabilityStatus.DefaultCellStyle = dataGridViewCellStyle8;
+            dgFleetAvailabilityStatus.EnableHeadersVisualStyles = false;
+            dgFleetAvailabilityStatus.GridColor = SystemColors.GrayText;
+            dgFleetAvailabilityStatus.Location = new Point(13, 51);
+            dgFleetAvailabilityStatus.Name = "dgFleetAvailabilityStatus";
+            dgFleetAvailabilityStatus.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dgFleetAvailabilityStatus.RowHeadersVisible = false;
+            dgFleetAvailabilityStatus.RowHeadersWidth = 51;
+            dgFleetAvailabilityStatus.Size = new Size(691, 268);
+            dgFleetAvailabilityStatus.TabIndex = 73;
             // 
             // label14
             // 
@@ -307,10 +322,76 @@
             panel6.Controls.Add(lblVehicle2);
             panel6.Controls.Add(lblVehicle1);
             panel6.Controls.Add(label15);
-            panel6.Location = new Point(767, 291);
+            panel6.Location = new Point(834, 234);
             panel6.Name = "panel6";
             panel6.Size = new Size(720, 179);
             panel6.TabIndex = 80;
+            // 
+            // lblVehiclePercentage3
+            // 
+            lblVehiclePercentage3.AutoSize = true;
+            lblVehiclePercentage3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVehiclePercentage3.ForeColor = Color.White;
+            lblVehiclePercentage3.Location = new Point(562, 138);
+            lblVehiclePercentage3.Name = "lblVehiclePercentage3";
+            lblVehiclePercentage3.Size = new Size(90, 31);
+            lblVehiclePercentage3.TabIndex = 9;
+            lblVehiclePercentage3.Text = "label22";
+            // 
+            // lblVehiclePercentage2
+            // 
+            lblVehiclePercentage2.AutoSize = true;
+            lblVehiclePercentage2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVehiclePercentage2.ForeColor = Color.White;
+            lblVehiclePercentage2.Location = new Point(562, 96);
+            lblVehiclePercentage2.Name = "lblVehiclePercentage2";
+            lblVehiclePercentage2.Size = new Size(86, 31);
+            lblVehiclePercentage2.TabIndex = 8;
+            lblVehiclePercentage2.Text = "label21";
+            // 
+            // lblVehiclePercentage1
+            // 
+            lblVehiclePercentage1.AutoSize = true;
+            lblVehiclePercentage1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVehiclePercentage1.ForeColor = Color.White;
+            lblVehiclePercentage1.Location = new Point(562, 51);
+            lblVehiclePercentage1.Name = "lblVehiclePercentage1";
+            lblVehiclePercentage1.Size = new Size(90, 31);
+            lblVehiclePercentage1.TabIndex = 7;
+            lblVehiclePercentage1.Text = "label20";
+            // 
+            // lblVehicle3
+            // 
+            lblVehicle3.AutoSize = true;
+            lblVehicle3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            lblVehicle3.ForeColor = Color.White;
+            lblVehicle3.Location = new Point(15, 138);
+            lblVehicle3.Name = "lblVehicle3";
+            lblVehicle3.Size = new Size(86, 31);
+            lblVehicle3.TabIndex = 6;
+            lblVehicle3.Text = "label19";
+            // 
+            // lblVehicle2
+            // 
+            lblVehicle2.AutoSize = true;
+            lblVehicle2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            lblVehicle2.ForeColor = Color.White;
+            lblVehicle2.Location = new Point(15, 96);
+            lblVehicle2.Name = "lblVehicle2";
+            lblVehicle2.Size = new Size(86, 31);
+            lblVehicle2.TabIndex = 5;
+            lblVehicle2.Text = "label18";
+            // 
+            // lblVehicle1
+            // 
+            lblVehicle1.AutoSize = true;
+            lblVehicle1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            lblVehicle1.ForeColor = Color.White;
+            lblVehicle1.Location = new Point(15, 51);
+            lblVehicle1.Name = "lblVehicle1";
+            lblVehicle1.Size = new Size(85, 31);
+            lblVehicle1.TabIndex = 4;
+            lblVehicle1.Text = "label17";
             // 
             // label15
             // 
@@ -331,120 +412,10 @@
             panel7.Controls.Add(label5);
             panel7.Controls.Add(lblLateReturn);
             panel7.Controls.Add(label16);
-            panel7.Location = new Point(767, 476);
+            panel7.Location = new Point(834, 419);
             panel7.Name = "panel7";
             panel7.Size = new Size(720, 151);
             panel7.TabIndex = 81;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.ForeColor = Color.White;
-            label16.Location = new Point(13, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(264, 37);
-            label16.TabIndex = 3;
-            label16.Text = "Late Return Analysis";
-            // 
-            // lblVehicle1
-            // 
-            lblVehicle1.AutoSize = true;
-            lblVehicle1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            lblVehicle1.ForeColor = Color.White;
-            lblVehicle1.Location = new Point(15, 51);
-            lblVehicle1.Name = "lblVehicle1";
-            lblVehicle1.Size = new Size(85, 31);
-            lblVehicle1.TabIndex = 4;
-            lblVehicle1.Text = "label17";
-            // 
-            // lblVehicle2
-            // 
-            lblVehicle2.AutoSize = true;
-            lblVehicle2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            lblVehicle2.ForeColor = Color.White;
-            lblVehicle2.Location = new Point(15, 96);
-            lblVehicle2.Name = "lblVehicle2";
-            lblVehicle2.Size = new Size(86, 31);
-            lblVehicle2.TabIndex = 5;
-            lblVehicle2.Text = "label18";
-            // 
-            // lblVehicle3
-            // 
-            lblVehicle3.AutoSize = true;
-            lblVehicle3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            lblVehicle3.ForeColor = Color.White;
-            lblVehicle3.Location = new Point(15, 138);
-            lblVehicle3.Name = "lblVehicle3";
-            lblVehicle3.Size = new Size(86, 31);
-            lblVehicle3.TabIndex = 6;
-            lblVehicle3.Text = "label19";
-            // 
-            // lblVehiclePercentage1
-            // 
-            lblVehiclePercentage1.AutoSize = true;
-            lblVehiclePercentage1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVehiclePercentage1.ForeColor = Color.White;
-            lblVehiclePercentage1.Location = new Point(562, 51);
-            lblVehiclePercentage1.Name = "lblVehiclePercentage1";
-            lblVehiclePercentage1.Size = new Size(90, 31);
-            lblVehiclePercentage1.TabIndex = 7;
-            lblVehiclePercentage1.Text = "label20";
-            // 
-            // lblVehiclePercentage2
-            // 
-            lblVehiclePercentage2.AutoSize = true;
-            lblVehiclePercentage2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVehiclePercentage2.ForeColor = Color.White;
-            lblVehiclePercentage2.Location = new Point(562, 96);
-            lblVehiclePercentage2.Name = "lblVehiclePercentage2";
-            lblVehiclePercentage2.Size = new Size(86, 31);
-            lblVehiclePercentage2.TabIndex = 8;
-            lblVehiclePercentage2.Text = "label21";
-            // 
-            // lblVehiclePercentage3
-            // 
-            lblVehiclePercentage3.AutoSize = true;
-            lblVehiclePercentage3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVehiclePercentage3.ForeColor = Color.White;
-            lblVehiclePercentage3.Location = new Point(562, 138);
-            lblVehiclePercentage3.Name = "lblVehiclePercentage3";
-            lblVehiclePercentage3.Size = new Size(90, 31);
-            lblVehiclePercentage3.TabIndex = 9;
-            lblVehiclePercentage3.Text = "label22";
-            // 
-            // lblLateReturn
-            // 
-            lblLateReturn.AutoSize = true;
-            lblLateReturn.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            lblLateReturn.ForeColor = Color.White;
-            lblLateReturn.Location = new Point(47, 54);
-            lblLateReturn.Name = "lblLateReturn";
-            lblLateReturn.Size = new Size(86, 31);
-            lblLateReturn.TabIndex = 10;
-            lblLateReturn.Text = "label19";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(32, 103);
-            label5.Name = "label5";
-            label5.Size = new Size(141, 31);
-            label5.TabIndex = 11;
-            label5.Text = "Current Late";
-            // 
-            // lblAverageDelay
-            // 
-            lblAverageDelay.AutoSize = true;
-            lblAverageDelay.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            lblAverageDelay.ForeColor = Color.White;
-            lblAverageDelay.Location = new Point(558, 54);
-            lblAverageDelay.Name = "lblAverageDelay";
-            lblAverageDelay.Size = new Size(86, 31);
-            lblAverageDelay.TabIndex = 12;
-            lblAverageDelay.Text = "label19";
             // 
             // label11
             // 
@@ -457,18 +428,102 @@
             label11.TabIndex = 13;
             label11.Text = "Average Delay";
             // 
+            // lblAverageDelay
+            // 
+            lblAverageDelay.AutoSize = true;
+            lblAverageDelay.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            lblAverageDelay.ForeColor = Color.White;
+            lblAverageDelay.Location = new Point(558, 54);
+            lblAverageDelay.Name = "lblAverageDelay";
+            lblAverageDelay.Size = new Size(86, 31);
+            lblAverageDelay.TabIndex = 12;
+            lblAverageDelay.Text = "label19";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(32, 103);
+            label5.Name = "label5";
+            label5.Size = new Size(141, 31);
+            label5.TabIndex = 11;
+            label5.Text = "Current Late";
+            // 
+            // lblLateReturn
+            // 
+            lblLateReturn.AutoSize = true;
+            lblLateReturn.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
+            lblLateReturn.ForeColor = Color.White;
+            lblLateReturn.Location = new Point(47, 54);
+            lblLateReturn.Name = "lblLateReturn";
+            lblLateReturn.Size = new Size(86, 31);
+            lblLateReturn.TabIndex = 10;
+            lblLateReturn.Text = "label19";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.White;
+            label16.Location = new Point(13, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(264, 37);
+            label16.TabIndex = 3;
+            label16.Text = "Late Return Analysis";
+            // 
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(58, 124, 165);
-            panel8.Controls.Add(dataGridView1);
-            panel8.Controls.Add(label18);
-            panel8.Controls.Add(label17);
-            panel8.Controls.Add(label8);
+            panel8.Controls.Add(dgRentalScheduleAndDurationAnalysis);
             panel8.Controls.Add(label2);
-            panel8.Location = new Point(32, 654);
+            panel8.Location = new Point(90, 592);
             panel8.Name = "panel8";
             panel8.Size = new Size(1454, 407);
             panel8.TabIndex = 82;
+            // 
+            // dgRentalScheduleAndDurationAnalysis
+            // 
+            dgRentalScheduleAndDurationAnalysis.AllowUserToResizeColumns = false;
+            dgRentalScheduleAndDurationAnalysis.AllowUserToResizeRows = false;
+            dgRentalScheduleAndDurationAnalysis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgRentalScheduleAndDurationAnalysis.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgRentalScheduleAndDurationAnalysis.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgRentalScheduleAndDurationAnalysis.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgRentalScheduleAndDurationAnalysis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgRentalScheduleAndDurationAnalysis.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgRentalScheduleAndDurationAnalysis.DefaultCellStyle = dataGridViewCellStyle11;
+            dgRentalScheduleAndDurationAnalysis.EnableHeadersVisualStyles = false;
+            dgRentalScheduleAndDurationAnalysis.GridColor = SystemColors.GrayText;
+            dgRentalScheduleAndDurationAnalysis.Location = new Point(26, 65);
+            dgRentalScheduleAndDurationAnalysis.Name = "dgRentalScheduleAndDurationAnalysis";
+            dgRentalScheduleAndDurationAnalysis.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Control;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgRentalScheduleAndDurationAnalysis.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dgRentalScheduleAndDurationAnalysis.RowHeadersVisible = false;
+            dgRentalScheduleAndDurationAnalysis.RowHeadersWidth = 51;
+            dgRentalScheduleAndDurationAnalysis.Size = new Size(1417, 314);
+            dgRentalScheduleAndDurationAnalysis.TabIndex = 74;
             // 
             // label2
             // 
@@ -480,48 +535,6 @@
             label2.Size = new Size(494, 37);
             label2.TabIndex = 4;
             label2.Text = "Rental Schedule and Duration Analysis ";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(139, 59);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 31);
-            label8.TabIndex = 14;
-            label8.Text = "Status";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label17.ForeColor = Color.White;
-            label17.Location = new Point(583, 59);
-            label17.Name = "label17";
-            label17.Size = new Size(88, 31);
-            label17.TabIndex = 15;
-            label17.Text = "Vehicle";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label18.ForeColor = Color.White;
-            label18.Location = new Point(1130, 59);
-            label18.Name = "label18";
-            label18.Size = new Size(106, 31);
-            label18.TabIndex = 16;
-            label18.Text = "Duration";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 93);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1424, 296);
-            dataGridView1.TabIndex = 4;
             // 
             // UC_Reports
             // 
@@ -550,14 +563,14 @@
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgAvailabilityStatus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgFleetAvailabilityStatus).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgRentalScheduleAndDurationAnalysis).EndInit();
             ResumeLayout(false);
         }
 
@@ -583,7 +596,6 @@
         private Label label13;
         private Panel panel5;
         private Label label14;
-        private DataGridView dgAvailabilityStatus;
         private Panel panel6;
         private Label label15;
         private Label lblVehiclePercentage3;
@@ -600,9 +612,7 @@
         private Label lblLateReturn;
         private Panel panel8;
         private Label label2;
-        private Label label8;
-        private DataGridView dataGridView1;
-        private Label label18;
-        private Label label17;
+        private DataGridView dgFleetAvailabilityStatus;
+        private DataGridView dgRentalScheduleAndDurationAnalysis;
     }
 }

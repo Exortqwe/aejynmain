@@ -16,5 +16,6 @@ namespace aejynmain.Models
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
         public Payment Payment { get; set; }
+        public int PickupMileage { get; set; }
     }
 }
