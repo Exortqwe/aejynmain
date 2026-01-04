@@ -35,7 +35,6 @@
             label2 = new Label();
             checkBox1 = new CheckBox();
             label1 = new Label();
-            linkLabel1 = new LinkLabel();
             pictureBox1 = new PictureBox();
             txtPassword = new TextBox();
             label3 = new Label();
@@ -118,19 +117,6 @@
             label1.TabIndex = 12;
             label1.Text = "Log in to your account";
             // 
-            // linkLabel1
-            // 
-            linkLabel1.ActiveLinkColor = Color.White;
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.FromArgb(58, 124, 165);
-            linkLabel1.Location = new Point(297, 379);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(127, 20);
-            linkLabel1.TabIndex = 17;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forgot password?";
-            linkLabel1.VisitedLinkColor = Color.FromArgb(51, 106, 140);
-            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -195,7 +181,6 @@
             Controls.Add(label2);
             Controls.Add(checkBox1);
             Controls.Add(label1);
-            Controls.Add(linkLabel1);
             Controls.Add(pictureBox1);
             Controls.Add(txtPassword);
             Controls.Add(label3);
@@ -219,7 +204,6 @@
         private Label label2;
         private CheckBox checkBox1;
         private Label label1;
-        private LinkLabel linkLabel1;
         private PictureBox pictureBox1;
         private TextBox txtPassword;
         private Label label3;

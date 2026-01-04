@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aejynmain.Staff.cs
+namespace aejynmain.StaffUserControls
 {
-    public partial class StaffMainDashboard : UserControl
+    public partial class UC_StaffDamageClaims : UserControl
     {
-        public StaffMainDashboard()
+        public UC_StaffDamageClaims()
         {
             InitializeComponent();
         }

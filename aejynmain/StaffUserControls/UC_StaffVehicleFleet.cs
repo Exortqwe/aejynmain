@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aejynmain
+namespace aejynmain.StaffUserControls
 {
-    public partial class ForgetPassword : Form
+    public partial class UC_StaffVehicleFleet : UserControl
     {
-        public ForgetPassword()
+        public UC_StaffVehicleFleet()
         {
             InitializeComponent();
         }

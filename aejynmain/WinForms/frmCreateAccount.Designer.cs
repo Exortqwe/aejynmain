@@ -275,7 +275,7 @@
             // 
             cmbRole.Font = new Font("Segoe UI", 11F);
             cmbRole.FormattingEnabled = true;
-            cmbRole.Items.AddRange(new object[] { "Admin", "Manager", "Rental Agent", "Staff Counter" });
+            cmbRole.Items.AddRange(new object[] { "Admin", "Rental Agent" });
             cmbRole.Location = new Point(314, 363);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(164, 33);
