@@ -324,6 +324,7 @@
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Customer Info";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // lblAddress
             // 

@@ -33,16 +33,12 @@
             panel1 = new Panel();
             label35 = new Label();
             panel3 = new Panel();
-            dateTimePicker1 = new DateTimePicker();
-            gbCleanliness = new GroupBox();
-            rbAllAccessoriesReturned = new RadioButton();
-            rbInteriorClean = new RadioButton();
-            rbNoSmokingViolations = new RadioButton();
+            txtReturnMileage = new TextBox();
+            dtpActualReturnDate = new DateTimePicker();
             cmbCondition = new ComboBox();
             label13 = new Label();
             cmbFuelLevel = new ComboBox();
             lblRentalDuration = new Label();
-            lblMileageReading = new Label();
             lblLicensePlate = new Label();
             lblVehicleInspection = new Label();
             label7 = new Label();
@@ -55,32 +51,39 @@
             label14 = new Label();
             label15 = new Label();
             gbDamageAssessment = new GroupBox();
-            rbPaintDamage = new RadioButton();
-            rbTireDamage = new RadioButton();
-            rbInteriorStains = new RadioButton();
-            rbBrokenGlass = new RadioButton();
-            rbDents = new RadioButton();
-            rbScratches = new RadioButton();
+            cbPaintDamage = new CheckBox();
+            cbScratches = new CheckBox();
+            cbTireDamage = new CheckBox();
+            cbDents = new CheckBox();
+            cbInteriorStains = new CheckBox();
+            cbBrokenGlass = new CheckBox();
             label16 = new Label();
             panel2 = new Panel();
-            lblTotalBilling = new Label();
-            lblDamagesCharges = new Label();
-            lblRentalDays = new Label();
+            lblOverdueFee = new Label();
             label19 = new Label();
+            lblFuelCharges = new Label();
+            label11 = new Label();
+            lblDepositPaid = new Label();
+            label10 = new Label();
+            lblBalanceDue = new Label();
+            lblDamagesCharges = new Label();
             label18 = new Label();
             label17 = new Label();
             label23 = new Label();
             panel4 = new Panel();
+            label12 = new Label();
+            label9 = new Label();
+            cmbPaymentType = new ComboBox();
+            cmbPaymentStatus = new ComboBox();
             label25 = new Label();
             txtAmount = new TextBox();
             cmbPaymentMethod = new ComboBox();
             label24 = new Label();
-            btnConfirm = new Button();
+            btnReturnVehicle = new Button();
             label8 = new Label();
             dgRentedVehicles = new DataGridView();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
-            gbCleanliness.SuspendLayout();
             gbDamageAssessment.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -94,7 +97,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1509, 75);
+            panel1.Size = new Size(1685, 75);
             panel1.TabIndex = 0;
             // 
             // label35
@@ -112,13 +115,12 @@
             // 
             panel3.BackColor = Color.White;
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(dateTimePicker1);
-            panel3.Controls.Add(gbCleanliness);
+            panel3.Controls.Add(txtReturnMileage);
+            panel3.Controls.Add(dtpActualReturnDate);
             panel3.Controls.Add(cmbCondition);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(cmbFuelLevel);
             panel3.Controls.Add(lblRentalDuration);
-            panel3.Controls.Add(lblMileageReading);
             panel3.Controls.Add(lblLicensePlate);
             panel3.Controls.Add(lblVehicleInspection);
             panel3.Controls.Add(label7);
@@ -132,63 +134,29 @@
             panel3.Size = new Size(560, 212);
             panel3.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // txtReturnMileage
             // 
-            dateTimePicker1.CustomFormat = "";
-            dateTimePicker1.Location = new Point(167, 101);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(168, 27);
-            dateTimePicker1.TabIndex = 15;
+            txtReturnMileage.BorderStyle = BorderStyle.FixedSingle;
+            txtReturnMileage.Location = new Point(374, 27);
+            txtReturnMileage.Name = "txtReturnMileage";
+            txtReturnMileage.Size = new Size(157, 27);
+            txtReturnMileage.TabIndex = 16;
             // 
-            // gbCleanliness
+            // dtpActualReturnDate
             // 
-            gbCleanliness.Controls.Add(rbAllAccessoriesReturned);
-            gbCleanliness.Controls.Add(rbInteriorClean);
-            gbCleanliness.Controls.Add(rbNoSmokingViolations);
-            gbCleanliness.Location = new Point(341, 56);
-            gbCleanliness.Name = "gbCleanliness";
-            gbCleanliness.Size = new Size(206, 155);
-            gbCleanliness.TabIndex = 14;
-            gbCleanliness.TabStop = false;
-            // 
-            // rbAllAccessoriesReturned
-            // 
-            rbAllAccessoriesReturned.AutoSize = true;
-            rbAllAccessoriesReturned.Location = new Point(6, 125);
-            rbAllAccessoriesReturned.Name = "rbAllAccessoriesReturned";
-            rbAllAccessoriesReturned.Size = new Size(192, 24);
-            rbAllAccessoriesReturned.TabIndex = 16;
-            rbAllAccessoriesReturned.TabStop = true;
-            rbAllAccessoriesReturned.Text = "All Accessories Returned";
-            rbAllAccessoriesReturned.UseVisualStyleBackColor = true;
-            // 
-            // rbInteriorClean
-            // 
-            rbInteriorClean.AutoSize = true;
-            rbInteriorClean.Location = new Point(6, 33);
-            rbInteriorClean.Name = "rbInteriorClean";
-            rbInteriorClean.Size = new Size(131, 24);
-            rbInteriorClean.TabIndex = 14;
-            rbInteriorClean.TabStop = true;
-            rbInteriorClean.Text = "Interior is clean";
-            rbInteriorClean.UseVisualStyleBackColor = true;
-            // 
-            // rbNoSmokingViolations
-            // 
-            rbNoSmokingViolations.AutoSize = true;
-            rbNoSmokingViolations.Location = new Point(6, 79);
-            rbNoSmokingViolations.Name = "rbNoSmokingViolations";
-            rbNoSmokingViolations.Size = new Size(182, 24);
-            rbNoSmokingViolations.TabIndex = 15;
-            rbNoSmokingViolations.TabStop = true;
-            rbNoSmokingViolations.Text = "No Smoking Violations";
-            rbNoSmokingViolations.UseVisualStyleBackColor = true;
+            dtpActualReturnDate.CustomFormat = "yyyy-MM-dd HH:mm";
+            dtpActualReturnDate.Format = DateTimePickerFormat.Custom;
+            dtpActualReturnDate.Location = new Point(175, 95);
+            dtpActualReturnDate.Name = "dtpActualReturnDate";
+            dtpActualReturnDate.ShowUpDown = true;
+            dtpActualReturnDate.Size = new Size(168, 27);
+            dtpActualReturnDate.TabIndex = 15;
             // 
             // cmbCondition
             // 
             cmbCondition.FormattingEnabled = true;
-            cmbCondition.Items.AddRange(new object[] { "Empty\t", "Half", "Full" });
-            cmbCondition.Location = new Point(173, 169);
+            cmbCondition.Items.AddRange(new object[] { "Good", "Excellent", "With Damage", "Needs Inspection" });
+            cmbCondition.Location = new Point(4, 160);
             cmbCondition.Name = "cmbCondition";
             cmbCondition.Size = new Size(162, 28);
             cmbCondition.TabIndex = 13;
@@ -197,76 +165,68 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(173, 135);
+            label13.Location = new Point(4, 126);
             label13.Name = "label13";
-            label13.Size = new Size(95, 25);
+            label13.Size = new Size(157, 25);
             label13.TabIndex = 12;
-            label13.Text = "Condition";
+            label13.Text = "Return Condition";
             // 
             // cmbFuelLevel
             // 
             cmbFuelLevel.FormattingEnabled = true;
-            cmbFuelLevel.Items.AddRange(new object[] { "Empty\t", "Half", "Full" });
-            cmbFuelLevel.Location = new Point(4, 169);
+            cmbFuelLevel.Items.AddRange(new object[] { "Full", "3/4", "1/2", "1/4", "Empty" });
+            cmbFuelLevel.Location = new Point(375, 95);
             cmbFuelLevel.Name = "cmbFuelLevel";
             cmbFuelLevel.Size = new Size(162, 28);
             cmbFuelLevel.TabIndex = 11;
+            cmbFuelLevel.SelectedIndexChanged += cmbFuelLevel_SelectedIndexChanged;
             // 
             // lblRentalDuration
             // 
             lblRentalDuration.AutoSize = true;
-            lblRentalDuration.Location = new Point(3, 98);
+            lblRentalDuration.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRentalDuration.Location = new Point(16, 95);
             lblRentalDuration.Name = "lblRentalDuration";
-            lblRentalDuration.Size = new Size(58, 20);
+            lblRentalDuration.Size = new Size(0, 23);
             lblRentalDuration.TabIndex = 9;
-            lblRentalDuration.Text = "label11";
-            // 
-            // lblMileageReading
-            // 
-            lblMileageReading.AutoSize = true;
-            lblMileageReading.Location = new Point(328, 37);
-            lblMileageReading.Name = "lblMileageReading";
-            lblMileageReading.Size = new Size(58, 20);
-            lblMileageReading.TabIndex = 8;
-            lblMileageReading.Text = "label10";
             // 
             // lblLicensePlate
             // 
             lblLicensePlate.AutoSize = true;
-            lblLicensePlate.Location = new Point(173, 36);
+            lblLicensePlate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLicensePlate.Location = new Point(184, 27);
             lblLicensePlate.Name = "lblLicensePlate";
-            lblLicensePlate.Size = new Size(50, 20);
+            lblLicensePlate.Size = new Size(0, 23);
             lblLicensePlate.TabIndex = 7;
-            lblLicensePlate.Text = "label9";
             // 
             // lblVehicleInspection
             // 
             lblVehicleInspection.AutoSize = true;
-            lblVehicleInspection.Location = new Point(3, 37);
+            lblVehicleInspection.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVehicleInspection.Location = new Point(16, 30);
             lblVehicleInspection.Name = "lblVehicleInspection";
-            lblVehicleInspection.Size = new Size(50, 20);
+            lblVehicleInspection.Size = new Size(0, 23);
             lblVehicleInspection.TabIndex = 6;
-            lblVehicleInspection.Text = "label8";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(3, 135);
+            label7.Location = new Point(374, 61);
             label7.Name = "label7";
-            label7.Size = new Size(95, 25);
+            label7.Size = new Size(157, 25);
             label7.TabIndex = 5;
-            label7.Text = "Fuel Level";
+            label7.Text = "Return Fuel Level";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(319, 0);
+            label6.Location = new Point(374, -1);
             label6.Name = "label6";
-            label6.Size = new Size(152, 25);
+            label6.Size = new Size(141, 25);
             label6.TabIndex = 4;
-            label6.Text = "Mileage Reading";
+            label6.Text = "Return Mileage";
             // 
             // label5
             // 
@@ -274,15 +234,15 @@
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(173, 61);
             label5.Name = "label5";
-            label5.Size = new Size(113, 25);
+            label5.Size = new Size(170, 25);
             label5.TabIndex = 3;
-            label5.Text = "Return Date";
+            label5.Text = "Actual Return Date";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(173, -1);
+            label4.Location = new Point(175, -1);
             label4.Name = "label4";
             label4.Size = new Size(120, 25);
             label4.TabIndex = 2;
@@ -292,7 +252,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 61);
+            label3.Location = new Point(-1, 61);
             label3.Name = "label3";
             label3.Size = new Size(144, 25);
             label3.TabIndex = 1;
@@ -340,12 +300,12 @@
             // 
             // gbDamageAssessment
             // 
-            gbDamageAssessment.Controls.Add(rbPaintDamage);
-            gbDamageAssessment.Controls.Add(rbTireDamage);
-            gbDamageAssessment.Controls.Add(rbInteriorStains);
-            gbDamageAssessment.Controls.Add(rbBrokenGlass);
-            gbDamageAssessment.Controls.Add(rbDents);
-            gbDamageAssessment.Controls.Add(rbScratches);
+            gbDamageAssessment.Controls.Add(cbPaintDamage);
+            gbDamageAssessment.Controls.Add(cbScratches);
+            gbDamageAssessment.Controls.Add(cbTireDamage);
+            gbDamageAssessment.Controls.Add(cbDents);
+            gbDamageAssessment.Controls.Add(cbInteriorStains);
+            gbDamageAssessment.Controls.Add(cbBrokenGlass);
             gbDamageAssessment.Location = new Point(588, 156);
             gbDamageAssessment.Name = "gbDamageAssessment";
             gbDamageAssessment.Size = new Size(369, 192);
@@ -353,83 +313,83 @@
             gbDamageAssessment.TabStop = false;
             gbDamageAssessment.Text = "Damages";
             // 
-            // rbPaintDamage
+            // cbPaintDamage
             // 
-            rbPaintDamage.AutoSize = true;
-            rbPaintDamage.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbPaintDamage.Location = new Point(205, 136);
-            rbPaintDamage.Name = "rbPaintDamage";
-            rbPaintDamage.Size = new Size(159, 32);
-            rbPaintDamage.TabIndex = 5;
-            rbPaintDamage.TabStop = true;
-            rbPaintDamage.Text = "Paint Damage";
-            rbPaintDamage.UseVisualStyleBackColor = true;
+            cbPaintDamage.AutoSize = true;
+            cbPaintDamage.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbPaintDamage.Location = new Point(203, 135);
+            cbPaintDamage.Name = "cbPaintDamage";
+            cbPaintDamage.Size = new Size(160, 32);
+            cbPaintDamage.TabIndex = 20;
+            cbPaintDamage.Text = "Paint Damage";
+            cbPaintDamage.UseVisualStyleBackColor = true;
+            cbPaintDamage.CheckedChanged += Damage_CheckedChanged;
             // 
-            // rbTireDamage
+            // cbScratches
             // 
-            rbTireDamage.AutoSize = true;
-            rbTireDamage.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbTireDamage.Location = new Point(205, 85);
-            rbTireDamage.Name = "rbTireDamage";
-            rbTireDamage.Size = new Size(148, 32);
-            rbTireDamage.TabIndex = 4;
-            rbTireDamage.TabStop = true;
-            rbTireDamage.Text = "Tire Damage";
-            rbTireDamage.UseVisualStyleBackColor = true;
+            cbScratches.AutoSize = true;
+            cbScratches.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbScratches.Location = new Point(15, 31);
+            cbScratches.Name = "cbScratches";
+            cbScratches.Size = new Size(119, 32);
+            cbScratches.TabIndex = 15;
+            cbScratches.Text = "Scratches";
+            cbScratches.UseVisualStyleBackColor = true;
+            cbScratches.CheckedChanged += Damage_CheckedChanged;
             // 
-            // rbInteriorStains
+            // cbTireDamage
             // 
-            rbInteriorStains.AutoSize = true;
-            rbInteriorStains.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbInteriorStains.Location = new Point(205, 30);
-            rbInteriorStains.Name = "rbInteriorStains";
-            rbInteriorStains.Size = new Size(159, 32);
-            rbInteriorStains.TabIndex = 3;
-            rbInteriorStains.TabStop = true;
-            rbInteriorStains.Text = "Interior Stains";
-            rbInteriorStains.UseVisualStyleBackColor = true;
+            cbTireDamage.AutoSize = true;
+            cbTireDamage.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbTireDamage.Location = new Point(203, 83);
+            cbTireDamage.Name = "cbTireDamage";
+            cbTireDamage.Size = new Size(149, 32);
+            cbTireDamage.TabIndex = 19;
+            cbTireDamage.Text = "Tire Damage";
+            cbTireDamage.UseVisualStyleBackColor = true;
+            cbTireDamage.CheckedChanged += Damage_CheckedChanged;
             // 
-            // rbBrokenGlass
+            // cbDents
             // 
-            rbBrokenGlass.AutoSize = true;
-            rbBrokenGlass.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbBrokenGlass.Location = new Point(15, 136);
-            rbBrokenGlass.Name = "rbBrokenGlass";
-            rbBrokenGlass.Size = new Size(151, 32);
-            rbBrokenGlass.TabIndex = 2;
-            rbBrokenGlass.TabStop = true;
-            rbBrokenGlass.Text = "Broken Glass";
-            rbBrokenGlass.UseVisualStyleBackColor = true;
+            cbDents.AutoSize = true;
+            cbDents.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbDents.Location = new Point(15, 83);
+            cbDents.Name = "cbDents";
+            cbDents.Size = new Size(87, 32);
+            cbDents.TabIndex = 16;
+            cbDents.Text = "Dents";
+            cbDents.UseVisualStyleBackColor = true;
+            cbDents.CheckedChanged += Damage_CheckedChanged;
             // 
-            // rbDents
+            // cbInteriorStains
             // 
-            rbDents.AutoSize = true;
-            rbDents.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbDents.Location = new Point(15, 85);
-            rbDents.Name = "rbDents";
-            rbDents.Size = new Size(86, 32);
-            rbDents.TabIndex = 1;
-            rbDents.TabStop = true;
-            rbDents.Text = "Dents";
-            rbDents.UseVisualStyleBackColor = true;
+            cbInteriorStains.AutoSize = true;
+            cbInteriorStains.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbInteriorStains.Location = new Point(203, 35);
+            cbInteriorStains.Name = "cbInteriorStains";
+            cbInteriorStains.Size = new Size(160, 32);
+            cbInteriorStains.TabIndex = 18;
+            cbInteriorStains.Text = "Interior Stains";
+            cbInteriorStains.UseVisualStyleBackColor = true;
+            cbInteriorStains.CheckedChanged += Damage_CheckedChanged;
             // 
-            // rbScratches
+            // cbBrokenGlass
             // 
-            rbScratches.AutoSize = true;
-            rbScratches.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            rbScratches.Location = new Point(15, 30);
-            rbScratches.Name = "rbScratches";
-            rbScratches.Size = new Size(118, 32);
-            rbScratches.TabIndex = 0;
-            rbScratches.TabStop = true;
-            rbScratches.Text = "Scratches";
-            rbScratches.UseVisualStyleBackColor = true;
+            cbBrokenGlass.AutoSize = true;
+            cbBrokenGlass.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbBrokenGlass.Location = new Point(15, 136);
+            cbBrokenGlass.Name = "cbBrokenGlass";
+            cbBrokenGlass.Size = new Size(152, 32);
+            cbBrokenGlass.TabIndex = 17;
+            cbBrokenGlass.Text = "Broken Glass";
+            cbBrokenGlass.UseVisualStyleBackColor = true;
+            cbBrokenGlass.CheckedChanged += Damage_CheckedChanged;
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(1200, 88);
+            label16.Location = new Point(1293, 88);
             label16.Name = "label16";
             label16.Size = new Size(204, 35);
             label16.TabIndex = 7;
@@ -438,59 +398,100 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblTotalBilling);
-            panel2.Controls.Add(lblDamagesCharges);
-            panel2.Controls.Add(lblRentalDays);
+            panel2.Controls.Add(lblOverdueFee);
             panel2.Controls.Add(label19);
+            panel2.Controls.Add(lblFuelCharges);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(lblDepositPaid);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(lblBalanceDue);
+            panel2.Controls.Add(lblDamagesCharges);
             panel2.Controls.Add(label18);
             panel2.Controls.Add(label17);
-            panel2.Location = new Point(1200, 156);
+            panel2.Location = new Point(1293, 136);
             panel2.Name = "panel2";
-            panel2.Size = new Size(293, 192);
+            panel2.Size = new Size(293, 212);
             panel2.TabIndex = 8;
             // 
-            // lblTotalBilling
+            // lblOverdueFee
             // 
-            lblTotalBilling.AutoSize = true;
-            lblTotalBilling.Location = new Point(128, 146);
-            lblTotalBilling.Name = "lblTotalBilling";
-            lblTotalBilling.Size = new Size(58, 20);
-            lblTotalBilling.TabIndex = 19;
-            lblTotalBilling.Text = "label22";
-            // 
-            // lblDamagesCharges
-            // 
-            lblDamagesCharges.AutoSize = true;
-            lblDamagesCharges.Location = new Point(169, 88);
-            lblDamagesCharges.Name = "lblDamagesCharges";
-            lblDamagesCharges.Size = new Size(58, 20);
-            lblDamagesCharges.TabIndex = 18;
-            lblDamagesCharges.Text = "label21";
-            // 
-            // lblRentalDays
-            // 
-            lblRentalDays.AutoSize = true;
-            lblRentalDays.Location = new Point(127, 22);
-            lblRentalDays.Name = "lblRentalDays";
-            lblRentalDays.Size = new Size(58, 20);
-            lblRentalDays.TabIndex = 15;
-            lblRentalDays.Text = "label20";
+            lblOverdueFee.AutoSize = true;
+            lblOverdueFee.Location = new Point(134, 18);
+            lblOverdueFee.Name = "lblOverdueFee";
+            lblOverdueFee.Size = new Size(0, 20);
+            lblOverdueFee.TabIndex = 25;
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(3, 18);
+            label19.Location = new Point(6, 14);
             label19.Name = "label19";
-            label19.Size = new Size(118, 25);
-            label19.TabIndex = 17;
-            label19.Text = "Rental Days :";
+            label19.Size = new Size(127, 25);
+            label19.TabIndex = 24;
+            label19.Text = "Overdue Fee :";
+            // 
+            // lblFuelCharges
+            // 
+            lblFuelCharges.AutoSize = true;
+            lblFuelCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFuelCharges.Location = new Point(133, 95);
+            lblFuelCharges.Name = "lblFuelCharges";
+            lblFuelCharges.Size = new Size(0, 23);
+            lblFuelCharges.TabIndex = 23;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(6, 93);
+            label11.Name = "label11";
+            label11.Size = new Size(127, 25);
+            label11.TabIndex = 22;
+            label11.Text = "Fuel Charges :";
+            // 
+            // lblDepositPaid
+            // 
+            lblDepositPaid.AutoSize = true;
+            lblDepositPaid.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDepositPaid.Location = new Point(139, 133);
+            lblDepositPaid.Name = "lblDepositPaid";
+            lblDepositPaid.Size = new Size(0, 23);
+            lblDepositPaid.TabIndex = 21;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(7, 131);
+            label10.Name = "label10";
+            label10.Size = new Size(126, 25);
+            label10.TabIndex = 20;
+            label10.Text = "Deposit Paid :";
+            // 
+            // lblBalanceDue
+            // 
+            lblBalanceDue.AutoSize = true;
+            lblBalanceDue.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBalanceDue.Location = new Point(133, 180);
+            lblBalanceDue.Name = "lblBalanceDue";
+            lblBalanceDue.Size = new Size(0, 23);
+            lblBalanceDue.TabIndex = 19;
+            // 
+            // lblDamagesCharges
+            // 
+            lblDamagesCharges.AutoSize = true;
+            lblDamagesCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDamagesCharges.Location = new Point(166, 51);
+            lblDamagesCharges.Name = "lblDamagesCharges";
+            lblDamagesCharges.Size = new Size(0, 23);
+            lblDamagesCharges.TabIndex = 18;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(3, 84);
+            label18.Location = new Point(6, 49);
             label18.Name = "label18";
             label18.Size = new Size(160, 25);
             label18.TabIndex = 16;
@@ -500,7 +501,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(3, 142);
+            label17.Location = new Point(6, 177);
             label17.Name = "label17";
             label17.Size = new Size(123, 25);
             label17.TabIndex = 15;
@@ -510,7 +511,7 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(990, 88);
+            label23.Location = new Point(977, 88);
             label23.Name = "label23";
             label23.Size = new Size(114, 35);
             label23.TabIndex = 9;
@@ -519,71 +520,114 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label12);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(cmbPaymentType);
+            panel4.Controls.Add(cmbPaymentStatus);
             panel4.Controls.Add(label25);
             panel4.Controls.Add(txtAmount);
             panel4.Controls.Add(cmbPaymentMethod);
             panel4.Controls.Add(label24);
-            panel4.Location = new Point(977, 156);
+            panel4.Location = new Point(977, 137);
             panel4.Name = "panel4";
-            panel4.Size = new Size(200, 192);
+            panel4.Size = new Size(282, 211);
             panel4.TabIndex = 10;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(12, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(105, 20);
+            label12.TabIndex = 27;
+            label12.Text = "Payment Type";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(12, 155);
+            label9.Name = "label9";
+            label9.Size = new Size(114, 20);
+            label9.TabIndex = 26;
+            label9.Text = "Payment Status";
+            // 
+            // cmbPaymentType
+            // 
+            cmbPaymentType.FormattingEnabled = true;
+            cmbPaymentType.Items.AddRange(new object[] { "Full Payment" });
+            cmbPaymentType.Location = new Point(12, 21);
+            cmbPaymentType.Name = "cmbPaymentType";
+            cmbPaymentType.Size = new Size(238, 28);
+            cmbPaymentType.TabIndex = 25;
+            // 
+            // cmbPaymentStatus
+            // 
+            cmbPaymentStatus.FormattingEnabled = true;
+            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Completed", "Refunded" });
+            cmbPaymentStatus.Location = new Point(12, 178);
+            cmbPaymentStatus.Name = "cmbPaymentStatus";
+            cmbPaymentStatus.Size = new Size(238, 28);
+            cmbPaymentStatus.TabIndex = 24;
             // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label25.Location = new Point(12, 19);
+            label25.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label25.Location = new Point(12, 53);
             label25.Name = "label25";
-            label25.Size = new Size(80, 25);
+            label25.Size = new Size(64, 20);
             label25.TabIndex = 23;
             label25.Text = "Amount";
             // 
             // txtAmount
             // 
             txtAmount.BorderStyle = BorderStyle.FixedSingle;
-            txtAmount.Location = new Point(12, 53);
+            txtAmount.Location = new Point(12, 74);
             txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(174, 27);
+            txtAmount.Size = new Size(238, 27);
             txtAmount.TabIndex = 22;
             // 
             // cmbPaymentMethod
             // 
             cmbPaymentMethod.FormattingEnabled = true;
             cmbPaymentMethod.Items.AddRange(new object[] { "Bank Transfer", "Cash\t", "Credit Card", "Gcash", "Paypal" });
-            cmbPaymentMethod.Location = new Point(12, 140);
+            cmbPaymentMethod.Location = new Point(12, 127);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
-            cmbPaymentMethod.Size = new Size(174, 28);
+            cmbPaymentMethod.Size = new Size(238, 28);
             cmbPaymentMethod.TabIndex = 21;
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label24.Location = new Point(12, 108);
+            label24.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.Location = new Point(12, 104);
             label24.Name = "label24";
-            label24.Size = new Size(155, 25);
+            label24.Size = new Size(127, 20);
             label24.TabIndex = 20;
             label24.Text = "Payment Method";
             // 
-            // btnConfirm
+            // btnReturnVehicle
             // 
-            btnConfirm.BackColor = Color.FromArgb(58, 124, 165);
-            btnConfirm.FlatAppearance.BorderSize = 0;
-            btnConfirm.FlatStyle = FlatStyle.Flat;
-            btnConfirm.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(617, 860);
-            btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(245, 57);
-            btnConfirm.TabIndex = 11;
-            btnConfirm.Text = "Confirm";
-            btnConfirm.UseVisualStyleBackColor = false;
+            btnReturnVehicle.BackColor = Color.FromArgb(58, 124, 165);
+            btnReturnVehicle.FlatAppearance.BorderSize = 0;
+            btnReturnVehicle.FlatStyle = FlatStyle.Flat;
+            btnReturnVehicle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReturnVehicle.ForeColor = Color.White;
+            btnReturnVehicle.Location = new Point(791, 874);
+            btnReturnVehicle.Name = "btnReturnVehicle";
+            btnReturnVehicle.Size = new Size(245, 57);
+            btnReturnVehicle.TabIndex = 11;
+            btnReturnVehicle.Text = "Return";
+            btnReturnVehicle.UseVisualStyleBackColor = false;
+            btnReturnVehicle.Click += btnReturnVehicle_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(22, 361);
+            label8.Location = new Point(207, 375);
             label8.Name = "label8";
             label8.Size = new Size(194, 35);
             label8.TabIndex = 13;
@@ -604,7 +648,7 @@
             dgRentedVehicles.ColumnHeadersHeight = 29;
             dgRentedVehicles.EnableHeadersVisualStyles = false;
             dgRentedVehicles.GridColor = SystemColors.GrayText;
-            dgRentedVehicles.Location = new Point(22, 399);
+            dgRentedVehicles.Location = new Point(207, 413);
             dgRentedVehicles.Name = "dgRentedVehicles";
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
@@ -616,8 +660,9 @@
             dgRentedVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgRentedVehicles.RowHeadersVisible = false;
             dgRentedVehicles.RowHeadersWidth = 51;
-            dgRentedVehicles.Size = new Size(1471, 455);
+            dgRentedVehicles.Size = new Size(1257, 455);
             dgRentedVehicles.TabIndex = 14;
+            dgRentedVehicles.CellClick += dgRentedVehicles_CellClick;
             // 
             // UC_Returns
             // 
@@ -626,7 +671,7 @@
             BackColor = Color.FromArgb(245, 247, 250);
             Controls.Add(dgRentedVehicles);
             Controls.Add(label8);
-            Controls.Add(btnConfirm);
+            Controls.Add(btnReturnVehicle);
             Controls.Add(panel4);
             Controls.Add(label23);
             Controls.Add(panel2);
@@ -638,13 +683,12 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Name = "UC_Returns";
-            Size = new Size(1509, 1219);
+            Size = new Size(1685, 1219);
+            Load += UC_Returns_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            gbCleanliness.ResumeLayout(false);
-            gbCleanliness.PerformLayout();
             gbDamageAssessment.ResumeLayout(false);
             gbDamageAssessment.PerformLayout();
             panel2.ResumeLayout(false);
@@ -668,32 +712,20 @@
         private Label label4;
         private ComboBox cmbFuelLevel;
         private Label lblRentalDuration;
-        private Label lblMileageReading;
+        private Label lblReturnMileage;
         private Label lblLicensePlate;
         private Label lblVehicleInspection;
         private Label label7;
         private Label label6;
         private ComboBox cmbCondition;
         private Label label13;
-        private GroupBox gbCleanliness;
-        private RadioButton rbInteriorClean;
-        private RadioButton rbNoSmokingViolations;
-        private RadioButton rbAllAccessoriesReturned;
         private Label label14;
         private Label label15;
         private GroupBox gbDamageAssessment;
-        private RadioButton rbPaintDamage;
-        private RadioButton rbTireDamage;
-        private RadioButton rbInteriorStains;
-        private RadioButton rbBrokenGlass;
-        private RadioButton rbDents;
-        private RadioButton rbScratches;
         private Label label16;
         private Panel panel2;
-        private Label lblTotalBilling;
+        private Label lblBalanceDue;
         private Label lblDamagesCharges;
-        private Label lblRentalDays;
-        private Label label19;
         private Label label18;
         private Label label17;
         private Label label23;
@@ -702,9 +734,26 @@
         private Label label25;
         private TextBox txtAmount;
         private ComboBox cmbPaymentMethod;
-        private Button btnConfirm;
+        private Button btnReturnVehicle;
         private Label label8;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpActualReturnDate;
         private DataGridView dgRentedVehicles;
+        private TextBox txtReturnMileage;
+        private CheckBox cbPaintDamage;
+        private CheckBox cbScratches;
+        private CheckBox cbTireDamage;
+        private CheckBox cbDents;
+        private CheckBox cbInteriorStains;
+        private CheckBox cbBrokenGlass;
+        private Label label10;
+        private Label lblDepositPaid;
+        private Label label11;
+        private Label lblFuelCharges;
+        private ComboBox cmbPaymentType;
+        private ComboBox cmbPaymentStatus;
+        private Label label12;
+        private Label label9;
+        private Label lblOverdueFee;
+        private Label label19;
     }
 }

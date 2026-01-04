@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aejynmain.WinForms;
+using MySql.Data.MySqlClient;
 
 namespace aejynmain.UserControls
 {
@@ -15,6 +17,13 @@ namespace aejynmain.UserControls
         public UC_Maintenance()
         {
             InitializeComponent();
+        }
+
+        private void btnScheduleMaintenance_Click(object sender, EventArgs e)
+        {
+            frmScheduleMaintenance sm = new frmScheduleMaintenance();
+            sm.ShowDialog();
+
         }
     }
 }

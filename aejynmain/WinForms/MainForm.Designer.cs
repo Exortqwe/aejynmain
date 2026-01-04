@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            btnMaintenance = new Button();
             label1 = new Label();
             btnReservation = new Button();
             btnFleetManagement = new Button();
@@ -37,12 +38,10 @@
             btnDashboard = new Button();
             btnLogOut = new Button();
             btnReports = new Button();
-            btnDamageClaims = new Button();
             btnCustomers = new Button();
             btnReservations = new Button();
             pictureBox1 = new PictureBox();
             panelMain = new Panel();
-            btnMaintenance = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -58,7 +57,6 @@
             panel1.Controls.Add(btnDashboard);
             panel1.Controls.Add(btnLogOut);
             panel1.Controls.Add(btnReports);
-            panel1.Controls.Add(btnDamageClaims);
             panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnReservations);
             panel1.Controls.Add(pictureBox1);
@@ -67,6 +65,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 898);
             panel1.TabIndex = 1;
+            // 
+            // btnMaintenance
+            // 
+            btnMaintenance.BackColor = Color.FromArgb(28, 73, 102);
+            btnMaintenance.FlatAppearance.BorderSize = 0;
+            btnMaintenance.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnMaintenance.FlatStyle = FlatStyle.Flat;
+            btnMaintenance.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnMaintenance.ForeColor = Color.White;
+            btnMaintenance.Image = (Image)resources.GetObject("btnMaintenance.Image");
+            btnMaintenance.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMaintenance.Location = new Point(0, 572);
+            btnMaintenance.Name = "btnMaintenance";
+            btnMaintenance.Padding = new Padding(20, 0, 0, 0);
+            btnMaintenance.Size = new Size(247, 64);
+            btnMaintenance.TabIndex = 15;
+            btnMaintenance.Text = "            Maintenance";
+            btnMaintenance.TextAlign = ContentAlignment.MiddleLeft;
+            btnMaintenance.UseVisualStyleBackColor = false;
+            btnMaintenance.Click += btnMaintenance_Click;
             // 
             // label1
             // 
@@ -168,7 +186,7 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(0, 782);
+            btnLogOut.Location = new Point(0, 712);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
             btnLogOut.Size = new Size(250, 64);
@@ -188,7 +206,7 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(0, 712);
+            btnReports.Location = new Point(3, 642);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
             btnReports.Size = new Size(247, 64);
@@ -197,26 +215,6 @@
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.UseVisualStyleBackColor = false;
             btnReports.Click += btnReports_Click;
-            // 
-            // btnDamageClaims
-            // 
-            btnDamageClaims.BackColor = Color.FromArgb(28, 73, 102);
-            btnDamageClaims.FlatAppearance.BorderSize = 0;
-            btnDamageClaims.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnDamageClaims.FlatStyle = FlatStyle.Flat;
-            btnDamageClaims.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnDamageClaims.ForeColor = Color.White;
-            btnDamageClaims.Image = (Image)resources.GetObject("btnDamageClaims.Image");
-            btnDamageClaims.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDamageClaims.Location = new Point(0, 572);
-            btnDamageClaims.Name = "btnDamageClaims";
-            btnDamageClaims.Padding = new Padding(20, 0, 0, 0);
-            btnDamageClaims.Size = new Size(250, 64);
-            btnDamageClaims.TabIndex = 10;
-            btnDamageClaims.Text = "            Damage Claims";
-            btnDamageClaims.TextAlign = ContentAlignment.MiddleLeft;
-            btnDamageClaims.UseVisualStyleBackColor = false;
-            btnDamageClaims.Click += btnDamageClaims_Click;
             // 
             // btnCustomers
             // 
@@ -277,26 +275,6 @@
             panelMain.Size = new Size(1058, 898);
             panelMain.TabIndex = 2;
             // 
-            // btnMaintenance
-            // 
-            btnMaintenance.BackColor = Color.FromArgb(28, 73, 102);
-            btnMaintenance.FlatAppearance.BorderSize = 0;
-            btnMaintenance.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnMaintenance.FlatStyle = FlatStyle.Flat;
-            btnMaintenance.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnMaintenance.ForeColor = Color.White;
-            btnMaintenance.Image = (Image)resources.GetObject("btnMaintenance.Image");
-            btnMaintenance.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMaintenance.Location = new Point(-3, 642);
-            btnMaintenance.Name = "btnMaintenance";
-            btnMaintenance.Padding = new Padding(20, 0, 0, 0);
-            btnMaintenance.Size = new Size(247, 64);
-            btnMaintenance.TabIndex = 15;
-            btnMaintenance.Text = "            Maintenance";
-            btnMaintenance.TextAlign = ContentAlignment.MiddleLeft;
-            btnMaintenance.UseVisualStyleBackColor = false;
-            btnMaintenance.Click += btnMaintenance_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,7 +301,6 @@
         private Button btnDashboard;
         private Button btnReservations;
         private Button btnCustomers;
-        private Button btnDamageClaims;
         private Button btnReports;
         private Button btnLogOut;
         private Panel panelMain;
