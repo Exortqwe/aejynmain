@@ -37,29 +37,32 @@ namespace aejynmain.UserControls
             // 2️⃣ Fuel fee
             decimal fuelFee = FuelHelper.CalculateFuelCharge(cmbFuelLevel.SelectedItem?.ToString());
 
-            // 3️⃣ Total paid / deposit
-            decimal totalPaid = ReturnManager.GetTotalPaid(selectedRentalId);
-
-            // 4️⃣ Overdue fee (per day)
-            DateTime actualReturn = dtpActualReturnDate.Value;
-            double overdueDays = (actualReturn - currentExpectedReturn).TotalDays;
+            // 3️⃣ Overdue fee (days)
+            DateTime plannedReturn = Convert.ToDateTime(dgRentedVehicles.CurrentRow.Cells["ReturnDate"].Value).Date;
+            DateTime actualReturn = dtpActualReturnDate.Value.Date;
+            int overdueDays = (actualReturn - plannedReturn).Days;
             if (overdueDays < 0) overdueDays = 0;
 
-            // Round up to next whole day
-            int overdueDaysRounded = (int)Math.Ceiling(overdueDays);
-
+            // 4️⃣ Get daily rate from vehicle category
             decimal dailyRate = ReturnManager.GetDailyRate(selectedRentalId);
-            decimal overdueFee = overdueDaysRounded * dailyRate;
+            decimal overdueFee = overdueDays * dailyRate;
 
-            // 5️⃣ Balance due
-            decimal balanceDue = damageFee + fuelFee + overdueFee - totalPaid;
+            // 5️⃣ Get deposit paid
+            decimal depositPaid = ReturnManager.GetTotalPaid(selectedRentalId);
 
-            // 6️⃣ Update labels
+            // 6️⃣ Total charges
+            decimal totalCharges = damageFee + fuelFee + overdueFee;
+
+            // 7️⃣ Balance due (total charges minus deposit paid)
+            decimal balanceDue = totalCharges - depositPaid;
+            if (balanceDue < 0) balanceDue = 0; // Don't show negative balance
+
+            // 8️⃣ Update labels
             lblDamagesCharges.Text = damageFee.ToString("₱#,##0.00");
             lblFuelCharges.Text = fuelFee.ToString("₱#,##0.00");
-            lblDepositPaid.Text = totalPaid.ToString("₱#,##0.00");
+            lblOverdueFee.Text = overdueFee.ToString("₱#,##0.00");
+            lblDepositPaid.Text = depositPaid.ToString("₱#,##0.00");
             lblBalanceDue.Text = balanceDue.ToString("₱#,##0.00");
-            lblOverdueFee.Text = overdueFee.ToString("₱#,##0.00"); // optional label
         }
 
         private void UC_Returns_Load(object sender, EventArgs e)
@@ -120,18 +123,30 @@ namespace aejynmain.UserControls
             if (selectedRentalId == 0) return;
             if (cmbFuelLevel.SelectedItem == null)
             {
-                
+                MessageBox.Show("Please select fuel level.");
+                return;
             }
+
+            // Validate return mileage
+            if (string.IsNullOrWhiteSpace(txtReturnMileage.Text) || !int.TryParse(txtReturnMileage.Text, out int returnMileage))
+            {
+                MessageBox.Show("Please enter a valid return mileage.");
+                return;
+            }
+
             int userId = User.UserID;
 
             // Call manager to update tblrentals
             ReturnManager.ReturnVehicle(
                 selectedRentalId,
-                Convert.ToInt32(txtReturnMileage.Text),
+                returnMileage,
                 cmbFuelLevel.Text,
                 cmbCondition.Text,
                 dtpActualReturnDate.Value
             );
+
+            // Update vehicle mileage to return mileage
+            ReturnManager.UpdateVehicleMileage(selectedRentalId, returnMileage);
 
             // Save damages
             if (cbScratches.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Scratches", 500);
@@ -140,6 +155,15 @@ namespace aejynmain.UserControls
             if (cbInteriorStains.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Interior Stains", 500);
             if (cbTireDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Tire Damage", 600);
             if (cbPaintDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Paint Damage", 700);
+
+            // Save payment (Balance Due) so it appears in Revenue Today
+            string balanceDueText = lblBalanceDue.Text.Replace("₱", "").Replace(",", "").Trim();
+            if (decimal.TryParse(balanceDueText, out decimal balanceDue) && balanceDue > 0)
+            {
+                // Get payment method if available, otherwise default to "Cash"
+                string paymentMethod = "Cash"; // Default payment method
+                ReturnManager.SaveReturnPayment(selectedRentalId, balanceDue, paymentMethod, userId);
+            }
 
             // Clear panel
             DamageHelper.ClearAll(cbScratches, cbDents, cbBrokenGlass, cbInteriorStains, cbTireDamage, cbPaintDamage);

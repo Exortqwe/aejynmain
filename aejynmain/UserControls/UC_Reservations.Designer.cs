@@ -596,7 +596,7 @@
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Items.AddRange(new object[] { "Full Payment", "Partial" });
+            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Partial", "Fullpayment" });
             cmbPaymentType.Location = new Point(15, 24);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(267, 28);

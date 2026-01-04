@@ -24,8 +24,39 @@ namespace aejynmain.AuthManager
                 ActiveRentals = GetCount("sp_ActiveRentals"),
                 Reservation = GetCount("sp_ReservationCount"),
                 LateReturn = GetCount("sp_LateReturnRentals"),
-                RevenueToday = GetAmount("sp_RevenueToday")
+                RevenueToday = GetRevenueToday()
             };
+        }
+
+        // Get revenue today including return payments
+        private static decimal GetRevenueToday()
+        {
+            try
+            {
+                // Try direct query first to include all payments from today including return payments
+                string query = @"
+                    SELECT COALESCE(SUM(Amount), 0) 
+                    FROM tblpayments 
+                    WHERE DATE(PaymentDate) = CURDATE() 
+                    AND PaymentStatus = 'Paid'";
+
+                using var conn = new MySqlConnection(connectionString);
+                using var cmd = new MySqlCommand(query, conn);
+                cmd.CommandType = CommandType.Text;
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToDecimal(result);
+                }
+            }
+            catch
+            {
+                // If direct query fails, fall back to stored procedure
+                return GetAmount("sp_RevenueToday");
+            }
+
+            return 0;
         }
 
         // Chart methods
@@ -36,7 +67,16 @@ namespace aejynmain.AuthManager
 
         public static DataTable VehicleStatus()
         {
-            return GetTable("sp_VehicleStatus");
+            // Direct query to include all vehicle statuses including Reserved
+            string query = "SELECT VehicleStatus AS VehicleStatus, COUNT(*) AS total FROM tblvehicles GROUP BY VehicleStatus";
+            
+            using var conn = new MySqlConnection(connectionString);
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.Text;
+            using var da = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
         }
 
         // Helper methods

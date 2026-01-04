@@ -103,7 +103,12 @@ namespace aejynmain.AuthManager
                 @"SELECT IFNULL(SUM(Amount), 0)
           FROM tblpayments
           WHERE RentalID = @RentalID
-          AND PaymentType IN ('Deposit', 'Partial', 'Full')",
+          AND (PaymentType = 'Deposit' 
+               OR PaymentType LIKE 'Partial%' 
+               OR PaymentType LIKE 'Fullpayment%'
+               OR PaymentType LIKE 'Full Payment%'
+               OR PaymentType = 'Full')
+          AND PaymentStatus IN ('Paid', 'Pending')",
                 con))
             {
                 cmd.Parameters.AddWithValue("@RentalID", rentalId);
@@ -146,6 +151,43 @@ namespace aejynmain.AuthManager
                 cmd.Parameters.AddWithValue("@DamageCharges", damageCharges);
                 cmd.Parameters.AddWithValue("@OverdueCharges", overdueCharges);
                 cmd.Parameters.AddWithValue("@FuelCharges", fuelCharges);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Save payment when vehicle is returned
+        public static void SaveReturnPayment(int rentalId, decimal amount, string paymentMethod, int userId)
+        {
+            if (amount <= 0) return; // Don't save if amount is 0
+
+            using (MySqlConnection con = new MySqlConnection(ConnectionString))
+            using (MySqlCommand cmd = new MySqlCommand(
+                @"INSERT INTO tblpayments (RentalID, PaymentType, Amount, PaymentMethod, PaymentStatus, PaymentDate)
+          VALUES (@RentalID, 'Return Payment', @Amount, @PaymentMethod, 'Paid', NOW())", con))
+            {
+                cmd.Parameters.AddWithValue("@RentalID", rentalId);
+                cmd.Parameters.AddWithValue("@Amount", amount);
+                cmd.Parameters.AddWithValue("@PaymentMethod", paymentMethod ?? "Cash");
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Update vehicle mileage when returned
+        public static void UpdateVehicleMileage(int rentalId, int returnMileage)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString))
+            using (MySqlCommand cmd = new MySqlCommand(
+                @"UPDATE tblvehicles v
+          INNER JOIN tblrentals r ON v.VehicleID = r.VehicleID
+          SET v.Mileage = @ReturnMileage
+          WHERE r.RentalID = @RentalID", con))
+            {
+                cmd.Parameters.AddWithValue("@ReturnMileage", returnMileage);
+                cmd.Parameters.AddWithValue("@RentalID", rentalId);
 
                 con.Open();
                 cmd.ExecuteNonQuery();

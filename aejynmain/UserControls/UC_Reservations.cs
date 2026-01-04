@@ -84,6 +84,11 @@ namespace aejynmain.UserControls
             weeklyRate = Convert.ToDecimal(row.Cells["WeeklyRate"].Value);
             monthlyRate = Convert.ToDecimal(row.Cells["MonthlyRate"].Value);
 
+            // Display vehicle Make + Model
+            string make = row.Cells["Make"].Value?.ToString() ?? "";
+            string model = row.Cells["Model"].Value?.ToString() ?? "";
+            lblVehicle.Text = $"{make} {model}".Trim();
+
             ComputeTotal();
         }
 

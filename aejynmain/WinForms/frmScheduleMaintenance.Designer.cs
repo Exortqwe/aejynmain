@@ -40,6 +40,12 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
+            label5 = new Label();
+            comboBox1 = new ComboBox();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            comboBox2 = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,9 +85,9 @@
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 222);
             label2.Name = "label2";
-            label2.Size = new Size(168, 28);
+            label2.Size = new Size(238, 28);
             label2.TabIndex = 77;
-            label2.Text = "Issue Description";
+            label2.Text = "Maintenance Description";
             // 
             // btnConfirm
             // 
@@ -134,6 +140,7 @@
             // 
             // textBox2
             // 
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Location = new Point(27, 142);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 27);
@@ -141,23 +148,89 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(299, 167);
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.Location = new Point(272, 192);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
+            textBox3.Size = new Size(145, 27);
             textBox3.TabIndex = 84;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(656, 140);
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            textBox4.Location = new Point(749, 167);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(125, 27);
             textBox4.TabIndex = 85;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(27, 102);
+            label5.Name = "label5";
+            label5.Size = new Size(77, 28);
+            label5.TabIndex = 86;
+            label5.Text = "Vehicle";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Oil Change", "PMS ", "Repair", "Other" });
+            comboBox1.Location = new Point(490, 128);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(168, 28);
+            comboBox1.TabIndex = 87;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(490, 88);
+            label6.Name = "label6";
+            label6.Size = new Size(178, 28);
+            label6.TabIndex = 88;
+            label6.Text = "Maintenance Type";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(749, 136);
+            label7.Name = "label7";
+            label7.Size = new Size(52, 28);
+            label7.TabIndex = 89;
+            label7.Text = "Cost";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(650, 213);
+            label8.Name = "label8";
+            label8.Size = new Size(190, 28);
+            label8.TabIndex = 90;
+            label8.Text = "Maintenance Status";
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Scheduled", "In Progress", "Completed" });
+            comboBox2.Location = new Point(650, 244);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(190, 28);
+            comboBox2.TabIndex = 91;
             // 
             // frmScheduleMaintenance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 496);
+            Controls.Add(comboBox2);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(comboBox1);
+            Controls.Add(label5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
@@ -192,5 +265,11 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
+        private Label label5;
+        private ComboBox comboBox1;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private ComboBox comboBox2;
     }
 }

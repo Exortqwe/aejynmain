@@ -556,7 +556,7 @@
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Items.AddRange(new object[] { "Full Payment" });
+            cmbPaymentType.Items.AddRange(new object[] { "Fullpayment" });
             cmbPaymentType.Location = new Point(12, 21);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(238, 28);
@@ -565,7 +565,7 @@
             // cmbPaymentStatus
             // 
             cmbPaymentStatus.FormattingEnabled = true;
-            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Completed", "Refunded" });
+            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Completed" });
             cmbPaymentStatus.Location = new Point(12, 178);
             cmbPaymentStatus.Name = "cmbPaymentStatus";
             cmbPaymentStatus.Size = new Size(238, 28);
