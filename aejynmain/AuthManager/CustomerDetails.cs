@@ -9,7 +9,8 @@ namespace aejynmain.AuthManager
 {
     internal class CustomerDetails
     {
-        private static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+        private static string connectionString =
+    "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
 
         // CREATE / ADD
         public static bool AddCustomer(
@@ -22,7 +23,10 @@ namespace aejynmain.AuthManager
             string licenseNumber,
             DateTime licenseExpiryDate,
             DateTime birthDate,
-            DateTime dateRegistered
+            DateTime dateRegistered,
+            string emergencyContactName,
+            string emergencyContactNumber,
+            string emergencyContactRelationship
         )
         {
             try
@@ -31,6 +35,7 @@ namespace aejynmain.AuthManager
                 using (MySqlCommand cmd = new MySqlCommand("sp_AddCustomer", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("p_FirstName", firstName);
                     cmd.Parameters.AddWithValue("p_LastName", lastName);
                     cmd.Parameters.AddWithValue("p_ContactNumber", contactNumber);
@@ -41,6 +46,9 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_LicenseExpiryDate", licenseExpiryDate);
                     cmd.Parameters.AddWithValue("p_BirthDate", birthDate);
                     cmd.Parameters.AddWithValue("p_DateRegistered", dateRegistered);
+                    cmd.Parameters.AddWithValue("p_EmergencyContactName", emergencyContactName);
+                    cmd.Parameters.AddWithValue("p_EmergencyContactNumber", emergencyContactNumber);
+                    cmd.Parameters.AddWithValue("p_EmergencyContactRelationship", emergencyContactRelationship);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -49,7 +57,12 @@ namespace aejynmain.AuthManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Adding Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    ex.Message,
+                    "Error Adding Customer",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return false;
             }
         }
@@ -80,7 +93,10 @@ namespace aejynmain.AuthManager
                                 LicenseNumber = reader["LicenseNumber"].ToString(),
                                 LicenseExpiryDate = Convert.ToDateTime(reader["LicenseExpiryDate"]),
                                 BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"])
+                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"]),
+                                EmergencyContactName = reader["EmergencyContactName"] == DBNull.Value ? "" : reader["EmergencyContactName"].ToString(),
+                                EmergencyContactNumber = reader["EmergencyContactNumber"] == DBNull.Value ? "" : reader["EmergencyContactNumber"].ToString(),
+                                EmergencyContactRelationship = reader["EmergencyContactRelationship"] == DBNull.Value ? "" : reader["EmergencyContactRelationship"].ToString()
                             });
                         }
                     }

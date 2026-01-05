@@ -69,7 +69,8 @@ namespace aejynmain.UserControls
                     $"LicensePlate LIKE '%{filter}%' OR " +
                     $"CategoryName LIKE '%{filter}%' OR " +
                     $"Status LIKE '%{filter}%' OR " +
-                    $"Convert(Year, 'System.String') LIKE '%{filter}%'";
+                   
+                    $"Convert(VehicleYear, 'System.String') LIKE '%{filter}%'";
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)

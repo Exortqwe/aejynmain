@@ -52,6 +52,12 @@
             txtLicenseNumber = new TextBox();
             dtpLicenseExpiry = new DateTimePicker();
             dtpBirthDate = new DateTimePicker();
+            label13 = new Label();
+            txtEmergencyContact = new TextBox();
+            label14 = new Label();
+            txtName = new TextBox();
+            cmbRelationship = new ComboBox();
+            label15 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -139,7 +145,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label8.Location = new Point(13, 254);
+            label8.Location = new Point(13, 303);
             label8.Name = "label8";
             label8.Size = new Size(159, 23);
             label8.TabIndex = 22;
@@ -157,7 +163,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label10.Location = new Point(567, 254);
+            label10.Location = new Point(567, 303);
             label10.Name = "label10";
             label10.Size = new Size(132, 23);
             label10.TabIndex = 24;
@@ -167,7 +173,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label11.Location = new Point(290, 254);
+            label11.Location = new Point(290, 303);
             label11.Name = "label11";
             label11.Size = new Size(108, 23);
             label11.TabIndex = 25;
@@ -191,7 +197,7 @@
             btnSaveCustomerDetails.FlatStyle = FlatStyle.Flat;
             btnSaveCustomerDetails.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveCustomerDetails.ForeColor = Color.White;
-            btnSaveCustomerDetails.Location = new Point(318, 335);
+            btnSaveCustomerDetails.Location = new Point(315, 410);
             btnSaveCustomerDetails.Name = "btnSaveCustomerDetails";
             btnSaveCustomerDetails.Size = new Size(190, 40);
             btnSaveCustomerDetails.TabIndex = 28;
@@ -211,7 +217,7 @@
             // 
             // dtpDateRegistered
             // 
-            dtpDateRegistered.Location = new Point(567, 277);
+            dtpDateRegistered.Location = new Point(567, 329);
             dtpDateRegistered.Name = "dtpDateRegistered";
             dtpDateRegistered.Size = new Size(239, 27);
             dtpDateRegistered.TabIndex = 21;
@@ -273,24 +279,88 @@
             // 
             // dtpLicenseExpiry
             // 
-            dtpLicenseExpiry.Location = new Point(9, 280);
+            dtpLicenseExpiry.Location = new Point(9, 329);
             dtpLicenseExpiry.Name = "dtpLicenseExpiry";
             dtpLicenseExpiry.Size = new Size(239, 27);
             dtpLicenseExpiry.TabIndex = 37;
             // 
             // dtpBirthDate
             // 
-            dtpBirthDate.Location = new Point(286, 280);
+            dtpBirthDate.Location = new Point(286, 329);
             dtpBirthDate.Name = "dtpBirthDate";
             dtpBirthDate.Size = new Size(239, 27);
             dtpBirthDate.TabIndex = 38;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label13.Location = new Point(9, 242);
+            label13.Name = "label13";
+            label13.Size = new Size(160, 23);
+            label13.TabIndex = 39;
+            label13.Text = "Emergency Contact";
+            // 
+            // txtEmergencyContact
+            // 
+            txtEmergencyContact.BorderStyle = BorderStyle.FixedSingle;
+            txtEmergencyContact.Location = new Point(9, 268);
+            txtEmergencyContact.Multiline = true;
+            txtEmergencyContact.Name = "txtEmergencyContact";
+            txtEmergencyContact.Size = new Size(165, 36);
+            txtEmergencyContact.TabIndex = 40;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label14.Location = new Point(209, 242);
+            label14.Name = "label14";
+            label14.Size = new Size(104, 23);
+            label14.TabIndex = 42;
+            label14.Text = "Relationship";
+            // 
+            // txtName
+            // 
+            txtName.BorderStyle = BorderStyle.FixedSingle;
+            txtName.Location = new Point(406, 268);
+            txtName.Multiline = true;
+            txtName.Name = "txtName";
+            txtName.Size = new Size(165, 36);
+            txtName.TabIndex = 43;
+            // 
+            // cmbRelationship
+            // 
+            cmbRelationship.Font = new Font("Segoe UI", 12F);
+            cmbRelationship.FormattingEnabled = true;
+            cmbRelationship.Items.AddRange(new object[] { "Family", "Parent", "Friend" });
+            cmbRelationship.Location = new Point(209, 268);
+            cmbRelationship.Name = "cmbRelationship";
+            cmbRelationship.Size = new Size(165, 36);
+            cmbRelationship.TabIndex = 44;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label15.Location = new Point(406, 242);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 23);
+            label15.TabIndex = 45;
+            label15.Text = "Name";
             // 
             // frmAddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(818, 409);
+            ClientSize = new Size(818, 460);
+            Controls.Add(label15);
+            Controls.Add(cmbRelationship);
+            Controls.Add(txtName);
+            Controls.Add(label14);
+            Controls.Add(txtEmergencyContact);
+            Controls.Add(label13);
             Controls.Add(dtpBirthDate);
             Controls.Add(dtpLicenseExpiry);
             Controls.Add(txtLicenseNumber);
@@ -350,5 +420,11 @@
         private ComboBox comboBox2;
         private Panel panel1;
         private TextBox txtLastName;
+        private Label label13;
+        private TextBox txtEmergencyContact;
+        private Label label14;
+        private TextBox txtName;
+        private ComboBox cmbRelationship;
+        private Label label15;
     }
 }

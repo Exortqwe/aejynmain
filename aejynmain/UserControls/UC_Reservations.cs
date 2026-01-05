@@ -1,4 +1,4 @@
-﻿using aejynmain.AuthManager;
+using aejynmain.AuthManager;
 using aejynmain.HelperMethod;
 using aejynmain.Models;
 using System;
@@ -23,6 +23,58 @@ namespace aejynmain.UserControls
             InitializeComponent();
             LoadAvailableVehicles();
             UpdateSummaryDates();
+        }
+
+        private void EnsureVehicleFleetColumns(DataGridView dg)
+        {
+            if (dg == null) return;
+
+            // Only configure once
+            if (!dg.AutoGenerateColumns && dg.Columns.Count > 0) return;
+
+            dg.AutoGenerateColumns = false;
+            dg.Columns.Clear();
+
+            void Add(string name, string header)
+            {
+                var col = new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = name,
+                    Name = name,
+                    HeaderText = header,
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                };
+                dg.Columns.Add(col);
+            }
+
+            // Match Vehicle Fleet order
+            Add("VehicleID", "VehicleID");
+            Add("CategoryName", "CategoryName");
+            Add("Make", "Make");
+            Add("Model", "Model");
+            Add("LicensePlate", "LicensePlate");
+            Add("Mileage", "Mileage");
+            Add("Year", "VehicleYear");
+            Add("VIN", "VIN");
+            Add("Color", "Color");
+            Add("Transmission", "Transmission");
+            Add("FuelType", "FuelType");
+            Add("InitialCondition", "InitialCondition");
+            Add("SeatingCapacity", "SeatingCapacity");
+            Add("FuelLevel", "FuelLevel");
+            Add("HourlyRate", "HourlyRate");
+            Add("DailyRate", "DailyRate");
+            Add("WeeklyRate", "WeeklyRate");
+            Add("MonthlyRate", "MonthlyRate");
+            Add("Status", "Status");
+            Add("Features", "Features");
+            Add("image_path", "image_path");
+
+            // Format currency columns if they exist
+            if (dg.Columns["HourlyRate"] != null) dg.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            if (dg.Columns["DailyRate"] != null) dg.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            if (dg.Columns["WeeklyRate"] != null) dg.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            if (dg.Columns["MonthlyRate"] != null) dg.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
         }
 
         // ================= CUSTOMER SEARCH =================
@@ -59,6 +111,7 @@ namespace aejynmain.UserControls
         // ================= LOAD VEHICLES =================
         private void LoadAvailableVehicles()
         {
+            EnsureVehicleFleetColumns(dgAvailableVehicles);
             dgAvailableVehicles.DataSource = ReservationManager.GetAvailableVehicles();
 
             if (dgAvailableVehicles.Columns["HourlyRate"] != null)

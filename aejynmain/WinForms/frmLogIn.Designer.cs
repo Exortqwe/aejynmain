@@ -33,7 +33,6 @@
             label6 = new Label();
             btnLogIn = new Button();
             label2 = new Label();
-            checkBox1 = new CheckBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             txtPassword = new TextBox();
@@ -48,7 +47,7 @@
             linkLabel2.ActiveLinkColor = Color.White;
             linkLabel2.AutoSize = true;
             linkLabel2.LinkColor = Color.FromArgb(58, 124, 165);
-            linkLabel2.Location = new Point(297, 489);
+            linkLabel2.Location = new Point(301, 451);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(81, 20);
             linkLabel2.TabIndex = 21;
@@ -61,7 +60,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = SystemColors.GrayText;
-            label6.Location = new Point(135, 489);
+            label6.Location = new Point(139, 451);
             label6.Name = "label6";
             label6.Size = new Size(163, 20);
             label6.TabIndex = 20;
@@ -75,7 +74,7 @@
             btnLogIn.FlatStyle = FlatStyle.Flat;
             btnLogIn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogIn.ForeColor = Color.White;
-            btnLogIn.Location = new Point(109, 424);
+            btnLogIn.Location = new Point(109, 395);
             btnLogIn.Name = "btnLogIn";
             btnLogIn.Size = new Size(315, 41);
             btnLogIn.TabIndex = 19;
@@ -93,18 +92,6 @@
             label2.Size = new Size(198, 20);
             label2.TabIndex = 13;
             label2.Text = " Vehicle Rental Management";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.BackColor = Color.Transparent;
-            checkBox1.ForeColor = SystemColors.GrayText;
-            checkBox1.Location = new Point(110, 378);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(129, 24);
-            checkBox1.TabIndex = 18;
-            checkBox1.Text = "Remember me";
-            checkBox1.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -174,12 +161,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(540, 527);
+            ClientSize = new Size(540, 491);
             Controls.Add(linkLabel2);
             Controls.Add(label6);
             Controls.Add(btnLogIn);
             Controls.Add(label2);
-            Controls.Add(checkBox1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(txtPassword);
@@ -202,7 +188,6 @@
         private Label label6;
         private Button btnLogIn;
         private Label label2;
-        private CheckBox checkBox1;
         private Label label1;
         private PictureBox pictureBox1;
         private TextBox txtPassword;

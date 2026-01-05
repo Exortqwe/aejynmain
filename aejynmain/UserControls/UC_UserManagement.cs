@@ -7,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using aejynmain.AuthManager;
+
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_Reports : UserControl
+    public partial class UC_UserManagement : UserControl
     {
-        public UC_Reports()
+        public UC_UserManagement()
         {
             InitializeComponent();
         }
- 
 
-
-        private void dgFleetAvailabilityStatus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }

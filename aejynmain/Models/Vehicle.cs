@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,5 +29,6 @@ namespace aejynmain.Models
         public string image_path { get; set; }
         public string FuelLevel { get; set; }
         public string InitialCondition { get; set; }
+        public string ReturnCondition { get; set; }
     }
 }

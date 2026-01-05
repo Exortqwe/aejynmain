@@ -35,17 +35,21 @@ namespace aejynmain
             }
 
             bool success = CustomerDetails.AddCustomer(
-             txtFirstName.Text,
-             txtLastName.Text,
-             txtContactNum.Text,
-             txtEmailAddress.Text,
-             txtAddress.Text,
-             cmbGender.Text,
-             txtLicenseNumber.Text,
-             dtpLicenseExpiry.Value,
-             dtpBirthDate.Value,
-             dtpDateRegistered.Value
- );
+      txtFirstName.Text,
+      txtLastName.Text,
+      txtContactNum.Text,
+      txtEmailAddress.Text,
+      txtAddress.Text,
+      cmbGender.Text,
+      txtLicenseNumber.Text,
+      dtpLicenseExpiry.Value,
+      dtpBirthDate.Value,
+      dtpDateRegistered.Value,
+      txtName.Text,
+      txtEmergencyContact.Text,
+      cmbRelationship.Text
+  );
+
 
             if (success)
             {

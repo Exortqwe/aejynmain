@@ -285,7 +285,7 @@
             // 
             cmbGender.Font = new Font("Segoe UI", 11F);
             cmbGender.FormattingEnabled = true;
-            cmbGender.Items.AddRange(new object[] { "Admin", "Manager", "Rental Agent", "Staff Counter" });
+            cmbGender.Items.AddRange(new object[] { "Male", "Female" });
             cmbGender.Location = new Point(517, 363);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(164, 33);
@@ -348,6 +348,7 @@
             btnCreateAcc.TabIndex = 56;
             btnCreateAcc.Text = "Create Account";
             btnCreateAcc.UseVisualStyleBackColor = false;
+            btnCreateAcc.Click += btnCreateAcc_Click;
             // 
             // linkLabel1
             // 
@@ -361,6 +362,7 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Log in here";
             linkLabel1.VisitedLinkColor = Color.FromArgb(51, 106, 140);
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // frmCreateAccount
             // 

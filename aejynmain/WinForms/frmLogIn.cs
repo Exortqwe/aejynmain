@@ -19,19 +19,6 @@ namespace aejynmain
         {
             InitializeComponent();
         }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            using (frmCreateAccount ca = new frmCreateAccount())
-            {
-                ca.ShowDialog(this); //modal ni siya
-
-            }
-
-            //mag resume ang runtime dri after sa create account
-            this.Show();
-            txtUsername.Focus();
-        }
-
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             // una e validate input
@@ -47,10 +34,15 @@ namespace aejynmain
 
             if (success)
             {
-                MessageBox.Show("Welcome!, You have successfully logged in.");
-                MainForm mf = new MainForm();
-                mf.Show();
-                this.Hide();
+                   MessageBox.Show(
+                        "LOGIN ROLE = " + UserSession.Role,
+                        "DEBUG LOGIN"
+                    );
+
+                    MainForm mf = new MainForm();
+                    mf.Show();
+                    this.Hide();
+                
             }
             else
             {
@@ -59,10 +51,17 @@ namespace aejynmain
                 txtPassword.Focus();
             }
         }
-                   
+
         private void frmLogIn_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmCreateAccount createAccount = new frmCreateAccount();
+            createAccount.Show();
+            this.Hide();
         }
     }
 }

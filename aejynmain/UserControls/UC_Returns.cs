@@ -1,4 +1,4 @@
-﻿using aejynmain.AuthManager;
+using aejynmain.AuthManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,17 +47,23 @@ namespace aejynmain.UserControls
             decimal dailyRate = ReturnManager.GetDailyRate(selectedRentalId);
             decimal overdueFee = overdueDays * dailyRate;
 
-            // 5️⃣ Get deposit paid
+            // 5️⃣ Base rental amount (planned rental days * daily rate)
+            // Uses pickup/expected return set on selection for consistent billing
+            int rentalDays = (currentExpectedReturn.Date - currentPickup.Date).Days;
+            if (rentalDays < 1) rentalDays = 1; // minimum 1 day
+            baseRentalAmount = rentalDays * dailyRate;
+
+            // 6️⃣ Get deposit/previous payments
             decimal depositPaid = ReturnManager.GetTotalPaid(selectedRentalId);
 
-            // 6️⃣ Total charges
-            decimal totalCharges = damageFee + fuelFee + overdueFee;
+            // 7️⃣ Total charges = base rental + other fees
+            decimal totalCharges = baseRentalAmount + damageFee + fuelFee + overdueFee;
 
-            // 7️⃣ Balance due (total charges minus deposit paid)
+            // 8️⃣ Balance due (total charges minus deposit paid)
             decimal balanceDue = totalCharges - depositPaid;
             if (balanceDue < 0) balanceDue = 0; // Don't show negative balance
 
-            // 8️⃣ Update labels
+            // 9️⃣ Update labels
             lblDamagesCharges.Text = damageFee.ToString("₱#,##0.00");
             lblFuelCharges.Text = fuelFee.ToString("₱#,##0.00");
             lblOverdueFee.Text = overdueFee.ToString("₱#,##0.00");
@@ -156,13 +162,37 @@ namespace aejynmain.UserControls
             if (cbTireDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Tire Damage", 600);
             if (cbPaintDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Paint Damage", 700);
 
+            // Prepare amounts for persistence using labels (no recomputation for fees)
+            decimal ParseAmount(string s) => decimal.TryParse(s.Replace("₱", "").Replace(",", "").Trim(), out var val) ? val : 0m;
+            decimal damageFeeForInvoice = ParseAmount(lblDamagesCharges.Text);
+            decimal fuelFeeForInvoice = ParseAmount(lblFuelCharges.Text);
+            decimal overdueFeeForInvoice = ParseAmount(lblOverdueFee.Text);
+            // Compute rental charges quickly (rentalDays * dailyRate)
+            int rentalDaysForInvoice = (currentExpectedReturn.Date - currentPickup.Date).Days; if (rentalDaysForInvoice < 1) rentalDaysForInvoice = 1;
+            decimal dailyRateForInvoice = ReturnManager.GetDailyRate(selectedRentalId);
+            decimal rentalChargesForInvoice = rentalDaysForInvoice * dailyRateForInvoice;
+
             // Save payment (Balance Due) so it appears in Revenue Today
             string balanceDueText = lblBalanceDue.Text.Replace("₱", "").Replace(",", "").Trim();
             if (decimal.TryParse(balanceDueText, out decimal balanceDue) && balanceDue > 0)
             {
                 // Get payment method if available, otherwise default to "Cash"
                 string paymentMethod = "Cash"; // Default payment method
+
+                // Save payment (no return value now)
                 ReturnManager.SaveReturnPayment(selectedRentalId, balanceDue, paymentMethod, userId);
+
+                // Mark all damages as paid since we collected the balance
+                ReturnManager.MarkDamagesPaid(selectedRentalId);
+
+                // Save/Update invoice record with all charges (4-parameter signature)
+                ReturnManager.InsertOrUpdateInvoice(
+                    selectedRentalId,
+                    rentalCharges: rentalChargesForInvoice,
+                    damageCharges: damageFeeForInvoice,
+                    overdueCharges: overdueFeeForInvoice,
+                    fuelCharges: fuelFeeForInvoice
+                );
             }
 
             // Clear panel

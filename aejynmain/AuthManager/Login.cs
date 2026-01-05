@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,28 +32,24 @@ namespace aejynmain.AuthManager
                         {
                             if (reader.Read())
                             {
-                                User.SetUser(
-                                    Convert.ToInt32(reader["UserID"]),
-                                    reader["UserName"].ToString(),
-                                    reader["Role"].ToString()
-                                );
+                                int userId = Convert.ToInt32(reader["UserID"]);
+                                username = reader["UserName"].ToString();
+                                string role = reader["Role"].ToString();
+
+                                UserSession.SetSession(userId, username, role);
+
                                 return true;
                             }
                         }
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Login error: {ex.Message}");
                 return false;
             }
-
             return false;
-        }
-
-        public static void Logout()
-        {
-            User.Logout();
         }
     }
 }

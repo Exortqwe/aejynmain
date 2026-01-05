@@ -1,4 +1,4 @@
-﻿using aejynmain.AuthManager;
+using aejynmain.AuthManager;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -39,13 +39,22 @@ namespace aejynmain
             if (success)
             {
                 MessageBox.Show("Account created successfully!", "Success");
-                this.DialogResult = DialogResult.OK;
+                this.Hide();
+                frmLogIn loginForm = new frmLogIn();
+                loginForm.ShowDialog();
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Failed to create account.", "Error");
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmLogIn login = new frmLogIn();
+            login.Show();
+            this.Hide();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -36,7 +36,7 @@ namespace aejynmain.UserControls
             }
         }
      
-        private DataTable ConvertToDataTable(List<Customer> customers)
+        private static DataTable ConvertToDataTable(List<Customer> customers)
         {
             DataTable dt = new DataTable();
 
@@ -50,7 +50,12 @@ namespace aejynmain.UserControls
             dt.Columns.Add("Gender", typeof(string));
             dt.Columns.Add("LicenseNumber", typeof(string));
             dt.Columns.Add("LicenseExpiryDate", typeof(DateTime));
+            // BirthDate before Emergency details
             dt.Columns.Add("BirthDate", typeof(DateTime));
+            dt.Columns.Add("EmergencyContactName", typeof(string));
+            dt.Columns.Add("EmergencyContactNumber", typeof(string));
+            dt.Columns.Add("EmergencyContactRelationship", typeof(string));
+            // DateRegistered last
             dt.Columns.Add("DateRegistered", typeof(DateTime));
 
             // Add rows
@@ -66,7 +71,12 @@ namespace aejynmain.UserControls
                     customer.Gender,
                     customer.LicenseNumber,
                     customer.LicenseExpiryDate,
+                    // BirthDate before Emergency details
                     customer.BirthDate,
+                    customer.EmergencyContactName,
+                    customer.EmergencyContactNumber,
+                    customer.EmergencyContactRelationship,
+                    // DateRegistered last
                     customer.DateRegistered
                 );
             }

@@ -101,7 +101,6 @@
             dgCustomerHistory.RowHeadersWidth = 51;
             dgCustomerHistory.Size = new Size(1051, 528);
             dgCustomerHistory.TabIndex = 6;
-            dgCustomerHistory.CellContentClick += dgCustomerHistory_CellContentClick;
             // 
             // frmCustomerHistory
             // 

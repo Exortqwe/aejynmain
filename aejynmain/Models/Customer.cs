@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +19,8 @@ namespace aejynmain.Models
         public DateTime LicenseExpiryDate { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime DateRegistered { get; set; }
+        public string EmergencyContactName { get; set; }
+        public string EmergencyContactNumber { get; set; }
+        public string EmergencyContactRelationship { get; set; }
     }
 }

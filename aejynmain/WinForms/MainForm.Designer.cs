@@ -29,42 +29,53 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            btnUserManagement = new Button();
             btnMaintenance = new Button();
-            label1 = new Label();
             btnReservation = new Button();
-            btnFleetManagement = new Button();
+            btnVehicleFleet = new Button();
             btnReturns = new Button();
             btnDashboard = new Button();
             btnLogOut = new Button();
             btnReports = new Button();
             btnCustomers = new Button();
             btnReservations = new Button();
-            pictureBox1 = new PictureBox();
             panelMain = new Panel();
-            panel1.SuspendLayout();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pictureBox1
             // 
-            panel1.BackColor = Color.FromArgb(28, 73, 102);
-            panel1.Controls.Add(btnMaintenance);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btnReservation);
-            panel1.Controls.Add(btnFleetManagement);
-            panel1.Controls.Add(btnReturns);
-            panel1.Controls.Add(btnDashboard);
-            panel1.Controls.Add(btnLogOut);
-            panel1.Controls.Add(btnReports);
-            panel1.Controls.Add(btnCustomers);
-            panel1.Controls.Add(btnReservations);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 898);
-            panel1.TabIndex = 1;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(247, 146);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // btnUserManagement
+            // 
+            btnUserManagement.BackColor = Color.FromArgb(28, 73, 102);
+            btnUserManagement.FlatAppearance.BorderSize = 0;
+            btnUserManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnUserManagement.FlatStyle = FlatStyle.Flat;
+            btnUserManagement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnUserManagement.ForeColor = Color.White;
+            btnUserManagement.Image = (Image)resources.GetObject("btnUserManagement.Image");
+            btnUserManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUserManagement.Location = new Point(3, 645);
+            btnUserManagement.Name = "btnUserManagement";
+            btnUserManagement.Padding = new Padding(20, 0, 0, 0);
+            btnUserManagement.Size = new Size(244, 64);
+            btnUserManagement.TabIndex = 16;
+            btnUserManagement.Text = "            User Management";
+            btnUserManagement.TextAlign = ContentAlignment.MiddleLeft;
+            btnUserManagement.UseVisualStyleBackColor = false;
+            btnUserManagement.VisibleChanged += MainForm_Load;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // btnMaintenance
             // 
@@ -76,26 +87,15 @@
             btnMaintenance.ForeColor = Color.White;
             btnMaintenance.Image = (Image)resources.GetObject("btnMaintenance.Image");
             btnMaintenance.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMaintenance.Location = new Point(0, 572);
+            btnMaintenance.Location = new Point(3, 575);
             btnMaintenance.Name = "btnMaintenance";
             btnMaintenance.Padding = new Padding(20, 0, 0, 0);
-            btnMaintenance.Size = new Size(247, 64);
+            btnMaintenance.Size = new Size(244, 64);
             btnMaintenance.TabIndex = 15;
             btnMaintenance.Text = "            Maintenance";
             btnMaintenance.TextAlign = ContentAlignment.MiddleLeft;
             btnMaintenance.UseVisualStyleBackColor = false;
             btnMaintenance.Click += btnMaintenance_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(32, 123);
-            label1.Name = "label1";
-            label1.Size = new Size(182, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Welcome back! Admin";
             // 
             // btnReservation
             // 
@@ -107,35 +107,35 @@
             btnReservation.ForeColor = Color.White;
             btnReservation.Image = (Image)resources.GetObject("btnReservation.Image");
             btnReservation.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReservation.Location = new Point(0, 432);
+            btnReservation.Location = new Point(3, 435);
             btnReservation.Name = "btnReservation";
             btnReservation.Padding = new Padding(20, 0, 0, 0);
-            btnReservation.Size = new Size(250, 64);
+            btnReservation.Size = new Size(247, 64);
             btnReservation.TabIndex = 14;
             btnReservation.Text = "            Reservations";
             btnReservation.TextAlign = ContentAlignment.MiddleLeft;
             btnReservation.UseVisualStyleBackColor = false;
             btnReservation.Click += btnReservation_Click;
             // 
-            // btnFleetManagement
+            // btnVehicleFleet
             // 
-            btnFleetManagement.BackColor = Color.FromArgb(28, 73, 102);
-            btnFleetManagement.FlatAppearance.BorderSize = 0;
-            btnFleetManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnFleetManagement.FlatStyle = FlatStyle.Flat;
-            btnFleetManagement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnFleetManagement.ForeColor = Color.White;
-            btnFleetManagement.Image = (Image)resources.GetObject("btnFleetManagement.Image");
-            btnFleetManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFleetManagement.Location = new Point(0, 292);
-            btnFleetManagement.Name = "btnFleetManagement";
-            btnFleetManagement.Padding = new Padding(20, 0, 0, 0);
-            btnFleetManagement.Size = new Size(250, 64);
-            btnFleetManagement.TabIndex = 7;
-            btnFleetManagement.Text = "            Vehicle Fleet";
-            btnFleetManagement.TextAlign = ContentAlignment.MiddleLeft;
-            btnFleetManagement.UseVisualStyleBackColor = false;
-            btnFleetManagement.Click += btnFleetManagement_Click;
+            btnVehicleFleet.BackColor = Color.FromArgb(28, 73, 102);
+            btnVehicleFleet.FlatAppearance.BorderSize = 0;
+            btnVehicleFleet.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
+            btnVehicleFleet.FlatStyle = FlatStyle.Flat;
+            btnVehicleFleet.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnVehicleFleet.ForeColor = Color.White;
+            btnVehicleFleet.Image = (Image)resources.GetObject("btnVehicleFleet.Image");
+            btnVehicleFleet.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVehicleFleet.Location = new Point(3, 295);
+            btnVehicleFleet.Name = "btnVehicleFleet";
+            btnVehicleFleet.Padding = new Padding(20, 0, 0, 0);
+            btnVehicleFleet.Size = new Size(244, 64);
+            btnVehicleFleet.TabIndex = 7;
+            btnVehicleFleet.Text = "            Vehicle Fleet";
+            btnVehicleFleet.TextAlign = ContentAlignment.MiddleLeft;
+            btnVehicleFleet.UseVisualStyleBackColor = false;
+            btnVehicleFleet.Click += btnFleetManagement_Click;
             // 
             // btnReturns
             // 
@@ -147,10 +147,10 @@
             btnReturns.ForeColor = Color.White;
             btnReturns.Image = (Image)resources.GetObject("btnReturns.Image");
             btnReturns.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReturns.Location = new Point(0, 502);
+            btnReturns.Location = new Point(3, 505);
             btnReturns.Name = "btnReturns";
             btnReturns.Padding = new Padding(20, 0, 0, 0);
-            btnReturns.Size = new Size(250, 64);
+            btnReturns.Size = new Size(244, 64);
             btnReturns.TabIndex = 13;
             btnReturns.Text = "            Returns";
             btnReturns.TextAlign = ContentAlignment.MiddleLeft;
@@ -166,14 +166,15 @@
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDashboard.Location = new Point(0, 152);
+            btnDashboard.Location = new Point(3, 155);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Padding = new Padding(20, 0, 0, 0);
-            btnDashboard.Size = new Size(250, 64);
+            btnDashboard.Size = new Size(247, 64);
             btnDashboard.TabIndex = 3;
             btnDashboard.Text = "             Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.VisibleChanged += MainForm_Load;
             btnDashboard.Click += btnDashboard_Click;
             // 
             // btnLogOut
@@ -186,10 +187,10 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(0, 712);
+            btnLogOut.Location = new Point(3, 785);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
-            btnLogOut.Size = new Size(250, 64);
+            btnLogOut.Size = new Size(247, 64);
             btnLogOut.TabIndex = 12;
             btnLogOut.Text = "            Log Out";
             btnLogOut.TextAlign = ContentAlignment.MiddleLeft;
@@ -206,14 +207,15 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(3, 642);
+            btnReports.Location = new Point(3, 715);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
-            btnReports.Size = new Size(247, 64);
+            btnReports.Size = new Size(244, 64);
             btnReports.TabIndex = 11;
             btnReports.Text = "            Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.UseVisualStyleBackColor = false;
+            btnReports.VisibleChanged += MainForm_Load;
             btnReports.Click += btnReports_Click;
             // 
             // btnCustomers
@@ -226,10 +228,10 @@
             btnCustomers.ForeColor = Color.White;
             btnCustomers.Image = (Image)resources.GetObject("btnCustomers.Image");
             btnCustomers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCustomers.Location = new Point(0, 222);
+            btnCustomers.Location = new Point(3, 225);
             btnCustomers.Name = "btnCustomers";
             btnCustomers.Padding = new Padding(20, 0, 0, 0);
-            btnCustomers.Size = new Size(250, 64);
+            btnCustomers.Size = new Size(244, 64);
             btnCustomers.TabIndex = 6;
             btnCustomers.Text = "             Customers";
             btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
@@ -246,7 +248,7 @@
             btnReservations.ForeColor = Color.White;
             btnReservations.Image = (Image)resources.GetObject("btnReservations.Image");
             btnReservations.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReservations.Location = new Point(3, 362);
+            btnReservations.Location = new Point(3, 365);
             btnReservations.Name = "btnReservations";
             btnReservations.Padding = new Padding(20, 0, 0, 0);
             btnReservations.Size = new Size(247, 64);
@@ -256,24 +258,36 @@
             btnReservations.UseVisualStyleBackColor = false;
             btnReservations.Click += btnReservations_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(23, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(202, 146);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // panelMain
             // 
             panelMain.BackColor = Color.FromArgb(245, 247, 250);
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(250, 0);
+            panelMain.Location = new Point(252, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1058, 898);
+            panelMain.Size = new Size(1056, 876);
             panelMain.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(28, 73, 102);
+            flowLayoutPanel1.Controls.Add(pictureBox1);
+            flowLayoutPanel1.Controls.Add(btnDashboard);
+            flowLayoutPanel1.Controls.Add(btnCustomers);
+            flowLayoutPanel1.Controls.Add(btnVehicleFleet);
+            flowLayoutPanel1.Controls.Add(btnReservations);
+            flowLayoutPanel1.Controls.Add(btnReservation);
+            flowLayoutPanel1.Controls.Add(btnReturns);
+            flowLayoutPanel1.Controls.Add(btnMaintenance);
+            flowLayoutPanel1.Controls.Add(btnUserManagement);
+            flowLayoutPanel1.Controls.Add(btnReports);
+            flowLayoutPanel1.Controls.Add(btnLogOut);
+            flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(252, 876);
+            flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // MainForm
             // 
@@ -281,22 +295,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
-            ClientSize = new Size(1308, 898);
+            ClientSize = new Size(1308, 876);
             Controls.Add(panelMain);
-            Controls.Add(panel1);
+            Controls.Add(flowLayoutPanel1);
             MaximizeBox = false;
             Name = "MainForm";
             Text = "MainForm";
             WindowState = FormWindowState.Maximized;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel1;
         private PictureBox pictureBox1;
         private Button btnDashboard;
         private Button btnReservations;
@@ -304,10 +315,11 @@
         private Button btnReports;
         private Button btnLogOut;
         private Panel panelMain;
-        private Button btnFleetManagement;
+        private Button btnVehicleFleet;
         private Button btnReturns;
         private Button btnReservation;
-        private Label label1;
         private Button btnMaintenance;
+        private Button btnUserManagement;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

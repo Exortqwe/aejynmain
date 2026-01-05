@@ -144,7 +144,7 @@
             // 
             // dtpActualReturnDate
             // 
-            dtpActualReturnDate.CustomFormat = "yyyy-MM-dd HH:mm";
+            dtpActualReturnDate.CustomFormat = "MM/dd/yyyy HH:mm";
             dtpActualReturnDate.Format = DateTimePickerFormat.Custom;
             dtpActualReturnDate.Location = new Point(175, 95);
             dtpActualReturnDate.Name = "dtpActualReturnDate";

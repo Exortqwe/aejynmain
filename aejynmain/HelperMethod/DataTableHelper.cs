@@ -1,4 +1,4 @@
-﻿using aejynmain.Models;
+using aejynmain.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,6 +24,7 @@ namespace aejynmain.HelperMethod
             dt.Columns.Add("Transmission", typeof(string));
             dt.Columns.Add("FuelType", typeof(string));
             dt.Columns.Add("InitialCondition", typeof(string)); // spelling fixed
+            dt.Columns.Add("ReturnCondition", typeof(string)); // new column to show last known return condition
             dt.Columns.Add("SeatingCapacity", typeof(int));
             dt.Columns.Add("FuelLevel", typeof(string));
             dt.Columns.Add("HourlyRate", typeof(decimal));
@@ -50,6 +51,7 @@ namespace aejynmain.HelperMethod
                     v.Transmission,
                     v.FuelType,
                     v.InitialCondition,   // matches column
+                    v.ReturnCondition,    // show latest known return condition
                     v.SeatingCapacity,    // matches column
                     v.FuelLevel,          // matches column
                     v.HourlyRate,

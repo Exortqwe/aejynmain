@@ -1,4 +1,5 @@
-﻿using aejynmain.UserControls;
+using aejynmain.UserControls;
+using aejynmain.AuthManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace aejynmain
         {
             InitializeComponent();
             addUserControls(dashboard);
+
         }
 
         private void addUserControls(UserControl userControl)
@@ -33,6 +35,27 @@ namespace aejynmain
             panelMain.Controls.Clear();
             panelMain.Controls.Add(userControl);
             userControl.BringToFront();
+        }
+        private void LoadUserControl(UserControl uc)
+        {
+            panelMain.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(uc);
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (UserSession.IsRentalAgent)
+            {
+                btnDashboard.Visible = false;
+                btnUserManagement.Visible = false;
+                btnReports.Visible = false;
+
+                LoadUserControl(new UC_Customers());
+            }
+            else if (UserSession.IsAdmin)
+            {
+                LoadUserControl(new UC_Dashboard());
+            }
         }
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -48,19 +71,20 @@ namespace aejynmain
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            UC_Customers customers = new UC_Customers();
-            addUserControls(customers);
+            LoadUserControl(new UC_Customers());
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You've been logged out successfully");
+            // Clear the user session
+            UserSession.ClearSession();
+            
+            // Show login form
             frmLogIn login = new frmLogIn();
             login.Show();
+            
+            // Close the main form
             this.Hide();
-
-
-
         }
 
         private void btnFleetManagement_Click(object sender, EventArgs e)
@@ -97,6 +121,12 @@ namespace aejynmain
         {
             UC_Maintenance maintenance = new UC_Maintenance();
             addUserControls(maintenance);
+        }
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            UC_UserManagement umanagement = new UC_UserManagement();
+            addUserControls(umanagement);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using aejynmain.AuthManager;
+using aejynmain.AuthManager;
 using aejynmain.WinForms;
 using MySql.Data.MySqlClient;
 using System;
@@ -45,14 +45,14 @@ namespace aejynmain.UserControls
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "VehicleName",
-                HeaderText = "Vehicle",
+                HeaderText = "Vehicle Name",
                 DataPropertyName = "VehicleName"
             });
 
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "MaintenanceType",
-                HeaderText = "Type",
+                HeaderText = "Maintenance Type",
                 DataPropertyName = "MaintenanceType"
             });
 
@@ -73,21 +73,21 @@ namespace aejynmain.UserControls
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "StartDate",
-                HeaderText = "Start",
+                HeaderText = "Start Date",
                 DataPropertyName = "StartDate"
             });
 
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "EndDate",
-                HeaderText = "End",
+                HeaderText = "End Date",
                 DataPropertyName = "EndDate"
             });
 
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "MaintenanceStatus",
-                HeaderText = "Status",
+                HeaderText = "Maintenance Status",
                 DataPropertyName = "MaintenanceStatus"
             });
         }

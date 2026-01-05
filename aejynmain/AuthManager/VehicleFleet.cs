@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +43,8 @@ namespace aejynmain.AuthManager
                             Color = dr["Color"].ToString(),
                             Transmission = dr["Transmission"].ToString(),
                             FuelType = dr["FuelType"].ToString(),
+                            InitialCondition = dr["InitialCondition"].ToString(),
+                            ReturnCondition = GetLastReturnCondition(Convert.ToInt32(dr["VehicleID"])),
                             SeatingCapacity = Convert.ToInt32(dr["SeatingCapacity"]),
                             HourlyRate = Convert.ToDecimal(dr["HourlyRate"]),
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),
@@ -150,6 +152,31 @@ namespace aejynmain.AuthManager
                 // Handle any exceptions that occur during the update process
                 MessageBox.Show(ex.Message, "Error Updating Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        // Get latest return condition for a vehicle from rentals
+        private static string GetLastReturnCondition(int vehicleId)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                using (MySqlCommand cmd = new MySqlCommand(
+                    @"SELECT r.ReturnCondition
+                      FROM tblrentals r
+                      WHERE r.VehicleID = @VehicleID AND r.ReturnCondition IS NOT NULL
+                      ORDER BY COALESCE(r.ActualReturnDate, r.ReturnDate) DESC, r.RentalID DESC
+                      LIMIT 1", con))
+                {
+                    cmd.Parameters.AddWithValue("@VehicleID", vehicleId);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    return result == null || result == DBNull.Value ? string.Empty : Convert.ToString(result);
+                }
+            }
+            catch
+            {
+                return string.Empty;
             }
         }
     }

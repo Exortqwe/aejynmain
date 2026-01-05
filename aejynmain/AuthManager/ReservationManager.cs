@@ -1,4 +1,4 @@
-﻿using aejynmain.Models;
+using aejynmain.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace aejynmain.AuthManager
                 using (MySqlCommand cmd = new MySqlCommand("sp_SaveReservation", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("p_UserID", User.UserID);
+                    cmd.Parameters.AddWithValue("p_UserID", UserSession.UserID);
                     cmd.Parameters.AddWithValue("p_CustomerID", reservation.CustomerID);
                     cmd.Parameters.AddWithValue("p_VehicleID", reservation.VehicleID);
                     cmd.Parameters.AddWithValue("p_PickUpDate", reservation.PickUpDate);
@@ -64,6 +64,8 @@ namespace aejynmain.AuthManager
                             Color = dr["Color"].ToString(),
                             Transmission = dr["Transmission"].ToString(),
                             FuelType = dr["FuelType"].ToString(),
+                            InitialCondition = dr["InitialCondition"].ToString(),
+                            FuelLevel = dr["FuelLevel"].ToString(),
                             SeatingCapacity = Convert.ToInt32(dr["SeatingCapacity"]),
                             HourlyRate = Convert.ToDecimal(dr["HourlyRate"]),
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),

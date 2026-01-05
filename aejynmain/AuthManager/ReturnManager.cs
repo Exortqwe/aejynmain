@@ -1,4 +1,4 @@
-﻿using aejynmain.Models;
+using aejynmain.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -45,6 +45,20 @@ namespace aejynmain.AuthManager
             return returns;
         }
 
+        // Get the base rental total amount saved when the rental was created
+        public static decimal GetRentalTotalAmount(int rentalId)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString))
+            using (MySqlCommand cmd = new MySqlCommand(
+                @"SELECT IFNULL(TotalAmount, 0) FROM tblrentals WHERE RentalID = @RentalID", con))
+            {
+                cmd.Parameters.AddWithValue("@RentalID", rentalId);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                return result == null ? 0m : Convert.ToDecimal(result);
+            }
+        }
+
         // Return vehicle
         public static void ReturnVehicle(Return ret)
         {
@@ -52,6 +66,21 @@ namespace aejynmain.AuthManager
             using (MySqlCommand cmd = new MySqlCommand("sp_ReturnVehicle", con))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Mark all damages for a rental as paid
+        public static void MarkDamagesPaid(int rentalId)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString))
+            using (MySqlCommand cmd = new MySqlCommand(
+                @"UPDATE tbldamages
+                  SET Paid = 1
+                  WHERE RentalID = @RentalID", con))
+            {
+                cmd.Parameters.AddWithValue("@RentalID", rentalId);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -165,7 +194,7 @@ namespace aejynmain.AuthManager
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
             using (MySqlCommand cmd = new MySqlCommand(
                 @"INSERT INTO tblpayments (RentalID, PaymentType, Amount, PaymentMethod, PaymentStatus, PaymentDate)
-          VALUES (@RentalID, 'Return Payment', @Amount, @PaymentMethod, 'Paid', NOW())", con))
+          VALUES (@RentalID, 'Complete', @Amount, @PaymentMethod, 'Paid', NOW())", con))
             {
                 cmd.Parameters.AddWithValue("@RentalID", rentalId);
                 cmd.Parameters.AddWithValue("@Amount", amount);
@@ -183,7 +212,8 @@ namespace aejynmain.AuthManager
             using (MySqlCommand cmd = new MySqlCommand(
                 @"UPDATE tblvehicles v
           INNER JOIN tblrentals r ON v.VehicleID = r.VehicleID
-          SET v.Mileage = @ReturnMileage
+          SET v.Mileage = @ReturnMileage,
+              v.VehicleStatus = 'Available'
           WHERE r.RentalID = @RentalID", con))
             {
                 cmd.Parameters.AddWithValue("@ReturnMileage", returnMileage);

@@ -1,4 +1,4 @@
-﻿using aejynmain.Models;
+using aejynmain.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_PaymentMethod", rental.Payment.PaymentMethod);
                     cmd.Parameters.AddWithValue("p_PaymentStatus", rental.Payment.PaymentStatus);
                     cmd.Parameters.AddWithValue("p_PickupMileage", rental.PickupMileage);
-                    cmd.Parameters.AddWithValue("p_UserID", User.UserID);
+                    cmd.Parameters.AddWithValue("p_UserID", UserSession.UserID);
 
 
                     cmd.ExecuteNonQuery();
@@ -67,6 +67,7 @@ namespace aejynmain.AuthManager
                             Year = Convert.ToInt32(dr["VehicleYear"]),
                             VIN = dr["VIN"].ToString(),
                             SeatingCapacity = Convert.ToInt32(dr["SeatingCapacity"]),
+                            FuelLevel = dr["FuelLevel"].ToString(),
                             HourlyRate = Convert.ToDecimal(dr["HourlyRate"]),
                             DailyRate = Convert.ToDecimal(dr["DailyRate"]),
                             WeeklyRate = Convert.ToDecimal(dr["WeeklyRate"]),

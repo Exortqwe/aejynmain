@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label12 = new Label();
             panel9 = new Panel();
             panel1 = new Panel();
@@ -65,23 +65,23 @@
             lblLateReturn = new Label();
             label16 = new Label();
             panel8 = new Panel();
-            label2 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label10 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
-            label20 = new Label();
-            label21 = new Label();
-            label22 = new Label();
-            label23 = new Label();
-            label24 = new Label();
-            label25 = new Label();
-            label26 = new Label();
-            label27 = new Label();
-            label28 = new Label();
             label29 = new Label();
+            label28 = new Label();
+            label27 = new Label();
+            label26 = new Label();
+            label25 = new Label();
+            label24 = new Label();
+            label23 = new Label();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label10 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label2 = new Label();
             panel9.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -277,40 +277,41 @@
             dgFleetAvailabilityStatus.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgFleetAvailabilityStatus.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgFleetAvailabilityStatus.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgFleetAvailabilityStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgFleetAvailabilityStatus.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgFleetAvailabilityStatus.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgFleetAvailabilityStatus.DefaultCellStyle = dataGridViewCellStyle2;
             dgFleetAvailabilityStatus.EnableHeadersVisualStyles = false;
             dgFleetAvailabilityStatus.GridColor = SystemColors.GrayText;
             dgFleetAvailabilityStatus.Location = new Point(13, 51);
             dgFleetAvailabilityStatus.Name = "dgFleetAvailabilityStatus";
             dgFleetAvailabilityStatus.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgFleetAvailabilityStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgFleetAvailabilityStatus.RowHeadersVisible = false;
             dgFleetAvailabilityStatus.RowHeadersWidth = 51;
             dgFleetAvailabilityStatus.Size = new Size(691, 268);
             dgFleetAvailabilityStatus.TabIndex = 73;
+            dgFleetAvailabilityStatus.CellContentClick += dgFleetAvailabilityStatus_CellContentClick;
             // 
             // label14
             // 
@@ -508,170 +509,16 @@
             panel8.Size = new Size(1454, 407);
             panel8.TabIndex = 82;
             // 
-            // label2
+            // label29
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(494, 37);
-            label2.TabIndex = 4;
-            label2.Text = "Rental Schedule and Duration Analysis ";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(116, 108);
-            label7.Name = "label7";
-            label7.Size = new Size(81, 32);
-            label7.TabIndex = 5;
-            label7.Text = "Status";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(431, 108);
-            label8.Name = "label8";
-            label8.Size = new Size(90, 32);
-            label8.TabIndex = 6;
-            label8.Text = "Vehicle";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(791, 108);
-            label10.Name = "label10";
-            label10.Size = new Size(67, 32);
-            label10.TabIndex = 7;
-            label10.Text = "Time";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label17.ForeColor = Color.White;
-            label17.Location = new Point(1133, 108);
-            label17.Name = "label17";
-            label17.Size = new Size(110, 32);
-            label17.TabIndex = 8;
-            label17.Text = "Duration";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label18.ForeColor = Color.White;
-            label18.Location = new Point(116, 195);
-            label18.Name = "label18";
-            label18.Size = new Size(69, 25);
-            label18.TabIndex = 9;
-            label18.Text = "label18";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label19.ForeColor = Color.White;
-            label19.Location = new Point(116, 277);
-            label19.Name = "label19";
-            label19.Size = new Size(69, 25);
-            label19.TabIndex = 10;
-            label19.Text = "label19";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label20.ForeColor = Color.White;
-            label20.Location = new Point(116, 359);
-            label20.Name = "label20";
-            label20.Size = new Size(72, 25);
-            label20.TabIndex = 11;
-            label20.Text = "label20";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label21.ForeColor = Color.White;
-            label21.Location = new Point(431, 195);
-            label21.Name = "label21";
-            label21.Size = new Size(69, 25);
-            label21.TabIndex = 12;
-            label21.Text = "label21";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label22.ForeColor = Color.White;
-            label22.Location = new Point(431, 277);
-            label22.Name = "label22";
-            label22.Size = new Size(72, 25);
-            label22.TabIndex = 13;
-            label22.Text = "label22";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label23.ForeColor = Color.White;
-            label23.Location = new Point(431, 359);
-            label23.Name = "label23";
-            label23.Size = new Size(72, 25);
-            label23.TabIndex = 14;
-            label23.Text = "label23";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label24.ForeColor = Color.White;
-            label24.Location = new Point(791, 195);
-            label24.Name = "label24";
-            label24.Size = new Size(72, 25);
-            label24.TabIndex = 15;
-            label24.Text = "label24";
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label25.ForeColor = Color.White;
-            label25.Location = new Point(791, 277);
-            label25.Name = "label25";
-            label25.Size = new Size(72, 25);
-            label25.TabIndex = 16;
-            label25.Text = "label25";
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label26.ForeColor = Color.White;
-            label26.Location = new Point(791, 359);
-            label26.Name = "label26";
-            label26.Size = new Size(72, 25);
-            label26.TabIndex = 17;
-            label26.Text = "label26";
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label27.ForeColor = Color.White;
-            label27.Location = new Point(1154, 195);
-            label27.Name = "label27";
-            label27.Size = new Size(72, 25);
-            label27.TabIndex = 18;
-            label27.Text = "label27";
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label29.ForeColor = Color.White;
+            label29.Location = new Point(1154, 359);
+            label29.Name = "label29";
+            label29.Size = new Size(72, 25);
+            label29.TabIndex = 20;
+            label29.Text = "label29";
             // 
             // label28
             // 
@@ -684,16 +531,170 @@
             label28.TabIndex = 19;
             label28.Text = "label28";
             // 
-            // label29
+            // label27
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label29.ForeColor = Color.White;
-            label29.Location = new Point(1154, 359);
-            label29.Name = "label29";
-            label29.Size = new Size(72, 25);
-            label29.TabIndex = 20;
-            label29.Text = "label29";
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label27.ForeColor = Color.White;
+            label27.Location = new Point(1154, 195);
+            label27.Name = "label27";
+            label27.Size = new Size(72, 25);
+            label27.TabIndex = 18;
+            label27.Text = "label27";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label26.ForeColor = Color.White;
+            label26.Location = new Point(791, 359);
+            label26.Name = "label26";
+            label26.Size = new Size(72, 25);
+            label26.TabIndex = 17;
+            label26.Text = "label26";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label25.ForeColor = Color.White;
+            label25.Location = new Point(791, 277);
+            label25.Name = "label25";
+            label25.Size = new Size(72, 25);
+            label25.TabIndex = 16;
+            label25.Text = "label25";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label24.ForeColor = Color.White;
+            label24.Location = new Point(791, 195);
+            label24.Name = "label24";
+            label24.Size = new Size(72, 25);
+            label24.TabIndex = 15;
+            label24.Text = "label24";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label23.ForeColor = Color.White;
+            label23.Location = new Point(431, 359);
+            label23.Name = "label23";
+            label23.Size = new Size(72, 25);
+            label23.TabIndex = 14;
+            label23.Text = "label23";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label22.ForeColor = Color.White;
+            label22.Location = new Point(431, 277);
+            label22.Name = "label22";
+            label22.Size = new Size(72, 25);
+            label22.TabIndex = 13;
+            label22.Text = "label22";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label21.ForeColor = Color.White;
+            label21.Location = new Point(431, 195);
+            label21.Name = "label21";
+            label21.Size = new Size(69, 25);
+            label21.TabIndex = 12;
+            label21.Text = "label21";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label20.ForeColor = Color.White;
+            label20.Location = new Point(116, 359);
+            label20.Name = "label20";
+            label20.Size = new Size(72, 25);
+            label20.TabIndex = 11;
+            label20.Text = "label20";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label19.ForeColor = Color.White;
+            label19.Location = new Point(116, 277);
+            label19.Name = "label19";
+            label19.Size = new Size(69, 25);
+            label19.TabIndex = 10;
+            label19.Text = "label19";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label18.ForeColor = Color.White;
+            label18.Location = new Point(116, 195);
+            label18.Name = "label18";
+            label18.Size = new Size(69, 25);
+            label18.TabIndex = 9;
+            label18.Text = "label18";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label17.ForeColor = Color.White;
+            label17.Location = new Point(1133, 108);
+            label17.Name = "label17";
+            label17.Size = new Size(110, 32);
+            label17.TabIndex = 8;
+            label17.Text = "Duration";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(791, 108);
+            label10.Name = "label10";
+            label10.Size = new Size(67, 32);
+            label10.TabIndex = 7;
+            label10.Text = "Time";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(431, 108);
+            label8.Name = "label8";
+            label8.Size = new Size(90, 32);
+            label8.TabIndex = 6;
+            label8.Text = "Vehicle";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(116, 108);
+            label7.Name = "label7";
+            label7.Size = new Size(81, 32);
+            label7.TabIndex = 5;
+            label7.Text = "Status";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(494, 37);
+            label2.TabIndex = 4;
+            label2.Text = "Rental Schedule and Duration Analysis ";
             // 
             // UC_Reports
             // 
