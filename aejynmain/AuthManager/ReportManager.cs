@@ -264,7 +264,7 @@ namespace aejynmain.AuthManager
             LEFT JOIN tblrentals r ON v.VehicleID = r.VehicleID
             GROUP BY v.VehicleID, v.Model, vc.CategoryName
             ORDER BY RentalCount DESC
-            LIMIT 5";
+            LIMIT 10";
 
                 DataTable dt = new DataTable();
                 using (var da = new MySqlDataAdapter(cmd))
