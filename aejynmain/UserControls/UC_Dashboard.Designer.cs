@@ -20,59 +20,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel10 = new Panel();
+            pictureBox3 = new PictureBox();
             lblReservedVehicles = new Label();
             label6 = new Label();
             chartVehicleStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel8 = new Panel();
+            pictureBox5 = new PictureBox();
             lblLateReturn = new Label();
             label3 = new Label();
             panel9 = new Panel();
             label12 = new Label();
             panel7 = new Panel();
+            pictureBox4 = new PictureBox();
             lblRevenueToday = new Label();
             label21 = new Label();
             panel4 = new Panel();
+            pictureBox2 = new PictureBox();
             lblAvailableVehicles = new Label();
             label4 = new Label();
             panel3 = new Panel();
+            pictureBox6 = new PictureBox();
             label10 = new Label();
             lblActiveRentals = new Label();
             label2 = new Label();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             lblTotalVehicles = new Label();
             label5 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).BeginInit();
             panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -95,16 +95,16 @@
             // 
             // chartRevenue
             // 
-            chartArea3.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chartRevenue.Legends.Add(legend3);
-            chartRevenue.Location = new Point(38, 290);
+            chartArea1.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartRevenue.Legends.Add(legend1);
+            chartRevenue.Location = new Point(63, 290);
             chartRevenue.Name = "chartRevenue";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chartRevenue.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartRevenue.Series.Add(series1);
             chartRevenue.Size = new Size(774, 501);
             chartRevenue.TabIndex = 75;
             chartRevenue.Text = "chart1";
@@ -116,10 +116,19 @@
             panel10.Controls.Add(pictureBox3);
             panel10.Controls.Add(lblReservedVehicles);
             panel10.Controls.Add(label6);
-            panel10.Location = new Point(1343, 125);
+            panel10.Location = new Point(1365, 126);
             panel10.Name = "panel10";
-            panel10.Size = new Size(255, 125);
+            panel10.Size = new Size(291, 125);
             panel10.TabIndex = 67;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(220, -5);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(71, 64);
+            pictureBox3.TabIndex = 37;
+            pictureBox3.TabStop = false;
             // 
             // lblReservedVehicles
             // 
@@ -144,17 +153,17 @@
             // 
             // chartVehicleStatus
             // 
-            chartArea4.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend4);
-            chartVehicleStatus.Location = new Point(821, 290);
+            chartArea2.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend2);
+            chartVehicleStatus.Location = new Point(843, 290);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chartVehicleStatus.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartVehicleStatus.Series.Add(series2);
             chartVehicleStatus.Size = new Size(774, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -165,10 +174,19 @@
             panel8.Controls.Add(pictureBox5);
             panel8.Controls.Add(lblLateReturn);
             panel8.Controls.Add(label3);
-            panel8.Location = new Point(1082, 125);
+            panel8.Location = new Point(1104, 126);
             panel8.Name = "panel8";
             panel8.Size = new Size(255, 125);
             panel8.TabIndex = 66;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(189, -8);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(66, 67);
+            pictureBox5.TabIndex = 39;
+            pictureBox5.TabStop = false;
             // 
             // lblLateReturn
             // 
@@ -218,10 +236,19 @@
             panel7.Controls.Add(pictureBox4);
             panel7.Controls.Add(lblRevenueToday);
             panel7.Controls.Add(label21);
-            panel7.Location = new Point(821, 125);
+            panel7.Location = new Point(843, 126);
             panel7.Name = "panel7";
             panel7.Size = new Size(255, 125);
             panel7.TabIndex = 65;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(189, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(66, 59);
+            pictureBox4.TabIndex = 38;
+            pictureBox4.TabStop = false;
             // 
             // lblRevenueToday
             // 
@@ -250,10 +277,19 @@
             panel4.Controls.Add(pictureBox2);
             panel4.Controls.Add(lblAvailableVehicles);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(299, 125);
+            panel4.Location = new Point(295, 126);
             panel4.Name = "panel4";
-            panel4.Size = new Size(255, 125);
+            panel4.Size = new Size(281, 125);
             panel4.TabIndex = 62;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(216, -5);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(74, 64);
+            pictureBox2.TabIndex = 36;
+            pictureBox2.TabStop = false;
             // 
             // lblAvailableVehicles
             // 
@@ -283,10 +319,19 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(lblActiveRentals);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(560, 125);
+            panel3.Location = new Point(582, 126);
             panel3.Name = "panel3";
             panel3.Size = new Size(255, 125);
             panel3.TabIndex = 61;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(189, -5);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(66, 64);
+            pictureBox6.TabIndex = 40;
+            pictureBox6.TabStop = false;
             // 
             // label10
             // 
@@ -325,10 +370,19 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(lblTotalVehicles);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(38, 125);
+            panel2.Location = new Point(34, 126);
             panel2.Name = "panel2";
             panel2.Size = new Size(255, 125);
             panel2.TabIndex = 60;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(191, -5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.TabIndex = 36;
+            pictureBox1.TabStop = false;
             // 
             // lblTotalVehicles
             // 
@@ -351,60 +405,6 @@
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(191, 58);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(64, 64);
-            pictureBox1.TabIndex = 36;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(190, 58);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(74, 64);
-            pictureBox2.TabIndex = 36;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(181, 58);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(71, 64);
-            pictureBox3.TabIndex = 37;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(189, 58);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(66, 64);
-            pictureBox4.TabIndex = 38;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(189, 58);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(66, 64);
-            pictureBox5.TabIndex = 39;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(186, 61);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(66, 64);
-            pictureBox6.TabIndex = 40;
-            pictureBox6.TabStop = false;
-            // 
             // UC_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -416,25 +416,25 @@
             ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartVehicleStatus).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
