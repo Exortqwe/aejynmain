@@ -20,7 +20,6 @@ namespace aejynmain
         UC_Returns returns = new UC_Returns();
         UC_Reports reports = new UC_Reports();
         UC_Reservations reservation = new UC_Reservations();
-        UC_DamageClaims damageclaims = new UC_DamageClaims();
         UC_Maintenance maintenance = new UC_Maintenance();
         public MainForm()
         {
@@ -110,13 +109,6 @@ namespace aejynmain
             UC_Reservations reservation = new UC_Reservations();
             addUserControls(reservation);
         }
-
-        private void btnDamageClaims_Click(object sender, EventArgs e)
-        {
-            UC_DamageClaims damageclaims = new UC_DamageClaims();
-            addUserControls(damageclaims);
-        }
-
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
             UC_Maintenance maintenance = new UC_Maintenance();

@@ -28,11 +28,11 @@ namespace aejynmain.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Maintenance));
             panel9 = new Panel();
             label12 = new Label();
@@ -75,7 +75,7 @@ namespace aejynmain.UserControls
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(305, 113);
+            btnSearch.Location = new Point(397, 113);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(63, 41);
             btnSearch.TabIndex = 79;
@@ -85,7 +85,7 @@ namespace aejynmain.UserControls
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(76, 113);
+            txtSearch.Location = new Point(168, 113);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(232, 41);
@@ -95,46 +95,46 @@ namespace aejynmain.UserControls
             // 
             dgMaintenance.AllowUserToResizeColumns = false;
             dgMaintenance.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dgMaintenance.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgMaintenance.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgMaintenance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgMaintenance.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgMaintenance.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgMaintenance.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgMaintenance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgMaintenance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgMaintenance.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgMaintenance.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgMaintenance.DefaultCellStyle = dataGridViewCellStyle3;
             dgMaintenance.EnableHeadersVisualStyles = false;
             dgMaintenance.GridColor = SystemColors.GrayText;
-            dgMaintenance.Location = new Point(76, 160);
+            dgMaintenance.Location = new Point(168, 160);
             dgMaintenance.Name = "dgMaintenance";
             dgMaintenance.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgMaintenance.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgMaintenance.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgMaintenance.RowHeadersVisible = false;
             dgMaintenance.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dgMaintenance.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dgMaintenance.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgMaintenance.Size = new Size(1217, 547);
             dgMaintenance.TabIndex = 81;
             // 
@@ -147,7 +147,7 @@ namespace aejynmain.UserControls
             btnScheduleMaintenance.ForeColor = Color.White;
             btnScheduleMaintenance.Image = (Image)resources.GetObject("btnScheduleMaintenance.Image");
             btnScheduleMaintenance.ImageAlign = ContentAlignment.MiddleLeft;
-            btnScheduleMaintenance.Location = new Point(374, 113);
+            btnScheduleMaintenance.Location = new Point(466, 113);
             btnScheduleMaintenance.Name = "btnScheduleMaintenance";
             btnScheduleMaintenance.Size = new Size(208, 41);
             btnScheduleMaintenance.TabIndex = 84;
