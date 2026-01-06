@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using aejynmain.Models;
 
 namespace aejynmain.Models
 {
@@ -11,6 +12,7 @@ namespace aejynmain.Models
         public int CustomerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public CustomerType Type { get; set; } = CustomerType.Individual;
         public string ContactNumber { get; set; }
         public string EmailAddress { get; set; }
         public string Address { get; set; }
@@ -22,5 +24,13 @@ namespace aejynmain.Models
         public string EmergencyContactName { get; set; }
         public string EmergencyContactNumber { get; set; }
         public string EmergencyContactRelationship { get; set; }
+        public string CompanyName { get; set; }
+    }
+    public enum CustomerType
+    {
+        Individual,
+        Corporate,
+        Frequent,
+        Blacklisted
     }
 }

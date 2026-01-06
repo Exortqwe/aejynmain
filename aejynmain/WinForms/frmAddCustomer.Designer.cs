@@ -58,6 +58,10 @@
             txtName = new TextBox();
             cmbRelationship = new ComboBox();
             label15 = new Label();
+            chkCorporate = new CheckBox();
+            label16 = new Label();
+            txtCompanyName = new TextBox();
+            label17 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -105,7 +109,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label4.Location = new Point(406, 169);
+            label4.Location = new Point(209, 169);
             label4.Name = "label4";
             label4.Size = new Size(66, 23);
             label4.TabIndex = 11;
@@ -145,7 +149,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label8.Location = new Point(13, 303);
+            label8.Location = new Point(13, 324);
             label8.Name = "label8";
             label8.Size = new Size(159, 23);
             label8.TabIndex = 22;
@@ -163,7 +167,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label10.Location = new Point(567, 303);
+            label10.Location = new Point(567, 324);
             label10.Name = "label10";
             label10.Size = new Size(132, 23);
             label10.TabIndex = 24;
@@ -173,7 +177,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label11.Location = new Point(290, 303);
+            label11.Location = new Point(290, 324);
             label11.Name = "label11";
             label11.Size = new Size(108, 23);
             label11.TabIndex = 25;
@@ -183,7 +187,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label12.Location = new Point(611, 169);
+            label12.Location = new Point(406, 169);
             label12.Name = "label12";
             label12.Size = new Size(133, 23);
             label12.TabIndex = 27;
@@ -197,7 +201,7 @@
             btnSaveCustomerDetails.FlatStyle = FlatStyle.Flat;
             btnSaveCustomerDetails.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveCustomerDetails.ForeColor = Color.White;
-            btnSaveCustomerDetails.Location = new Point(315, 410);
+            btnSaveCustomerDetails.Location = new Point(309, 403);
             btnSaveCustomerDetails.Name = "btnSaveCustomerDetails";
             btnSaveCustomerDetails.Size = new Size(190, 40);
             btnSaveCustomerDetails.TabIndex = 28;
@@ -217,7 +221,7 @@
             // 
             // dtpDateRegistered
             // 
-            dtpDateRegistered.Location = new Point(567, 329);
+            dtpDateRegistered.Location = new Point(567, 350);
             dtpDateRegistered.Name = "dtpDateRegistered";
             dtpDateRegistered.Size = new Size(239, 27);
             dtpDateRegistered.TabIndex = 21;
@@ -255,7 +259,7 @@
             txtAddress.Location = new Point(9, 190);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(365, 36);
+            txtAddress.Size = new Size(166, 36);
             txtAddress.TabIndex = 34;
             // 
             // cmbGender
@@ -263,7 +267,7 @@
             cmbGender.Font = new Font("Segoe UI", 12F);
             cmbGender.FormattingEnabled = true;
             cmbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cmbGender.Location = new Point(406, 190);
+            cmbGender.Location = new Point(209, 190);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(165, 36);
             cmbGender.TabIndex = 35;
@@ -271,7 +275,7 @@
             // txtLicenseNumber
             // 
             txtLicenseNumber.BorderStyle = BorderStyle.FixedSingle;
-            txtLicenseNumber.Location = new Point(605, 190);
+            txtLicenseNumber.Location = new Point(406, 190);
             txtLicenseNumber.Multiline = true;
             txtLicenseNumber.Name = "txtLicenseNumber";
             txtLicenseNumber.Size = new Size(165, 36);
@@ -279,14 +283,14 @@
             // 
             // dtpLicenseExpiry
             // 
-            dtpLicenseExpiry.Location = new Point(9, 329);
+            dtpLicenseExpiry.Location = new Point(9, 350);
             dtpLicenseExpiry.Name = "dtpLicenseExpiry";
             dtpLicenseExpiry.Size = new Size(239, 27);
             dtpLicenseExpiry.TabIndex = 37;
             // 
             // dtpBirthDate
             // 
-            dtpBirthDate.Location = new Point(286, 329);
+            dtpBirthDate.Location = new Point(286, 350);
             dtpBirthDate.Name = "dtpBirthDate";
             dtpBirthDate.Size = new Size(239, 27);
             dtpBirthDate.TabIndex = 38;
@@ -295,7 +299,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label13.Location = new Point(9, 242);
+            label13.Location = new Point(605, 164);
             label13.Name = "label13";
             label13.Size = new Size(160, 23);
             label13.TabIndex = 39;
@@ -304,7 +308,7 @@
             // txtEmergencyContact
             // 
             txtEmergencyContact.BorderStyle = BorderStyle.FixedSingle;
-            txtEmergencyContact.Location = new Point(9, 268);
+            txtEmergencyContact.Location = new Point(605, 190);
             txtEmergencyContact.Multiline = true;
             txtEmergencyContact.Name = "txtEmergencyContact";
             txtEmergencyContact.Size = new Size(165, 36);
@@ -314,7 +318,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label14.Location = new Point(209, 242);
+            label14.Location = new Point(9, 240);
             label14.Name = "label14";
             label14.Size = new Size(104, 23);
             label14.TabIndex = 42;
@@ -323,7 +327,7 @@
             // txtName
             // 
             txtName.BorderStyle = BorderStyle.FixedSingle;
-            txtName.Location = new Point(406, 268);
+            txtName.Location = new Point(209, 266);
             txtName.Multiline = true;
             txtName.Name = "txtName";
             txtName.Size = new Size(165, 36);
@@ -334,7 +338,7 @@
             cmbRelationship.Font = new Font("Segoe UI", 12F);
             cmbRelationship.FormattingEnabled = true;
             cmbRelationship.Items.AddRange(new object[] { "Family", "Parent", "Friend" });
-            cmbRelationship.Location = new Point(209, 268);
+            cmbRelationship.Location = new Point(9, 266);
             cmbRelationship.Name = "cmbRelationship";
             cmbRelationship.Size = new Size(165, 36);
             cmbRelationship.TabIndex = 44;
@@ -343,18 +347,62 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label15.Location = new Point(406, 242);
+            label15.Location = new Point(206, 240);
             label15.Name = "label15";
             label15.Size = new Size(56, 23);
             label15.TabIndex = 45;
             label15.Text = "Name";
+            // 
+            // chkCorporate
+            // 
+            chkCorporate.AutoSize = true;
+            chkCorporate.Font = new Font("Segoe UI", 12F);
+            chkCorporate.Location = new Point(605, 268);
+            chkCorporate.Name = "chkCorporate";
+            chkCorporate.Size = new Size(178, 32);
+            chkCorporate.TabIndex = 46;
+            chkCorporate.Text = "Corporate Client";
+            chkCorporate.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label16.Location = new Point(605, 242);
+            label16.Name = "label16";
+            label16.Size = new Size(133, 23);
+            label16.TabIndex = 47;
+            label16.Text = "License Number";
+            // 
+            // txtCompanyName
+            // 
+            txtCompanyName.BorderStyle = BorderStyle.FixedSingle;
+            txtCompanyName.Location = new Point(406, 266);
+            txtCompanyName.Multiline = true;
+            txtCompanyName.Name = "txtCompanyName";
+            txtCompanyName.Size = new Size(165, 36);
+            txtCompanyName.TabIndex = 48;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label17.Location = new Point(406, 240);
+            label17.Name = "label17";
+            label17.Size = new Size(135, 23);
+            label17.TabIndex = 49;
+            label17.Text = "Company Name";
             // 
             // frmAddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(818, 460);
+            ClientSize = new Size(818, 478);
+            Controls.Add(label17);
+            Controls.Add(txtCompanyName);
+            Controls.Add(label16);
+            Controls.Add(chkCorporate);
             Controls.Add(label15);
             Controls.Add(cmbRelationship);
             Controls.Add(txtName);
@@ -426,5 +474,9 @@
         private TextBox txtName;
         private ComboBox cmbRelationship;
         private Label label15;
+        private CheckBox chkCorporate;
+        private Label label16;
+        private TextBox txtCompanyName;
+        private Label label17;
     }
 }

@@ -35,7 +35,7 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Failed to load customers: " + ex.Message);
             }
         }
-     
+
         private static DataTable ConvertToDataTable(List<Customer> customers)
         {
             DataTable dt = new DataTable();
@@ -55,6 +55,10 @@ namespace aejynmain.UserControls
             dt.Columns.Add("EmergencyContactName", typeof(string));
             dt.Columns.Add("EmergencyContactNumber", typeof(string));
             dt.Columns.Add("EmergencyContactRelationship", typeof(string));
+
+            dt.Columns.Add("CompanyName", typeof(string));       // NEW
+            dt.Columns.Add("CustomerType", typeof(string));
+
             // DateRegistered last
             dt.Columns.Add("DateRegistered", typeof(DateTime));
 
@@ -76,7 +80,9 @@ namespace aejynmain.UserControls
                     customer.EmergencyContactName,
                     customer.EmergencyContactNumber,
                     customer.EmergencyContactRelationship,
-                    // DateRegistered last
+                    customer.CompanyName,                  // NEW
+                    customer.Type.ToString(),              // NEW, convert enum to string
+                   // DateRegistered last
                     customer.DateRegistered
                 );
             }

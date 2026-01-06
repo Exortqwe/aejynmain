@@ -26,7 +26,9 @@ namespace aejynmain.AuthManager
             DateTime dateRegistered,
             string emergencyContactName,
             string emergencyContactNumber,
-            string emergencyContactRelationship
+            string emergencyContactRelationship,
+            CustomerType type,
+            string companyName
         )
         {
             try
@@ -49,6 +51,8 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_EmergencyContactName", emergencyContactName);
                     cmd.Parameters.AddWithValue("p_EmergencyContactNumber", emergencyContactNumber);
                     cmd.Parameters.AddWithValue("p_EmergencyContactRelationship", emergencyContactRelationship);
+                    cmd.Parameters.AddWithValue("p_CustomerType", type.ToString());
+                    cmd.Parameters.AddWithValue("p_CompanyName", companyName);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -96,7 +100,9 @@ namespace aejynmain.AuthManager
                                 DateRegistered = Convert.ToDateTime(reader["DateRegistered"]),
                                 EmergencyContactName = reader["EmergencyContactName"] == DBNull.Value ? "" : reader["EmergencyContactName"].ToString(),
                                 EmergencyContactNumber = reader["EmergencyContactNumber"] == DBNull.Value ? "" : reader["EmergencyContactNumber"].ToString(),
-                                EmergencyContactRelationship = reader["EmergencyContactRelationship"] == DBNull.Value ? "" : reader["EmergencyContactRelationship"].ToString()
+                                EmergencyContactRelationship = reader["EmergencyContactRelationship"] == DBNull.Value ? "" : reader["EmergencyContactRelationship"].ToString(),
+                                Type = Enum.Parse<CustomerType>(reader["CustomerType"].ToString()),
+                                CompanyName = reader["CompanyName"].ToString()
                             });
                         }
                     }
@@ -192,12 +198,27 @@ namespace aejynmain.AuthManager
             }
         }
 
-        // CHECK IF CUSTOMER MEETS MINIMUM AGE (21 years old)
+        // e check if ang customer meets minimum age (21 yrs old)
         public static bool IsAgeValid(DateTime birthDate)
         {
             int age = DateTime.Today.Year - birthDate.Year;
             if (birthDate.Date > DateTime.Today.AddYears(-age)) age--;
             return age >= 21;
+        }
+        public static CustomerType GetCustomerType(
+            bool isBlacklisted,
+            bool isCorporate,
+            int totalRentals)
+          
+        {
+            if (isBlacklisted)
+                return CustomerType.Blacklisted;
+            if (isCorporate)
+                return CustomerType.Corporate;
+            if (totalRentals >= 10)
+                return CustomerType.Frequent;
+
+            return CustomerType.Individual;
         }
     }
 }
