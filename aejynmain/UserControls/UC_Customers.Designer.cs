@@ -84,7 +84,7 @@
             dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
-            dgAddCustomer.Location = new Point(185, 176);
+            dgAddCustomer.Location = new Point(36, 142);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -97,7 +97,7 @@
             dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgAddCustomer.RowHeadersVisible = false;
             dgAddCustomer.RowHeadersWidth = 51;
-            dgAddCustomer.Size = new Size(1351, 686);
+            dgAddCustomer.Size = new Size(1606, 686);
             dgAddCustomer.TabIndex = 72;
             dgAddCustomer.CellEndEdit += dgAddCustomer_CellEndEdit;
             // 
@@ -120,7 +120,7 @@
             btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.Location = new Point(681, 129);
+            btnRefresh.Location = new Point(529, 95);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(94, 41);
             btnRefresh.TabIndex = 73;
@@ -136,7 +136,7 @@
             btnNewCustomer.ForeColor = Color.White;
             btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
             btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(484, 129);
+            btnNewCustomer.Location = new Point(332, 95);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(191, 41);
             btnNewCustomer.TabIndex = 1;
@@ -147,7 +147,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(186, 129);
+            txtSearch.Location = new Point(34, 95);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(232, 41);
@@ -164,7 +164,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(415, 129);
+            btnSearch.Location = new Point(263, 95);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(63, 41);
             btnSearch.TabIndex = 76;
@@ -183,7 +183,7 @@
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(1420, 129);
+            btnDelete.Location = new Point(1526, 95);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(116, 41);
             btnDelete.TabIndex = 77;
@@ -203,7 +203,7 @@
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(1304, 129);
+            btnEdit.Location = new Point(1410, 95);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(110, 41);
             btnEdit.TabIndex = 78;
@@ -223,7 +223,7 @@
             btnViewCustomer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnViewCustomer.IconSize = 32;
             btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnViewCustomer.Location = new Point(1104, 129);
+            btnViewCustomer.Location = new Point(1210, 95);
             btnViewCustomer.Name = "btnViewCustomer";
             btnViewCustomer.Size = new Size(194, 41);
             btnViewCustomer.TabIndex = 79;

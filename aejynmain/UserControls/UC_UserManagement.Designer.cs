@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_UserManagement));
             panel9 = new Panel();
             label12 = new Label();
             dgFleetAvailabilityStatus = new DataGridView();
@@ -43,12 +42,8 @@
             label2 = new Label();
             btnRefresh = new FontAwesome.Sharp.IconButton();
             btnAddUser = new FontAwesome.Sharp.IconButton();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgFleetAvailabilityStatus).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel9
@@ -211,30 +206,10 @@
             btnAddUser.Text = "Add User";
             btnAddUser.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(242, 603);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(376, 398);
-            pictureBox1.TabIndex = 84;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(776, 589);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(645, 412);
-            pictureBox2.TabIndex = 85;
-            pictureBox2.TabStop = false;
-            // 
             // UC_UserManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
             Controls.Add(btnAddUser);
             Controls.Add(btnRefresh);
             Controls.Add(label2);
@@ -250,8 +225,6 @@
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgFleetAvailabilityStatus).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -269,7 +242,5 @@
         private Label label2;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private FontAwesome.Sharp.IconButton btnAddUser;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
     }
 }

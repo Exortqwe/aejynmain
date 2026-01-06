@@ -121,9 +121,9 @@
             panel5.Controls.Add(label31);
             panel5.Controls.Add(label30);
             panel5.Controls.Add(label29);
-            panel5.Location = new Point(1288, 138);
+            panel5.Location = new Point(1266, 135);
             panel5.Name = "panel5";
-            panel5.Size = new Size(364, 214);
+            panel5.Size = new Size(394, 217);
             panel5.TabIndex = 25;
             // 
             // lblTotalPrice
@@ -220,7 +220,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.Location = new Point(1288, 91);
+            label28.Location = new Point(1266, 91);
             label28.Name = "label28";
             label28.Size = new Size(196, 35);
             label28.TabIndex = 26;
@@ -508,7 +508,7 @@
             // 
             label36.AutoSize = true;
             label36.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(928, 91);
+            label36.Location = new Point(918, 91);
             label36.Name = "label36";
             label36.Size = new Size(189, 35);
             label36.TabIndex = 34;
@@ -526,7 +526,7 @@
             panel7.Controls.Add(label37);
             panel7.Controls.Add(cmbPaymentMethod);
             panel7.Controls.Add(cmbPaymentType);
-            panel7.Location = new Point(928, 135);
+            panel7.Location = new Point(918, 135);
             panel7.Name = "panel7";
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 33;
