@@ -245,5 +245,34 @@ namespace aejynmain.AuthManager
                 return dt;
             }
         }
+        public DataTable GetPopularVehicles()
+        {
+            using (var conn = new MySqlConnection(ConnectionString))
+            using (var cmd = new MySqlCommand())
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandText = @"
+            SELECT 
+                v.Model,
+                vc.CategoryName as Category,
+                COUNT(r.RentalID) as RentalCount,
+                ROUND((COUNT(r.RentalID) * 100.0) / 
+                    (SELECT COUNT(*) FROM tblrentals), 2) as RentalPercentage
+            FROM tblvehicles v
+            INNER JOIN tblvehicle_categories vc ON v.CategoryID = vc.CategoryID
+            LEFT JOIN tblrentals r ON v.VehicleID = r.VehicleID
+            GROUP BY v.VehicleID, v.Model, vc.CategoryName
+            ORDER BY RentalCount DESC
+            LIMIT 10";
+
+                DataTable dt = new DataTable();
+                using (var da = new MySqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+                return dt;
+            }
+        }
     }
 }

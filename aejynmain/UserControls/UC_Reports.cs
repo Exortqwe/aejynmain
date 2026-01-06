@@ -24,6 +24,7 @@ namespace aejynmain.UserControls
                 LoadRevenuePerVehicle();
                 LoadAverageRentalRate();
                 LoadFleetAvailabilityStatus();
+                LoadPopularVehicles();
             }
             catch (Exception ex)
             {
@@ -100,6 +101,50 @@ namespace aejynmain.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading fleet status: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadPopularVehicles()
+        {
+            try
+            {
+                var popularVehicles = _reportManager.GetPopularVehicles();
+
+                // Clear existing data and columns
+                dgPopularVehicles.Rows.Clear();
+                dgPopularVehicles.Columns.Clear();
+
+                // Add columns
+                dgPopularVehicles.Columns.Add("Model", "Vehicle Model");
+                dgPopularVehicles.Columns.Add("Category", "Category");
+                dgPopularVehicles.Columns.Add("RentalCount", "Times Rented");
+                dgPopularVehicles.Columns.Add("RentalPercentage", "Popularity %");
+
+                // Format columns
+                dgPopularVehicles.Columns["RentalPercentage"].DefaultCellStyle.Format = "0.00'%'";
+                dgPopularVehicles.Columns["RentalCount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgPopularVehicles.Columns["RentalPercentage"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                // Add data rows
+                foreach (System.Data.DataRow row in popularVehicles.Rows)
+                {
+                    dgPopularVehicles.Rows.Add(
+                        row["Model"],
+                        row["Category"],
+                        row["RentalCount"],
+                        row["RentalPercentage"]
+                    );
+                }
+
+                // Style the DataGridView
+                dgPopularVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgPopularVehicles.AllowUserToAddRows = false;
+                dgPopularVehicles.RowHeadersVisible = false;
+                dgPopularVehicles.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading popular vehicles: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
