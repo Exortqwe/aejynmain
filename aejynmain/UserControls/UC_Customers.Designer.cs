@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customers));
-            label1 = new Label();
             dgAddCustomer = new DataGridView();
             panel1 = new Panel();
             btnRefresh = new FontAwesome.Sharp.IconButton();
@@ -42,20 +41,11 @@
             btnDelete = new FontAwesome.Sharp.IconButton();
             btnEdit = new FontAwesome.Sharp.IconButton();
             btnViewCustomer = new FontAwesome.Sharp.IconButton();
+            label1 = new Label();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(22, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(169, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Customer";
             // 
             // dgAddCustomer
             // 
@@ -65,50 +55,52 @@
             dgAddCustomer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgAddCustomer.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgAddCustomer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle13.ForeColor = Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle13.SelectionForeColor = Color.White;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dgAddCustomer.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.White;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle14.ForeColor = Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle14;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
-            dgAddCustomer.Location = new Point(36, 142);
+            dgAddCustomer.Location = new Point(48, 189);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dgAddCustomer.RowHeadersVisible = false;
             dgAddCustomer.RowHeadersWidth = 51;
             dgAddCustomer.Size = new Size(1606, 686);
             dgAddCustomer.TabIndex = 72;
+            dgAddCustomer.CellContentClick += dgAddCustomer_CellContentClick;
             dgAddCustomer.CellEndEdit += dgAddCustomer_CellEndEdit;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(58, 124, 165);
+            panel1.BackColor = Color.FromArgb(28, 73, 102);
             panel1.Controls.Add(label1);
+            panel1.Controls.Add(label12);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 75);
+            panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 74;
             // 
             // btnRefresh
@@ -120,7 +112,7 @@
             btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.Location = new Point(529, 95);
+            btnRefresh.Location = new Point(541, 142);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(94, 41);
             btnRefresh.TabIndex = 73;
@@ -136,7 +128,7 @@
             btnNewCustomer.ForeColor = Color.White;
             btnNewCustomer.Image = (Image)resources.GetObject("btnNewCustomer.Image");
             btnNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewCustomer.Location = new Point(332, 95);
+            btnNewCustomer.Location = new Point(344, 142);
             btnNewCustomer.Name = "btnNewCustomer";
             btnNewCustomer.Size = new Size(191, 41);
             btnNewCustomer.TabIndex = 1;
@@ -147,7 +139,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(34, 95);
+            txtSearch.Location = new Point(46, 142);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(232, 41);
@@ -164,7 +156,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(263, 95);
+            btnSearch.Location = new Point(275, 142);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(63, 41);
             btnSearch.TabIndex = 76;
@@ -183,7 +175,7 @@
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(1526, 95);
+            btnDelete.Location = new Point(1538, 142);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(116, 41);
             btnDelete.TabIndex = 77;
@@ -203,7 +195,7 @@
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(1410, 95);
+            btnEdit.Location = new Point(1422, 142);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(110, 41);
             btnEdit.TabIndex = 78;
@@ -223,7 +215,7 @@
             btnViewCustomer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnViewCustomer.IconSize = 32;
             btnViewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnViewCustomer.Location = new Point(1210, 95);
+            btnViewCustomer.Location = new Point(1222, 142);
             btnViewCustomer.Name = "btnViewCustomer";
             btnViewCustomer.Size = new Size(194, 41);
             btnViewCustomer.TabIndex = 79;
@@ -231,6 +223,28 @@
             btnViewCustomer.TextAlign = ContentAlignment.MiddleRight;
             btnViewCustomer.UseVisualStyleBackColor = false;
             btnViewCustomer.Click += btnViewCustomer_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(569, 46);
+            label1.TabIndex = 39;
+            label1.Text = "Vehicle Rental Management System";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label12.ForeColor = SystemColors.ControlLight;
+            label12.Location = new Point(3, 60);
+            label12.Name = "label12";
+            label12.Size = new Size(245, 32);
+            label12.TabIndex = 38;
+            label12.Text = "Customers Overview ";
             // 
             // UC_Customers
             // 
@@ -256,8 +270,6 @@
         }
 
         #endregion
-
-        private Label label1;
         private DataGridView dgAddCustomer;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton btnRefresh;
@@ -267,5 +279,7 @@
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnEdit;
         private FontAwesome.Sharp.IconButton btnViewCustomer;
+        private Label label1;
+        private Label label12;
     }
 }

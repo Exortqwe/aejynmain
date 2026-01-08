@@ -210,7 +210,7 @@
             btnReports.Location = new Point(3, 715);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
-            btnReports.Size = new Size(244, 64);
+            btnReports.Size = new Size(249, 64);
             btnReports.TabIndex = 11;
             btnReports.Text = "            Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
@@ -264,7 +264,7 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(252, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1056, 876);
+            panelMain.Size = new Size(1056, 918);
             panelMain.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -285,7 +285,7 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(252, 876);
+            flowLayoutPanel1.Size = new Size(252, 918);
             flowLayoutPanel1.TabIndex = 3;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -295,7 +295,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
-            ClientSize = new Size(1308, 876);
+            ClientSize = new Size(1308, 918);
             Controls.Add(panelMain);
             Controls.Add(flowLayoutPanel1);
             MaximizeBox = false;

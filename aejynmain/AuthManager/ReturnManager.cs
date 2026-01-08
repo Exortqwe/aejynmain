@@ -66,6 +66,7 @@ namespace aejynmain.AuthManager
             using (MySqlCommand cmd = new MySqlCommand("sp_ReturnVehicle", con))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -107,22 +108,35 @@ namespace aejynmain.AuthManager
                 cmd.ExecuteNonQuery();
             }
         }
-        public static void InsertDamage(int rentalID, int userID, string description, decimal repairCost)
+        public static void InsertDamage(int rentalId, int userId, string description, decimal repairCost)
         {
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"INSERT INTO tbldamages 
-          (RentalID, UserID, Description, `Paid`, RepairCost, DateReported) 
-          VALUES (@RentalID, @UserID, @Description, @Paid, @RepairCost, NOW())", con))
+            try
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalID);
-                cmd.Parameters.AddWithValue("@UserID", userID);
-                cmd.Parameters.AddWithValue("@Description", description);
-                cmd.Parameters.AddWithValue("@Paid", false); // unpaid by default
-                cmd.Parameters.AddWithValue("@RepairCost", repairCost);
+                using (var conn = new MySqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string query = @"
+    INSERT INTO tbldamages 
+        (RentalID, UserID, Description, RepairCost, DateReported)
+    VALUES 
+        (@rentalId, @userId, @description, @repairCost, NOW())";
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@rentalId", rentalId);
+                        cmd.Parameters.AddWithValue("@description", description);
+                        cmd.Parameters.AddWithValue("@repairCost", repairCost);  
+                        cmd.Parameters.AddWithValue("@userId", userId > 0 ? userId : (object)DBNull.Value);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error or show a message
+                Console.WriteLine($"Error inserting damage: {ex.Message}");
+                throw; // Re-throw to handle in the UI
             }
         }
         public static decimal GetTotalPaid(int rentalId)

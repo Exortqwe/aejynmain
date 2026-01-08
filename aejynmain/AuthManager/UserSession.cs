@@ -8,8 +8,8 @@ namespace aejynmain.AuthManager
         public static string Username { get; set; }
         public static string Role { get; set; }
         
-        public static bool IsAdmin => Role?.ToLower() == "admin";
-        public static bool IsRentalAgent => Role?.ToLower() == "rental agent";
+        public static bool IsAdmin => string.Equals(Role, "admin", StringComparison.OrdinalIgnoreCase);
+    public static bool IsRentalAgent => string.Equals(Role, "rental agent", StringComparison.OrdinalIgnoreCase);
         
         public static void SetSession(int userId, string username, string role)
         {

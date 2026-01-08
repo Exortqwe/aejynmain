@@ -18,15 +18,15 @@ namespace aejynmain
             if (dt != null && dt.Rows.Count > 0)
             {
                 // Add and populate FullName column
-                if (!dt.Columns.Contains("FullName"))
+                if (!dt.Columns.Contains("Fullname"))
                 {
-                    dt.Columns.Add("FullName", typeof(string));
+                    dt.Columns.Add("Fullname", typeof(string));
                 }
 
                 // Add and populate VehicleName column
-                if (!dt.Columns.Contains("VehicleName"))
+                if (!dt.Columns.Contains("Vehiclename"))
                 {
-                    dt.Columns.Add("VehicleName", typeof(string));
+                    dt.Columns.Add("Vehiclename", typeof(string));
                 }
 
                 // Process each row to set FullName and VehicleName
@@ -40,7 +40,7 @@ namespace aejynmain
                     // Set VehicleName
                     string make = row.Table.Columns.Contains("Make") ? row["Make"]?.ToString() ?? "" : "";
                     string model = row.Table.Columns.Contains("Model") ? row["Model"]?.ToString() ?? "" : "";
-                    row["VehicleName"] = $"{make} {model}".Trim();
+                    row["Vehiclename"] = $"{make} {model}".Trim();
 
                     // Set Overdue status (if needed)
                     if (row.Table.Columns.Contains("ReturnDate") && row.Table.Columns.Contains("RentalStatus"))
@@ -87,14 +87,14 @@ namespace aejynmain
                 {
                     int rentalIdIndex = dgCustomerHistory.Columns["RentalID"].DisplayIndex;
 
-                    if (dgCustomerHistory.Columns.Contains("FullName"))
+                    if (dgCustomerHistory.Columns.Contains("Fullname"))
                     {
-                        dgCustomerHistory.Columns["FullName"].DisplayIndex = rentalIdIndex + 1;
+                        dgCustomerHistory.Columns["Fullname"].DisplayIndex = rentalIdIndex + 1;
                     }
 
-                    if (dgCustomerHistory.Columns.Contains("VehicleName"))
+                    if (dgCustomerHistory.Columns.Contains("Vehiclename"))
                     {
-                        dgCustomerHistory.Columns["VehicleName"].DisplayIndex = rentalIdIndex + 2;
+                        dgCustomerHistory.Columns["Vehiclename"].DisplayIndex = rentalIdIndex + 2;
                     }
                 }
 

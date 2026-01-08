@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,9 +10,9 @@ namespace aejynmain.AuthManager
     internal class CustomerDetails
     {
         private static string connectionString =
-    "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+            "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
 
-        // CREATE / ADD
+        // ADD NEW CUSTOMER
         public static bool AddCustomer(
             string firstName,
             string lastName,
@@ -28,8 +28,7 @@ namespace aejynmain.AuthManager
             string emergencyContactNumber,
             string emergencyContactRelationship,
             CustomerType type,
-            string companyName
-        )
+            string companyName)
         {
             try
             {
@@ -61,58 +60,87 @@ namespace aejynmain.AuthManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Error Adding Customer",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show(ex.Message, "Error Adding Customer",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        // READ / GET ALL CUSTOMERS
-        public static List<Customer> GetCustomers()
+        // GET CUSTOMERS WITH CUSTOMER TYPE FILTER
+        public static DataTable GetCustomers(string customerType = null)
         {
-            List<Customer> customers = new List<Customer>();
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM tblcustomer";
+            if (!string.IsNullOrEmpty(customerType))
+                query += " WHERE CustomerType = @CustomerType";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                if (!string.IsNullOrEmpty(customerType))
+                    cmd.Parameters.AddWithValue("@CustomerType", customerType);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                conn.Open();
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
+        // UPDATE CUSTOMER
+        public static bool UpdateCustomer(int customerId, string columnName, object newValue)
+        {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM tblcustomer", conn))
                 {
-                    conn.Open();
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    string query = $"UPDATE tblcustomer SET {columnName} = @NewValue WHERE CustomerID = @CustomerID";
+                    
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        while (reader.Read())
+                        // Handle null or empty values
+                        if (newValue == null || (newValue is string strValue && string.IsNullOrWhiteSpace(strValue)))
                         {
-                            customers.Add(new Customer
-                            {
-                                CustomerID = Convert.ToInt32(reader["CustomerID"]),
-                                FirstName = reader["FirstName"].ToString(),
-                                LastName = reader["LastName"].ToString(),
-                                ContactNumber = reader["ContactNumber"].ToString(),
-                                EmailAddress = reader["EmailAddress"].ToString(),
-                                Address = reader["Address"].ToString(),
-                                Gender = reader["Gender"].ToString(),
-                                LicenseNumber = reader["LicenseNumber"].ToString(),
-                                LicenseExpiryDate = Convert.ToDateTime(reader["LicenseExpiryDate"]),
-                                BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                                DateRegistered = Convert.ToDateTime(reader["DateRegistered"]),
-                                EmergencyContactName = reader["EmergencyContactName"] == DBNull.Value ? "" : reader["EmergencyContactName"].ToString(),
-                                EmergencyContactNumber = reader["EmergencyContactNumber"] == DBNull.Value ? "" : reader["EmergencyContactNumber"].ToString(),
-                                EmergencyContactRelationship = reader["EmergencyContactRelationship"] == DBNull.Value ? "" : reader["EmergencyContactRelationship"].ToString(),
-                                Type = Enum.Parse<CustomerType>(reader["CustomerType"].ToString()),
-                                CompanyName = reader["CompanyName"].ToString()
-                            });
+                            cmd.Parameters.AddWithValue("@NewValue", DBNull.Value);
                         }
+                        else if (newValue is DateTime dateValue)
+                        {
+                            cmd.Parameters.AddWithValue("@NewValue", dateValue);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@NewValue", newValue);
+                        }
+
+                        cmd.Parameters.AddWithValue("@CustomerID", customerId);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Fetching Customers", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error updating customer: {ex.Message}", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            return customers;
+        }
+
+        // GET CUSTOMER TYPES
+        public static List<string> GetCustomerTypes()
+        {
+            return new List<string>
+            {
+                "Individual",
+                "Corporate",
+                "Frequent",
+                "Blacklisted",
+                "Walk-in"
+            };
         }
 
         // DELETE CUSTOMER
@@ -121,19 +149,30 @@ namespace aejynmain.AuthManager
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand("DELETE FROM tblcustomer WHERE CustomerID = @id", conn))
+                using (MySqlCommand cmd = new MySqlCommand(
+                    "DELETE FROM tblcustomer WHERE CustomerID = @id", conn))
                 {
                     cmd.Parameters.AddWithValue("@id", customerId);
                     conn.Open();
-                    cmd.ExecuteNonQuery();
-                    return true;
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Deleting Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error Deleting Customer",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        // CHECK IF CUSTOMER IS OF LEGAL AGE
+        public static bool IsAgeValid(DateTime birthDate)
+        {
+            int age = DateTime.Today.Year - birthDate.Year;
+            if (birthDate.Date > DateTime.Today.AddYears(-age))
+                age--;
+            return age >= 21;
         }
 
         // GET CUSTOMER HISTORY
@@ -164,52 +203,12 @@ namespace aejynmain.AuthManager
             }
             return dt;
         }
-        public static bool UpdateCustomer(int customerID, string columnName, object newValue)
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    // Create the SQL query to update the column of the customer based on the CustomerID
-                    string query = $"UPDATE tblcustomer SET {columnName} = @NewValue WHERE CustomerID = @CustomerID";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        // Add the parameters to prevent SQL injection
-                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
-                        cmd.Parameters.AddWithValue("@NewValue", newValue);
-
-                        // Open the connection
-                        conn.Open();
-
-                        // Execute the query and check how many rows were affected
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        // If rows were affected, return true (update successful)
-                        return rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that occur during the update process
-                MessageBox.Show(ex.Message, "Error Updating Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        // e check if ang customer meets minimum age (21 yrs old)
-        public static bool IsAgeValid(DateTime birthDate)
-        {
-            int age = DateTime.Today.Year - birthDate.Year;
-            if (birthDate.Date > DateTime.Today.AddYears(-age)) age--;
-            return age >= 21;
-        }
+        // DETERMINE CUSTOMER TYPE
         public static CustomerType GetCustomerType(
             bool isBlacklisted,
             bool isCorporate,
             int totalRentals)
-          
         {
             if (isBlacklisted)
                 return CustomerType.Blacklisted;
@@ -220,5 +219,6 @@ namespace aejynmain.AuthManager
 
             return CustomerType.Individual;
         }
+
     }
 }

@@ -20,13 +20,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel10 = new Panel();
@@ -39,6 +39,7 @@
             lblLateReturn = new Label();
             label3 = new Label();
             panel9 = new Panel();
+            label1 = new Label();
             label12 = new Label();
             panel7 = new Panel();
             pictureBox4 = new PictureBox();
@@ -95,16 +96,16 @@
             // 
             // chartRevenue
             // 
-            chartArea1.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartRevenue.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartRevenue.Legends.Add(legend3);
             chartRevenue.Location = new Point(63, 290);
             chartRevenue.Name = "chartRevenue";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartRevenue.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartRevenue.Series.Add(series3);
             chartRevenue.Size = new Size(774, 501);
             chartRevenue.TabIndex = 75;
             chartRevenue.Text = "chart1";
@@ -153,17 +154,17 @@
             // 
             // chartVehicleStatus
             // 
-            chartArea2.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend4);
             chartVehicleStatus.Location = new Point(843, 290);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartVehicleStatus.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartVehicleStatus.Series.Add(series4);
             chartVehicleStatus.Size = new Size(774, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -211,22 +212,34 @@
             // 
             // panel9
             // 
-            panel9.BackColor = Color.FromArgb(58, 124, 165);
+            panel9.BackColor = Color.FromArgb(28, 73, 102);
+            panel9.Controls.Add(label1);
             panel9.Controls.Add(label12);
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(1688, 75);
+            panel9.Size = new Size(1688, 112);
             panel9.TabIndex = 73;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(569, 46);
+            label1.TabIndex = 37;
+            label1.Text = "Vehicle Rental Management System";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(15, 12);
+            label12.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label12.ForeColor = SystemColors.ControlLight;
+            label12.Location = new Point(3, 60);
             label12.Name = "label12";
-            label12.Size = new Size(188, 46);
+            label12.Size = new Size(132, 32);
             label12.TabIndex = 36;
             label12.Text = "Dashboard";
             // 
@@ -470,5 +483,6 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
+        private Label label1;
     }
 }

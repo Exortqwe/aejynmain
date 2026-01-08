@@ -105,7 +105,6 @@
             label34 = new Label();
             dgAvailableVehicles = new DataGridView();
             panel6 = new Panel();
-            label35 = new Label();
             label36 = new Label();
             cmbPaymentType = new ComboBox();
             panel7 = new Panel();
@@ -116,6 +115,8 @@
             label38 = new Label();
             label37 = new Label();
             cmbPaymentMethod = new ComboBox();
+            label35 = new Label();
+            label41 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -552,7 +553,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(30, 91);
+            label20.Location = new Point(46, 156);
             label20.Name = "label20";
             label20.Size = new Size(208, 35);
             label20.TabIndex = 0;
@@ -567,7 +568,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(436, 135);
+            btnSearch.Location = new Point(452, 200);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(45, 27);
             btnSearch.TabIndex = 1;
@@ -577,7 +578,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(30, 135);
+            txtSearch.Location = new Point(46, 200);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(407, 27);
             txtSearch.TabIndex = 2;
@@ -591,7 +592,7 @@
             iconButton4.IconColor = Color.White;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 32;
-            iconButton4.Location = new Point(487, 135);
+            iconButton4.Location = new Point(503, 200);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(45, 27);
             iconButton4.TabIndex = 3;
@@ -608,7 +609,7 @@
             groupBox2.Controls.Add(label23);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(label21);
-            groupBox2.Location = new Point(30, 165);
+            groupBox2.Location = new Point(46, 230);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(502, 187);
             groupBox2.TabIndex = 5;
@@ -691,7 +692,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label25.Location = new Point(580, 91);
+            label25.Location = new Point(596, 156);
             label25.Name = "label25";
             label25.Size = new Size(143, 35);
             label25.TabIndex = 6;
@@ -707,7 +708,7 @@
             panel4.Controls.Add(dtpPickUpDate);
             panel4.Controls.Add(label27);
             panel4.Controls.Add(label26);
-            panel4.Location = new Point(580, 135);
+            panel4.Location = new Point(596, 200);
             panel4.Name = "panel4";
             panel4.Size = new Size(310, 217);
             panel4.TabIndex = 7;
@@ -770,7 +771,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.Location = new Point(1270, 91);
+            label28.Location = new Point(1286, 156);
             label28.Name = "label28";
             label28.Size = new Size(196, 35);
             label28.TabIndex = 8;
@@ -790,7 +791,7 @@
             panel5.Controls.Add(label31);
             panel5.Controls.Add(label30);
             panel5.Controls.Add(label29);
-            panel5.Location = new Point(1270, 135);
+            panel5.Location = new Point(1286, 200);
             panel5.Name = "panel5";
             panel5.Size = new Size(390, 217);
             panel5.TabIndex = 8;
@@ -904,7 +905,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(30, 355);
+            label34.Location = new Point(46, 420);
             label34.Name = "label34";
             label34.Size = new Size(218, 35);
             label34.TabIndex = 10;
@@ -925,7 +926,7 @@
             dgAvailableVehicles.ColumnHeadersHeight = 29;
             dgAvailableVehicles.EnableHeadersVisualStyles = false;
             dgAvailableVehicles.GridColor = SystemColors.GrayText;
-            dgAvailableVehicles.Location = new Point(30, 392);
+            dgAvailableVehicles.Location = new Point(46, 457);
             dgAvailableVehicles.Name = "dgAvailableVehicles";
             dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle15.BackColor = Color.FromArgb(58, 124, 165);
@@ -943,30 +944,20 @@
             // 
             // panel6
             // 
-            panel6.BackColor = Color.FromArgb(58, 124, 165);
+            panel6.BackColor = Color.FromArgb(28, 73, 102);
             panel6.Controls.Add(label35);
+            panel6.Controls.Add(label41);
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(0, 0);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1685, 75);
+            panel6.Size = new Size(1685, 112);
             panel6.TabIndex = 12;
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label35.ForeColor = Color.White;
-            label35.Location = new Point(22, 15);
-            label35.Name = "label35";
-            label35.Size = new Size(141, 46);
-            label35.TabIndex = 1;
-            label35.Text = "Rentals ";
             // 
             // label36
             // 
             label36.AutoSize = true;
             label36.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(927, 91);
+            label36.Location = new Point(943, 156);
             label36.Name = "label36";
             label36.Size = new Size(189, 35);
             label36.TabIndex = 17;
@@ -993,7 +984,7 @@
             panel7.Controls.Add(label37);
             panel7.Controls.Add(cmbPaymentMethod);
             panel7.Controls.Add(cmbPaymentType);
-            panel7.Location = new Point(927, 135);
+            panel7.Location = new Point(943, 200);
             panel7.Name = "panel7";
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 16;
@@ -1059,6 +1050,28 @@
             cmbPaymentMethod.Name = "cmbPaymentMethod";
             cmbPaymentMethod.Size = new Size(267, 28);
             cmbPaymentMethod.TabIndex = 1;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label35.ForeColor = Color.White;
+            label35.Location = new Point(3, 0);
+            label35.Name = "label35";
+            label35.Size = new Size(569, 46);
+            label35.TabIndex = 43;
+            label35.Text = "Vehicle Rental Management System";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label41.ForeColor = SystemColors.ControlLight;
+            label41.Location = new Point(3, 60);
+            label41.Name = "label41";
+            label41.Size = new Size(93, 32);
+            label41.TabIndex = 42;
+            label41.Text = "Rentals";
             // 
             // UC_Rentals
             // 
@@ -1171,7 +1184,6 @@
         private Label lblLicenseNumber;
         private Label lblFullName;
         private Panel panel6;
-        private Label label35;
         private Label lblTotalPrice;
         private Label lblRate;
         private Label lblDays;
@@ -1189,5 +1201,7 @@
         private ComboBox cmbPaymentStatus;
         private DateTimePicker dtpReturnTime;
         private DateTimePicker dtpPickupTime;
+        private Label label35;
+        private Label label41;
     }
 }

@@ -1,88 +1,167 @@
-﻿using aejynmain.UserControls;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Mail;
 using System.Windows.Forms;
 using aejynmain.AuthManager;
 using aejynmain.Models;
+using aejynmain.UserControls;
 
 namespace aejynmain
 {
     public partial class frmAddCustomer : Form
     {
-        private UC_Customers _parent;
+        private readonly UC_Customers _parent;
 
         public frmAddCustomer(UC_Customers parent)
         {
             InitializeComponent();
             _parent = parent;
 
-            // Optional: set default DateRegistered to today
+            // Defaults
             dtpDateRegistered.Value = DateTime.Today;
+            dtpLicenseExpiry.Value = DateTime.Today.AddYears(1);
+            dtpBirthDate.MaxDate = DateTime.Today.AddYears(-21); // must be 21+
+
+            InitializeCustomerTypeComboBox();
         }
 
+        private void InitializeCustomerTypeComboBox()
+        {
+            // Bind to enum to avoid string mismatches
+            cmbCustomerType.DataSource = Enum.GetValues(typeof(CustomerType));
+            cmbCustomerType.SelectedItem = CustomerType.Individual;
+        }
+
+        // SAVE
         private void btnSaveCustomerDetails_Click(object sender, EventArgs e)
         {
-            // 1️⃣ Age Verification (21+)
-            if (!CustomerDetails.IsAgeValid(dtpBirthDate.Value))
+            // Validate inputs
+            if (!ValidateInputs(out string message))
             {
-                int age = DateTime.Today.Year - dtpBirthDate.Value.Year;
-                if (dtpBirthDate.Value.Date > DateTime.Today.AddYears(-age)) age--;
-                MessageBox.Show(
-                    $"Customer must be at least 21 years old.\nCurrent age: {age} years old.",
-                    "Age Verification Failed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2️⃣ Determine Corporate status
-            bool isCorporate = chkCorporate.Checked || !string.IsNullOrWhiteSpace(txtCompanyName.Text);
+            // Resolve type from combo (default to Individual if anything goes wrong)
+            CustomerType customerType = GetSelectedCustomerTypeOrDefault();
 
-            // 3️⃣ Other info for CustomerType
-            bool isBlacklisted = false; // implement your blacklisted check if needed
-            int totalRentals = 0;       // optionally query DB for total rentals
-
-            // 4️⃣ Auto-detect CustomerType
-            CustomerType autoType = CustomerDetails.GetCustomerType(isBlacklisted, isCorporate, totalRentals);
-
-            // 5️⃣ Call AddCustomer
             bool success = CustomerDetails.AddCustomer(
-                txtFirstName.Text,
-                txtLastName.Text,
-                txtContactNum.Text,
-                txtEmailAddress.Text,
-                txtAddress.Text,
-                cmbGender.Text,
-                txtLicenseNumber.Text,
-                dtpLicenseExpiry.Value,
-                dtpBirthDate.Value,
-                dtpDateRegistered.Value,
-                txtName.Text,
-                txtEmergencyContact.Text,
-                cmbRelationship.Text,
-                autoType,
-                txtCompanyName.Text
+                firstName: txtFirstName.Text.Trim(),
+                lastName: txtLastName.Text.Trim(),
+                contactNumber: txtContactNum.Text.Trim(),
+                email: txtEmailAddress.Text.Trim(),
+                address: txtAddress.Text.Trim(),
+                gender: cmbGender.Text,
+                licenseNumber: txtLicenseNumber.Text.Trim(),
+                licenseExpiryDate: dtpLicenseExpiry.Value,
+                birthDate: dtpBirthDate.Value,
+                dateRegistered: dtpDateRegistered.Value,
+                emergencyContactName: txtName.Text.Trim(),
+                emergencyContactNumber: txtEmergencyContact.Text.Trim(),
+                emergencyContactRelationship: cmbRelationship.Text,
+                type: customerType,
+                companyName: txtCompanyName.Text.Trim()
             );
 
-            // 6️⃣ Feedback + refresh
             if (success)
             {
-                MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _parent.LoadCustomers();   // refresh datagrid in parent UC
+                MessageBox.Show("Customer added successfully!", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _parent?.LoadCustomers(); // refresh parent grid
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Failed to add customer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to add customer.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Optional: Clear button handler (wire this in designer if you have a Clear button)
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtContactNum.Clear();
+            txtEmailAddress.Clear();
+            txtAddress.Clear();
+            cmbGender.SelectedIndex = -1;
+            txtLicenseNumber.Clear();
+            dtpLicenseExpiry.Value = DateTime.Today.AddYears(1);
+            dtpBirthDate.Value = DateTime.Today.AddYears(-21);
+            txtName.Clear();
+            txtEmergencyContact.Clear();
+            cmbRelationship.SelectedIndex = -1;
+            txtCompanyName.Clear();
+            cmbCustomerType.SelectedItem = CustomerType.Individual;
+            txtFirstName.Focus();
+        }
+
+        private bool ValidateInputs(out string message)
+        {
+            // Required fields
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtContactNum.Text) ||
+                string.IsNullOrWhiteSpace(txtEmailAddress.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                string.IsNullOrWhiteSpace(cmbGender.Text))
+            {
+                message = "Please fill in all required fields.";
+                return false;
+            }
+
+            // Email format
+            try { _ = new MailAddress(txtEmailAddress.Text.Trim()); }
+            catch
+            {
+                message = "Please enter a valid email address.";
+                return false;
+            }
+
+            // Age 21+
+            if (!CustomerDetails.IsAgeValid(dtpBirthDate.Value))
+            {
+                int age = DateTime.Today.Year - dtpBirthDate.Value.Year;
+                if (dtpBirthDate.Value.Date > DateTime.Today.AddYears(-age)) age--;
+                message = $"Customer must be at least 21 years old. Current age: {age}.";
+                return false;
+            }
+
+            // License expiry must be future if license number is provided
+            if (!string.IsNullOrWhiteSpace(txtLicenseNumber.Text) &&
+                dtpLicenseExpiry.Value.Date <= DateTime.Today)
+            {
+                message = "License expiry date must be in the future.";
+                return false;
+            }
+
+            message = string.Empty;
+            return true;
+        }
+
+        private CustomerType GetSelectedCustomerTypeOrDefault()
+        {
+            // If bound to enum, this succeeds directly
+            if (cmbCustomerType.SelectedItem is CustomerType enumVal)
+                return enumVal;
+
+            // If items are strings (e.g., “Walkin”), normalize and parse
+            string text = cmbCustomerType.SelectedItem?.ToString() ?? "Individual";
+            string normalized = text.Replace("-", "").Replace(" ", ""); // Walk-in/Walk in -> Walkin
+
+            // Special-case mapping for WalkIn
+            if (normalized.Equals("Walkin", StringComparison.OrdinalIgnoreCase))
+                return CustomerType.WalkIn;
+
+            if (Enum.TryParse(typeof(CustomerType), normalized, ignoreCase: true, out object parsed))
+                return (CustomerType)parsed;
+
+            return CustomerType.Individual;
         }
     }
 }

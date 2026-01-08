@@ -21,73 +21,14 @@ namespace aejynmain.UserControls
         {
             try
             {
-                // Get customers as List<Customer>
-                List<Customer> customers = CustomerDetails.GetCustomers();
-
-                // Convert List<Customer> to DataTable
-                tblcustomer = ConvertToDataTable(customers);
-
-                // Set DataSource to DataTable
+                DataTable tblcustomer = CustomerDetails.GetCustomers();
                 dgAddCustomer.DataSource = tblcustomer;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load customers: " + ex.Message);
+                MessageBox.Show("Failed to load customers: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private static DataTable ConvertToDataTable(List<Customer> customers)
-        {
-            DataTable dt = new DataTable();
-
-            // Add columns
-            dt.Columns.Add("CustomerID", typeof(int));
-            dt.Columns.Add("FirstName", typeof(string));
-            dt.Columns.Add("LastName", typeof(string));
-            dt.Columns.Add("ContactNumber", typeof(string));
-            dt.Columns.Add("EmailAddress", typeof(string));
-            dt.Columns.Add("Address", typeof(string));
-            dt.Columns.Add("Gender", typeof(string));
-            dt.Columns.Add("LicenseNumber", typeof(string));
-            dt.Columns.Add("LicenseExpiryDate", typeof(DateTime));
-            // BirthDate before Emergency details
-            dt.Columns.Add("BirthDate", typeof(DateTime));
-            dt.Columns.Add("EmergencyContactName", typeof(string));
-            dt.Columns.Add("EmergencyContactNumber", typeof(string));
-            dt.Columns.Add("EmergencyContactRelationship", typeof(string));
-
-            dt.Columns.Add("CompanyName", typeof(string));       // NEW
-            dt.Columns.Add("CustomerType", typeof(string));
-
-            // DateRegistered last
-            dt.Columns.Add("DateRegistered", typeof(DateTime));
-
-            // Add rows
-            foreach (Customer customer in customers)
-            {
-                dt.Rows.Add(
-                    customer.CustomerID,
-                    customer.FirstName,
-                    customer.LastName,
-                    customer.ContactNumber,
-                    customer.EmailAddress,
-                    customer.Address,
-                    customer.Gender,
-                    customer.LicenseNumber,
-                    customer.LicenseExpiryDate,
-                    // BirthDate before Emergency details
-                    customer.BirthDate,
-                    customer.EmergencyContactName,
-                    customer.EmergencyContactNumber,
-                    customer.EmergencyContactRelationship,
-                    customer.CompanyName,                  // NEW
-                    customer.Type.ToString(),              // NEW, convert enum to string
-                   // DateRegistered last
-                    customer.DateRegistered
-                );
-            }
-
-            return dt;
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -224,6 +165,11 @@ namespace aejynmain.UserControls
                 );
                 LoadCustomers(); // revert changes
             }
+        }
+
+        private void dgAddCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

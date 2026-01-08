@@ -77,13 +77,13 @@ namespace aejynmain
         {
             // Clear the user session
             UserSession.ClearSession();
-            
+
             // Show login form
             frmLogIn login = new frmLogIn();
             login.Show();
-            
+
             // Close the main form
-            this.Hide();
+            this.Close();
         }
 
         private void btnFleetManagement_Click(object sender, EventArgs e)

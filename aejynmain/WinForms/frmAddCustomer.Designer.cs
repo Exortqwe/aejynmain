@@ -58,10 +58,10 @@
             txtName = new TextBox();
             cmbRelationship = new ComboBox();
             label15 = new Label();
-            chkCorporate = new CheckBox();
             label16 = new Label();
             txtCompanyName = new TextBox();
             label17 = new Label();
+            cmbCustomerType = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -211,7 +211,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(58, 124, 165);
+            panel1.BackColor = Color.FromArgb(28, 73, 102);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -353,26 +353,15 @@
             label15.TabIndex = 45;
             label15.Text = "Name";
             // 
-            // chkCorporate
-            // 
-            chkCorporate.AutoSize = true;
-            chkCorporate.Font = new Font("Segoe UI", 12F);
-            chkCorporate.Location = new Point(605, 268);
-            chkCorporate.Name = "chkCorporate";
-            chkCorporate.Size = new Size(178, 32);
-            chkCorporate.TabIndex = 46;
-            chkCorporate.Text = "Corporate Client";
-            chkCorporate.UseVisualStyleBackColor = true;
-            // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label16.Location = new Point(605, 242);
             label16.Name = "label16";
-            label16.Size = new Size(133, 23);
+            label16.Size = new Size(125, 23);
             label16.TabIndex = 47;
-            label16.Text = "License Number";
+            label16.Text = "Customer Type";
             // 
             // txtCompanyName
             // 
@@ -393,16 +382,26 @@
             label17.TabIndex = 49;
             label17.Text = "Company Name";
             // 
+            // cmbCustomerType
+            // 
+            cmbCustomerType.Font = new Font("Segoe UI", 12F);
+            cmbCustomerType.FormattingEnabled = true;
+            cmbCustomerType.Items.AddRange(new object[] { "Individual ", "Corporate", "Frequent", "Blacklisted", "Walk-in" });
+            cmbCustomerType.Location = new Point(605, 268);
+            cmbCustomerType.Name = "cmbCustomerType";
+            cmbCustomerType.Size = new Size(165, 36);
+            cmbCustomerType.TabIndex = 50;
+            // 
             // frmAddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(818, 478);
+            Controls.Add(cmbCustomerType);
             Controls.Add(label17);
             Controls.Add(txtCompanyName);
             Controls.Add(label16);
-            Controls.Add(chkCorporate);
             Controls.Add(label15);
             Controls.Add(cmbRelationship);
             Controls.Add(txtName);
@@ -474,9 +473,9 @@
         private TextBox txtName;
         private ComboBox cmbRelationship;
         private Label label15;
-        private CheckBox chkCorporate;
         private Label label16;
         private TextBox txtCompanyName;
         private Label label17;
+        private ComboBox cmbCustomerType;
     }
 }

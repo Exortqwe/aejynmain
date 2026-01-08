@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aejynmain.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,12 @@ namespace aejynmain.UserControls
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmUserManagementAcc uma = new frmUserManagementAcc();
+            uma.Show();
         }
     }
 }

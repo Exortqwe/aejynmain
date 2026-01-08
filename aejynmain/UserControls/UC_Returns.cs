@@ -15,7 +15,7 @@ namespace aejynmain.UserControls
 {
     public partial class UC_Returns : UserControl
     {
-         int selectedRentalId = 0;
+        int selectedRentalId = 0;
         decimal baseRentalAmount = 0;
         private DateTime currentPickup;
         private DateTime currentExpectedReturn;
@@ -29,41 +29,41 @@ namespace aejynmain.UserControls
         {
             if (selectedRentalId == 0) return;
 
-            // 1️⃣ Damage fee
+            // 1️ Damage fee
             decimal damageFee = DamageHelper.CalculateTotal(
                 cbScratches, cbDents, cbBrokenGlass,
                 cbInteriorStains, cbTireDamage, cbPaintDamage);
 
-            // 2️⃣ Fuel fee
+            // 2️ Fuel fee
             decimal fuelFee = FuelHelper.CalculateFuelCharge(cmbFuelLevel.SelectedItem?.ToString());
 
-            // 3️⃣ Overdue fee (days)
+            // 3️ Overdue fee (days)
             DateTime plannedReturn = Convert.ToDateTime(dgRentedVehicles.CurrentRow.Cells["ReturnDate"].Value).Date;
             DateTime actualReturn = dtpActualReturnDate.Value.Date;
             int overdueDays = (actualReturn - plannedReturn).Days;
             if (overdueDays < 0) overdueDays = 0;
 
-            // 4️⃣ Get daily rate from vehicle category
+            // 4️ Get daily rate from vehicle category
             decimal dailyRate = ReturnManager.GetDailyRate(selectedRentalId);
             decimal overdueFee = overdueDays * dailyRate;
 
-            // 5️⃣ Base rental amount (planned rental days * daily rate)
+            // 5️ Base rental amount (planned rental days * daily rate)
             // Uses pickup/expected return set on selection for consistent billing
             int rentalDays = (currentExpectedReturn.Date - currentPickup.Date).Days;
             if (rentalDays < 1) rentalDays = 1; // minimum 1 day
             baseRentalAmount = rentalDays * dailyRate;
 
-            // 6️⃣ Get deposit/previous payments
+            // 6️ Get deposit/previous payments
             decimal depositPaid = ReturnManager.GetTotalPaid(selectedRentalId);
 
-            // 7️⃣ Total charges = base rental + other fees
+            // 7️ Total charges = base rental + other fees
             decimal totalCharges = baseRentalAmount + damageFee + fuelFee + overdueFee;
 
-            // 8️⃣ Balance due (total charges minus deposit paid)
+            // 8️ Balance due (total charges minus deposit paid)
             decimal balanceDue = totalCharges - depositPaid;
             if (balanceDue < 0) balanceDue = 0; // Don't show negative balance
 
-            // 9️⃣ Update labels
+            // 9️ Update labels
             lblDamagesCharges.Text = damageFee.ToString("₱#,##0.00");
             lblFuelCharges.Text = fuelFee.ToString("₱#,##0.00");
             lblOverdueFee.Text = overdueFee.ToString("₱#,##0.00");
@@ -86,14 +86,14 @@ namespace aejynmain.UserControls
 
             var row = dgRentedVehicles.Rows[e.RowIndex];
 
-            // 1️⃣ Get RentalID
+            // 1️ Get RentalID
             selectedRentalId = Convert.ToInt32(row.Cells["RentalID"].Value);
 
-            // 2️⃣ Populate vehicle info
+            // 2️ Populate vehicle info
             lblVehicleInspection.Text = $"{row.Cells["Make"].Value} {row.Cells["Model"].Value}";
             lblLicensePlate.Text = row.Cells["LicensePlate"].Value.ToString();
 
-            // 3️⃣ Rental duration (safe version)
+            // 3️ Rental duration (safe version)
             DateTime pickup = Convert.ToDateTime(row.Cells["PickupDate"].Value);
             DateTime returnDate = Convert.ToDateTime(row.Cells["ReturnDate"].Value);
 
@@ -104,7 +104,7 @@ namespace aejynmain.UserControls
             int days = (returnDate - pickup).Days;
             lblRentalDuration.Text = days <= 1 ? "1 day" : $"{days} days";
 
-            // 4️⃣ Reset user inputs
+            // 4️ Reset user inputs
             txtReturnMileage.Clear();
             cmbFuelLevel.SelectedIndex = -1;
             cmbCondition.SelectedIndex = -1;
@@ -113,7 +113,7 @@ namespace aejynmain.UserControls
                 cbScratches, cbDents, cbBrokenGlass,
                 cbInteriorStains, cbTireDamage, cbPaintDamage);
 
-            // 5️⃣ Update billing summary (base + damage + fuel + overdue)
+            // 5️ Update billing summary (base + damage + fuel + overdue)
             UpdateBillingSummary();
         }
         private void Damage_CheckedChanged(object sender, EventArgs e)
@@ -126,6 +126,9 @@ namespace aejynmain.UserControls
         }
         private void btnReturnVehicle_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(
+        $"DEBUG\nUserID: {UserSession.UserID}\nUsername: {UserSession.Username}\nRole: {UserSession.Role}"
+    );
             if (selectedRentalId == 0) return;
             if (cmbFuelLevel.SelectedItem == null)
             {
@@ -140,7 +143,7 @@ namespace aejynmain.UserControls
                 return;
             }
 
-            int userId = User.UserID;
+            int userId = UserSession.UserID;
 
             // Call manager to update tblrentals
             ReturnManager.ReturnVehicle(
@@ -194,7 +197,6 @@ namespace aejynmain.UserControls
                     fuelCharges: fuelFeeForInvoice
                 );
             }
-
             // Clear panel
             DamageHelper.ClearAll(cbScratches, cbDents, cbBrokenGlass, cbInteriorStains, cbTireDamage, cbPaintDamage);
             txtReturnMileage.Clear();
@@ -205,6 +207,9 @@ namespace aejynmain.UserControls
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
             MessageBox.Show("Vehicle successfully returned.");
         }
+        private void dgRentedVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

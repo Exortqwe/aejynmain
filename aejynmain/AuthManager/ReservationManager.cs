@@ -13,14 +13,18 @@ namespace aejynmain.AuthManager
     {
         private static string ConnectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
 
-        public static void SaveReservation(Reservation reservation)
+        public static int SaveReservation(Reservation reservation)
         {
+            int ReservationID = 0;
+
             using (MySqlConnection conn = new MySqlConnection(ConnectionString))
             {
                 conn.Open();
                 using (MySqlCommand cmd = new MySqlCommand("sp_SaveReservation", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Add input parameters
                     cmd.Parameters.AddWithValue("p_UserID", UserSession.UserID);
                     cmd.Parameters.AddWithValue("p_CustomerID", reservation.CustomerID);
                     cmd.Parameters.AddWithValue("p_VehicleID", reservation.VehicleID);
@@ -34,9 +38,23 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_PaymentStatus", reservation.Payment.PaymentStatus);
                     cmd.Parameters.AddWithValue("p_PickupMileage", reservation.PickupMileage);
 
+                    // Add output parameter for ReservationID
+                    MySqlParameter outParam = new MySqlParameter("p_ReservationID", MySqlDbType.Int32)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(outParam);
+
                     cmd.ExecuteNonQuery();
+
+                    // Get the generated ReservationID
+                    if (outParam.Value != DBNull.Value)
+                    {
+                        ReservationID = Convert.ToInt32(outParam.Value);
+                    }
                 }
             }
+            return ReservationID;
         }
         public static List<Vehicle> GetAvailableVehicles()
         {

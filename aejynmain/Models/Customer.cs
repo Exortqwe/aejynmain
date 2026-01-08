@@ -27,10 +27,11 @@ namespace aejynmain.Models
         public string CompanyName { get; set; }
     }
     public enum CustomerType
-    {
+    {  
         Individual,
         Corporate,
         Frequent,
-        Blacklisted
+        Blacklisted,
+        WalkIn
     }
 }
