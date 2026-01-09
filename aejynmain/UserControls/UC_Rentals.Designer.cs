@@ -553,7 +553,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(46, 156);
+            label20.Location = new Point(31, 155);
             label20.Name = "label20";
             label20.Size = new Size(208, 35);
             label20.TabIndex = 0;
@@ -568,7 +568,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(452, 200);
+            btnSearch.Location = new Point(437, 199);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(45, 27);
             btnSearch.TabIndex = 1;
@@ -578,7 +578,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(46, 200);
+            txtSearch.Location = new Point(31, 199);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(407, 27);
             txtSearch.TabIndex = 2;
@@ -592,7 +592,7 @@
             iconButton4.IconColor = Color.White;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 32;
-            iconButton4.Location = new Point(503, 200);
+            iconButton4.Location = new Point(488, 199);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(45, 27);
             iconButton4.TabIndex = 3;
@@ -609,7 +609,7 @@
             groupBox2.Controls.Add(label23);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(label21);
-            groupBox2.Location = new Point(46, 230);
+            groupBox2.Location = new Point(31, 229);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(502, 187);
             groupBox2.TabIndex = 5;
@@ -692,7 +692,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label25.Location = new Point(596, 156);
+            label25.Location = new Point(581, 155);
             label25.Name = "label25";
             label25.Size = new Size(143, 35);
             label25.TabIndex = 6;
@@ -708,13 +708,14 @@
             panel4.Controls.Add(dtpPickUpDate);
             panel4.Controls.Add(label27);
             panel4.Controls.Add(label26);
-            panel4.Location = new Point(596, 200);
+            panel4.Location = new Point(581, 199);
             panel4.Name = "panel4";
             panel4.Size = new Size(310, 217);
             panel4.TabIndex = 7;
             // 
             // dtpReturnTime
             // 
+            dtpReturnTime.CustomFormat = "HH:mm";
             dtpReturnTime.Format = DateTimePickerFormat.Time;
             dtpReturnTime.Location = new Point(156, 143);
             dtpReturnTime.Name = "dtpReturnTime";
@@ -735,19 +736,23 @@
             // 
             // dtpReturnDate
             // 
+            dtpReturnDate.CustomFormat = "MM-dd-yyyy";
             dtpReturnDate.Format = DateTimePickerFormat.Custom;
             dtpReturnDate.Location = new Point(13, 143);
             dtpReturnDate.Name = "dtpReturnDate";
             dtpReturnDate.Size = new Size(129, 27);
             dtpReturnDate.TabIndex = 3;
+            dtpReturnDate.Value = new DateTime(2026, 1, 10, 0, 0, 0, 0);
             // 
             // dtpPickUpDate
             // 
+            dtpPickUpDate.CustomFormat = "MM-dd-yyyy";
             dtpPickUpDate.Format = DateTimePickerFormat.Custom;
             dtpPickUpDate.Location = new Point(13, 62);
             dtpPickUpDate.Name = "dtpPickUpDate";
             dtpPickUpDate.Size = new Size(129, 27);
             dtpPickUpDate.TabIndex = 2;
+            dtpPickUpDate.Value = new DateTime(2026, 1, 10, 0, 0, 0, 0);
             // 
             // label27
             // 
@@ -771,7 +776,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.Location = new Point(1286, 156);
+            label28.Location = new Point(1271, 155);
             label28.Name = "label28";
             label28.Size = new Size(196, 35);
             label28.TabIndex = 8;
@@ -791,7 +796,7 @@
             panel5.Controls.Add(label31);
             panel5.Controls.Add(label30);
             panel5.Controls.Add(label29);
-            panel5.Location = new Point(1286, 200);
+            panel5.Location = new Point(1271, 199);
             panel5.Name = "panel5";
             panel5.Size = new Size(390, 217);
             panel5.TabIndex = 8;
@@ -893,7 +898,7 @@
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(688, 919);
+            btnConfirm.Location = new Point(668, 918);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(296, 52);
             btnConfirm.TabIndex = 9;
@@ -905,7 +910,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(46, 420);
+            label34.Location = new Point(31, 419);
             label34.Name = "label34";
             label34.Size = new Size(218, 35);
             label34.TabIndex = 10;
@@ -926,7 +931,7 @@
             dgAvailableVehicles.ColumnHeadersHeight = 29;
             dgAvailableVehicles.EnableHeadersVisualStyles = false;
             dgAvailableVehicles.GridColor = SystemColors.GrayText;
-            dgAvailableVehicles.Location = new Point(46, 458);
+            dgAvailableVehicles.Location = new Point(31, 457);
             dgAvailableVehicles.Name = "dgAvailableVehicles";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(58, 124, 165);
@@ -979,7 +984,7 @@
             // 
             label36.AutoSize = true;
             label36.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(943, 156);
+            label36.Location = new Point(928, 155);
             label36.Name = "label36";
             label36.Size = new Size(189, 35);
             label36.TabIndex = 17;
@@ -1006,7 +1011,7 @@
             panel7.Controls.Add(label37);
             panel7.Controls.Add(cmbPaymentMethod);
             panel7.Controls.Add(cmbPaymentType);
-            panel7.Location = new Point(943, 200);
+            panel7.Location = new Point(928, 199);
             panel7.Name = "panel7";
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 16;

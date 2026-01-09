@@ -288,6 +288,7 @@
             // 
             // dtpReturnDate
             // 
+            dtpReturnDate.CustomFormat = "MM-dd-yyyy";
             dtpReturnDate.Format = DateTimePickerFormat.Custom;
             dtpReturnDate.Location = new Point(21, 136);
             dtpReturnDate.Name = "dtpReturnDate";
@@ -297,6 +298,7 @@
             // 
             // dtpPickUpDate
             // 
+            dtpPickUpDate.CustomFormat = "MM-dd-yyyy";
             dtpPickUpDate.Format = DateTimePickerFormat.Custom;
             dtpPickUpDate.Location = new Point(21, 57);
             dtpPickUpDate.Name = "dtpPickUpDate";

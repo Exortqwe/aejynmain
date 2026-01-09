@@ -3,7 +3,6 @@ using aejynmain.HelperMethod;
 using aejynmain.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace aejynmain.UserControls
@@ -81,38 +80,34 @@ namespace aejynmain.UserControls
         // ================= CUSTOMER SEARCH =================
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable customers = CustomerDetails.GetCustomers();
+            var dt = CustomerDetails.GetCustomers();
             string search = txtSearch.Text.Trim();
 
             selectedCustomerId = 0;
 
-            foreach (DataRow row in customers.Rows)
+            foreach (System.Data.DataRow row in dt.Rows)
             {
-                string first = row["FirstName"]?.ToString() ?? string.Empty;
-                string last = row["LastName"]?.ToString() ?? string.Empty;
-                string license = row["LicenseNumber"]?.ToString() ?? string.Empty;
-                string fullName = $"{first} {last}".Trim();
+                string firstName = row["FirstName"].ToString();
+                string lastName = row["LastName"].ToString();
+                string fullName = $"{firstName} {lastName}";
 
-                bool match = (!string.IsNullOrEmpty(search)) &&
-                             (fullName.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                              license.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0);
-                if (match)
+                if (fullName.Contains(search) || row["LicenseNumber"].ToString().Contains(search))
                 {
                     selectedCustomerId = Convert.ToInt32(row["CustomerID"]);
 
                     lblFullName.Text = fullName;
-                    lblLicenseNumber.Text = license;
-                    lblContactNumber.Text = row["ContactNumber"]?.ToString() ?? string.Empty;
-                    lblAddress.Text = row["Address"]?.ToString() ?? string.Empty;
+                    lblLicenseNumber.Text = row["LicenseNumber"].ToString();
+                    lblContactNumber.Text = row["ContactNumber"].ToString();
+                    lblAddress.Text = row["Address"].ToString();
                     return;
                 }
             }
 
             MessageBox.Show("Customer not found.");
-            lblFullName.Text = string.Empty;
-            lblLicenseNumber.Text = string.Empty;
-            lblContactNumber.Text = string.Empty;
-            lblAddress.Text = string.Empty;
+            lblFullName.Text = "";
+            lblLicenseNumber.Text = "";
+            lblContactNumber.Text = "";
+            lblAddress.Text = "";
         }
 
         // ================= LOAD VEHICLES =================

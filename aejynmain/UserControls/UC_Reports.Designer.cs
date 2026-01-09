@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle27 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             panel9 = new Panel();
+            label35 = new Label();
+            label41 = new Label();
             panel1 = new Panel();
             lblFleetRate = new Label();
             label1 = new Label();
@@ -62,8 +64,6 @@
             panel8 = new Panel();
             dgRentalSchedDurationAnalysis = new DataGridView();
             label2 = new Label();
-            label35 = new Label();
-            label41 = new Label();
             panel9.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -87,6 +87,28 @@
             panel9.Name = "panel9";
             panel9.Size = new Size(1680, 112);
             panel9.TabIndex = 74;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label35.ForeColor = Color.White;
+            label35.Location = new Point(3, 0);
+            label35.Name = "label35";
+            label35.Size = new Size(569, 46);
+            label35.TabIndex = 45;
+            label35.Text = "Vehicle Rental Management System";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label41.ForeColor = SystemColors.ControlLight;
+            label41.Location = new Point(3, 60);
+            label41.Name = "label41";
+            label41.Size = new Size(364, 32);
+            label41.TabIndex = 44;
+            label41.Text = "Reporting and Analytics Module";
             // 
             // panel1
             // 
@@ -192,40 +214,40 @@
             // 
             dgFleetAvailabilityStatus.AllowUserToResizeColumns = false;
             dgFleetAvailabilityStatus.AllowUserToResizeRows = false;
-            dgFleetAvailabilityStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgFleetAvailabilityStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgFleetAvailabilityStatus.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgFleetAvailabilityStatus.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgFleetAvailabilityStatus.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle19.ForeColor = Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle19.SelectionForeColor = Color.White;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dgFleetAvailabilityStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgFleetAvailabilityStatus.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = SystemColors.Window;
-            dataGridViewCellStyle20.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dgFleetAvailabilityStatus.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgFleetAvailabilityStatus.DefaultCellStyle = dataGridViewCellStyle2;
             dgFleetAvailabilityStatus.EnableHeadersVisualStyles = false;
             dgFleetAvailabilityStatus.GridColor = SystemColors.GrayText;
             dgFleetAvailabilityStatus.Location = new Point(13, 51);
             dgFleetAvailabilityStatus.Name = "dgFleetAvailabilityStatus";
             dgFleetAvailabilityStatus.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = SystemColors.Control;
-            dataGridViewCellStyle21.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle21.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dgFleetAvailabilityStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgFleetAvailabilityStatus.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgFleetAvailabilityStatus.RowHeadersVisible = false;
             dgFleetAvailabilityStatus.RowHeadersWidth = 51;
             dgFleetAvailabilityStatus.Size = new Size(691, 268);
@@ -256,40 +278,40 @@
             // 
             dgPopularVehicles.AllowUserToResizeColumns = false;
             dgPopularVehicles.AllowUserToResizeRows = false;
-            dgPopularVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgPopularVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgPopularVehicles.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgPopularVehicles.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgPopularVehicles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle22.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle22.ForeColor = Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle22.SelectionForeColor = Color.White;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dgPopularVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgPopularVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgPopularVehicles.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = SystemColors.Window;
-            dataGridViewCellStyle23.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle23.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dgPopularVehicles.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgPopularVehicles.DefaultCellStyle = dataGridViewCellStyle5;
             dgPopularVehicles.EnableHeadersVisualStyles = false;
             dgPopularVehicles.GridColor = SystemColors.GrayText;
             dgPopularVehicles.Location = new Point(29, 51);
             dgPopularVehicles.Name = "dgPopularVehicles";
             dgPopularVehicles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = SystemColors.Control;
-            dataGridViewCellStyle24.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle24.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle24.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            dgPopularVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgPopularVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgPopularVehicles.RowHeadersVisible = false;
             dgPopularVehicles.RowHeadersWidth = 51;
             dgPopularVehicles.Size = new Size(691, 268);
@@ -377,52 +399,54 @@
             panel8.BackColor = Color.FromArgb(58, 124, 165);
             panel8.Controls.Add(dgRentalSchedDurationAnalysis);
             panel8.Controls.Add(label2);
-            panel8.Location = new Point(90, 637);
+            panel8.Location = new Point(413, 631);
             panel8.Name = "panel8";
-            panel8.Size = new Size(1490, 407);
+            panel8.Size = new Size(862, 324);
             panel8.TabIndex = 82;
             // 
             // dgRentalSchedDurationAnalysis
             // 
+            dgRentalSchedDurationAnalysis.AllowUserToAddRows = false;
             dgRentalSchedDurationAnalysis.AllowUserToResizeColumns = false;
             dgRentalSchedDurationAnalysis.AllowUserToResizeRows = false;
-            dgRentalSchedDurationAnalysis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgRentalSchedDurationAnalysis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgRentalSchedDurationAnalysis.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgRentalSchedDurationAnalysis.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgRentalSchedDurationAnalysis.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle25.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle25.ForeColor = Color.White;
-            dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle25.SelectionForeColor = Color.White;
-            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.True;
-            dgRentalSchedDurationAnalysis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgRentalSchedDurationAnalysis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgRentalSchedDurationAnalysis.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = SystemColors.Window;
-            dataGridViewCellStyle26.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle26.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle26.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = DataGridViewTriState.False;
-            dgRentalSchedDurationAnalysis.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgRentalSchedDurationAnalysis.DefaultCellStyle = dataGridViewCellStyle8;
             dgRentalSchedDurationAnalysis.EnableHeadersVisualStyles = false;
             dgRentalSchedDurationAnalysis.GridColor = SystemColors.GrayText;
-            dgRentalSchedDurationAnalysis.Location = new Point(226, 52);
+            dgRentalSchedDurationAnalysis.Location = new Point(15, 52);
             dgRentalSchedDurationAnalysis.Name = "dgRentalSchedDurationAnalysis";
+            dgRentalSchedDurationAnalysis.ReadOnly = true;
             dgRentalSchedDurationAnalysis.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = SystemColors.Control;
-            dataGridViewCellStyle27.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle27.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle27.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = DataGridViewTriState.True;
-            dgRentalSchedDurationAnalysis.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgRentalSchedDurationAnalysis.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgRentalSchedDurationAnalysis.RowHeadersVisible = false;
             dgRentalSchedDurationAnalysis.RowHeadersWidth = 51;
-            dgRentalSchedDurationAnalysis.Size = new Size(832, 324);
+            dgRentalSchedDurationAnalysis.Size = new Size(832, 259);
             dgRentalSchedDurationAnalysis.TabIndex = 75;
             // 
             // label2
@@ -430,33 +454,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 12);
+            label2.Location = new Point(12, 12);
             label2.Name = "label2";
             label2.Size = new Size(494, 37);
             label2.TabIndex = 4;
             label2.Text = "Rental Schedule and Duration Analysis ";
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label35.ForeColor = Color.White;
-            label35.Location = new Point(3, 0);
-            label35.Name = "label35";
-            label35.Size = new Size(569, 46);
-            label35.TabIndex = 45;
-            label35.Text = "Vehicle Rental Management System";
-            // 
-            // label41
-            // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label41.ForeColor = SystemColors.ControlLight;
-            label41.Location = new Point(3, 60);
-            label41.Name = "label41";
-            label41.Size = new Size(364, 32);
-            label41.TabIndex = 44;
-            label41.Text = "Reporting and Analytics Module";
             // 
             // UC_Reports
             // 

@@ -120,40 +120,51 @@ namespace aejynmain.AuthManager
 
         public int GetOverdueRentalsCount()
         {
-            using (var conn = new MySqlConnection(ConnectionString))
-            {
-                conn.Open();
-                
-                string query = @"
-                    SELECT COUNT(*) as overdue_count
-                    FROM tblrentals
-                    WHERE ReturnDate > ActualReturnDate
-                    AND ReturnDate IS NOT NULL";
-                
-                using (var cmd = new MySqlCommand(query, conn))
-                {
-                    return Convert.ToInt32(cmd.ExecuteScalar());
-                }
-            }
+            using var conn = new MySqlConnection(ConnectionString);
+            conn.Open();
+
+            string sql = @"
+        SELECT
+            (
+                -- Returned late
+                SELECT COUNT(*)
+                FROM tblrental r
+                WHERE r.Status = 'Returned'
+                  AND r.ReturnDate IS NOT NULL
+                  AND r.ActualReturnDate IS NOT NULL
+                  AND r.ActualReturnDate > r.ReturnDate
+            ) +
+            (
+                -- Currently overdue (not yet returned and beyond planned return)
+                SELECT COUNT(*)
+                FROM tblrental r
+                WHERE r.Status NOT IN ('Returned','Cancelled')
+                  AND r.ReturnDate IS NOT NULL
+                  AND r.ReturnDate < @now
+            ) AS overdue_count;";
+
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.Add("@now", MySqlDbType.DateTime).Value = DateTime.Now;
+            object result = cmd.ExecuteScalar();
+            return Convert.ToInt32(result);
         }
 
-        public double GetAverageDelayDays()
+        public double GetAverageDelayHours()
         {
-            using (var conn = new MySqlConnection(ConnectionString))
-            {
-                conn.Open();
-                
-                string query = @"
-                    SELECT IFNULL(AVG(DATEDIFF(ActualReturnDate, ReturnDate)), 0) as avg_delay_days
-                    FROM tblrentals
-                    WHERE ActualReturnDate > ReturnDate
-                    AND ReturnDate IS NOT NULL";
-                
-                using (var cmd = new MySqlCommand(query, conn))
-                {
-                    return Convert.ToDouble(cmd.ExecuteScalar());
-                }
-            }
+            using var conn = new MySqlConnection(ConnectionString);
+            conn.Open();
+
+            string sql = @"
+        SELECT AVG(TIMESTAMPDIFF(HOUR, r.ReturnDate, r.ActualReturnDate))
+        FROM tblrental r
+        WHERE r.Status = 'Returned'
+          AND r.ReturnDate IS NOT NULL
+          AND r.ActualReturnDate IS NOT NULL
+          AND r.ActualReturnDate > r.ReturnDate;";
+
+            using var cmd = new MySqlCommand(sql, conn);
+            object avg = cmd.ExecuteScalar();
+            return (avg == null || avg == DBNull.Value) ? 0.0 : Convert.ToDouble(avg);
         }
 
         public DataTable GetVehiclesByCategory()
@@ -188,25 +199,27 @@ namespace aejynmain.AuthManager
                 conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = @"
-                    SELECT 
-                        vc.CategoryName as 'Category',
-                        SUM(CASE WHEN v.VehicleStatus = 'Available' THEN 1 ELSE 0 END) as 'Available',
-                        SUM(CASE WHEN v.VehicleStatus = 'Rented' THEN 1 ELSE 0 END) as 'Rented',
-                        SUM(CASE WHEN v.VehicleStatus = 'Under Maintenance' OR v.VehicleStatus = 'Maintenance' THEN 1 ELSE 0 END) as 'Maintenance',
-                        COUNT(*) as 'Total'
-                    FROM tblvehicles v
-                    INNER JOIN tblvehicle_categories vc ON v.CategoryID = vc.CategoryID
-                    GROUP BY vc.CategoryName
-                    
-                    UNION ALL
-                    
-                    SELECT 
-                        'Total' as 'Category',
-                        SUM(CASE WHEN v.VehicleStatus = 'Available' THEN 1 ELSE 0 END) as 'Available',
-                        SUM(CASE WHEN v.VehicleStatus = 'Rented' THEN 1 ELSE 0 END) as 'Rented',
-                        SUM(CASE WHEN v.VehicleStatus = 'Under Maintenance' OR v.VehicleStatus = 'Maintenance' THEN 1 ELSE 0 END) as 'Maintenance',
-                        COUNT(*) as 'Total'
-                    FROM tblvehicles v";
+            SELECT 
+                vc.CategoryName as 'Category',
+                SUM(CASE WHEN v.VehicleStatus = 'Available' THEN 1 ELSE 0 END) as 'Available',
+                SUM(CASE WHEN v.VehicleStatus = 'Rented' THEN 1 ELSE 0 END) as 'Rented',
+                SUM(CASE WHEN v.VehicleStatus = 'Reserved' THEN 1 ELSE 0 END) as 'Reserved',
+                SUM(CASE WHEN v.VehicleStatus = 'Under Maintenance' OR v.VehicleStatus = 'Maintenance' THEN 1 ELSE 0 END) as 'Maintenance',
+                COUNT(*) as 'Total'
+            FROM tblvehicles v
+            INNER JOIN tblvehicle_categories vc ON v.CategoryID = vc.CategoryID
+            GROUP BY vc.CategoryName
+            
+            UNION ALL
+            
+            SELECT 
+                'Total' as 'Category',
+                SUM(CASE WHEN v.VehicleStatus = 'Available' THEN 1 ELSE 0 END) as 'Available',
+                SUM(CASE WHEN v.VehicleStatus = 'Rented' THEN 1 ELSE 0 END) as 'Rented',
+                SUM(CASE WHEN v.VehicleStatus = 'Reserved' THEN 1 ELSE 0 END) as 'Reserved',
+                SUM(CASE WHEN v.VehicleStatus = 'Under Maintenance' OR v.VehicleStatus = 'Maintenance' THEN 1 ELSE 0 END) as 'Maintenance',
+                COUNT(*) as 'Total'
+            FROM tblvehicles v";
 
                 DataTable dt = new DataTable();
                 using (var da = new MySqlDataAdapter(cmd))
@@ -273,6 +286,55 @@ namespace aejynmain.AuthManager
                 }
                 return dt;
             }
+        }
+        public DataTable GetUpcomingRentalSchedule()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("EventStatus");
+            dt.Columns.Add("Vehicle");
+            dt.Columns.Add("Time");
+            dt.Columns.Add("Duration");
+
+            using (var conn = new MySqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string query = @"
+            -- Upcoming pickups from reservations
+            SELECT 
+                'Pickup' AS EventStatus,
+                v.Model AS Vehicle,
+                r.PickupDate AS Time,
+                DATEDIFF(r.ReturnDate, r.PickupDate) AS Duration
+            FROM tblReservations r
+            INNER JOIN tblVehicles v ON r.VehicleID = v.VehicleID
+            WHERE r.PickupDate >= NOW() 
+              AND r.ReservationStatus = 'Reserved'
+
+            UNION ALL
+
+            -- Upcoming returns from rentals
+            SELECT 
+                'Return' AS EventStatus,
+                v.Model AS Vehicle,
+                re.ReturnDate AS Time,
+                DATEDIFF(re.ReturnDate, re.PickupDate) AS Duration
+            FROM tblRentals re
+            INNER JOIN tblVehicles v ON re.VehicleID = v.VehicleID
+            WHERE re.ReturnDate >= NOW()
+              AND re.RentalStatus NOT IN ('Returned','Cancelled')
+
+            ORDER BY Time ASC;
+        ";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+
+            return dt;
         }
     }
 }

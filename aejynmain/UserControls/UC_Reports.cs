@@ -25,6 +25,8 @@ namespace aejynmain.UserControls
                 LoadAverageRentalRate();
                 LoadFleetAvailabilityStatus();
                 LoadPopularVehicles();
+                RefreshOverdueMetrics();
+                LoadRentalSchedule();
             }
             catch (Exception ex)
             {
@@ -65,6 +67,7 @@ namespace aejynmain.UserControls
                 dgFleetAvailabilityStatus.Columns.Add("Category", "Category");
                 dgFleetAvailabilityStatus.Columns.Add("Available", "Available");
                 dgFleetAvailabilityStatus.Columns.Add("Rented", "Rented");
+                dgFleetAvailabilityStatus.Columns.Add("Reserved", "Reserved");
                 dgFleetAvailabilityStatus.Columns.Add("Maintenance", "Maintenance");
                 dgFleetAvailabilityStatus.Columns.Add("Total", "Total");
 
@@ -86,17 +89,11 @@ namespace aejynmain.UserControls
                         category,
                         row["Available"],
                         row["Rented"],
+                        row["Reserved"],
                         row["Maintenance"],
                         row["Total"]
                     );
                 }
-
-                // Style the DataGridView
-                dgFleetAvailabilityStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgFleetAvailabilityStatus.AllowUserToAddRows = false;
-                dgFleetAvailabilityStatus.RowHeadersVisible = false;
-                dgFleetAvailabilityStatus.ReadOnly = true;
-
             }
             catch (Exception ex)
             {
@@ -135,16 +132,64 @@ namespace aejynmain.UserControls
                         row["RentalPercentage"]
                     );
                 }
-
-                // Style the DataGridView
-                dgPopularVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgPopularVehicles.AllowUserToAddRows = false;
-                dgPopularVehicles.RowHeadersVisible = false;
-                dgPopularVehicles.ReadOnly = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading popular vehicles: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void RefreshOverdueMetrics()
+        {
+            try
+            {
+                int overdue = _reportManager.GetOverdueRentalsCount();
+                double avgHours = _reportManager.GetAverageDelayHours();
+
+                lblOverdue.Text = overdue.ToString("N0");
+                lblAverageDelay.Text = avgHours.ToString("N1"); 
+            }
+            catch
+            {
+                lblOverdue.Text = "0";
+                lblAverageDelay.Text = "0";
+            }
+        }
+        private void LoadRentalSchedule()
+        {
+            try
+            {
+                var rentalScheduleData = _reportManager.GetUpcomingRentalSchedule(); // Must return EventStatus, Vehicle, Time, Duration
+
+                dgRentalSchedDurationAnalysis.Rows.Clear();
+                dgRentalSchedDurationAnalysis.Columns.Clear();
+
+                // Add columns
+                dgRentalSchedDurationAnalysis.Columns.Add("EventStatus", "Event/Status"); // <- normal text column
+                dgRentalSchedDurationAnalysis.Columns.Add("Vehicle", "Vehicle");
+                dgRentalSchedDurationAnalysis.Columns.Add("Time", "Time");
+                dgRentalSchedDurationAnalysis.Columns.Add("Duration", "Duration");
+
+                // Optional: center align headers
+                foreach (DataGridViewColumn col in dgRentalSchedDurationAnalysis.Columns)
+                {
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                // Fill rows
+                foreach (System.Data.DataRow row in rentalScheduleData.Rows)
+                {
+                    dgRentalSchedDurationAnalysis.Rows.Add(
+                        row["EventStatus"],   // e.g. "Return" or "Pickup"
+                        row["Vehicle"],
+                        Convert.ToDateTime(row["Time"]).ToString("hh:mm tt"),
+                        row["Duration"]
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading rental schedule: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace aejynmain.WinForms
 {
-    partial class frmUserManagementAcc
+    partial class frmUserManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCreateAcc = new Button();
+            btnCreateAccount = new Button();
             dtpDateCreated = new DateTimePicker();
             dtpBirthDate = new DateTimePicker();
             txtPassword = new TextBox();
@@ -36,7 +36,7 @@
             txtAddress = new TextBox();
             cmbGender = new ComboBox();
             cmbRole = new ComboBox();
-            txtPhone = new TextBox();
+            txtContactNumber = new TextBox();
             txtUsername = new TextBox();
             txtLastName = new TextBox();
             label16 = new Label();
@@ -53,36 +53,43 @@
             label3 = new Label();
             panel1 = new Panel();
             label1 = new Label();
+            cmbStatus = new ComboBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // btnCreateAcc
+            // btnCreateAccount
             // 
-            btnCreateAcc.BackColor = Color.FromArgb(58, 124, 165);
-            btnCreateAcc.FlatAppearance.BorderSize = 0;
-            btnCreateAcc.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
-            btnCreateAcc.FlatStyle = FlatStyle.Flat;
-            btnCreateAcc.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCreateAcc.ForeColor = Color.White;
-            btnCreateAcc.Location = new Point(193, 378);
-            btnCreateAcc.Name = "btnCreateAcc";
-            btnCreateAcc.Size = new Size(387, 45);
-            btnCreateAcc.TabIndex = 79;
-            btnCreateAcc.Text = "Create Account";
-            btnCreateAcc.UseVisualStyleBackColor = false;
+            btnCreateAccount.BackColor = Color.FromArgb(58, 124, 165);
+            btnCreateAccount.FlatAppearance.BorderSize = 0;
+            btnCreateAccount.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnCreateAccount.FlatStyle = FlatStyle.Flat;
+            btnCreateAccount.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCreateAccount.ForeColor = Color.White;
+            btnCreateAccount.Location = new Point(193, 378);
+            btnCreateAccount.Name = "btnCreateAccount";
+            btnCreateAccount.Size = new Size(387, 45);
+            btnCreateAccount.TabIndex = 79;
+            btnCreateAccount.Text = "Create Account";
+            btnCreateAccount.UseVisualStyleBackColor = false;
+            btnCreateAccount.Click += btnCreateAccount_Click;
             // 
             // dtpDateCreated
             // 
-            dtpDateCreated.Location = new Point(439, 330);
+            dtpDateCreated.CustomFormat = "MM/dd/yyyy";
+            dtpDateCreated.Format = DateTimePickerFormat.Custom;
+            dtpDateCreated.Location = new Point(522, 330);
             dtpDateCreated.Name = "dtpDateCreated";
-            dtpDateCreated.Size = new Size(246, 27);
+            dtpDateCreated.Size = new Size(164, 27);
             dtpDateCreated.TabIndex = 78;
             // 
             // dtpBirthDate
             // 
-            dtpBirthDate.Location = new Point(116, 330);
+            dtpBirthDate.CustomFormat = "MM/dd/yyyy";
+            dtpBirthDate.Format = DateTimePickerFormat.Custom;
+            dtpBirthDate.Location = new Point(319, 330);
             dtpBirthDate.Name = "dtpBirthDate";
-            dtpBirthDate.Size = new Size(246, 27);
+            dtpBirthDate.Size = new Size(180, 27);
             dtpBirthDate.TabIndex = 77;
             // 
             // txtPassword
@@ -102,7 +109,7 @@
             txtEmail.Location = new Point(319, 253);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(180, 32);
+            txtEmail.Size = new Size(164, 32);
             txtEmail.TabIndex = 75;
             // 
             // txtAddress
@@ -111,7 +118,7 @@
             txtAddress.Location = new Point(116, 253);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(187, 32);
+            txtAddress.Size = new Size(164, 32);
             txtAddress.TabIndex = 74;
             // 
             // cmbGender
@@ -134,14 +141,14 @@
             cmbRole.Size = new Size(164, 33);
             cmbRole.TabIndex = 72;
             // 
-            // txtPhone
+            // txtContactNumber
             // 
-            txtPhone.BorderStyle = BorderStyle.FixedSingle;
-            txtPhone.Location = new Point(116, 181);
-            txtPhone.Multiline = true;
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(164, 32);
-            txtPhone.TabIndex = 71;
+            txtContactNumber.BorderStyle = BorderStyle.FixedSingle;
+            txtContactNumber.Location = new Point(116, 181);
+            txtContactNumber.Multiline = true;
+            txtContactNumber.Name = "txtContactNumber";
+            txtContactNumber.Size = new Size(164, 32);
+            txtContactNumber.TabIndex = 71;
             // 
             // txtUsername
             // 
@@ -166,7 +173,7 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label16.ForeColor = Color.FromArgb(46, 46, 46);
-            label16.Location = new Point(439, 307);
+            label16.Location = new Point(522, 307);
             label16.Name = "label16";
             label16.Size = new Size(98, 20);
             label16.TabIndex = 68;
@@ -188,7 +195,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label14.ForeColor = Color.FromArgb(46, 46, 46);
-            label14.Location = new Point(116, 307);
+            label14.Location = new Point(319, 307);
             label14.Name = "label14";
             label14.Size = new Size(96, 20);
             label14.TabIndex = 66;
@@ -245,9 +252,9 @@
             label6.ForeColor = Color.FromArgb(46, 46, 46);
             label6.Location = new Point(116, 157);
             label6.Name = "label6";
-            label6.Size = new Size(114, 20);
+            label6.Size = new Size(122, 20);
             label6.TabIndex = 61;
-            label6.Text = "Phone Number";
+            label6.Text = "Contact Number";
             // 
             // label5
             // 
@@ -308,17 +315,41 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(12, 23);
             label1.Name = "label1";
-            label1.Size = new Size(131, 35);
+            label1.Size = new Size(171, 35);
             label1.TabIndex = 5;
-            label1.Text = "Add Users";
+            label1.Text = "Add new user";
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.Font = new Font("Segoe UI", 11F);
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Active", "Inactive" });
+            cmbStatus.Location = new Point(116, 328);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(164, 33);
+            cmbStatus.TabIndex = 81;
+            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(46, 46, 46);
+            label2.Location = new Point(116, 305);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 82;
+            label2.Text = "Status";
             // 
             // frmUserManagementAcc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(818, 478);
+            Controls.Add(label2);
+            Controls.Add(cmbStatus);
             Controls.Add(panel1);
-            Controls.Add(btnCreateAcc);
+            Controls.Add(btnCreateAccount);
             Controls.Add(dtpDateCreated);
             Controls.Add(dtpBirthDate);
             Controls.Add(txtPassword);
@@ -326,7 +357,7 @@
             Controls.Add(txtAddress);
             Controls.Add(cmbGender);
             Controls.Add(cmbRole);
-            Controls.Add(txtPhone);
+            Controls.Add(txtContactNumber);
             Controls.Add(txtUsername);
             Controls.Add(txtLastName);
             Controls.Add(label16);
@@ -351,7 +382,7 @@
 
         #endregion
 
-        private Button btnCreateAcc;
+        private Button btnCreateAccount;
         private DateTimePicker dtpDateCreated;
         private DateTimePicker dtpBirthDate;
         private TextBox txtPassword;
@@ -359,7 +390,7 @@
         private TextBox txtAddress;
         private ComboBox cmbGender;
         private ComboBox cmbRole;
-        private TextBox txtPhone;
+        private TextBox txtContactNumber;
         private TextBox txtUsername;
         private TextBox txtLastName;
         private Label label16;
@@ -376,5 +407,7 @@
         private Label label3;
         private Panel panel1;
         private Label label1;
+        private ComboBox cmbStatus;
+        private Label label2;
     }
 }

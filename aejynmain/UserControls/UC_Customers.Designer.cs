@@ -89,7 +89,6 @@
             dgAddCustomer.RowHeadersWidth = 51;
             dgAddCustomer.Size = new Size(1606, 686);
             dgAddCustomer.TabIndex = 72;
-            dgAddCustomer.CellContentClick += dgAddCustomer_CellContentClick;
             dgAddCustomer.CellEndEdit += dgAddCustomer_CellEndEdit;
             // 
             // panel1

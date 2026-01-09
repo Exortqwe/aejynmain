@@ -166,10 +166,5 @@ namespace aejynmain.UserControls
                 LoadCustomers(); // revert changes
             }
         }
-
-        private void dgAddCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
