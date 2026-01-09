@@ -169,8 +169,8 @@ namespace aejynmain.AuthManager
         // CHECK IF CUSTOMER IS OF LEGAL AGE
         public static bool IsAgeValid(DateTime birthDate)
         {
-            int age = DateTime.Today.Year - birthDate.Year;
-            if (birthDate.Date > DateTime.Today.AddYears(-age))
+            int age = DateTime.Now.Year - birthDate.Year;
+            if (birthDate.Date > DateTime.Now.AddYears(-age))
                 age--;
             return age >= 21;
         }

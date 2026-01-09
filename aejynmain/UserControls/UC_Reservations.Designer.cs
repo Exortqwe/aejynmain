@@ -31,7 +31,9 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            panel9 = new Panel();
             label35 = new Label();
+            label41 = new Label();
             panel5 = new Panel();
             lblTotalPrice = new Label();
             lblRate = new Label();
@@ -79,6 +81,7 @@
             cmbPaymentMethod = new ComboBox();
             cmbPaymentType = new ComboBox();
             panel1.SuspendLayout();
+            panel9.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -89,23 +92,45 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
-            panel1.Controls.Add(label35);
+            panel1.Controls.Add(panel9);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 75);
+            panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 7;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(28, 73, 102);
+            panel9.Controls.Add(label35);
+            panel9.Controls.Add(label41);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(1685, 112);
+            panel9.TabIndex = 75;
             // 
             // label35
             // 
             label35.AutoSize = true;
             label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             label35.ForeColor = Color.White;
-            label35.Location = new Point(22, 15);
+            label35.Location = new Point(3, 0);
             label35.Name = "label35";
-            label35.Size = new Size(215, 46);
-            label35.TabIndex = 7;
-            label35.Text = "Reservations";
+            label35.Size = new Size(569, 46);
+            label35.TabIndex = 45;
+            label35.Text = "Vehicle Rental Management System";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label41.ForeColor = SystemColors.ControlLight;
+            label41.Location = new Point(3, 60);
+            label41.Name = "label41";
+            label41.Size = new Size(159, 32);
+            label41.TabIndex = 44;
+            label41.Text = "Reservations ";
             // 
             // panel5
             // 
@@ -121,7 +146,7 @@
             panel5.Controls.Add(label31);
             panel5.Controls.Add(label30);
             panel5.Controls.Add(label29);
-            panel5.Location = new Point(1266, 135);
+            panel5.Location = new Point(1269, 205);
             panel5.Name = "panel5";
             panel5.Size = new Size(394, 217);
             panel5.TabIndex = 25;
@@ -220,7 +245,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.Location = new Point(1266, 91);
+            label28.Location = new Point(1269, 161);
             label28.Name = "label28";
             label28.Size = new Size(196, 35);
             label28.TabIndex = 26;
@@ -236,7 +261,7 @@
             panel4.Controls.Add(dtpPickUpDate);
             panel4.Controls.Add(label27);
             panel4.Controls.Add(label26);
-            panel4.Location = new Point(569, 135);
+            panel4.Location = new Point(572, 205);
             panel4.Name = "panel4";
             panel4.Size = new Size(310, 217);
             panel4.TabIndex = 24;
@@ -301,7 +326,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label25.Location = new Point(569, 91);
+            label25.Location = new Point(572, 161);
             label25.Name = "label25";
             label25.Size = new Size(143, 35);
             label25.TabIndex = 23;
@@ -318,7 +343,7 @@
             groupBox2.Controls.Add(label23);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(label21);
-            groupBox2.Location = new Point(30, 165);
+            groupBox2.Location = new Point(33, 235);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(502, 187);
             groupBox2.TabIndex = 22;
@@ -407,7 +432,7 @@
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRefresh.IconSize = 32;
-            btnRefresh.Location = new Point(487, 135);
+            btnRefresh.Location = new Point(490, 205);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(45, 27);
             btnRefresh.TabIndex = 21;
@@ -416,7 +441,7 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(30, 135);
+            txtSearch.Location = new Point(33, 205);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(407, 27);
             txtSearch.TabIndex = 20;
@@ -430,7 +455,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(436, 135);
+            btnSearch.Location = new Point(439, 205);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(45, 27);
             btnSearch.TabIndex = 19;
@@ -441,7 +466,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(30, 91);
+            label20.Location = new Point(33, 161);
             label20.Name = "label20";
             label20.Size = new Size(208, 35);
             label20.TabIndex = 18;
@@ -451,7 +476,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.Location = new Point(30, 355);
+            label34.Location = new Point(33, 425);
             label34.Name = "label34";
             label34.Size = new Size(218, 35);
             label34.TabIndex = 29;
@@ -472,7 +497,7 @@
             dgAvailableVehicles.ColumnHeadersHeight = 29;
             dgAvailableVehicles.EnableHeadersVisualStyles = false;
             dgAvailableVehicles.GridColor = SystemColors.GrayText;
-            dgAvailableVehicles.Location = new Point(30, 392);
+            dgAvailableVehicles.Location = new Point(33, 462);
             dgAvailableVehicles.Name = "dgAvailableVehicles";
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
@@ -496,7 +521,7 @@
             btnConfirmReservation.FlatStyle = FlatStyle.Flat;
             btnConfirmReservation.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirmReservation.ForeColor = Color.White;
-            btnConfirmReservation.Location = new Point(688, 853);
+            btnConfirmReservation.Location = new Point(688, 923);
             btnConfirmReservation.Name = "btnConfirmReservation";
             btnConfirmReservation.Size = new Size(296, 52);
             btnConfirmReservation.TabIndex = 32;
@@ -508,7 +533,7 @@
             // 
             label36.AutoSize = true;
             label36.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(918, 91);
+            label36.Location = new Point(921, 161);
             label36.Name = "label36";
             label36.Size = new Size(189, 35);
             label36.TabIndex = 34;
@@ -526,7 +551,7 @@
             panel7.Controls.Add(label37);
             panel7.Controls.Add(cmbPaymentMethod);
             panel7.Controls.Add(cmbPaymentType);
-            panel7.Location = new Point(918, 135);
+            panel7.Location = new Point(921, 205);
             panel7.Name = "panel7";
             panel7.Size = new Size(312, 217);
             panel7.TabIndex = 33;
@@ -625,7 +650,8 @@
             Name = "UC_Reservations";
             Size = new Size(1685, 1219);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -642,7 +668,6 @@
         #endregion
 
         private Panel panel1;
-        private Label label35;
         private Panel panel5;
         private Label lblTotalPrice;
         private Label lblRate;
@@ -689,5 +714,8 @@
         private ComboBox cmbPaymentType;
         private DateTimePicker dtpPickupTime;
         private DateTimePicker dtpReturnTime;
+        private Panel panel9;
+        private Label label35;
+        private Label label41;
     }
 }

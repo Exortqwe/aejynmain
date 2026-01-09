@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            label35 = new Label();
             panel3 = new Panel();
             txtReturnMileage = new TextBox();
             dtpActualReturnDate = new DateTimePicker();
@@ -82,34 +81,27 @@
             btnReturnVehicle = new Button();
             label8 = new Label();
             dgRentedVehicles = new DataGridView();
+            label35 = new Label();
+            label41 = new Label();
+            panel9 = new Panel();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             gbDamageAssessment.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgRentedVehicles).BeginInit();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
-            panel1.Controls.Add(label35);
+            panel1.Controls.Add(panel9);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 75);
+            panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 0;
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label35.ForeColor = Color.White;
-            label35.Location = new Point(22, 15);
-            label35.Name = "label35";
-            label35.Size = new Size(242, 46);
-            label35.TabIndex = 2;
-            label35.Text = "Vehicle Return";
             // 
             // panel3
             // 
@@ -129,7 +121,7 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(22, 136);
+            panel3.Location = new Point(22, 202);
             panel3.Name = "panel3";
             panel3.Size = new Size(560, 212);
             panel3.TabIndex = 2;
@@ -272,7 +264,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(22, 86);
+            label2.Location = new Point(22, 152);
             label2.Name = "label2";
             label2.Size = new Size(217, 35);
             label2.TabIndex = 1;
@@ -282,7 +274,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(588, 88);
+            label14.Location = new Point(588, 154);
             label14.Name = "label14";
             label14.Size = new Size(249, 35);
             label14.TabIndex = 3;
@@ -292,7 +284,7 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.GrayText;
-            label15.Location = new Point(588, 123);
+            label15.Location = new Point(588, 189);
             label15.Name = "label15";
             label15.Size = new Size(284, 20);
             label15.TabIndex = 5;
@@ -306,7 +298,7 @@
             gbDamageAssessment.Controls.Add(cbDents);
             gbDamageAssessment.Controls.Add(cbInteriorStains);
             gbDamageAssessment.Controls.Add(cbBrokenGlass);
-            gbDamageAssessment.Location = new Point(588, 156);
+            gbDamageAssessment.Location = new Point(588, 222);
             gbDamageAssessment.Name = "gbDamageAssessment";
             gbDamageAssessment.Size = new Size(369, 192);
             gbDamageAssessment.TabIndex = 6;
@@ -389,7 +381,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(1293, 88);
+            label16.Location = new Point(1293, 154);
             label16.Name = "label16";
             label16.Size = new Size(204, 35);
             label16.TabIndex = 7;
@@ -408,7 +400,7 @@
             panel2.Controls.Add(lblDamagesCharges);
             panel2.Controls.Add(label18);
             panel2.Controls.Add(label17);
-            panel2.Location = new Point(1293, 136);
+            panel2.Location = new Point(1293, 202);
             panel2.Name = "panel2";
             panel2.Size = new Size(293, 212);
             panel2.TabIndex = 8;
@@ -511,7 +503,7 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(977, 88);
+            label23.Location = new Point(977, 154);
             label23.Name = "label23";
             label23.Size = new Size(114, 35);
             label23.TabIndex = 9;
@@ -528,7 +520,7 @@
             panel4.Controls.Add(txtAmount);
             panel4.Controls.Add(cmbPaymentMethod);
             panel4.Controls.Add(label24);
-            panel4.Location = new Point(977, 137);
+            panel4.Location = new Point(977, 203);
             panel4.Name = "panel4";
             panel4.Size = new Size(282, 211);
             panel4.TabIndex = 10;
@@ -627,7 +619,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(220, 363);
+            label8.Location = new Point(220, 429);
             label8.Name = "label8";
             label8.Size = new Size(194, 35);
             label8.TabIndex = 13;
@@ -637,33 +629,66 @@
             // 
             dgRentedVehicles.BackgroundColor = Color.White;
             dgRentedVehicles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgRentedVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgRentedVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgRentedVehicles.ColumnHeadersHeight = 29;
             dgRentedVehicles.EnableHeadersVisualStyles = false;
             dgRentedVehicles.GridColor = SystemColors.GrayText;
-            dgRentedVehicles.Location = new Point(220, 401);
+            dgRentedVehicles.Location = new Point(220, 467);
             dgRentedVehicles.Name = "dgRentedVehicles";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgRentedVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgRentedVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgRentedVehicles.RowHeadersVisible = false;
             dgRentedVehicles.RowHeadersWidth = 51;
             dgRentedVehicles.Size = new Size(1128, 455);
             dgRentedVehicles.TabIndex = 14;
             dgRentedVehicles.CellClick += dgRentedVehicles_CellClick;
             dgRentedVehicles.CellContentClick += dgRentedVehicles_CellContentClick;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label35.ForeColor = Color.White;
+            label35.Location = new Point(3, 0);
+            label35.Name = "label35";
+            label35.Size = new Size(569, 46);
+            label35.TabIndex = 45;
+            label35.Text = "Vehicle Rental Management System";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label41.ForeColor = SystemColors.ControlLight;
+            label41.Location = new Point(3, 60);
+            label41.Name = "label41";
+            label41.Size = new Size(180, 32);
+            label41.TabIndex = 44;
+            label41.Text = "Return Vehicles";
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(28, 73, 102);
+            panel9.Controls.Add(label35);
+            panel9.Controls.Add(label41);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(1685, 112);
+            panel9.TabIndex = 76;
             // 
             // UC_Returns
             // 
@@ -687,7 +712,6 @@
             Size = new Size(1685, 1219);
             Load += UC_Returns_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             gbDamageAssessment.ResumeLayout(false);
@@ -697,6 +721,8 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgRentedVehicles).EndInit();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -704,7 +730,6 @@
         #endregion
 
         private Panel panel1;
-        private Label label35;
         private Panel panel3;
         private Label label3;
         private Label label1;
@@ -756,5 +781,8 @@
         private Label label9;
         private Label lblOverdueFee;
         private Label label19;
+        private Panel panel9;
+        private Label label35;
+        private Label label41;
     }
 }

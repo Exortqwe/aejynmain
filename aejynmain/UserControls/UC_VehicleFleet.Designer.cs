@@ -35,6 +35,7 @@
             btnSearch = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             label35 = new Label();
+            label41 = new Label();
             txtSearchVehicle = new TextBox();
             btnAddVehicle = new Button();
             btnRefresh = new FontAwesome.Sharp.IconButton();
@@ -56,7 +57,7 @@
             btnSearch.IconColor = Color.White;
             btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSearch.IconSize = 32;
-            btnSearch.Location = new Point(331, 92);
+            btnSearch.Location = new Point(322, 147);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(68, 41);
             btnSearch.TabIndex = 5;
@@ -67,10 +68,11 @@
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
             panel1.Controls.Add(label35);
+            panel1.Controls.Add(label41);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 75);
+            panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 6;
             // 
             // label35
@@ -78,16 +80,27 @@
             label35.AutoSize = true;
             label35.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             label35.ForeColor = Color.White;
-            label35.Location = new Point(22, 15);
+            label35.Location = new Point(3, 0);
             label35.Name = "label35";
-            label35.Size = new Size(213, 46);
-            label35.TabIndex = 7;
-            label35.Text = "Vehicle Fleet";
+            label35.Size = new Size(569, 46);
+            label35.TabIndex = 47;
+            label35.Text = "Vehicle Rental Management System";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label41.ForeColor = SystemColors.ControlLight;
+            label41.Location = new Point(3, 60);
+            label41.Name = "label41";
+            label41.Size = new Size(150, 32);
+            label41.TabIndex = 46;
+            label41.Text = "Vehicle Fleet";
             // 
             // txtSearchVehicle
             // 
             txtSearchVehicle.BorderStyle = BorderStyle.FixedSingle;
-            txtSearchVehicle.Location = new Point(31, 92);
+            txtSearchVehicle.Location = new Point(22, 147);
             txtSearchVehicle.Multiline = true;
             txtSearchVehicle.Name = "txtSearchVehicle";
             txtSearchVehicle.Size = new Size(306, 41);
@@ -103,7 +116,7 @@
             btnAddVehicle.ForeColor = Color.White;
             btnAddVehicle.Image = (Image)resources.GetObject("btnAddVehicle.Image");
             btnAddVehicle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddVehicle.Location = new Point(405, 92);
+            btnAddVehicle.Location = new Point(396, 147);
             btnAddVehicle.Name = "btnAddVehicle";
             btnAddVehicle.Size = new Size(149, 41);
             btnAddVehicle.TabIndex = 8;
@@ -121,7 +134,7 @@
             btnRefresh.IconColor = Color.White;
             btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRefresh.IconSize = 32;
-            btnRefresh.Location = new Point(560, 92);
+            btnRefresh.Location = new Point(551, 147);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(66, 41);
             btnRefresh.TabIndex = 9;
@@ -155,7 +168,7 @@
             dgVehicleFleet.DefaultCellStyle = dataGridViewCellStyle2;
             dgVehicleFleet.EnableHeadersVisualStyles = false;
             dgVehicleFleet.GridColor = SystemColors.GrayText;
-            dgVehicleFleet.Location = new Point(31, 139);
+            dgVehicleFleet.Location = new Point(22, 194);
             dgVehicleFleet.Name = "dgVehicleFleet";
             dgVehicleFleet.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -185,7 +198,7 @@
             btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEdit.IconSize = 32;
             btnEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEdit.Location = new Point(1444, 92);
+            btnEdit.Location = new Point(1435, 147);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(92, 41);
             btnEdit.TabIndex = 73;
@@ -205,7 +218,7 @@
             btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDelete.IconSize = 32;
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(1542, 92);
+            btnDelete.Location = new Point(1533, 147);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(111, 41);
             btnDelete.TabIndex = 78;
@@ -238,12 +251,13 @@
         #endregion
         private FontAwesome.Sharp.IconButton btnSearch;
         private Panel panel1;
-        private Label label35;
         private TextBox txtSearchVehicle;
         private Button btnAddVehicle;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private DataGridView dgVehicleFleet;
         private FontAwesome.Sharp.IconButton btnEdit;
         private FontAwesome.Sharp.IconButton btnDelete;
+        private Label label35;
+        private Label label41;
     }
 }

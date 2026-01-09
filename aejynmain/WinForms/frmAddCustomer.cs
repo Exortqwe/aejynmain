@@ -17,9 +17,9 @@ namespace aejynmain
             _parent = parent;
 
             // Defaults
-            dtpDateRegistered.Value = DateTime.Today;
-            dtpLicenseExpiry.Value = DateTime.Today.AddYears(1);
-            dtpBirthDate.MaxDate = DateTime.Today.AddYears(-21); // must be 21+
+            dtpDateRegistered.Value = DateTime.Now;
+            dtpLicenseExpiry.Value = DateTime.Now.AddYears(1);
+            dtpBirthDate.MaxDate = DateTime.Now.AddYears(-21); // must be 21+
 
             InitializeCustomerTypeComboBox();
         }
@@ -91,8 +91,8 @@ namespace aejynmain
             txtAddress.Clear();
             cmbGender.SelectedIndex = -1;
             txtLicenseNumber.Clear();
-            dtpLicenseExpiry.Value = DateTime.Today.AddYears(1);
-            dtpBirthDate.Value = DateTime.Today.AddYears(-21);
+            dtpLicenseExpiry.Value = DateTime.Now.AddYears(1);
+            dtpBirthDate.Value = DateTime.Now.AddYears(-21);
             txtName.Clear();
             txtEmergencyContact.Clear();
             cmbRelationship.SelectedIndex = -1;
@@ -126,15 +126,15 @@ namespace aejynmain
             // Age 21+
             if (!CustomerDetails.IsAgeValid(dtpBirthDate.Value))
             {
-                int age = DateTime.Today.Year - dtpBirthDate.Value.Year;
-                if (dtpBirthDate.Value.Date > DateTime.Today.AddYears(-age)) age--;
+                int age = DateTime.Now.Year - dtpBirthDate.Value.Year;
+                if (dtpBirthDate.Value.Date > DateTime.Now.AddYears(-age)) age--;
                 message = $"Customer must be at least 21 years old. Current age: {age}.";
                 return false;
             }
 
             // License expiry must be future if license number is provided
             if (!string.IsNullOrWhiteSpace(txtLicenseNumber.Text) &&
-                dtpLicenseExpiry.Value.Date <= DateTime.Today)
+                dtpLicenseExpiry.Value.Date <= DateTime.Now)
             {
                 message = "License expiry date must be in the future.";
                 return false;
