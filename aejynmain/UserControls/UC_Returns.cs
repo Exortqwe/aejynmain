@@ -23,7 +23,12 @@ namespace aejynmain.UserControls
         {
             InitializeComponent();
             UpdateBillingSummary();
-
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
         private void UpdateBillingSummary()
         {
@@ -75,9 +80,16 @@ namespace aejynmain.UserControls
         {
             dgRentedVehicles.AutoGenerateColumns = true;
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
-            // Hide ActualReturnDate
-            if (dgRentedVehicles.Columns["ActualReturnDate"] != null)
-                dgRentedVehicles.Columns["ActualReturnDate"].Visible = false;
+
+            // ✅ DATE + TIME FORMAT
+            if (dgRentedVehicles.Columns["PickupDate"] != null)
+                dgRentedVehicles.Columns["PickupDate"]
+                    .DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:tt";
+            if (dgRentedVehicles.Columns["ReturnDate"] != null)
+                dgRentedVehicles.Columns["ReturnDate"]
+                    .DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:tt ";
+            dgRentedVehicles.Columns["ActualReturnDate"].Visible = false;
+
             UpdateBillingSummary();
         }
         private void dgRentedVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -206,10 +218,6 @@ namespace aejynmain.UserControls
             // Reload rentals
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
             MessageBox.Show("Vehicle successfully returned.");
-        }
-        private void dgRentedVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

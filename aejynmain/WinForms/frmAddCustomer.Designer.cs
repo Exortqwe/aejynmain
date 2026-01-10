@@ -221,6 +221,7 @@
             // 
             // dtpDateRegistered
             // 
+            dtpDateRegistered.CustomFormat = "MM-dd-yyyy";
             dtpDateRegistered.Location = new Point(567, 350);
             dtpDateRegistered.Name = "dtpDateRegistered";
             dtpDateRegistered.Size = new Size(239, 27);
@@ -283,6 +284,7 @@
             // 
             // dtpLicenseExpiry
             // 
+            dtpLicenseExpiry.CustomFormat = "MM-dd-yyyy";
             dtpLicenseExpiry.Location = new Point(9, 350);
             dtpLicenseExpiry.Name = "dtpLicenseExpiry";
             dtpLicenseExpiry.Size = new Size(239, 27);
@@ -290,6 +292,7 @@
             // 
             // dtpBirthDate
             // 
+            dtpBirthDate.CustomFormat = "MM-dd-yyyy";
             dtpBirthDate.Location = new Point(286, 350);
             dtpBirthDate.Name = "dtpBirthDate";
             dtpBirthDate.Size = new Size(239, 27);

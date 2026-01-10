@@ -19,6 +19,12 @@ namespace aejynmain.UserControls
         {
             InitializeComponent();
             LoadDashboardData();
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
         private void LoadDashboardData()
         {

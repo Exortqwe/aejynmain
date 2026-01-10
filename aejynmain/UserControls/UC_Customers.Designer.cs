@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customers));
             dgAddCustomer = new DataGridView();
             panel1 = new Panel();
+            lblRole = new Label();
+            lblUsername = new Label();
+            pictureBox7 = new PictureBox();
+            label1 = new Label();
+            label12 = new Label();
             btnRefresh = new FontAwesome.Sharp.IconButton();
             btnNewCustomer = new Button();
             txtSearch = new TextBox();
@@ -41,10 +46,9 @@
             btnDelete = new FontAwesome.Sharp.IconButton();
             btnEdit = new FontAwesome.Sharp.IconButton();
             btnViewCustomer = new FontAwesome.Sharp.IconButton();
-            label1 = new Label();
-            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // dgAddCustomer
@@ -55,36 +59,36 @@
             dgAddCustomer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgAddCustomer.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgAddCustomer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle13.SelectionForeColor = Color.White;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgAddCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgAddCustomer.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.White;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgAddCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             dgAddCustomer.EnableHeadersVisualStyles = false;
             dgAddCustomer.GridColor = SystemColors.GrayText;
             dgAddCustomer.Location = new Point(48, 189);
             dgAddCustomer.Name = "dgAddCustomer";
             dgAddCustomer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = Color.White;
-            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle15.ForeColor = Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgAddCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgAddCustomer.RowHeadersVisible = false;
             dgAddCustomer.RowHeadersWidth = 51;
             dgAddCustomer.Size = new Size(1606, 686);
@@ -94,6 +98,9 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
+            panel1.Controls.Add(lblRole);
+            panel1.Controls.Add(lblUsername);
+            panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label12);
             panel1.Dock = DockStyle.Top;
@@ -101,6 +108,57 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 74;
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRole.ForeColor = Color.White;
+            lblRole.Location = new Point(1494, 69);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(0, 23);
+            lblRole.TabIndex = 47;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Location = new Point(1494, 29);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(0, 23);
+            lblUsername.TabIndex = 46;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(1591, 29);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(69, 68);
+            pictureBox7.TabIndex = 45;
+            pictureBox7.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(569, 46);
+            label1.TabIndex = 39;
+            label1.Text = "Vehicle Rental Management System";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label12.ForeColor = SystemColors.ControlLight;
+            label12.Location = new Point(3, 60);
+            label12.Name = "label12";
+            label12.Size = new Size(245, 32);
+            label12.TabIndex = 38;
+            label12.Text = "Customers Overview ";
             // 
             // btnRefresh
             // 
@@ -223,28 +281,6 @@
             btnViewCustomer.UseVisualStyleBackColor = false;
             btnViewCustomer.Click += btnViewCustomer_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(569, 46);
-            label1.TabIndex = 39;
-            label1.Text = "Vehicle Rental Management System";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label12.ForeColor = SystemColors.ControlLight;
-            label12.Location = new Point(3, 60);
-            label12.Name = "label12";
-            label12.Size = new Size(245, 32);
-            label12.TabIndex = 38;
-            label12.Text = "Customers Overview ";
-            // 
             // UC_Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -264,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)dgAddCustomer).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +317,8 @@
         private FontAwesome.Sharp.IconButton btnViewCustomer;
         private Label label1;
         private Label label12;
+        private Label lblRole;
+        private Label lblUsername;
+        private PictureBox pictureBox7;
     }
 }

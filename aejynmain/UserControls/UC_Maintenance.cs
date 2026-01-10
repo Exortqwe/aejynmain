@@ -20,8 +20,13 @@ namespace aejynmain.UserControls
             InitializeComponent();
             SetupMaintenanceGrid();
             LoadMaintenance();
+            LoadUser();
         }
-
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
+        }
         private void btnScheduleMaintenance_Click(object sender, EventArgs e)
         {
             frmScheduleMaintenance sm = new frmScheduleMaintenance();

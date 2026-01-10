@@ -13,6 +13,12 @@ namespace aejynmain.UserControls
             InitializeComponent();
             _reportManager = new ReportManager();
             LoadPerformanceMetrics();
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
 
         private void LoadPerformanceMetrics()

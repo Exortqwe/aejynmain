@@ -264,7 +264,7 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(252, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1056, 918);
+            panelMain.Size = new Size(1672, 1055);
             panelMain.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -285,7 +285,7 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(252, 918);
+            flowLayoutPanel1.Size = new Size(252, 1055);
             flowLayoutPanel1.TabIndex = 3;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -295,7 +295,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
-            ClientSize = new Size(1308, 918);
+            ClientSize = new Size(1924, 1055);
             Controls.Add(panelMain);
             Controls.Add(flowLayoutPanel1);
             MaximizeBox = false;
@@ -321,5 +321,9 @@
         private Button btnMaintenance;
         private Button btnUserManagement;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Panel UCHeader;
+        private Label lblRole;
+        private PictureBox pictureBox2;
+        private Label lblUserName;
     }
 }

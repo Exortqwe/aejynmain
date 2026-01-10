@@ -23,6 +23,12 @@ namespace aejynmain.UserControls
             InitializeComponent();
             LoadAvailableVehicles();
             UpdateSummaryDates();
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
 
         private void EnsureVehicleFleetColumns(DataGridView dg)

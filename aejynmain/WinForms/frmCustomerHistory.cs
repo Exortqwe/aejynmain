@@ -82,6 +82,18 @@ namespace aejynmain
                 // Set the data source
                 dgCustomerHistory.DataSource = displayTable;
 
+                if (dgCustomerHistory.Columns["PickupDate"] != null)
+                    dgCustomerHistory.Columns["PickupDate"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+
+                if (dgCustomerHistory.Columns["ReturnDate"] != null)
+                    dgCustomerHistory.Columns["ReturnDate"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+
+                if (dgCustomerHistory.Columns["ActualReturnDate"] != null)
+                    dgCustomerHistory.Columns["ActualReturnDate"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+
                 // Reorder columns
                 if (dgCustomerHistory.Columns.Contains("RentalID"))
                 {

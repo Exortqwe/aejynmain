@@ -26,7 +26,6 @@ namespace aejynmain
                 string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please enter your username and password.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 txtUsername.Focus();
                 return; // mag stop ang execution
             }
@@ -34,15 +33,9 @@ namespace aejynmain
 
             if (success)
             {
-                   MessageBox.Show(
-                        "LOGIN ROLE = " + UserSession.Role,
-                        "DEBUG LOGIN"
-                    );
-
                     MainForm mf = new MainForm();
                     mf.Show();
-                    this.Hide();
-                
+                    this.Hide();              
             }
             else
             {
@@ -50,18 +43,6 @@ namespace aejynmain
                 txtPassword.Clear();
                 txtPassword.Focus();
             }
-        }
-
-        private void frmLogIn_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmCreateAccount createAccount = new frmCreateAccount();
-            createAccount.Show();
-            this.Hide();
         }
     }
 }

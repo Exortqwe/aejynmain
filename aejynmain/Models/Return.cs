@@ -18,5 +18,7 @@ namespace aejynmain.Models
         public DateTime ReturnDate { get; set; }
         public DateTime? ActualReturnDate { get; set; }
         public string RentalStatus { get; set; }
+        public decimal DailyRate { get; set; }
+        public int DaysOverdue { get; set; }
     }
 }

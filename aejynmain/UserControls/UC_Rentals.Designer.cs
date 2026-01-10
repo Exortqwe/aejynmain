@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Rentals));
             panel1 = new Panel();
             label19 = new Label();
             button2 = new Button();
@@ -105,6 +106,9 @@
             label34 = new Label();
             dgAvailableVehicles = new DataGridView();
             panel6 = new Panel();
+            lblRole = new Label();
+            lblUsername = new Label();
+            pictureBox7 = new PictureBox();
             label35 = new Label();
             label41 = new Label();
             label36 = new Label();
@@ -127,6 +131,7 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).BeginInit();
             panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -715,7 +720,7 @@
             // 
             // dtpReturnTime
             // 
-            dtpReturnTime.CustomFormat = "HH:mm";
+            dtpReturnTime.CustomFormat = "HH:mm:tt";
             dtpReturnTime.Format = DateTimePickerFormat.Time;
             dtpReturnTime.Location = new Point(156, 143);
             dtpReturnTime.Name = "dtpReturnTime";
@@ -726,6 +731,7 @@
             // 
             // dtpPickupTime
             // 
+            dtpPickupTime.CustomFormat = "HH:mm:tt";
             dtpPickupTime.Format = DateTimePickerFormat.Time;
             dtpPickupTime.Location = new Point(156, 62);
             dtpPickupTime.Name = "dtpPickupTime";
@@ -950,6 +956,9 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(28, 73, 102);
+            panel6.Controls.Add(lblRole);
+            panel6.Controls.Add(lblUsername);
+            panel6.Controls.Add(pictureBox7);
             panel6.Controls.Add(label35);
             panel6.Controls.Add(label41);
             panel6.Dock = DockStyle.Top;
@@ -957,6 +966,35 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(1685, 112);
             panel6.TabIndex = 12;
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRole.ForeColor = Color.White;
+            lblRole.Location = new Point(1494, 69);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(0, 23);
+            lblRole.TabIndex = 65;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Location = new Point(1494, 29);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(0, 23);
+            lblUsername.TabIndex = 64;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(1591, 29);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(69, 68);
+            pictureBox7.TabIndex = 63;
+            pictureBox7.TabStop = false;
             // 
             // label35
             // 
@@ -1116,6 +1154,7 @@
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ResumeLayout(false);
@@ -1208,5 +1247,8 @@
         private DateTimePicker dtpPickupTime;
         private Label label35;
         private Label label41;
+        private Label lblRole;
+        private Label lblUsername;
+        private PictureBox pictureBox7;
     }
 }

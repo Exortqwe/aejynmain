@@ -20,6 +20,12 @@ namespace aejynmain.UserControls
         public UC_UserManagement()
         {
             InitializeComponent();
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
 
         public void LoadUsers()

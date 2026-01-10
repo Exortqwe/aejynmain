@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -15,14 +15,33 @@ namespace aejynmain.UserControls
         {
             InitializeComponent();
             LoadCustomers();
+            LoadUser();
+        }
+        private void LoadUser()
+        {
+            lblUsername.Text = UserSession.Username;
+            lblRole.Text = UserSession.Role;
         }
 
         public void LoadCustomers()
         {
             try
             {
-                DataTable tblcustomer = CustomerDetails.GetCustomers();
+                tblcustomer = CustomerDetails.GetCustomers();
                 dgAddCustomer.DataSource = tblcustomer;
+
+                // ✅ FORMAT DATE COLUMNS (MM/dd/yyyy)
+                if (dgAddCustomer.Columns["LicenseExpiryDate"] != null)
+                    dgAddCustomer.Columns["LicenseExpiryDate"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy";
+
+                if (dgAddCustomer.Columns["BirthDate"] != null)
+                    dgAddCustomer.Columns["BirthDate"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy";
+
+                if (dgAddCustomer.Columns["DateRegistered"] != null)
+                    dgAddCustomer.Columns["DateRegistered"]
+                        .DefaultCellStyle.Format = "MM/dd/yyyy";
             }
             catch (Exception ex)
             {

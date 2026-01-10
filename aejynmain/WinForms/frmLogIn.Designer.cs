@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
-            linkLabel2 = new LinkLabel();
-            label6 = new Label();
             btnLogIn = new Button();
             label2 = new Label();
             label1 = new Label();
@@ -41,30 +39,6 @@
             txtUsername = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // linkLabel2
-            // 
-            linkLabel2.ActiveLinkColor = Color.White;
-            linkLabel2.AutoSize = true;
-            linkLabel2.LinkColor = Color.FromArgb(58, 124, 165);
-            linkLabel2.Location = new Point(301, 451);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(81, 20);
-            linkLabel2.TabIndex = 21;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "Create one";
-            linkLabel2.VisitedLinkColor = Color.FromArgb(51, 106, 140);
-            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.ForeColor = SystemColors.GrayText;
-            label6.Location = new Point(139, 451);
-            label6.Name = "label6";
-            label6.Size = new Size(163, 20);
-            label6.TabIndex = 20;
-            label6.Text = "Don't have an account?";
             // 
             // btnLogIn
             // 
@@ -161,9 +135,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(540, 491);
-            Controls.Add(linkLabel2);
-            Controls.Add(label6);
+            ClientSize = new Size(540, 449);
             Controls.Add(btnLogIn);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -176,16 +148,12 @@
             Name = "frmLogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn";
-            Load += frmLogIn_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private LinkLabel linkLabel2;
-        private Label label6;
         private Button btnLogIn;
         private Label label2;
         private Label label1;

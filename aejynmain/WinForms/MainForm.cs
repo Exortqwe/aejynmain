@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aejynmain.Models;
 
 namespace aejynmain
 {
@@ -42,7 +43,8 @@ namespace aejynmain
             panelMain.Controls.Add(uc);
         }
         private void MainForm_Load(object sender, EventArgs e)
-        {
+        {       
+
             if (UserSession.IsRentalAgent)
             {
                 btnDashboard.Visible = false;
@@ -119,6 +121,11 @@ namespace aejynmain
         {
             UC_UserManagement umanagement = new UC_UserManagement();
             addUserControls(umanagement);
+        }
+
+        private void UCHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Returns));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel9 = new Panel();
+            lblRole = new Label();
+            lblUsername = new Label();
+            pictureBox7 = new PictureBox();
             label35 = new Label();
             label41 = new Label();
             panel3 = new Panel();
@@ -86,6 +90,7 @@
             dgRentedVehicles = new DataGridView();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel3.SuspendLayout();
             gbDamageAssessment.SuspendLayout();
             panel2.SuspendLayout();
@@ -106,6 +111,9 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(28, 73, 102);
+            panel9.Controls.Add(lblRole);
+            panel9.Controls.Add(lblUsername);
+            panel9.Controls.Add(pictureBox7);
             panel9.Controls.Add(label35);
             panel9.Controls.Add(label41);
             panel9.Dock = DockStyle.Top;
@@ -113,6 +121,35 @@
             panel9.Name = "panel9";
             panel9.Size = new Size(1685, 112);
             panel9.TabIndex = 76;
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRole.ForeColor = Color.White;
+            lblRole.Location = new Point(1494, 69);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(0, 23);
+            lblRole.TabIndex = 56;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Location = new Point(1494, 29);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(0, 23);
+            lblUsername.TabIndex = 55;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(1591, 29);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(69, 68);
+            pictureBox7.TabIndex = 54;
+            pictureBox7.TabStop = false;
             // 
             // label35
             // 
@@ -688,7 +725,6 @@
             dgRentedVehicles.Size = new Size(1128, 455);
             dgRentedVehicles.TabIndex = 14;
             dgRentedVehicles.CellClick += dgRentedVehicles_CellClick;
-            dgRentedVehicles.CellContentClick += dgRentedVehicles_CellContentClick;
             // 
             // UC_Returns
             // 
@@ -714,6 +750,7 @@
             panel1.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             gbDamageAssessment.ResumeLayout(false);
@@ -784,5 +821,8 @@
         private Panel panel9;
         private Label label35;
         private Label label41;
+        private Label lblRole;
+        private Label lblUsername;
+        private PictureBox pictureBox7;
     }
 }

@@ -161,24 +161,19 @@ namespace aejynmain.AuthManager
         }
         public static decimal GetDailyRate(int rentalId)
         {
-            decimal dailyRate = 0;
-
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
             using (MySqlCommand cmd = new MySqlCommand(
-                @"SELECT vc.DailyRate
-          FROM tblrentals r
-          INNER JOIN tblvehicles v ON r.VehicleID = v.VehicleID
+                @"SELECT vc.DailyRate 
+          FROM tblRentals r
+          INNER JOIN tblVehicles v ON r.VehicleID = v.VehicleID
           INNER JOIN tblvehicle_categories vc ON v.CategoryID = vc.CategoryID
           WHERE r.RentalID = @RentalID", con))
             {
                 cmd.Parameters.AddWithValue("@RentalID", rentalId);
                 con.Open();
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                    dailyRate = Convert.ToDecimal(result);
+                var result = cmd.ExecuteScalar();
+                return result == null || result == DBNull.Value ? 0 : Convert.ToDecimal(result);
             }
-
-            return dailyRate;
         }
         public static void InsertOrUpdateInvoice(int rentalId, decimal rentalCharges, decimal damageCharges, decimal overdueCharges, decimal fuelCharges)
         {

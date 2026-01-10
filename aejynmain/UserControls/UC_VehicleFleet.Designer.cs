@@ -34,6 +34,9 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnSearch = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            lblRole = new Label();
+            lblUsername = new Label();
+            pictureBox7 = new PictureBox();
             label35 = new Label();
             label41 = new Label();
             txtSearchVehicle = new TextBox();
@@ -43,6 +46,7 @@
             btnEdit = new FontAwesome.Sharp.IconButton();
             btnDelete = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgVehicleFleet).BeginInit();
             SuspendLayout();
             // 
@@ -67,6 +71,9 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(28, 73, 102);
+            panel1.Controls.Add(lblRole);
+            panel1.Controls.Add(lblUsername);
+            panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(label35);
             panel1.Controls.Add(label41);
             panel1.Dock = DockStyle.Top;
@@ -74,6 +81,35 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1685, 112);
             panel1.TabIndex = 6;
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRole.ForeColor = Color.White;
+            lblRole.Location = new Point(1494, 69);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(0, 23);
+            lblRole.TabIndex = 50;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Location = new Point(1494, 29);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(0, 23);
+            lblUsername.TabIndex = 49;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(1591, 29);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(69, 68);
+            pictureBox7.TabIndex = 48;
+            pictureBox7.TabStop = false;
             // 
             // label35
             // 
@@ -243,6 +279,7 @@
             Size = new Size(1685, 1219);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgVehicleFleet).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -259,5 +296,8 @@
         private FontAwesome.Sharp.IconButton btnDelete;
         private Label label35;
         private Label label41;
+        private Label lblRole;
+        private Label lblUsername;
+        private PictureBox pictureBox7;
     }
 }
