@@ -36,6 +36,12 @@ namespace aejynmain.WinForms
             dgVehicleFleets.AllowUserToAddRows = false;
             dgVehicleFleets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            dgVehicleFleets.Columns.Add(new DataGridViewCheckBoxColumn()
+            {
+                Name = "Select",
+                HeaderText = "Select",
+                Width = 60
+            });
             dgVehicleFleets.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "VehicleID",
@@ -104,8 +110,10 @@ namespace aejynmain.WinForms
         {
             foreach (DataGridViewRow row in dgVehicleFleets.Rows)
             {
-                if (row.Cells["Select"].Value != null &&
-                    Convert.ToBoolean(row.Cells["Select"].Value))
+                var selectCell = row.Cells["Select"] as DataGridViewCheckBoxCell;
+                if (selectCell != null &&
+                    selectCell.Value != null &&
+                    Convert.ToBoolean(selectCell.Value))
                 {
                     return Convert.ToInt32(row.Cells["VehicleID"].Value);
                 }

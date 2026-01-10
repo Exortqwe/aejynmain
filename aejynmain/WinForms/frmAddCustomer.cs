@@ -51,6 +51,7 @@ namespace aejynmain
                 email: txtEmailAddress.Text.Trim(),
                 address: txtAddress.Text.Trim(),
                 gender: cmbGender.Text,
+                country: txtCountry.Text.Trim(),
                 licenseNumber: txtLicenseNumber.Text.Trim(),
                 licenseExpiryDate: dtpLicenseExpiry.Value,
                 birthDate: dtpBirthDate.Value,
@@ -90,6 +91,7 @@ namespace aejynmain
             txtEmailAddress.Clear();
             txtAddress.Clear();
             cmbGender.SelectedIndex = -1;
+            txtCountry.Clear();
             txtLicenseNumber.Clear();
             dtpLicenseExpiry.Value = DateTime.Now.AddYears(1);
             dtpBirthDate.Value = DateTime.Now.AddYears(-21);

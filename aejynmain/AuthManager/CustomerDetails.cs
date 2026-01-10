@@ -29,7 +29,8 @@ namespace aejynmain.AuthManager
             string emergencyContactNumber,
             string emergencyContactRelationship,
             CustomerType type,
-            string companyName)
+            string companyName,
+            string country)
         {
             try
             {
@@ -44,6 +45,7 @@ namespace aejynmain.AuthManager
                     cmd.Parameters.AddWithValue("p_EmailAddress", email);
                     cmd.Parameters.AddWithValue("p_Address", address);
                     cmd.Parameters.AddWithValue("p_Gender", gender);
+                    cmd.Parameters.AddWithValue("p_Country", country);
                     cmd.Parameters.AddWithValue("p_LicenseNumber", licenseNumber);
                     cmd.Parameters.AddWithValue("p_LicenseExpiryDate", licenseExpiryDate);
                     cmd.Parameters.AddWithValue("p_BirthDate", birthDate);

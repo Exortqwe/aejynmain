@@ -29,7 +29,7 @@ namespace aejynmain
                 txtUsername.Focus();
                 return; // mag stop ang execution
             }
-            bool success = Login.LogIn(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+            bool success = LoginManager.LogIn(txtUsername.Text.Trim(), txtPassword.Text.Trim());
 
             if (success)
             {

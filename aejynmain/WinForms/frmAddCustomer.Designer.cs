@@ -62,6 +62,8 @@
             txtCompanyName = new TextBox();
             label17 = new Label();
             cmbCustomerType = new ComboBox();
+            txtCountry = new TextBox();
+            label18 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -149,7 +151,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label8.Location = new Point(13, 324);
+            label8.Location = new Point(209, 324);
             label8.Name = "label8";
             label8.Size = new Size(159, 23);
             label8.TabIndex = 22;
@@ -167,7 +169,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label10.Location = new Point(567, 324);
+            label10.Location = new Point(605, 324);
             label10.Name = "label10";
             label10.Size = new Size(132, 23);
             label10.TabIndex = 24;
@@ -177,7 +179,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label11.Location = new Point(290, 324);
+            label11.Location = new Point(406, 324);
             label11.Name = "label11";
             label11.Size = new Size(108, 23);
             label11.TabIndex = 25;
@@ -201,7 +203,7 @@
             btnSaveCustomerDetails.FlatStyle = FlatStyle.Flat;
             btnSaveCustomerDetails.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveCustomerDetails.ForeColor = Color.White;
-            btnSaveCustomerDetails.Location = new Point(309, 403);
+            btnSaveCustomerDetails.Location = new Point(305, 426);
             btnSaveCustomerDetails.Name = "btnSaveCustomerDetails";
             btnSaveCustomerDetails.Size = new Size(190, 40);
             btnSaveCustomerDetails.TabIndex = 28;
@@ -222,9 +224,10 @@
             // dtpDateRegistered
             // 
             dtpDateRegistered.CustomFormat = "MM-dd-yyyy";
-            dtpDateRegistered.Location = new Point(567, 350);
+            dtpDateRegistered.Format = DateTimePickerFormat.Custom;
+            dtpDateRegistered.Location = new Point(605, 350);
             dtpDateRegistered.Name = "dtpDateRegistered";
-            dtpDateRegistered.Size = new Size(239, 27);
+            dtpDateRegistered.Size = new Size(165, 27);
             dtpDateRegistered.TabIndex = 21;
             // 
             // txtLastName
@@ -285,17 +288,19 @@
             // dtpLicenseExpiry
             // 
             dtpLicenseExpiry.CustomFormat = "MM-dd-yyyy";
-            dtpLicenseExpiry.Location = new Point(9, 350);
+            dtpLicenseExpiry.Format = DateTimePickerFormat.Custom;
+            dtpLicenseExpiry.Location = new Point(209, 350);
             dtpLicenseExpiry.Name = "dtpLicenseExpiry";
-            dtpLicenseExpiry.Size = new Size(239, 27);
+            dtpLicenseExpiry.Size = new Size(165, 27);
             dtpLicenseExpiry.TabIndex = 37;
             // 
             // dtpBirthDate
             // 
             dtpBirthDate.CustomFormat = "MM-dd-yyyy";
-            dtpBirthDate.Location = new Point(286, 350);
+            dtpBirthDate.Format = DateTimePickerFormat.Custom;
+            dtpBirthDate.Location = new Point(406, 350);
             dtpBirthDate.Name = "dtpBirthDate";
-            dtpBirthDate.Size = new Size(239, 27);
+            dtpBirthDate.Size = new Size(165, 27);
             dtpBirthDate.TabIndex = 38;
             // 
             // label13
@@ -395,12 +400,33 @@
             cmbCustomerType.Size = new Size(165, 36);
             cmbCustomerType.TabIndex = 50;
             // 
+            // txtCountry
+            // 
+            txtCountry.BorderStyle = BorderStyle.FixedSingle;
+            txtCountry.Location = new Point(9, 341);
+            txtCountry.Multiline = true;
+            txtCountry.Name = "txtCountry";
+            txtCountry.Size = new Size(165, 36);
+            txtCountry.TabIndex = 51;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label18.Location = new Point(9, 314);
+            label18.Name = "label18";
+            label18.Size = new Size(73, 23);
+            label18.TabIndex = 52;
+            label18.Text = "Country";
+            // 
             // frmAddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            ClientSize = new Size(818, 478);
+            ClientSize = new Size(818, 508);
+            Controls.Add(label18);
+            Controls.Add(txtCountry);
             Controls.Add(cmbCustomerType);
             Controls.Add(label17);
             Controls.Add(txtCompanyName);
@@ -480,5 +506,7 @@
         private TextBox txtCompanyName;
         private Label label17;
         private ComboBox cmbCustomerType;
+        private TextBox txtCountry;
+        private Label label18;
     }
 }
