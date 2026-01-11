@@ -394,7 +394,7 @@
             lblAverageDelay.AutoSize = true;
             lblAverageDelay.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
             lblAverageDelay.ForeColor = Color.White;
-            lblAverageDelay.Location = new Point(259, 54);
+            lblAverageDelay.Location = new Point(241, 57);
             lblAverageDelay.Name = "lblAverageDelay";
             lblAverageDelay.Size = new Size(0, 31);
             lblAverageDelay.TabIndex = 12;
@@ -415,7 +415,7 @@
             lblOverdue.AutoSize = true;
             lblOverdue.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
             lblOverdue.ForeColor = Color.White;
-            lblOverdue.Location = new Point(51, 57);
+            lblOverdue.Location = new Point(66, 57);
             lblOverdue.Name = "lblOverdue";
             lblOverdue.Size = new Size(0, 31);
             lblOverdue.TabIndex = 10;

@@ -90,6 +90,11 @@ namespace aejynmain.UserControls
                     .DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:tt ";
             dgRentedVehicles.Columns["ActualReturnDate"].Visible = false;
 
+            // Hide DailyRate and DaysOverdue columns
+            if (dgRentedVehicles.Columns["DailyRate"] != null)
+                dgRentedVehicles.Columns["DailyRate"].Visible = false;
+            if (dgRentedVehicles.Columns["DaysOverdue"] != null)
+                dgRentedVehicles.Columns["DaysOverdue"].Visible = false;
 
             UpdateBillingSummary();
         }

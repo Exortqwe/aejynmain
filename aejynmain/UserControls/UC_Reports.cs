@@ -153,7 +153,8 @@ namespace aejynmain.UserControls
                 dgPopularVehicles.Columns.Add("Model", "Vehicle Model");
                 dgPopularVehicles.Columns.Add("Category", "Category");
                 dgPopularVehicles.Columns.Add("RentalCount", "Times Rented");
-                dgPopularVehicles.Columns.Add("RentalPercentage", "Popularity %");
+                int percentageColIndex = dgPopularVehicles.Columns.Add("RentalPercentage", "Popularity");
+                dgPopularVehicles.Columns[percentageColIndex].DefaultCellStyle.Format = "0.##'%'";
                 foreach (DataGridViewColumn col in dgPopularVehicles.Columns)
                 {
                     col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
