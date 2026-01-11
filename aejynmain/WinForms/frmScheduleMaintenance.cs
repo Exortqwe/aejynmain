@@ -67,7 +67,7 @@ namespace aejynmain.WinForms
             {
                 Name = "Year",
                 HeaderText = "Year",
-                DataPropertyName = "VehicleYear" // match sa model
+                DataPropertyName = "VehicleYear" 
             });
 
             dgVehicleFleets.Columns.Add(new DataGridViewTextBoxColumn()
@@ -88,13 +88,10 @@ namespace aejynmain.WinForms
             {
                 Name = "Status",
                 HeaderText = "Status",
-                DataPropertyName = "VehicleStatus" // match sa model
+                DataPropertyName = "VehicleStatus" 
             });
         }
 
-        // ==========================
-        // LOAD VEHICLES
-        // ==========================
         private void LoadVehicles()
         {
             var vehicles = MaintenanceManager.GetVehicles();
@@ -103,9 +100,6 @@ namespace aejynmain.WinForms
                 .ToList();
         }
 
-        // ==========================
-        // GET SELECTED VEHICLE
-        // ==========================
         private int GetSelectedVehicleID()
         {
             foreach (DataGridViewRow row in dgVehicleFleets.Rows)
@@ -121,9 +115,6 @@ namespace aejynmain.WinForms
             return 0;
         }
 
-        // ==========================
-        // CONFIRM BUTTON
-        // ==========================
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             int vehicleID = GetSelectedVehicleID();

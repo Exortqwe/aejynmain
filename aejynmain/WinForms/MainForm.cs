@@ -43,13 +43,11 @@ namespace aejynmain
         }
         private void MainForm_Load(object sender, EventArgs e)
         {       
-
             if (UserSession.IsRentalAgent)
             {
                 btnDashboard.Visible = false;
                 btnUserManagement.Visible = false;
                 btnReports.Visible = false;
-
                 LoadUserControl(new UC_Customers());
             }
             else if (UserSession.IsAdmin)
@@ -76,14 +74,15 @@ namespace aejynmain
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            // Clear the user session
-            UserSession.ClearSession();
+            string username = UserSession.Username ?? "User";
+            MessageBox.Show($"Goodbye, {username}!",
+                          "Logged Out",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
 
-            // Show login form
+            UserSession.ClearSession();
             frmLogIn login = new frmLogIn();
             login.Show();
-
-            // Close the main form
             this.Close();
         }
 

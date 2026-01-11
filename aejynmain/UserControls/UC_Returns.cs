@@ -24,6 +24,12 @@ namespace aejynmain.UserControls
             InitializeComponent();
             UpdateBillingSummary();
             LoadUser();
+            cbScratches.CheckedChanged += Damage_CheckedChanged;
+            cbDents.CheckedChanged += Damage_CheckedChanged;
+            cbBrokenGlass.CheckedChanged += Damage_CheckedChanged;
+            cbInteriorStains.CheckedChanged += Damage_CheckedChanged;
+            cbTireDamage.CheckedChanged += Damage_CheckedChanged;
+            cbPaintDamage.CheckedChanged += Damage_CheckedChanged;
         }
         private void LoadUser()
         {
@@ -136,6 +142,18 @@ namespace aejynmain.UserControls
         }
         private void Damage_CheckedChanged(object sender, EventArgs e)
         {
+            if (sender is CheckBox checkBox && checkBox.Checked)
+            {
+                if (cmbCondition.Text == "Excellent" || cmbCondition.Text == "Good")
+                {
+                    MessageBox.Show($"Cannot mark damage when condition is {cmbCondition.Text}.",
+                                  "Validation Error",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                    checkBox.Checked = false;
+                    return;
+                }
+            }
             UpdateBillingSummary();
         }
         private void cmbFuelLevel_SelectedIndexChanged(object sender, EventArgs e)

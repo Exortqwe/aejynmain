@@ -35,18 +35,30 @@ namespace aejynmain.UserControls
         }
         public void LoadMaintenance()
         {
-            dgMaintenance.DataSource = null;
+            dgMaintenance.DataSource = null;  // Reset DataSource to clear out any previous data
+
             var list = MaintenanceManager.GetScheduledMaintenance();
+
             dgMaintenance.DataSource = list
-                .Where(m => m.MaintenanceStatus == "Scheduled" || m.MaintenanceStatus == "In Progress")
+                .Where(m => m.MaintenanceStatus == "Scheduled" || m.MaintenanceStatus == "In Progress" || m.MaintenanceStatus == "Ongoing")
                 .ToList();
         }
+
         private void SetupMaintenanceGrid()
         {
             dgMaintenance.AutoGenerateColumns = false;
             dgMaintenance.Columns.Clear();
             dgMaintenance.AllowUserToAddRows = false;
             dgMaintenance.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Add hidden MaintenanceID column (important for identifying selected row)
+            dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "MaintenanceID",
+                HeaderText = "MaintenanceID",
+                DataPropertyName = "MaintenanceID",
+                Visible = false
+            });
 
             dgMaintenance.Columns.Add(new DataGridViewTextBoxColumn()
             {
@@ -96,7 +108,28 @@ namespace aejynmain.UserControls
                 HeaderText = "Maintenance Status",
                 DataPropertyName = "MaintenanceStatus"
             });
+
+            // Add event handler for formatting dates
+            dgMaintenance.CellFormatting += dgMaintenance_CellFormatting;
         }
+
+        // CellFormatting event to format the date
+        private void dgMaintenance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if the column being formatted is either "StartDate" or "EndDate"
+            if (dgMaintenance.Columns[e.ColumnIndex].Name == "StartDate" || dgMaintenance.Columns[e.ColumnIndex].Name == "EndDate")
+            {
+                // Check if the value is not null or DBNull
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    // Convert the value to DateTime and format it as MM/dd/yyyy
+                    DateTime dateValue = Convert.ToDateTime(e.Value);
+                    e.Value = dateValue.ToString("MM/dd/yyyy");
+                }
+            }
+        }
+
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string search = txtSearch.Text.Trim().ToLower();
@@ -111,5 +144,19 @@ namespace aejynmain.UserControls
             dgMaintenance.DataSource = null;
             dgMaintenance.DataSource = list;
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (dgMaintenance.CurrentRow == null) return;
+
+            int maintenanceId = Convert.ToInt32(
+                dgMaintenance.CurrentRow.Cells["MaintenanceID"].Value
+            );
+
+            MaintenanceManager.StartMaintenance(maintenanceId);
+
+            LoadMaintenance(); // refresh
+        }
+
     }
 }

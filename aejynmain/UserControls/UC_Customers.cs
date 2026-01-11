@@ -8,26 +8,25 @@ using aejynmain.Models;
 
 namespace aejynmain.UserControls
 {
-    public partial class UC_Customers : UserControl
+    public partial class UC_Customers : UserControl //OOP Inheritance
     {
         private DataTable tblcustomer;
         public UC_Customers()
         {
             InitializeComponent();
-            LoadCustomers();
-            LoadUser();
+            LoadCustomers(); // OOP Abstraction
+            LoadUser(); // OOP Abstraction
         }
         private void LoadUser()
         {
             lblUsername.Text = UserSession.Username;
             lblRole.Text = UserSession.Role;
         }
-
         public void LoadCustomers()
         {
             try
             {
-                tblcustomer = CustomerDetails.GetCustomers();
+                tblcustomer = CustomerDetails.GetCustomers(); // OOP Separation of Concerns
                 dgAddCustomer.DataSource = tblcustomer;
 
                 // ✅ FORMAT DATE COLUMNS (MM/dd/yyyy)
@@ -49,10 +48,9 @@ namespace aejynmain.UserControls
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            frmAddCustomer ac = new frmAddCustomer(this);
+            frmAddCustomer ac = new frmAddCustomer(this); //OOP Object Creation
             ac.ShowDialog();
         }
 

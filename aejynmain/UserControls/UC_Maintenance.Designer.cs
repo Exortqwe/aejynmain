@@ -44,6 +44,7 @@ namespace aejynmain.UserControls
             txtSearch = new TextBox();
             dgMaintenance = new DataGridView();
             btnScheduleMaintenance = new Button();
+            btnStart = new Button();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgMaintenance).BeginInit();
@@ -204,10 +205,27 @@ namespace aejynmain.UserControls
             btnScheduleMaintenance.UseVisualStyleBackColor = false;
             btnScheduleMaintenance.Click += btnScheduleMaintenance_Click;
             // 
+            // btnStart
+            // 
+            btnStart.BackColor = Color.FromArgb(58, 124, 165);
+            btnStart.FlatAppearance.BorderSize = 0;
+            btnStart.FlatAppearance.MouseOverBackColor = Color.FromArgb(51, 106, 140);
+            btnStart.FlatStyle = FlatStyle.Flat;
+            btnStart.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = Color.White;
+            btnStart.Location = new Point(637, 749);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(243, 41);
+            btnStart.TabIndex = 85;
+            btnStart.Text = "Start Maintenance";
+            btnStart.UseVisualStyleBackColor = false;
+            btnStart.Click += btnStart_Click;
+            // 
             // UC_Maintenance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnStart);
             Controls.Add(btnScheduleMaintenance);
             Controls.Add(dgMaintenance);
             Controls.Add(btnSearch);
@@ -235,5 +253,6 @@ namespace aejynmain.UserControls
         private Label lblRole;
         private Label lblUsername;
         private PictureBox pictureBox1;
+        private Button btnStart;
     }
 }

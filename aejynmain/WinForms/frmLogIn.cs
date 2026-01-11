@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using aejynmain.AuthManager;
 using aejynmain.UserControls;
 using MySql.Data.MySqlClient;
+using aejynmain.Models;
 
 namespace aejynmain
 {
@@ -33,9 +34,14 @@ namespace aejynmain
 
             if (success)
             {
-                    MainForm mf = new MainForm();
-                    mf.Show();
-                    this.Hide();              
+                // Show welcome message
+                string userRole = UserSession.IsAdmin ? "Admin" : "Rental Agent";
+                string welcomeMessage = $"Welcome{(UserSession.IsAdmin ? " back" : "")}, {UserSession.Username}! ({userRole})";
+                MessageBox.Show(welcomeMessage, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                MainForm mf = new MainForm();
+                mf.Show();
+                this.Hide();              
             }
             else
             {

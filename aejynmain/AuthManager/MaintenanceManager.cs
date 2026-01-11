@@ -79,11 +79,24 @@ namespace aejynmain.AuthManager
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show($"Error scheduling maintenance:\n{ex.Message}",
-                    "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                MessageBox.Show($"Error scheduling maintenance:\n{ex.Message}",
+                    "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
+        public static void StartMaintenance(int maintenanceId)
+        {
+          using var con = new MySqlConnection(ConnectionString);
+          using var cmd = new MySqlCommand("sp_StartMaintenance", con);
+
+          cmd.CommandType = CommandType.StoredProcedure;
+          cmd.Parameters.AddWithValue("@p_MaintenanceID", maintenanceId);
+
+          con.Open();
+          cmd.ExecuteNonQuery();
+        }
+        
+
         // ==========================
         // COMPLETE MAINTENANCE
         // ==========================
