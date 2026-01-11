@@ -158,26 +158,17 @@ namespace aejynmain.AuthManager
         // Get latest return condition for a vehicle from rentals
         private static string GetLastReturnCondition(int vehicleId)
         {
-            try
+            using var con = new MySqlConnection(connectionString);
+            using var cmd = new MySqlCommand("sp_GetLastReturnCondition", con)
             {
-                using (MySqlConnection con = new MySqlConnection(connectionString))
-                using (MySqlCommand cmd = new MySqlCommand(
-                    @"SELECT r.ReturnCondition
-                      FROM tblrentals r
-                      WHERE r.VehicleID = @VehicleID AND r.ReturnCondition IS NOT NULL
-                      ORDER BY COALESCE(r.ActualReturnDate, r.ReturnDate) DESC, r.RentalID DESC
-                      LIMIT 1", con))
-                {
-                    cmd.Parameters.AddWithValue("@VehicleID", vehicleId);
-                    con.Open();
-                    object result = cmd.ExecuteScalar();
-                    return result == null || result == DBNull.Value ? string.Empty : Convert.ToString(result);
-                }
-            }
-            catch
-            {
-                return string.Empty;
-            }
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.AddWithValue("@p_VehicleID", vehicleId);
+
+            con.Open();
+            object result = cmd.ExecuteScalar();
+            return result == null || result == DBNull.Value ? string.Empty : Convert.ToString(result);
         }
     }
 }

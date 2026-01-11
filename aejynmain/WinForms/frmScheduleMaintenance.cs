@@ -153,8 +153,7 @@ namespace aejynmain.WinForms
                 txtMaintenanceDescription.Text,
                 cost,
                 dtpStartDate.Value,
-                dtpEndDate.Value,
-                out errorMessage
+                dtpEndDate.Value
             );
 
             if (success)
@@ -172,7 +171,7 @@ namespace aejynmain.WinForms
             }
             else
             {
-                MessageBox.Show("Error scheduling maintenance:\n" + errorMessage, "Error");
+                MessageBox.Show("Error scheduling maintenance:\n" + "Error");
             }
         }
 

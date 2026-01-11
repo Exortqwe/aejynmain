@@ -11,7 +11,8 @@ namespace aejynmain.AuthManager
 {
     internal class RentalManager
     {
-        private static string ConnectionString ="datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+       public static string ConnectionString { get; set; } = "datasource=127.0.0.1;port=3306;username=root;password=;database=aejyndb;";
+
 
         public static void SaveRental(Rental rental)
         {

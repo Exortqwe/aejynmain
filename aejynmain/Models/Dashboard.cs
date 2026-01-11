@@ -13,7 +13,7 @@ namespace aejynmain.Models
         public int AvailableVehicles { get; set; }
         public int ActiveRentals { get; set; }
         public int Reservation { get; set; }
-        public int LateReturn { get; set; }
+        public int Overdue { get; set; }
         public decimal RevenueToday { get; set; }
     }
 }

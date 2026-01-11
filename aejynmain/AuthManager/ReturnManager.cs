@@ -76,138 +76,101 @@ namespace aejynmain.AuthManager
         public static void MarkDamagesPaid(int rentalId)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"UPDATE tbldamages
-                  SET Paid = 1
-                  WHERE RentalID = @RentalID", con))
+            using (MySqlCommand cmd = new MySqlCommand("sp_MarkDamagesPaid", con))
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
         }
-        public static void ReturnVehicle(int rentalID, int returnMileage, string fuelLevel, string condition, DateTime actualReturnDate)
+
+        public static void ReturnVehicles(int rentalID, int returnMileage, string fuelLevel, string condition, DateTime actualReturnDate)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"UPDATE tblrentals
-              SET ActualReturnDate=@ActualReturnDate,
-                  ReturnMileage=@ReturnMileage,
-                  ReturnFuelLevel=@FuelLevel,
-                  ReturnCondition=@Condition,
-                  RentalStatus='Returned'
-              WHERE RentalID=@RentalID", con))
+            using (MySqlCommand cmd = new MySqlCommand("sp_ReturnVehicles", con))
             {
-                cmd.Parameters.AddWithValue("@ActualReturnDate", actualReturnDate);
-                cmd.Parameters.AddWithValue("@ReturnMileage", returnMileage);
-                cmd.Parameters.AddWithValue("@FuelLevel", fuelLevel);
-                cmd.Parameters.AddWithValue("@Condition", condition);
-                cmd.Parameters.AddWithValue("@RentalID", rentalID);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalID);
+                cmd.Parameters.AddWithValue("@p_ReturnMileage", returnMileage);
+                cmd.Parameters.AddWithValue("@p_ReturnFuelLevel", fuelLevel);
+                cmd.Parameters.AddWithValue("@p_ReturnCondition", condition);
+                cmd.Parameters.AddWithValue("@p_ActualReturnDate", actualReturnDate);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
         }
+
         public static void InsertDamage(int rentalId, int userId, string description, decimal repairCost)
         {
-            try
+            using (var conn = new MySqlConnection(ConnectionString))
+            using (var cmd = new MySqlCommand("sp_InsertDamage", conn))
             {
-                using (var conn = new MySqlConnection(ConnectionString))
-                {
-                    conn.Open();
-                    string query = @"
-    INSERT INTO tbldamages 
-        (RentalID, UserID, Description, RepairCost, DateReported)
-    VALUES 
-        (@rentalId, @userId, @description, @repairCost, NOW())";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
+                cmd.Parameters.AddWithValue("@p_UserID", userId);
+                cmd.Parameters.AddWithValue("@p_Description", description);
+                cmd.Parameters.AddWithValue("@p_RepairCost", repairCost);
 
-                    using (var cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@rentalId", rentalId);
-                        cmd.Parameters.AddWithValue("@description", description);
-                        cmd.Parameters.AddWithValue("@repairCost", repairCost);  
-                        cmd.Parameters.AddWithValue("@userId", userId > 0 ? userId : (object)DBNull.Value);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error or show a message
-                Console.WriteLine($"Error inserting damage: {ex.Message}");
-                throw; // Re-throw to handle in the UI
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
         public static decimal GetTotalPaid(int rentalId)
         {
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"SELECT IFNULL(SUM(Amount), 0)
-          FROM tblpayments
-          WHERE RentalID = @RentalID
-          AND (PaymentType = 'Deposit' 
-               OR PaymentType LIKE 'Partial%' 
-               OR PaymentType LIKE 'Fullpayment%'
-               OR PaymentType LIKE 'Full Payment%'
-               OR PaymentType = 'Full')
-          AND PaymentStatus IN ('Paid', 'Pending')",
-                con))
+            using (var con = new MySqlConnection(ConnectionString))
+            using (var cmd = new MySqlCommand("sp_GetTotalPaid", con))
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
                 con.Open();
                 return Convert.ToDecimal(cmd.ExecuteScalar());
             }
         }
+
         public static decimal GetDailyRate(int rentalId)
         {
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"SELECT vc.DailyRate 
-          FROM tblRentals r
-          INNER JOIN tblVehicles v ON r.VehicleID = v.VehicleID
-          INNER JOIN tblvehicle_categories vc ON v.CategoryID = vc.CategoryID
-          WHERE r.RentalID = @RentalID", con))
+            using (var con = new MySqlConnection(ConnectionString))
+            using (var cmd = new MySqlCommand("sp_GetDailyRate", con))
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
                 con.Open();
                 var result = cmd.ExecuteScalar();
                 return result == null || result == DBNull.Value ? 0 : Convert.ToDecimal(result);
             }
         }
+
         public static void InsertOrUpdateInvoice(int rentalId, decimal rentalCharges, decimal damageCharges, decimal overdueCharges, decimal fuelCharges)
         {
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"INSERT INTO tblinvoices (RentalID, RentalCharges, DamageCharges, OverdueCharges, FuelCharges)
-          VALUES (@RentalID, @RentalCharges, @DamageCharges, @OverdueCharges, @FuelCharges)
-          ON DUPLICATE KEY UPDATE 
-              RentalCharges=@RentalCharges, DamageCharges=@DamageCharges, OverdueCharges=@OverdueCharges, FuelCharges=@FuelCharges", con))
+            using var con = new MySqlConnection(ConnectionString);
+            using var cmd = new MySqlCommand("sp_InsertOrUpdateInvoice", con)
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
-                cmd.Parameters.AddWithValue("@RentalCharges", rentalCharges);
-                cmd.Parameters.AddWithValue("@DamageCharges", damageCharges);
-                cmd.Parameters.AddWithValue("@OverdueCharges", overdueCharges);
-                cmd.Parameters.AddWithValue("@FuelCharges", fuelCharges);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
+            cmd.Parameters.AddWithValue("@p_RentalCharges", rentalCharges);
+            cmd.Parameters.AddWithValue("@p_DamageCharges", damageCharges);
+            cmd.Parameters.AddWithValue("@p_OverdueCharges", overdueCharges);
+            cmd.Parameters.AddWithValue("@p_FuelCharges", fuelCharges);
+            con.Open();
+            cmd.ExecuteNonQuery();
         }
-
         // Save payment when vehicle is returned
         public static void SaveReturnPayment(int rentalId, decimal amount, string paymentMethod, int userId)
         {
             if (amount <= 0) return; // Don't save if amount is 0
 
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"INSERT INTO tblpayments (RentalID, PaymentType, Amount, PaymentMethod, PaymentStatus, PaymentDate)
-          VALUES (@RentalID, 'Complete', @Amount, @PaymentMethod, 'Paid', NOW())", con))
+            using (MySqlCommand cmd = new MySqlCommand("sp_SaveReturnPayment", con))
             {
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
-                cmd.Parameters.AddWithValue("@Amount", amount);
-                cmd.Parameters.AddWithValue("@PaymentMethod", paymentMethod ?? "Cash");
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("p_RentalID", rentalId);
+                cmd.Parameters.AddWithValue("p_Amount", amount);
+                cmd.Parameters.AddWithValue("p_PaymentMethod", paymentMethod ?? "Cash");
+                cmd.Parameters.AddWithValue("p_UserID", userId);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -217,20 +180,16 @@ namespace aejynmain.AuthManager
         // Update vehicle mileage when returned
         public static void UpdateVehicleMileage(int rentalId, int returnMileage)
         {
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            using (MySqlCommand cmd = new MySqlCommand(
-                @"UPDATE tblvehicles v
-          INNER JOIN tblrentals r ON v.VehicleID = r.VehicleID
-          SET v.Mileage = @ReturnMileage,
-              v.VehicleStatus = 'Available'
-          WHERE r.RentalID = @RentalID", con))
+            using var con = new MySqlConnection(ConnectionString);
+            using var cmd = new MySqlCommand("sp_UpdateVehicleMileage", con)
             {
-                cmd.Parameters.AddWithValue("@ReturnMileage", returnMileage);
-                cmd.Parameters.AddWithValue("@RentalID", rentalId);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
+            cmd.Parameters.AddWithValue("@p_ReturnMileage", returnMileage);
+            con.Open();
+            cmd.ExecuteNonQuery();
         }
+
     }
 }

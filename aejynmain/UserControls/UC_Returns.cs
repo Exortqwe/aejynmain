@@ -90,6 +90,7 @@ namespace aejynmain.UserControls
                     .DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:tt ";
             dgRentedVehicles.Columns["ActualReturnDate"].Visible = false;
 
+
             UpdateBillingSummary();
         }
         private void dgRentedVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -138,9 +139,6 @@ namespace aejynmain.UserControls
         }
         private void btnReturnVehicle_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-        $"DEBUG\nUserID: {UserSession.UserID}\nUsername: {UserSession.Username}\nRole: {UserSession.Role}"
-    );
             if (selectedRentalId == 0) return;
             if (cmbFuelLevel.SelectedItem == null)
             {
@@ -158,7 +156,7 @@ namespace aejynmain.UserControls
             int userId = UserSession.UserID;
 
             // Call manager to update tblrentals
-            ReturnManager.ReturnVehicle(
+            ReturnManager.ReturnVehicles(
                 selectedRentalId,
                 returnMileage,
                 cmbFuelLevel.Text,

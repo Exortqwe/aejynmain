@@ -41,8 +41,8 @@
             label6 = new Label();
             chartVehicleStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel8 = new Panel();
+            lblOverdue = new Label();
             pictureBox5 = new PictureBox();
-            lblLateReturn = new Label();
             label3 = new Label();
             panel7 = new Panel();
             pictureBox4 = new PictureBox();
@@ -178,7 +178,6 @@
             chartRevenue.Size = new Size(774, 501);
             chartRevenue.TabIndex = 75;
             chartRevenue.Text = "chart1";
-            chartRevenue.Click += chartRevenue_Click;
             // 
             // panel10
             // 
@@ -241,13 +240,23 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(58, 124, 165);
+            panel8.Controls.Add(lblOverdue);
             panel8.Controls.Add(pictureBox5);
-            panel8.Controls.Add(lblLateReturn);
             panel8.Controls.Add(label3);
             panel8.Location = new Point(1104, 126);
             panel8.Name = "panel8";
             panel8.Size = new Size(255, 125);
             panel8.TabIndex = 66;
+            // 
+            // lblOverdue
+            // 
+            lblOverdue.AutoSize = true;
+            lblOverdue.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblOverdue.ForeColor = Color.White;
+            lblOverdue.Location = new Point(15, 69);
+            lblOverdue.Name = "lblOverdue";
+            lblOverdue.Size = new Size(0, 46);
+            lblOverdue.TabIndex = 36;
             // 
             // pictureBox5
             // 
@@ -257,16 +266,6 @@
             pictureBox5.Size = new Size(66, 67);
             pictureBox5.TabIndex = 39;
             pictureBox5.TabStop = false;
-            // 
-            // lblLateReturn
-            // 
-            lblLateReturn.AutoSize = true;
-            lblLateReturn.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblLateReturn.ForeColor = Color.White;
-            lblLateReturn.Location = new Point(15, 69);
-            lblLateReturn.Name = "lblLateReturn";
-            lblLateReturn.Size = new Size(0, 46);
-            lblLateReturn.TabIndex = 36;
             // 
             // label3
             // 
@@ -505,7 +504,7 @@
         private Label lblRevenueToday;
         private Label label10;
         private Panel panel8;
-        private Label lblLateReturn;
+        private Label lblOverdue;
         private Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVehicleStatus;
         private Panel panel10;

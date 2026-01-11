@@ -2,13 +2,8 @@
 using aejynmain.Models;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace aejynmain.UserControls
@@ -21,37 +16,49 @@ namespace aejynmain.UserControls
             LoadDashboardData();
             LoadUser();
         }
+
         private void LoadUser()
         {
             lblUsername.Text = UserSession.Username;
             lblRole.Text = UserSession.Role;
         }
+
         private void LoadDashboardData()
         {
             try
             {
-                // Tawag sa service para makuha ang data
                 var dashboardData = DashboardService.GetDashboardData();
 
-                // mga panel cards
+                // Panel cards
                 lblTotalVehicles.Text = dashboardData.TotalVehicles.ToString();
                 lblAvailableVehicles.Text = dashboardData.AvailableVehicles.ToString();
                 lblActiveRentals.Text = dashboardData.ActiveRentals.ToString();
                 lblReservedVehicles.Text = dashboardData.Reservation.ToString();
-                lblLateReturn.Text = dashboardData.LateReturn.ToString();
+                lblOverdue.Text = dashboardData.Overdue.ToString();
+                lblOverdue.Visible = dashboardData.Overdue > 0;
                 lblRevenueToday.Text = dashboardData.RevenueToday.ToString("₱#,###.00");
 
-                // Charts
-                DataTable dtRevenue = DashboardService.RevenueByDate(); // declare ug assign
+                // -------------------- Revenue chart --------------------
+                DataTable dtRevenue = DashboardService.RevenueByDate();
                 chartRevenue.Series[0].Points.Clear();
+
                 foreach (DataRow row in dtRevenue.Rows)
                 {
-                    chartRevenue.Series[0].Points.AddXY(
-                        Convert.ToDateTime(row["payDate"]).ToString("MM dd"),
-                        Convert.ToDecimal(row["totalRevenue"]));
+                    DateTime payDate = Convert.ToDateTime(row["payDate"]);
+                    decimal revenue = Convert.ToDecimal(row["totalRevenue"]);
+
+                    // Add X=Date, Y=Revenue
+                    chartRevenue.Series[0].Points.AddXY(payDate, revenue);
                 }
 
-                DataTable dtVehicle = DashboardService.VehicleStatus(); // declare ug assign
+                // Format X-axis for better readability
+                chartRevenue.ChartAreas[0].AxisX.LabelStyle.Format = "MM-dd"; // show month-day
+                chartRevenue.ChartAreas[0].AxisX.Interval = 1;                 // interval 1 day
+                chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -45;      // tilt labels
+                chartRevenue.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 8);
+
+                // -------------------- Vehicle status chart --------------------
+                DataTable dtVehicle = DashboardService.VehicleStatus();
                 chartVehicleStatus.Series[0].Points.Clear();
                 foreach (DataRow row in dtVehicle.Rows)
                 {
@@ -64,12 +71,12 @@ namespace aejynmain.UserControls
             {
                 MessageBox.Show("Error loading dashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void chartRevenue_Click(object sender, EventArgs e)
         {
-
+            // Optional: handle clicks on the revenue chart if needed
         }
     }
 }
+

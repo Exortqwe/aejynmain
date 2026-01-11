@@ -1,5 +1,4 @@
 using aejynmain.UserControls;
-using aejynmain.AuthManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

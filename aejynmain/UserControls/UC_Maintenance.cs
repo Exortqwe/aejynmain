@@ -1,4 +1,5 @@
 using aejynmain.AuthManager;
+using aejynmain.Models;
 using aejynmain.WinForms;
 using MySql.Data.MySqlClient;
 using System;

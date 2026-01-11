@@ -1,6 +1,6 @@
 using System;
 
-namespace aejynmain.AuthManager
+namespace aejynmain.Models
 {
     public static class UserSession
     {

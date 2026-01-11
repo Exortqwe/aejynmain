@@ -74,23 +74,21 @@ namespace aejynmain.AuthManager
         {
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM tblcustomer";
-            if (!string.IsNullOrEmpty(customerType))
-                query += " WHERE CustomerType = @CustomerType";
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            using (var conn = new MySqlConnection(connectionString))
+            using (var cmd = new MySqlCommand("sp_GetCustomers", conn))
             {
-                if (!string.IsNullOrEmpty(customerType))
-                    cmd.Parameters.AddWithValue("@CustomerType", customerType);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_CustomerType", customerType ?? (object)DBNull.Value);
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                conn.Open();
-                da.Fill(dt);
+                using (var da = new MySqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
             }
 
             return dt;
         }
+
 
         // UPDATE CUSTOMER
         public static bool UpdateCustomer(int customerId, string columnName, object newValue)
@@ -132,20 +130,6 @@ namespace aejynmain.AuthManager
                 return false;
             }
         }
-
-        // GET CUSTOMER TYPES
-        public static List<string> GetCustomerTypes()
-        {
-            return new List<string>
-            {
-                "Individual",
-                "Corporate",
-                "Frequent",
-                "Blacklisted",
-                "Walk-in"
-            };
-        }
-
         // DELETE CUSTOMER
         public static bool DeleteCustomer(int customerId)
         {
@@ -168,7 +152,6 @@ namespace aejynmain.AuthManager
                 return false;
             }
         }
-
         // CHECK IF CUSTOMER IS OF LEGAL AGE
         public static bool IsAgeValid(DateTime birthDate)
         {
@@ -206,22 +189,5 @@ namespace aejynmain.AuthManager
             }
             return dt;
         }
-
-        // DETERMINE CUSTOMER TYPE
-        public static CustomerType GetCustomerType(
-            bool isBlacklisted,
-            bool isCorporate,
-            int totalRentals)
-        {
-            if (isBlacklisted)
-                return CustomerType.Blacklisted;
-            if (isCorporate)
-                return CustomerType.Corporate;
-            if (totalRentals >= 10)
-                return CustomerType.Frequent;
-
-            return CustomerType.Individual;
-        }
-
     }
 }
