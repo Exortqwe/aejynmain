@@ -215,5 +215,40 @@ namespace aejynmain.UserControls
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
             MessageBox.Show("Vehicle successfully returned.");
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

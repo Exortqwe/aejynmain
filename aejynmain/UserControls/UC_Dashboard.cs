@@ -126,6 +126,16 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Error loading dashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -20,14 +20,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
+            btnRefresh = new FontAwesome.Sharp.IconButton();
+            dateTimePicker1 = new DateTimePicker();
             panel9 = new Panel();
             lblRole = new Label();
             lblUsername = new Label();
@@ -61,8 +63,6 @@
             pictureBox1 = new PictureBox();
             lblTotalVehicles = new Label();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            btnRefresh = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -101,6 +101,30 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1688, 1219);
             panel1.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.FromArgb(58, 124, 165);
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            btnRefresh.IconColor = Color.White;
+            btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRefresh.IconSize = 32;
+            btnRefresh.Location = new Point(1594, 133);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(66, 36);
+            btnRefresh.TabIndex = 78;
+            btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "MMMM yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(1451, 136);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(137, 27);
+            dateTimePicker1.TabIndex = 77;
             // 
             // panel9
             // 
@@ -169,16 +193,16 @@
             // 
             // chartRevenue
             // 
-            chartArea5.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            chartRevenue.Legends.Add(legend5);
+            chartArea3.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartRevenue.Legends.Add(legend3);
             chartRevenue.Location = new Point(67, 350);
             chartRevenue.Name = "chartRevenue";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            chartRevenue.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartRevenue.Series.Add(series3);
             chartRevenue.Size = new Size(774, 501);
             chartRevenue.TabIndex = 75;
             chartRevenue.Text = "chart1";
@@ -197,11 +221,13 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(220, -5);
+            pictureBox3.Location = new Point(230, 15);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(71, 64);
+            pictureBox3.Size = new Size(49, 44);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 37;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // lblReservedVehicles
             // 
@@ -226,17 +252,17 @@
             // 
             // chartVehicleStatus
             // 
-            chartArea6.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend6);
+            chartArea4.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend4);
             chartVehicleStatus.Location = new Point(847, 350);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            chartVehicleStatus.Series.Add(series6);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartVehicleStatus.Series.Add(series4);
             chartVehicleStatus.Size = new Size(774, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -265,11 +291,13 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(189, -8);
+            pictureBox5.Location = new Point(188, 13);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(66, 67);
+            pictureBox5.Size = new Size(52, 46);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 39;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // label3
             // 
@@ -296,9 +324,10 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(189, 0);
+            pictureBox4.Location = new Point(193, 15);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(66, 59);
+            pictureBox4.Size = new Size(49, 44);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 38;
             pictureBox4.TabStop = false;
             // 
@@ -337,9 +366,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(216, -5);
+            pictureBox2.Location = new Point(224, 13);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(74, 64);
+            pictureBox2.Size = new Size(47, 44);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 36;
             pictureBox2.TabStop = false;
             // 
@@ -379,9 +409,10 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(189, -5);
+            pictureBox6.Location = new Point(192, 13);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(66, 64);
+            pictureBox6.Size = new Size(49, 46);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 40;
             pictureBox6.TabStop = false;
             // 
@@ -430,9 +461,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(191, -5);
+            pictureBox1.Location = new Point(194, 13);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.Size = new Size(47, 44);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 36;
             pictureBox1.TabStop = false;
             // 
@@ -456,30 +488,6 @@
             label5.Size = new Size(170, 35);
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "MMMM yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(1451, 136);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(137, 27);
-            dateTimePicker1.TabIndex = 77;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.BackColor = Color.FromArgb(58, 124, 165);
-            btnRefresh.FlatAppearance.BorderSize = 0;
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
-            btnRefresh.IconColor = Color.White;
-            btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRefresh.IconSize = 32;
-            btnRefresh.Location = new Point(1594, 133);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(66, 36);
-            btnRefresh.TabIndex = 78;
-            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // UC_Dashboard
             // 
