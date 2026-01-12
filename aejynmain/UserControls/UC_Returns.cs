@@ -250,5 +250,26 @@ namespace aejynmain.UserControls
         {
 
         }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+
+        }
+
+        private void txtReturnMileage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
