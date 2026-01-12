@@ -78,5 +78,23 @@ namespace aejynmain.AuthManager
             da.Fill(dt);
             return dt;
         }
+        public static DataTable GetMonthlyRevenue(int month, int year)
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            using (MySqlCommand cmd = new MySqlCommand("sp_GetMonthlyRevenue", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_Month", month);
+                cmd.Parameters.AddWithValue("@p_Year", year);
+
+                con.Open();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
     }
 }
