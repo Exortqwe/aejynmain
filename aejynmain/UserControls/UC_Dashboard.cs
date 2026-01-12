@@ -89,7 +89,6 @@ namespace aejynmain.UserControls
                 // Set up the pie chart
                 var series = chartVehicleStatus.Series[0];
                 series.ChartType = SeriesChartType.Pie;
-                series.Label = "#PERCENT{P0}";  // Show percentage with 0 decimal places
                 series.LabelForeColor = Color.White;
                 series.Font = new Font("Segoe UI", 9, FontStyle.Bold);
                 series.IsValueShownAsLabel = true;
@@ -103,21 +102,23 @@ namespace aejynmain.UserControls
 
                 // Ensure the chart area is properly configured
                 var chartArea = chartVehicleStatus.ChartAreas[0];
-                chartArea.AxisX.LabelStyle.Enabled = false;  // Hide X-axis labels
-                chartArea.AxisY.LabelStyle.Enabled = false;  // Hide Y-axis labels
-                chartArea.AxisX.MajorGrid.Enabled = false;   // Hide X-axis grid
-                chartArea.AxisY.MajorGrid.Enabled = false;   // Hide Y-axis grid
+                chartArea.AxisX.LabelStyle.Enabled = false;
+                chartArea.AxisY.LabelStyle.Enabled = false;
+                chartArea.AxisX.MajorGrid.Enabled = false;
+                chartArea.AxisY.MajorGrid.Enabled = false;
 
-                // Add data points
+                // Add data points, skip zero counts
                 foreach (DataRow row in dtVehicle.Rows)
                 {
                     string status = row["VehicleStatus"].ToString();
                     int count = Convert.ToInt32(row["total"]);
 
+                    if (count == 0) continue; // Skip zero-count slices
+
                     // Add the point and set its legend text
                     DataPoint point = series.Points.Add(count);
                     point.LegendText = status;
-                    point.Label = "#PERCENT{P0}";  // This will show the percentage
+                    point.Label = "#PERCENT{P0}";  // Show percentage
                 }
             }
             catch (Exception ex)

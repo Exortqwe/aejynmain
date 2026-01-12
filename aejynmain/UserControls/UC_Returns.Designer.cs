@@ -65,15 +65,18 @@
             cbBrokenGlass = new CheckBox();
             label16 = new Label();
             panel2 = new Panel();
-            lblOverdueFee = new Label();
+            lblTotalCharges = new Label();
+            label21 = new Label();
             label19 = new Label();
-            lblFuelCharges = new Label();
-            label11 = new Label();
+            label22 = new Label();
+            lblRefund = new Label();
+            label20 = new Label();
             lblDepositPaid = new Label();
+            lblRentalCharges = new Label();
+            lblAdditionalCharges = new Label();
             label10 = new Label();
             lblBalanceDue = new Label();
             lblDamagesCharges = new Label();
-            label18 = new Label();
             label17 = new Label();
             label23 = new Label();
             panel4 = new Panel();
@@ -460,72 +463,114 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblOverdueFee);
+            panel2.Controls.Add(lblTotalCharges);
+            panel2.Controls.Add(label21);
             panel2.Controls.Add(label19);
-            panel2.Controls.Add(lblFuelCharges);
-            panel2.Controls.Add(label11);
+            panel2.Controls.Add(label22);
+            panel2.Controls.Add(lblRefund);
+            panel2.Controls.Add(label20);
             panel2.Controls.Add(lblDepositPaid);
+            panel2.Controls.Add(lblRentalCharges);
+            panel2.Controls.Add(lblAdditionalCharges);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(lblBalanceDue);
             panel2.Controls.Add(lblDamagesCharges);
-            panel2.Controls.Add(label18);
             panel2.Controls.Add(label17);
             panel2.Location = new Point(1293, 202);
             panel2.Name = "panel2";
-            panel2.Size = new Size(293, 212);
+            panel2.Size = new Size(367, 234);
             panel2.TabIndex = 8;
             // 
-            // lblOverdueFee
+            // lblTotalCharges
             // 
-            lblOverdueFee.AutoSize = true;
-            lblOverdueFee.Location = new Point(134, 18);
-            lblOverdueFee.Name = "lblOverdueFee";
-            lblOverdueFee.Size = new Size(0, 20);
-            lblOverdueFee.TabIndex = 25;
+            lblTotalCharges.AutoSize = true;
+            lblTotalCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalCharges.Location = new Point(141, 95);
+            lblTotalCharges.Name = "lblTotalCharges";
+            lblTotalCharges.Size = new Size(0, 23);
+            lblTotalCharges.TabIndex = 30;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(3, 49);
+            label21.Name = "label21";
+            label21.Size = new Size(179, 25);
+            label21.TabIndex = 28;
+            label21.Text = "Additional Charges :";
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(6, 14);
+            label19.Location = new Point(3, 93);
             label19.Name = "label19";
-            label19.Size = new Size(127, 25);
+            label19.Size = new Size(132, 25);
             label19.TabIndex = 24;
-            label19.Text = "Overdue Fee :";
+            label19.Text = "Total Charges :";
             // 
-            // lblFuelCharges
+            // label22
             // 
-            lblFuelCharges.AutoSize = true;
-            lblFuelCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFuelCharges.Location = new Point(133, 95);
-            lblFuelCharges.Name = "lblFuelCharges";
-            lblFuelCharges.Size = new Size(0, 23);
-            lblFuelCharges.TabIndex = 23;
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.Location = new Point(3, 10);
+            label22.Name = "label22";
+            label22.Size = new Size(145, 25);
+            label22.TabIndex = 29;
+            label22.Text = "Rental Charges :";
             // 
-            // label11
+            // lblRefund
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(6, 93);
-            label11.Name = "label11";
-            label11.Size = new Size(127, 25);
-            label11.TabIndex = 22;
-            label11.Text = "Fuel Charges :";
+            lblRefund.AutoSize = true;
+            lblRefund.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRefund.Location = new Point(90, 197);
+            lblRefund.Name = "lblRefund";
+            lblRefund.Size = new Size(0, 23);
+            lblRefund.TabIndex = 27;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.Location = new Point(3, 195);
+            label20.Name = "label20";
+            label20.Size = new Size(81, 25);
+            label20.TabIndex = 26;
+            label20.Text = "Refund :";
             // 
             // lblDepositPaid
             // 
             lblDepositPaid.AutoSize = true;
             lblDepositPaid.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDepositPaid.Location = new Point(139, 133);
+            lblDepositPaid.Location = new Point(135, 133);
             lblDepositPaid.Name = "lblDepositPaid";
             lblDepositPaid.Size = new Size(0, 23);
             lblDepositPaid.TabIndex = 21;
+            // 
+            // lblRentalCharges
+            // 
+            lblRentalCharges.AutoSize = true;
+            lblRentalCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRentalCharges.Location = new Point(154, 15);
+            lblRentalCharges.Name = "lblRentalCharges";
+            lblRentalCharges.Size = new Size(0, 23);
+            lblRentalCharges.TabIndex = 25;
+            // 
+            // lblAdditionalCharges
+            // 
+            lblAdditionalCharges.AutoSize = true;
+            lblAdditionalCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAdditionalCharges.Location = new Point(188, 51);
+            lblAdditionalCharges.Name = "lblAdditionalCharges";
+            lblAdditionalCharges.Size = new Size(0, 23);
+            lblAdditionalCharges.TabIndex = 23;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(7, 131);
+            label10.Location = new Point(3, 131);
             label10.Name = "label10";
             label10.Size = new Size(126, 25);
             label10.TabIndex = 20;
@@ -535,7 +580,7 @@
             // 
             lblBalanceDue.AutoSize = true;
             lblBalanceDue.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBalanceDue.Location = new Point(133, 180);
+            lblBalanceDue.Location = new Point(135, 161);
             lblBalanceDue.Name = "lblBalanceDue";
             lblBalanceDue.Size = new Size(0, 23);
             lblBalanceDue.TabIndex = 19;
@@ -544,26 +589,16 @@
             // 
             lblDamagesCharges.AutoSize = true;
             lblDamagesCharges.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDamagesCharges.Location = new Point(166, 51);
+            lblDamagesCharges.Location = new Point(344, 63);
             lblDamagesCharges.Name = "lblDamagesCharges";
             lblDamagesCharges.Size = new Size(0, 23);
             lblDamagesCharges.TabIndex = 18;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(6, 49);
-            label18.Name = "label18";
-            label18.Size = new Size(160, 25);
-            label18.TabIndex = 16;
-            label18.Text = "Damage Charges :";
             // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(6, 177);
+            label17.Location = new Point(3, 159);
             label17.Name = "label17";
             label17.Size = new Size(123, 25);
             label17.TabIndex = 15;
@@ -618,7 +653,7 @@
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Items.AddRange(new object[] { "Fullpayment" });
+            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Partial", "Full" });
             cmbPaymentType.Location = new Point(12, 21);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(238, 28);
@@ -627,7 +662,7 @@
             // cmbPaymentStatus
             // 
             cmbPaymentStatus.FormattingEnabled = true;
-            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Completed" });
+            cmbPaymentStatus.Items.AddRange(new object[] { "Complete", "Incomplete" });
             cmbPaymentStatus.Location = new Point(12, 178);
             cmbPaymentStatus.Name = "cmbPaymentStatus";
             cmbPaymentStatus.Size = new Size(238, 28);
@@ -654,7 +689,7 @@
             // cmbPaymentMethod
             // 
             cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Bank Transfer", "Cash\t", "Credit Card", "Gcash", "Paypal" });
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash ", "Gcash" });
             cmbPaymentMethod.Location = new Point(12, 127);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
             cmbPaymentMethod.Size = new Size(238, 28);
@@ -789,7 +824,6 @@
         private Panel panel2;
         private Label lblBalanceDue;
         private Label lblDamagesCharges;
-        private Label label18;
         private Label label17;
         private Label label23;
         private Panel panel4;
@@ -810,13 +844,12 @@
         private CheckBox cbBrokenGlass;
         private Label label10;
         private Label lblDepositPaid;
-        private Label label11;
-        private Label lblFuelCharges;
+        private Label lblAdditionalCharges;
         private ComboBox cmbPaymentType;
         private ComboBox cmbPaymentStatus;
         private Label label12;
         private Label label9;
-        private Label lblOverdueFee;
+        private Label lblRentalCharges;
         private Label label19;
         private Panel panel9;
         private Label label35;
@@ -824,5 +857,10 @@
         private Label lblRole;
         private Label lblUsername;
         private PictureBox pictureBox7;
+        private Label lblRefund;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label lblTotalCharges;
     }
 }

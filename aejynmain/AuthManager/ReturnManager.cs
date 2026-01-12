@@ -117,17 +117,6 @@ namespace aejynmain.AuthManager
                 cmd.ExecuteNonQuery();
             }
         }
-        public static decimal GetTotalPaid(int rentalId)
-        {
-            using (var con = new MySqlConnection(ConnectionString))
-            using (var cmd = new MySqlCommand("sp_GetTotalPaid", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
-                con.Open();
-                return Convert.ToDecimal(cmd.ExecuteScalar());
-            }
-        }
 
         public static decimal GetDailyRate(int rentalId)
         {
@@ -189,6 +178,21 @@ namespace aejynmain.AuthManager
             cmd.Parameters.AddWithValue("@p_ReturnMileage", returnMileage);
             con.Open();
             cmd.ExecuteNonQuery();
+        }
+        public static decimal GetDepositPaid(int rentalId)
+        {
+            using (var con = new MySqlConnection(ConnectionString))
+            using (var cmd = new MySqlCommand("sp_GetDepositPaid", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_RentalID", rentalId);
+                con.Open();
+
+                var result = cmd.ExecuteScalar();
+                return result == null || result == DBNull.Value
+                    ? 0m
+                    : Convert.ToDecimal(result);
+            }
         }
 
     }

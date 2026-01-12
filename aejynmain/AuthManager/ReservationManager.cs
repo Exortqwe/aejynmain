@@ -15,30 +15,29 @@ namespace aejynmain.AuthManager
 
         public static int SaveReservation(Reservation reservation)
         {
-            int ReservationID = 0;
+            int reservationID = 0;
 
             using (MySqlConnection conn = new MySqlConnection(ConnectionString))
             {
                 conn.Open();
+
                 using (MySqlCommand cmd = new MySqlCommand("sp_SaveReservation", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Add input parameters
                     cmd.Parameters.AddWithValue("p_UserID", UserSession.UserID);
                     cmd.Parameters.AddWithValue("p_CustomerID", reservation.CustomerID);
                     cmd.Parameters.AddWithValue("p_VehicleID", reservation.VehicleID);
                     cmd.Parameters.AddWithValue("p_PickUpDate", reservation.PickUpDate);
                     cmd.Parameters.AddWithValue("p_ReturnDate", reservation.ReturnDate);
+                    cmd.Parameters.AddWithValue("p_PickupMileage", reservation.PickupMileage);
                     cmd.Parameters.AddWithValue("p_ReservationStatus", reservation.Status);
                     cmd.Parameters.AddWithValue("p_TotalAmount", reservation.TotalAmount);
-                    cmd.Parameters.AddWithValue("p_PaymentType", reservation.Payment.PaymentType);
                     cmd.Parameters.AddWithValue("p_Amount", reservation.Payment.Amount);
                     cmd.Parameters.AddWithValue("p_PaymentMethod", reservation.Payment.PaymentMethod);
+                    cmd.Parameters.AddWithValue("p_PaymentType", reservation.Payment.PaymentType);
                     cmd.Parameters.AddWithValue("p_PaymentStatus", reservation.Payment.PaymentStatus);
-                    cmd.Parameters.AddWithValue("p_PickupMileage", reservation.PickupMileage);
 
-                    // Add output parameter for ReservationID
                     MySqlParameter outParam = new MySqlParameter("p_ReservationID", MySqlDbType.Int32)
                     {
                         Direction = ParameterDirection.Output
@@ -47,15 +46,16 @@ namespace aejynmain.AuthManager
 
                     cmd.ExecuteNonQuery();
 
-                    // Get the generated ReservationID
                     if (outParam.Value != DBNull.Value)
                     {
-                        ReservationID = Convert.ToInt32(outParam.Value);
+                        reservationID = Convert.ToInt32(outParam.Value);
                     }
                 }
             }
-            return ReservationID;
+
+            return reservationID;
         }
+
         public static List<Vehicle> GetAvailableVehicles()
         {
             List<Vehicle> vehicles = new List<Vehicle>();

@@ -607,7 +607,7 @@
             // cmbPaymentStatus
             // 
             cmbPaymentStatus.FormattingEnabled = true;
-            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Pending" });
+            cmbPaymentStatus.Items.AddRange(new object[] { "Complete", "Incomplete" });
             cmbPaymentStatus.Location = new Point(15, 183);
             cmbPaymentStatus.Name = "cmbPaymentStatus";
             cmbPaymentStatus.Size = new Size(267, 28);
@@ -651,7 +651,7 @@
             // cmbPaymentMethod
             // 
             cmbPaymentMethod.FormattingEnabled = true;
-            cmbPaymentMethod.Items.AddRange(new object[] { "Bank Transfer", "Cash", "Credit Card", "Gcash", "Paypal" });
+            cmbPaymentMethod.Items.AddRange(new object[] { "Cash ", "Gcash" });
             cmbPaymentMethod.Location = new Point(15, 131);
             cmbPaymentMethod.Name = "cmbPaymentMethod";
             cmbPaymentMethod.Size = new Size(267, 28);
@@ -660,7 +660,7 @@
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Partial", "Fullpayment" });
+            cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Partial", "Full" });
             cmbPaymentType.Location = new Point(15, 24);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(267, 28);

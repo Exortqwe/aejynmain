@@ -204,26 +204,36 @@ namespace aejynmain.UserControls
         private void dtpReturnTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
 
         // ================= CONFIRM RESERVATION =================
-        private void btnConfirmReservation_Click(object send, EventArgs e)
+        private void btnConfirmReservation_Click(object sender, EventArgs e)
         {
             try
             {
-                if (selectedCustomerId == 0 || selectedVehicleId == 0)
+                // 1️⃣ Validate selections
+                if (selectedCustomerId == 0)
                 {
-                    MessageBox.Show("Please select a customer and a vehicle.");
+                    MessageBox.Show("Please select a customer.");
                     return;
                 }
+
+                if (selectedVehicleId == 0)
+                {
+                    MessageBox.Show("Please select a vehicle.");
+                    return;
+                }
+
                 if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
                 {
                     MessageBox.Show("Please enter a valid payment amount.");
                     return;
                 }
-                // Get pickup mileage gikan sa selected vehicle sa datagridview
+
+                // 2️⃣ Get pickup mileage from selected vehicle row
                 int pickupMileage = Convert.ToInt32(dgAvailableVehicles.CurrentRow.Cells["Mileage"].Value);
+
+                // 3️⃣ Prepare reservation object
                 Reservation reservation = new Reservation
                 {
-
-                    UserID = User.UserID,
+                    UserID = UserSession.UserID,
                     CustomerID = selectedCustomerId,
                     VehicleID = selectedVehicleId,
                     PickUpDate = GetPickupDateTime(),
@@ -240,16 +250,24 @@ namespace aejynmain.UserControls
                     }
                 };
 
-                ReservationManager.SaveReservation(reservation);
+                int reservationID = ReservationManager.SaveReservation(reservation);
 
-                MessageBox.Show("Reservation successfully saved!");
-                LoadAvailableVehicles();
+                if (reservationID > 0)
+                {
+                    MessageBox.Show("Reservation successfully saved!");
+                    LoadAvailableVehicles();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to save reservation. Please try again.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error:\n" + ex.Message);
             }
         }
+
 
         private void dgAvailableVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

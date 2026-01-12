@@ -21,12 +21,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             panel9 = new Panel();
             lblRole = new Label();
@@ -61,6 +61,8 @@
             pictureBox1 = new PictureBox();
             lblTotalVehicles = new Label();
             label5 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            btnRefresh = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -83,6 +85,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(btnRefresh);
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(chartRevenue);
             panel1.Controls.Add(panel10);
@@ -165,16 +169,16 @@
             // 
             // chartRevenue
             // 
-            chartArea1.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartRevenue.Legends.Add(legend1);
-            chartRevenue.Location = new Point(63, 290);
+            chartArea3.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartRevenue.Legends.Add(legend3);
+            chartRevenue.Location = new Point(67, 350);
             chartRevenue.Name = "chartRevenue";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartRevenue.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartRevenue.Series.Add(series3);
             chartRevenue.Size = new Size(774, 501);
             chartRevenue.TabIndex = 75;
             chartRevenue.Text = "chart1";
@@ -185,7 +189,7 @@
             panel10.Controls.Add(pictureBox3);
             panel10.Controls.Add(lblReservedVehicles);
             panel10.Controls.Add(label6);
-            panel10.Location = new Point(1365, 126);
+            panel10.Location = new Point(1369, 186);
             panel10.Name = "panel10";
             panel10.Size = new Size(291, 125);
             panel10.TabIndex = 67;
@@ -222,17 +226,17 @@
             // 
             // chartVehicleStatus
             // 
-            chartArea2.Name = "ChartArea1";
-            chartVehicleStatus.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartVehicleStatus.Legends.Add(legend2);
-            chartVehicleStatus.Location = new Point(843, 290);
+            chartArea4.Name = "ChartArea1";
+            chartVehicleStatus.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartVehicleStatus.Legends.Add(legend4);
+            chartVehicleStatus.Location = new Point(847, 350);
             chartVehicleStatus.Name = "chartVehicleStatus";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartVehicleStatus.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartVehicleStatus.Series.Add(series4);
             chartVehicleStatus.Size = new Size(774, 501);
             chartVehicleStatus.TabIndex = 74;
             chartVehicleStatus.Text = "chart2";
@@ -243,7 +247,7 @@
             panel8.Controls.Add(lblOverdue);
             panel8.Controls.Add(pictureBox5);
             panel8.Controls.Add(label3);
-            panel8.Location = new Point(1104, 126);
+            panel8.Location = new Point(1108, 186);
             panel8.Name = "panel8";
             panel8.Size = new Size(255, 125);
             panel8.TabIndex = 66;
@@ -284,7 +288,7 @@
             panel7.Controls.Add(pictureBox4);
             panel7.Controls.Add(lblRevenueToday);
             panel7.Controls.Add(label21);
-            panel7.Location = new Point(843, 126);
+            panel7.Location = new Point(847, 186);
             panel7.Name = "panel7";
             panel7.Size = new Size(255, 125);
             panel7.TabIndex = 65;
@@ -325,7 +329,7 @@
             panel4.Controls.Add(pictureBox2);
             panel4.Controls.Add(lblAvailableVehicles);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(295, 126);
+            panel4.Location = new Point(299, 186);
             panel4.Name = "panel4";
             panel4.Size = new Size(281, 125);
             panel4.TabIndex = 62;
@@ -367,7 +371,7 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(lblActiveRentals);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(582, 126);
+            panel3.Location = new Point(586, 186);
             panel3.Name = "panel3";
             panel3.Size = new Size(255, 125);
             panel3.TabIndex = 61;
@@ -418,7 +422,7 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(lblTotalVehicles);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(34, 126);
+            panel2.Location = new Point(38, 186);
             panel2.Name = "panel2";
             panel2.Size = new Size(255, 125);
             panel2.TabIndex = 60;
@@ -452,6 +456,30 @@
             label5.Size = new Size(170, 35);
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "MMMMMMM 2026";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(1451, 136);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(137, 27);
+            dateTimePicker1.TabIndex = 77;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.FromArgb(58, 124, 165);
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            btnRefresh.IconColor = Color.White;
+            btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRefresh.IconSize = 32;
+            btnRefresh.Location = new Point(1594, 133);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(66, 36);
+            btnRefresh.TabIndex = 78;
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // UC_Dashboard
             // 
@@ -523,5 +551,7 @@
         private PictureBox pictureBox7;
         private Label label1;
         private Label label12;
+        private FontAwesome.Sharp.IconButton btnRefresh;
+        private DateTimePicker dateTimePicker1;
     }
 }

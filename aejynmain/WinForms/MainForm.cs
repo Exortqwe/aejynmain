@@ -21,6 +21,7 @@ namespace aejynmain
         UC_Reports reports = new UC_Reports();
         UC_Reservations reservation = new UC_Reservations();
         UC_Maintenance maintenance = new UC_Maintenance();
+        UC_Billing billing = new UC_Billing();
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace aejynmain
             panelMain.Controls.Add(uc);
         }
         private void MainForm_Load(object sender, EventArgs e)
-        {       
+        {
             if (UserSession.IsRentalAgent)
             {
                 btnDashboard.Visible = false;
@@ -121,9 +122,10 @@ namespace aejynmain
             addUserControls(umanagement);
         }
 
-        private void UCHeader_Paint(object sender, PaintEventArgs e)
+        private void btnBilling_Click(object sender, EventArgs e)
         {
-
+            UC_Billing billing = new UC_Billing();
+            addUserControls(billing);
         }
     }
 }

@@ -59,8 +59,6 @@ namespace aejynmain.AuthManager
             cmd.ExecuteNonQuery();
             return Convert.ToDecimal(cmd.Parameters["@p_AvgRentalRate"].Value);
         }
-        // Current overdue rentals only (active rentals)
-        // Total overdue (past late + current overdue)
         public static double GetAverageDelayHours()
         {
             using var conn = new MySqlConnection(ConnectionString);
@@ -68,8 +66,6 @@ namespace aejynmain.AuthManager
 
             using var cmd = new MySqlCommand("sp_GetAverageDelayHours", conn);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            // Add OUT parameter
             var param = new MySqlParameter("p_AvgDelayHours", MySqlDbType.Double);
             param.Direction = System.Data.ParameterDirection.Output;
             cmd.Parameters.Add(param);
@@ -85,8 +81,6 @@ namespace aejynmain.AuthManager
 
             using var cmd = new MySqlCommand("sp_GetTotalOverdueCount", conn);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            // Add OUT parameter
             var param = new MySqlParameter("p_TotalOverdue", MySqlDbType.Int32);
             param.Direction = System.Data.ParameterDirection.Output;
             cmd.Parameters.Add(param);
@@ -95,8 +89,6 @@ namespace aejynmain.AuthManager
 
             return Convert.ToInt32(param.Value);
         }
-
-
 
         public DataTable GetVehicleAvailabilityStatus()
         {

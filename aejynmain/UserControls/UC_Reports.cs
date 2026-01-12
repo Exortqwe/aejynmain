@@ -195,8 +195,8 @@ namespace aejynmain.UserControls
                 {
                     dgRentalSchedDurationAnalysis.Rows.Add(
                         row["EventStatus"],
-                        row["Vehicle"],
-                        Convert.ToDateTime(row["Time"]).ToString("hh:mm tt"),
+                        row["VehicleName"], // Make + Model
+                        Convert.ToDateTime(row["Time"]).ToString("MMM dd, yyyy hh:mm tt"),
                         row["Duration"]
                     );
                 }
