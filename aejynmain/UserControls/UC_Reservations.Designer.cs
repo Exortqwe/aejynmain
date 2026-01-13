@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Reservations));
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel9 = new Panel();
             lblRole = new Label();
@@ -38,14 +38,30 @@
             pictureBox7 = new PictureBox();
             label35 = new Label();
             label41 = new Label();
-            panel5 = new Panel();
+            BillingSummary = new Panel();
+            lblPaymentStatus = new Label();
+            lblPaymentMethod = new Label();
+            lblAmount = new Label();
+            lblPaymentType = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            lblCustomerAddress = new Label();
             lblTotalPrice = new Label();
+            lblContactNum = new Label();
             lblRate = new Label();
+            lblLicenseNum = new Label();
             lblDays = new Label();
+            lblCustomerName = new Label();
             lblDates = new Label();
+            label5 = new Label();
             lblVehicle = new Label();
+            label6 = new Label();
             label33 = new Label();
+            label7 = new Label();
             label32 = new Label();
+            label8 = new Label();
             label31 = new Label();
             label30 = new Label();
             label29 = new Label();
@@ -84,26 +100,10 @@
             label37 = new Label();
             cmbPaymentMethod = new ComboBox();
             cmbPaymentType = new ComboBox();
-            lblCustomerAddress = new Label();
-            lblContactNum = new Label();
-            lblLicenseNum = new Label();
-            lblCustomerName = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            panel5.SuspendLayout();
+            BillingSummary.SuspendLayout();
             panel4.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgAvailableVehicles).BeginInit();
@@ -185,40 +185,120 @@
             label41.TabIndex = 44;
             label41.Text = "Reservations ";
             // 
-            // panel5
+            // BillingSummary
             // 
-            panel5.BackColor = Color.White;
-            panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(label4);
-            panel5.Controls.Add(label3);
-            panel5.Controls.Add(label2);
-            panel5.Controls.Add(label1);
-            panel5.Controls.Add(label12);
-            panel5.Controls.Add(label11);
-            panel5.Controls.Add(label10);
-            panel5.Controls.Add(label9);
-            panel5.Controls.Add(lblCustomerAddress);
-            panel5.Controls.Add(lblTotalPrice);
-            panel5.Controls.Add(lblContactNum);
-            panel5.Controls.Add(lblRate);
-            panel5.Controls.Add(lblLicenseNum);
-            panel5.Controls.Add(lblDays);
-            panel5.Controls.Add(lblCustomerName);
-            panel5.Controls.Add(lblDates);
-            panel5.Controls.Add(label5);
-            panel5.Controls.Add(lblVehicle);
-            panel5.Controls.Add(label6);
-            panel5.Controls.Add(label33);
-            panel5.Controls.Add(label7);
-            panel5.Controls.Add(label32);
-            panel5.Controls.Add(label8);
-            panel5.Controls.Add(label31);
-            panel5.Controls.Add(label30);
-            panel5.Controls.Add(label29);
-            panel5.Location = new Point(983, 179);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(677, 554);
-            panel5.TabIndex = 25;
+            BillingSummary.BackColor = Color.White;
+            BillingSummary.BorderStyle = BorderStyle.FixedSingle;
+            BillingSummary.Controls.Add(lblPaymentStatus);
+            BillingSummary.Controls.Add(lblPaymentMethod);
+            BillingSummary.Controls.Add(lblAmount);
+            BillingSummary.Controls.Add(lblPaymentType);
+            BillingSummary.Controls.Add(label12);
+            BillingSummary.Controls.Add(label11);
+            BillingSummary.Controls.Add(label10);
+            BillingSummary.Controls.Add(label9);
+            BillingSummary.Controls.Add(lblCustomerAddress);
+            BillingSummary.Controls.Add(lblTotalPrice);
+            BillingSummary.Controls.Add(lblContactNum);
+            BillingSummary.Controls.Add(lblRate);
+            BillingSummary.Controls.Add(lblLicenseNum);
+            BillingSummary.Controls.Add(lblDays);
+            BillingSummary.Controls.Add(lblCustomerName);
+            BillingSummary.Controls.Add(lblDates);
+            BillingSummary.Controls.Add(label5);
+            BillingSummary.Controls.Add(lblVehicle);
+            BillingSummary.Controls.Add(label6);
+            BillingSummary.Controls.Add(label33);
+            BillingSummary.Controls.Add(label7);
+            BillingSummary.Controls.Add(label32);
+            BillingSummary.Controls.Add(label8);
+            BillingSummary.Controls.Add(label31);
+            BillingSummary.Controls.Add(label30);
+            BillingSummary.Controls.Add(label29);
+            BillingSummary.Location = new Point(983, 179);
+            BillingSummary.Name = "BillingSummary";
+            BillingSummary.Size = new Size(677, 554);
+            BillingSummary.TabIndex = 25;
+            // 
+            // lblPaymentStatus
+            // 
+            lblPaymentStatus.AutoSize = true;
+            lblPaymentStatus.Location = new Point(147, 512);
+            lblPaymentStatus.Name = "lblPaymentStatus";
+            lblPaymentStatus.Size = new Size(0, 20);
+            lblPaymentStatus.TabIndex = 23;
+            // 
+            // lblPaymentMethod
+            // 
+            lblPaymentMethod.AutoSize = true;
+            lblPaymentMethod.Location = new Point(161, 473);
+            lblPaymentMethod.Name = "lblPaymentMethod";
+            lblPaymentMethod.Size = new Size(0, 20);
+            lblPaymentMethod.TabIndex = 22;
+            // 
+            // lblAmount
+            // 
+            lblAmount.AutoSize = true;
+            lblAmount.Location = new Point(89, 429);
+            lblAmount.Name = "lblAmount";
+            lblAmount.Size = new Size(0, 20);
+            lblAmount.TabIndex = 21;
+            // 
+            // lblPaymentType
+            // 
+            lblPaymentType.AutoSize = true;
+            lblPaymentType.Location = new Point(136, 388);
+            lblPaymentType.Name = "lblPaymentType";
+            lblPaymentType.Size = new Size(0, 20);
+            lblPaymentType.TabIndex = 20;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(3, 509);
+            label12.Name = "label12";
+            label12.Size = new Size(144, 23);
+            label12.TabIndex = 19;
+            label12.Text = "Payment Status : ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(3, 468);
+            label11.Name = "label11";
+            label11.Size = new Size(158, 23);
+            label11.TabIndex = 18;
+            label11.Text = "Payment Method : ";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(3, 427);
+            label10.Name = "label10";
+            label10.Size = new Size(86, 23);
+            label10.TabIndex = 17;
+            label10.Text = "Amount : ";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(3, 385);
+            label9.Name = "label9";
+            label9.Size = new Size(133, 23);
+            label9.TabIndex = 16;
+            label9.Text = "Payment Type : ";
+            // 
+            // lblCustomerAddress
+            // 
+            lblCustomerAddress.AutoSize = true;
+            lblCustomerAddress.Location = new Point(88, 138);
+            lblCustomerAddress.Name = "lblCustomerAddress";
+            lblCustomerAddress.Size = new Size(0, 20);
+            lblCustomerAddress.TabIndex = 15;
             // 
             // lblTotalPrice
             // 
@@ -228,6 +308,14 @@
             lblTotalPrice.Size = new Size(0, 20);
             lblTotalPrice.TabIndex = 9;
             // 
+            // lblContactNum
+            // 
+            lblContactNum.AutoSize = true;
+            lblContactNum.Location = new Point(156, 105);
+            lblContactNum.Name = "lblContactNum";
+            lblContactNum.Size = new Size(0, 20);
+            lblContactNum.TabIndex = 14;
+            // 
             // lblRate
             // 
             lblRate.AutoSize = true;
@@ -235,6 +323,14 @@
             lblRate.Name = "lblRate";
             lblRate.Size = new Size(0, 20);
             lblRate.TabIndex = 8;
+            // 
+            // lblLicenseNum
+            // 
+            lblLicenseNum.AutoSize = true;
+            lblLicenseNum.Location = new Point(151, 65);
+            lblLicenseNum.Name = "lblLicenseNum";
+            lblLicenseNum.Size = new Size(0, 20);
+            lblLicenseNum.TabIndex = 13;
             // 
             // lblDays
             // 
@@ -244,6 +340,14 @@
             lblDays.Size = new Size(0, 20);
             lblDays.TabIndex = 7;
             // 
+            // lblCustomerName
+            // 
+            lblCustomerName.AutoSize = true;
+            lblCustomerName.Location = new Point(153, 22);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(0, 20);
+            lblCustomerName.TabIndex = 12;
+            // 
             // lblDates
             // 
             lblDates.AutoSize = true;
@@ -252,6 +356,16 @@
             lblDates.Size = new Size(0, 20);
             lblDates.TabIndex = 6;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label5.Location = new Point(3, 136);
+            label5.Name = "label5";
+            label5.Size = new Size(79, 23);
+            label5.TabIndex = 11;
+            label5.Text = "Address :";
+            // 
             // lblVehicle
             // 
             lblVehicle.AutoSize = true;
@@ -259,6 +373,16 @@
             lblVehicle.Name = "lblVehicle";
             lblVehicle.Size = new Size(0, 20);
             lblVehicle.TabIndex = 5;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label6.Location = new Point(3, 102);
+            label6.Name = "label6";
+            label6.Size = new Size(147, 23);
+            label6.TabIndex = 10;
+            label6.Text = "Contact Number :";
             // 
             // label33
             // 
@@ -270,6 +394,16 @@
             label33.TabIndex = 4;
             label33.Text = "Total Price : ";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label7.Location = new Point(3, 62);
+            label7.Name = "label7";
+            label7.Size = new Size(142, 23);
+            label7.TabIndex = 9;
+            label7.Text = "License Number :";
+            // 
             // label32
             // 
             label32.AutoSize = true;
@@ -279,6 +413,16 @@
             label32.Size = new Size(59, 23);
             label32.TabIndex = 3;
             label32.Text = "Rate : ";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            label8.Location = new Point(3, 19);
+            label8.Name = "label8";
+            label8.Size = new Size(144, 23);
+            label8.TabIndex = 8;
+            label8.Text = "Customer Name :";
             // 
             // label31
             // 
@@ -316,9 +460,9 @@
             label28.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label28.Location = new Point(983, 129);
             label28.Name = "label28";
-            label28.Size = new Size(196, 35);
+            label28.Size = new Size(97, 35);
             label28.TabIndex = 26;
-            label28.Text = "Order Summary";
+            label28.Text = "Invoice";
             // 
             // panel4
             // 
@@ -422,7 +566,6 @@
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Customer Info";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // lblAddress
             // 
@@ -559,33 +702,32 @@
             // 
             dgAvailableVehicles.BackgroundColor = Color.White;
             dgAvailableVehicles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgAvailableVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgAvailableVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgAvailableVehicles.ColumnHeadersHeight = 29;
             dgAvailableVehicles.EnableHeadersVisualStyles = false;
             dgAvailableVehicles.GridColor = SystemColors.GrayText;
             dgAvailableVehicles.Location = new Point(31, 774);
             dgAvailableVehicles.Name = "dgAvailableVehicles";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(58, 124, 165);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(51, 106, 140);
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dgAvailableVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgAvailableVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgAvailableVehicles.RowHeadersVisible = false;
             dgAvailableVehicles.RowHeadersWidth = 51;
             dgAvailableVehicles.Size = new Size(1629, 376);
             dgAvailableVehicles.TabIndex = 30;
             dgAvailableVehicles.CellClick += dgAvailableVehicles_CellClick;
-            dgAvailableVehicles.CellContentClick += dgAvailableVehicles_CellContentClick;
             // 
             // btnConfirmReservation
             // 
@@ -646,6 +788,7 @@
             cmbPaymentStatus.Name = "cmbPaymentStatus";
             cmbPaymentStatus.Size = new Size(360, 28);
             cmbPaymentStatus.TabIndex = 8;
+            cmbPaymentStatus.SelectedIndexChanged += cmbPaymentStatus_SelectedIndexChanged;
             // 
             // txtAmount
             // 
@@ -654,6 +797,7 @@
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(360, 27);
             txtAmount.TabIndex = 7;
+            txtAmount.TextChanged += txtAmount_TextChanged;
             // 
             // label39
             // 
@@ -667,7 +811,7 @@
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new Point(15, 0);
+            label38.Location = new Point(21, 0);
             label38.Name = "label38";
             label38.Size = new Size(100, 20);
             label38.TabIndex = 5;
@@ -690,160 +834,17 @@
             cmbPaymentMethod.Name = "cmbPaymentMethod";
             cmbPaymentMethod.Size = new Size(360, 28);
             cmbPaymentMethod.TabIndex = 1;
+            cmbPaymentMethod.SelectedIndexChanged += cmbPaymentMethod_SelectedIndexChanged;
             // 
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
             cmbPaymentType.Items.AddRange(new object[] { "Deposit", "Partial", "Full" });
-            cmbPaymentType.Location = new Point(15, 24);
+            cmbPaymentType.Location = new Point(21, 23);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(360, 28);
             cmbPaymentType.TabIndex = 0;
-            // 
-            // lblCustomerAddress
-            // 
-            lblCustomerAddress.AutoSize = true;
-            lblCustomerAddress.Location = new Point(88, 138);
-            lblCustomerAddress.Name = "lblCustomerAddress";
-            lblCustomerAddress.Size = new Size(0, 20);
-            lblCustomerAddress.TabIndex = 15;
-            lblCustomerAddress.Click += lblCustomerAddress_Click;
-            // 
-            // lblContactNum
-            // 
-            lblContactNum.AutoSize = true;
-            lblContactNum.Location = new Point(156, 105);
-            lblContactNum.Name = "lblContactNum";
-            lblContactNum.Size = new Size(0, 20);
-            lblContactNum.TabIndex = 14;
-            // 
-            // lblLicenseNum
-            // 
-            lblLicenseNum.AutoSize = true;
-            lblLicenseNum.Location = new Point(151, 65);
-            lblLicenseNum.Name = "lblLicenseNum";
-            lblLicenseNum.Size = new Size(0, 20);
-            lblLicenseNum.TabIndex = 13;
-            // 
-            // lblCustomerName
-            // 
-            lblCustomerName.AutoSize = true;
-            lblCustomerName.Location = new Point(153, 22);
-            lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(0, 20);
-            lblCustomerName.TabIndex = 12;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label5.Location = new Point(3, 136);
-            label5.Name = "label5";
-            label5.Size = new Size(79, 23);
-            label5.TabIndex = 11;
-            label5.Text = "Address :";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label6.Location = new Point(3, 102);
-            label6.Name = "label6";
-            label6.Size = new Size(147, 23);
-            label6.TabIndex = 10;
-            label6.Text = "Contact Number :";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label7.Location = new Point(3, 62);
-            label7.Name = "label7";
-            label7.Size = new Size(142, 23);
-            label7.TabIndex = 9;
-            label7.Text = "License Number :";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label8.Location = new Point(3, 19);
-            label8.Name = "label8";
-            label8.Size = new Size(144, 23);
-            label8.TabIndex = 8;
-            label8.Text = "Customer Name :";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(3, 386);
-            label9.Name = "label9";
-            label9.Size = new Size(133, 23);
-            label9.TabIndex = 16;
-            label9.Text = "Payment Type : ";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(3, 426);
-            label10.Name = "label10";
-            label10.Size = new Size(86, 23);
-            label10.TabIndex = 17;
-            label10.Text = "Amount : ";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(3, 473);
-            label11.Name = "label11";
-            label11.Size = new Size(158, 23);
-            label11.TabIndex = 18;
-            label11.Text = "Payment Method : ";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(3, 512);
-            label12.Name = "label12";
-            label12.Size = new Size(144, 23);
-            label12.TabIndex = 19;
-            label12.Text = "Payment Status : ";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(136, 388);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 20);
-            label1.TabIndex = 20;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(89, 429);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 20);
-            label2.TabIndex = 21;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(161, 473);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 20);
-            label3.TabIndex = 22;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(147, 512);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 20);
-            label4.TabIndex = 23;
+            cmbPaymentType.SelectedIndexChanged += cmbPaymentType_SelectedIndexChanged;
             // 
             // UC_Reservations
             // 
@@ -856,7 +857,7 @@
             Controls.Add(btnConfirmReservation);
             Controls.Add(dgAvailableVehicles);
             Controls.Add(label34);
-            Controls.Add(panel5);
+            Controls.Add(BillingSummary);
             Controls.Add(label28);
             Controls.Add(panel4);
             Controls.Add(label25);
@@ -872,8 +873,8 @@
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
+            BillingSummary.ResumeLayout(false);
+            BillingSummary.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -888,7 +889,7 @@
         #endregion
 
         private Panel panel1;
-        private Panel panel5;
+        private Panel BillingSummary;
         private Label lblTotalPrice;
         private Label lblRate;
         private Label lblDays;
@@ -952,9 +953,9 @@
         private Label label11;
         private Label label10;
         private Label label9;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label lblPaymentStatus;
+        private Label lblPaymentMethod;
+        private Label lblAmount;
+        private Label lblPaymentType;
     }
 }

@@ -20,20 +20,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
             panel1 = new Panel();
+            panel6 = new Panel();
+            pictureBox9 = new PictureBox();
+            label9 = new Label();
+            label11 = new Label();
+            panel5 = new Panel();
+            pictureBox8 = new PictureBox();
+            label7 = new Label();
+            label8 = new Label();
             panel9 = new Panel();
             lblRole = new Label();
             lblUsername = new Label();
             pictureBox7 = new PictureBox();
             label1 = new Label();
             label12 = new Label();
+            panel3 = new Panel();
+            pictureBox6 = new PictureBox();
+            label10 = new Label();
+            lblActiveRentals = new Label();
+            label2 = new Label();
             chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel10 = new Panel();
             pictureBox3 = new PictureBox();
@@ -52,26 +65,19 @@
             pictureBox2 = new PictureBox();
             lblAvailableVehicles = new Label();
             label4 = new Label();
-            panel3 = new Panel();
-            pictureBox6 = new PictureBox();
-            label10 = new Label();
-            lblActiveRentals = new Label();
-            label2 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             lblTotalVehicles = new Label();
             label5 = new Label();
-            panel5 = new Panel();
-            pictureBox8 = new PictureBox();
-            label7 = new Label();
-            label8 = new Label();
-            panel6 = new Panel();
-            pictureBox9 = new PictureBox();
-            label9 = new Label();
-            label11 = new Label();
             panel1.SuspendLayout();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -82,14 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -111,6 +111,90 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1688, 1219);
             panel1.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(58, 124, 165);
+            panel6.Controls.Add(pictureBox9);
+            panel6.Controls.Add(label9);
+            panel6.Controls.Add(label11);
+            panel6.Location = new Point(854, 281);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(349, 125);
+            panel6.TabIndex = 69;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(297, 3);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(49, 44);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 37;
+            pictureBox9.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(15, 69);
+            label9.Name = "label9";
+            label9.Size = new Size(0, 46);
+            label9.TabIndex = 36;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(0, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(240, 35);
+            label11.TabIndex = 19;
+            label11.Text = "Under Maintenance";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(58, 124, 165);
+            panel5.Controls.Add(pictureBox8);
+            panel5.Controls.Add(label7);
+            panel5.Controls.Add(label8);
+            panel5.Location = new Point(854, 114);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(349, 125);
+            panel5.TabIndex = 68;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(300, 3);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(49, 44);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 37;
+            pictureBox8.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(15, 69);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 46);
+            label7.TabIndex = 36;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(0, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(224, 35);
+            label8.TabIndex = 19;
+            label8.Text = " Reserved Vehicles";
             // 
             // panel9
             // 
@@ -176,6 +260,59 @@
             label12.Size = new Size(132, 32);
             label12.TabIndex = 40;
             label12.Text = "Dashboard";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(58, 124, 165);
+            panel3.Controls.Add(pictureBox6);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(lblActiveRentals);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(50, 281);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(349, 125);
+            panel3.TabIndex = 61;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(300, 0);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(49, 46);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 40;
+            pictureBox6.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(0, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(176, 35);
+            label10.TabIndex = 36;
+            label10.Text = "Active Rentals";
+            // 
+            // lblActiveRentals
+            // 
+            lblActiveRentals.AutoSize = true;
+            lblActiveRentals.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblActiveRentals.ForeColor = Color.White;
+            lblActiveRentals.Location = new Point(15, 70);
+            lblActiveRentals.Name = "lblActiveRentals";
+            lblActiveRentals.Size = new Size(0, 46);
+            lblActiveRentals.TabIndex = 35;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 46);
+            label2.TabIndex = 19;
             // 
             // chartRevenue
             // 
@@ -380,59 +517,6 @@
             label4.TabIndex = 19;
             label4.Text = "Available Vehicles";
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(58, 124, 165);
-            panel3.Controls.Add(pictureBox6);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(lblActiveRentals);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(50, 281);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(349, 125);
-            panel3.TabIndex = 61;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(300, 0);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(49, 46);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 40;
-            pictureBox6.TabStop = false;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(0, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(176, 35);
-            label10.TabIndex = 36;
-            label10.Text = "Active Rentals";
-            // 
-            // lblActiveRentals
-            // 
-            lblActiveRentals.AutoSize = true;
-            lblActiveRentals.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            lblActiveRentals.ForeColor = Color.White;
-            lblActiveRentals.Location = new Point(15, 70);
-            lblActiveRentals.Name = "lblActiveRentals";
-            lblActiveRentals.Size = new Size(0, 46);
-            lblActiveRentals.TabIndex = 35;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 46);
-            label2.TabIndex = 19;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(58, 124, 165);
@@ -475,90 +559,6 @@
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
             // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(58, 124, 165);
-            panel5.Controls.Add(pictureBox8);
-            panel5.Controls.Add(label7);
-            panel5.Controls.Add(label8);
-            panel5.Location = new Point(854, 114);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(349, 125);
-            panel5.TabIndex = 68;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(300, 3);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(49, 44);
-            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox8.TabIndex = 37;
-            pictureBox8.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(15, 69);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 46);
-            label7.TabIndex = 36;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(0, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(224, 35);
-            label8.TabIndex = 19;
-            label8.Text = " Reserved Vehicles";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(58, 124, 165);
-            panel6.Controls.Add(pictureBox9);
-            panel6.Controls.Add(label9);
-            panel6.Controls.Add(label11);
-            panel6.Location = new Point(854, 281);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(349, 125);
-            panel6.TabIndex = 69;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(297, 3);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(49, 44);
-            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox9.TabIndex = 37;
-            pictureBox9.TabStop = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(15, 69);
-            label9.Name = "label9";
-            label9.Size = new Size(0, 46);
-            label9.TabIndex = 36;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(0, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(224, 35);
-            label11.TabIndex = 19;
-            label11.Text = " Reserved Vehicles";
-            // 
             // UC_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -567,9 +567,18 @@
             Name = "UC_Dashboard";
             Size = new Size(1688, 1219);
             panel1.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
@@ -584,18 +593,9 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
         }
 

@@ -2,7 +2,7 @@ using aejynmain.AuthManager;
 using aejynmain.HelperMethod;
 using aejynmain.Models;
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace aejynmain.UserControls
@@ -21,21 +21,22 @@ namespace aejynmain.UserControls
         public UC_Rentals()
         {
             InitializeComponent();
+            LoadUser();
             LoadAvailableVehicles();
             UpdateSummaryDates();
-            LoadUser();
         }
+
+        // ================= USER =================
         private void LoadUser()
         {
             lblUsername.Text = UserSession.Username;
             lblRole.Text = UserSession.Role;
         }
 
+        // ================= VEHICLE GRID (DO NOT CHANGE) =================
         private void EnsureVehicleFleetColumns(DataGridView dg)
         {
             if (dg == null) return;
-
-            // Only configure once
             if (!dg.AutoGenerateColumns && dg.Columns.Count > 0) return;
 
             dg.AutoGenerateColumns = false;
@@ -43,17 +44,15 @@ namespace aejynmain.UserControls
 
             void Add(string name, string header)
             {
-                var col = new DataGridViewTextBoxColumn
+                dg.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = name,
                     Name = name,
                     HeaderText = header,
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                };
-                dg.Columns.Add(col);
+                });
             }
 
-            // Match Vehicle Fleet order
             Add("VehicleID", "VehicleID");
             Add("CategoryName", "CategoryName");
             Add("Make", "Make");
@@ -76,68 +75,58 @@ namespace aejynmain.UserControls
             Add("Features", "Features");
             Add("image_path", "image_path");
 
-            // Format currency columns if they exist
-            if (dg.Columns["HourlyRate"] != null) dg.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["DailyRate"] != null) dg.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["WeeklyRate"] != null) dg.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["MonthlyRate"] != null) dg.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+        }
+
+        private void LoadAvailableVehicles()
+        {
+            EnsureVehicleFleetColumns(dgAvailableVehicles);
+            dgAvailableVehicles.DataSource = RentalManager.GetAvailableVehicles();
         }
 
         // ================= CUSTOMER SEARCH =================
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var dt = CustomerDetails.GetCustomers();
+            DataTable dt = CustomerDetails.GetCustomers();
             string search = txtSearch.Text.Trim();
 
             selectedCustomerId = 0;
 
-            foreach (System.Data.DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
-                string firstName = row["FirstName"].ToString();
-                string lastName = row["LastName"].ToString();
-                string fullName = $"{firstName} {lastName}";
+                string fullName = row["FirstName"] + " " + row["LastName"];
 
                 if (fullName.Contains(search) || row["LicenseNumber"].ToString().Contains(search))
                 {
                     selectedCustomerId = Convert.ToInt32(row["CustomerID"]);
 
+                    // MAIN DISPLAY
                     lblFullName.Text = fullName;
                     lblLicenseNumber.Text = row["LicenseNumber"].ToString();
                     lblContactNumber.Text = row["ContactNumber"].ToString();
                     lblAddress.Text = row["Address"].ToString();
+
+                    // INVOICE LABELS (GI-ADD)
+                    lblCustomerName.Text = fullName;
+                    lblLicenseNum.Text = row["LicenseNumber"].ToString();
+                    lblContactNum.Text = row["ContactNumber"].ToString();
+                    lblCustomerAddress.Text = row["Address"].ToString();
                     return;
                 }
             }
 
             MessageBox.Show("Customer not found.");
-            lblFullName.Text = "";
-            lblLicenseNumber.Text = "";
-            lblContactNumber.Text = "";
-            lblAddress.Text = "";
         }
 
-        // ================= LOAD VEHICLES =================
-        private void LoadAvailableVehicles()
-        {
-            EnsureVehicleFleetColumns(dgAvailableVehicles);
-            dgAvailableVehicles.DataSource = RentalManager.GetAvailableVehicles();
-
-            if (dgAvailableVehicles.Columns["HourlyRate"] != null)
-                dgAvailableVehicles.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["DailyRate"] != null)
-                dgAvailableVehicles.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["WeeklyRate"] != null)
-                dgAvailableVehicles.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["MonthlyRate"] != null)
-                dgAvailableVehicles.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-        }
-
-        // ================= SELECT VEHICLE =================
+        // SELECT VEHICLE 
         private void dgAvailableVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            DataGridViewRow row = dgAvailableVehicles.Rows[e.RowIndex];
+            var row = dgAvailableVehicles.Rows[e.RowIndex];
 
             selectedVehicleId = Convert.ToInt32(row.Cells["VehicleID"].Value);
             hourlyRate = Convert.ToDecimal(row.Cells["HourlyRate"].Value);
@@ -145,38 +134,29 @@ namespace aejynmain.UserControls
             weeklyRate = Convert.ToDecimal(row.Cells["WeeklyRate"].Value);
             monthlyRate = Convert.ToDecimal(row.Cells["MonthlyRate"].Value);
 
-            // Display vehicle Make + Model
-            string make = row.Cells["Make"].Value?.ToString() ?? "";
-            string model = row.Cells["Model"].Value?.ToString() ?? "";
-            lblVehicle.Text = $"{make} {model}".Trim();
-
+            lblVehicle.Text = $"{row.Cells["Make"].Value} {row.Cells["Model"].Value}";
             ComputeTotal();
         }
 
-        // ================= DATE + TIME HELPERS =================
+        //  DATE HELPERS 
         private DateTime GetPickupDateTime()
         {
-            return dtpPickUpDate.Value.Date
-                .Add(dtpPickupTime.Value.TimeOfDay);
+            return dtpPickUpDate.Value.Date.Add(dtpPickupTime.Value.TimeOfDay);
         }
 
         private DateTime GetReturnDateTime()
         {
-            return dtpReturnDate.Value.Date
-                .Add(dtpReturnTime.Value.TimeOfDay);
+            return dtpReturnDate.Value.Date.Add(dtpReturnTime.Value.TimeOfDay);
         }
 
-        // ================= PRICE COMPUTATION (USING CALCULATOR) =================
+        // COMPUTE TOTAL
         private void ComputeTotal()
         {
             if (selectedVehicleId == 0) return;
 
-            DateTime pickup = GetPickupDateTime();
-            DateTime ret = GetReturnDateTime();
-
             computedTotal = RentalCalculator.CalculateTotal(
-                pickup,
-                ret,
+                GetPickupDateTime(),
+                GetReturnDateTime(),
                 hourlyRate,
                 dailyRate,
                 weeklyRate,
@@ -198,7 +178,7 @@ namespace aejynmain.UserControls
                 $"{GetPickupDateTime():MM/dd/yyyy hh:mm tt} - {GetReturnDateTime():MM/dd/yyyy hh:mm tt}";
         }
 
-        // ================= DATE/TIME EVENTS =================
+        // ================= DATE EVENTS =================
         private void dtpPickUpDate_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpReturnDate_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpPickupTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
@@ -211,17 +191,18 @@ namespace aejynmain.UserControls
             {
                 if (selectedCustomerId == 0 || selectedVehicleId == 0)
                 {
-                    MessageBox.Show("Please select a customer and a vehicle.");
+                    MessageBox.Show("Please select customer and vehicle.");
                     return;
                 }
 
-                if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
+                if (!decimal.TryParse(txtAmount.Text, out decimal amount))
                 {
-                    MessageBox.Show("Please enter a valid payment amount.");
+                    MessageBox.Show("Invalid amount.");
                     return;
                 }
-                // Get pickup mileage gikan sa selected vehicle sa datagridview
+
                 int pickupMileage = Convert.ToInt32(dgAvailableVehicles.CurrentRow.Cells["Mileage"].Value);
+
                 Rental rental = new Rental
                 {
                     UserID = User.UserID,
@@ -241,6 +222,11 @@ namespace aejynmain.UserControls
                     }
                 };
 
+                // INVOICE LABELS
+                lblPaymentType.Text = cmbPaymentType.Text;
+                lblPaymentMethod.Text = cmbPaymentMethod.Text;
+                lblPaymentStatus.Text = cmbPaymentStatus.Text;
+
                 RentalManager.SaveRental(rental);
 
                 MessageBox.Show("Rental successfully saved!");
@@ -248,13 +234,26 @@ namespace aejynmain.UserControls
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
-
-        private void label34_Click(object sender, EventArgs e)
+        private void cmbPaymentType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lblPaymentType.Text = cmbPaymentType.Text;
         }
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            lblAmount.Text = txtAmount.Text;
+        }
+        private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPaymentMethod.Text = cmbPaymentMethod.Text;
+        }
+        private void cmbPaymentStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPaymentStatus.Text = cmbPaymentStatus.Text;
+        }
+
+
     }
 }

@@ -2,7 +2,7 @@ using aejynmain.AuthManager;
 using aejynmain.HelperMethod;
 using aejynmain.Models;
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace aejynmain.UserControls
@@ -25,6 +25,7 @@ namespace aejynmain.UserControls
             UpdateSummaryDates();
             LoadUser();
         }
+
         private void LoadUser()
         {
             lblUsername.Text = UserSession.Username;
@@ -34,8 +35,6 @@ namespace aejynmain.UserControls
         private void EnsureVehicleFleetColumns(DataGridView dg)
         {
             if (dg == null) return;
-
-            // Only configure once
             if (!dg.AutoGenerateColumns && dg.Columns.Count > 0) return;
 
             dg.AutoGenerateColumns = false;
@@ -43,17 +42,15 @@ namespace aejynmain.UserControls
 
             void Add(string name, string header)
             {
-                var col = new DataGridViewTextBoxColumn
+                dg.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = name,
                     Name = name,
                     HeaderText = header,
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                };
-                dg.Columns.Add(col);
+                });
             }
 
-            // Match Vehicle Fleet order
             Add("VehicleID", "VehicleID");
             Add("CategoryName", "CategoryName");
             Add("Make", "Make");
@@ -76,11 +73,10 @@ namespace aejynmain.UserControls
             Add("Features", "Features");
             Add("image_path", "image_path");
 
-            // Format currency columns if they exist
-            if (dg.Columns["HourlyRate"] != null) dg.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["DailyRate"] != null) dg.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["WeeklyRate"] != null) dg.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dg.Columns["MonthlyRate"] != null) dg.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
+            dg.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
         }
 
         // ================= CUSTOMER SEARCH =================
@@ -88,52 +84,80 @@ namespace aejynmain.UserControls
         {
             var dt = CustomerDetails.GetCustomers();
             string search = txtSearch.Text.Trim();
+            bool customerFound = false;
 
             selectedCustomerId = 0;
 
-            foreach (System.Data.DataRow row in dt.Rows)
+            // Clear previous customer info
+            ClearCustomerInfo();
+
+            foreach (DataRow row in dt.Rows)
             {
+                string customerType = row["CustomerType"]?.ToString() ?? "";
+
+                // Skip Walk-in customers
+                if (customerType.Equals("Walk-in", StringComparison.OrdinalIgnoreCase))
+                    continue;
+
                 string firstName = row["FirstName"].ToString();
                 string lastName = row["LastName"].ToString();
                 string fullName = $"{firstName} {lastName}";
                 string licenseNumber = row["LicenseNumber"].ToString();
 
-                if (fullName.Contains(search) || licenseNumber.Contains(search))
+                if (fullName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    licenseNumber.Contains(search, StringComparison.OrdinalIgnoreCase))
                 {
                     selectedCustomerId = Convert.ToInt32(row["CustomerID"]);
 
+                    // MAIN DISPLAY
                     lblFullName.Text = fullName;
                     lblLicenseNumber.Text = licenseNumber;
                     lblContactNumber.Text = row["ContactNumber"].ToString();
                     lblAddress.Text = row["Address"].ToString();
-                    return;
+
+                    // ====== INVOICE LABELS ======
+                    lblCustomerName.Text = fullName;
+                    lblLicenseNum.Text = licenseNumber;
+                    lblContactNum.Text = row["ContactNumber"].ToString();
+                    lblCustomerAddress.Text = row["Address"].ToString();
+
+                    customerFound = true;
+                    break; // Found a matching non-Walk-in customer
                 }
             }
 
-            MessageBox.Show("Customer not found.");
+            if (!customerFound)
+            {
+                MessageBox.Show("Customer not found or is a Walk-in customer. Walk-in customers are not eligible for reservations.",
+                              "Customer Not Found",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Information);
+            }
+        }
+
+        private void ClearCustomerInfo()
+        {
             lblFullName.Text = "";
             lblLicenseNumber.Text = "";
             lblContactNumber.Text = "";
             lblAddress.Text = "";
+            selectedCustomerId = 0;
+
+            // ====== CLEAR INVOICE LABELS ======
+            lblCustomerName.Text = "";
+            lblLicenseNum.Text = "";
+            lblContactNum.Text = "";
+            lblCustomerAddress.Text = "";
         }
 
-        // ================= LOAD VEHICLES =================
+        // LOAD VEHICLES
         private void LoadAvailableVehicles()
         {
             EnsureVehicleFleetColumns(dgAvailableVehicles);
             dgAvailableVehicles.DataSource = ReservationManager.GetAvailableVehicles();
-
-            if (dgAvailableVehicles.Columns["HourlyRate"] != null)
-                dgAvailableVehicles.Columns["HourlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["DailyRate"] != null)
-                dgAvailableVehicles.Columns["DailyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["WeeklyRate"] != null)
-                dgAvailableVehicles.Columns["WeeklyRate"].DefaultCellStyle.Format = "₱#,##0.00";
-            if (dgAvailableVehicles.Columns["MonthlyRate"] != null)
-                dgAvailableVehicles.Columns["MonthlyRate"].DefaultCellStyle.Format = "₱#,##0.00";
         }
 
-        // ================= SELECT VEHICLE =================
+        // SELECT VEHICLE 
         private void dgAvailableVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -146,15 +170,16 @@ namespace aejynmain.UserControls
             weeklyRate = Convert.ToDecimal(row.Cells["WeeklyRate"].Value);
             monthlyRate = Convert.ToDecimal(row.Cells["MonthlyRate"].Value);
 
-            // Display vehicle Make + Model
-            string make = row.Cells["Make"].Value?.ToString() ?? "";
-            string model = row.Cells["Model"].Value?.ToString() ?? "";
-            lblVehicle.Text = $"{make} {model}".Trim();
+            string make = row.Cells["Make"].Value.ToString();
+            string model = row.Cells["Model"].Value.ToString();
+
+            // INVOICE VEHICLE
+            lblVehicle.Text = $"{make} {model}";
 
             ComputeTotal();
         }
 
-        // ================= DATE + TIME HELPERS =================
+        // DATE HELPERS 
         private DateTime GetPickupDateTime()
         {
             return dtpPickUpDate.Value.Date + dtpPickupTime.Value.TimeOfDay;
@@ -165,17 +190,14 @@ namespace aejynmain.UserControls
             return dtpReturnDate.Value.Date + dtpReturnTime.Value.TimeOfDay;
         }
 
-        // ================= PRICE COMPUTATION =================
+        // COMPUTE TOTAL 
         private void ComputeTotal()
         {
             if (selectedVehicleId == 0) return;
 
-            DateTime pickup = GetPickupDateTime();
-            DateTime ret = GetReturnDateTime();
-
             computedTotal = RentalCalculator.CalculateTotal(
-                pickup,
-                ret,
+                GetPickupDateTime(),
+                GetReturnDateTime(),
                 hourlyRate,
                 dailyRate,
                 weeklyRate,
@@ -184,6 +206,11 @@ namespace aejynmain.UserControls
                 out string durationLabel
             );
 
+            lblRate.Text = rateLabel;
+            lblDays.Text = durationLabel;
+            lblTotalPrice.Text = computedTotal.ToString("₱#,##0.00");
+
+            // ====== INVOICE TOTAL ======
             lblRate.Text = rateLabel;
             lblDays.Text = durationLabel;
             lblTotalPrice.Text = computedTotal.ToString("₱#,##0.00");
@@ -197,40 +224,55 @@ namespace aejynmain.UserControls
                 $"{GetPickupDateTime():MM/dd/yyyy hh:mm tt} - {GetReturnDateTime():MM/dd/yyyy hh:mm tt}";
         }
 
-        // ================= DATE/TIME EVENTS =================
         private void dtpPickUpDate_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpReturnDate_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpPickupTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
         private void dtpReturnTime_ValueChanged(object sender, EventArgs e) => ComputeTotal();
 
-        // ================= CONFIRM RESERVATION =================
+        // PAYMENT to INVOICE 
+        private void cmbPaymentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPaymentType.Text = cmbPaymentType.Text;
+            lblPaymentType.Text = cmbPaymentType.Text;
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            lblAmount.Text = txtAmount.Text;
+            lblAmount.Text = txtAmount.Text;
+        }
+
+        private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPaymentMethod.Text = cmbPaymentMethod.Text;
+            lblPaymentMethod.Text = cmbPaymentMethod.Text;
+        }
+
+        private void cmbPaymentStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPaymentStatus.Text = cmbPaymentStatus.Text;
+            lblPaymentStatus.Text = cmbPaymentStatus.Text;
+        }
+
+        // CONFIRM RESERVATION
         private void btnConfirmReservation_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1️⃣ Validate selections
-                if (selectedCustomerId == 0)
+                if (selectedCustomerId == 0 || selectedVehicleId == 0)
                 {
-                    MessageBox.Show("Please select a customer.");
+                    MessageBox.Show("Please select customer and vehicle.");
                     return;
                 }
 
-                if (selectedVehicleId == 0)
+                if (!decimal.TryParse(txtAmount.Text, out decimal amount))
                 {
-                    MessageBox.Show("Please select a vehicle.");
+                    MessageBox.Show("Invalid payment amount.");
                     return;
                 }
 
-                if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
-                {
-                    MessageBox.Show("Please enter a valid payment amount.");
-                    return;
-                }
-
-                // 2️⃣ Get pickup mileage from selected vehicle row
                 int pickupMileage = Convert.ToInt32(dgAvailableVehicles.CurrentRow.Cells["Mileage"].Value);
 
-                // 3️⃣ Prepare reservation object
                 Reservation reservation = new Reservation
                 {
                     UserID = UserSession.UserID,
@@ -250,16 +292,16 @@ namespace aejynmain.UserControls
                     }
                 };
 
-                int reservationID = ReservationManager.SaveReservation(reservation);
+                int result = ReservationManager.SaveReservation(reservation);
 
-                if (reservationID > 0)
+                if (result > 0)
                 {
                     MessageBox.Show("Reservation successfully saved!");
                     LoadAvailableVehicles();
                 }
                 else
                 {
-                    MessageBox.Show("Failed to save reservation. Please try again.");
+                    MessageBox.Show("Failed to save reservation.");
                 }
             }
             catch (Exception ex)
@@ -267,21 +309,6 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Error:\n" + ex.Message);
             }
         }
-
-
-        private void dgAvailableVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCustomerAddress_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+
