@@ -33,6 +33,7 @@ namespace aejynmain.Models
         Corporate,
         Frequent,
         Blacklisted,
-        WalkIn
+        WalkIn,
+        Reservation
     }
 }

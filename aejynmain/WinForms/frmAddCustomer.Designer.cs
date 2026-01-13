@@ -394,7 +394,7 @@
             // 
             cmbCustomerType.Font = new Font("Segoe UI", 12F);
             cmbCustomerType.FormattingEnabled = true;
-            cmbCustomerType.Items.AddRange(new object[] { "Individual ", "Corporate", "Frequent", "Blacklisted", "Walk-in" });
+            cmbCustomerType.Items.AddRange(new object[] { "Individual ", "Corporate", "Frequent", "Blacklisted", "Walk-in", "Reservation" });
             cmbCustomerType.Location = new Point(605, 268);
             cmbCustomerType.Name = "cmbCustomerType";
             cmbCustomerType.Size = new Size(165, 36);

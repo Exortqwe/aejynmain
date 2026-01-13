@@ -1,6 +1,7 @@
 using aejynmain.AuthManager;
 using aejynmain.HelperMethod;
 using aejynmain.Models;
+using aejynmain.WinForms;
 using System;
 using System.Windows.Forms;
 
@@ -90,6 +91,7 @@ namespace aejynmain.UserControls
 
             decimal additionalCharges = damageFee + fuelFee + overdueFee + cleaningFee;
             decimal totalCharges = baseRental + additionalCharges;
+            decimal subtotal = baseRental + additionalCharges; // Calculate subtotal
 
             decimal depositPaid = ReturnManager.GetDepositPaid(selectedRentalId);
             decimal balanceDue = totalCharges - depositPaid;
@@ -101,9 +103,11 @@ namespace aejynmain.UserControls
                 balanceDue = 0;
             }
 
+            // Update all labels
             lblRentalCharges.Text = baseRental.ToString("₱#,##0.00");
             lblAdditionalCharges.Text = additionalCharges.ToString("₱#,##0.00");
             lblCleaningFees.Text = cleaningFee.ToString("₱#,##0.00");
+            lblSubTotal.Text = subtotal.ToString("₱#,##0.00"); 
             lblTotalCharges.Text = totalCharges.ToString("₱#,##0.00");
 
             lblDepositPaid.Text = depositPaid.ToString("₱#,##0.00");
@@ -261,6 +265,41 @@ namespace aejynmain.UserControls
         private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblPaymentMethod.Text = cmbPaymentMethod.SelectedItem?.ToString();
+        }
+        private decimal SafeDecimal(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return 0m;
+
+            text = text.Replace("₱", "").Replace(",", "").Trim();
+            return decimal.TryParse(text, out decimal value) ? value : 0m;
+        }
+        private void btnReceipt_Click(object sender, EventArgs e)
+        {
+            if (selectedRentalId == 0)
+            {
+                MessageBox.Show("Please select a rental first.");
+                return;
+            }
+
+            frmBilling receipt = new frmBilling();
+
+            receipt.LoadBillingData(
+                lblCustomerName.Text,
+                lblRentalID.Text,
+
+                SafeDecimal(lblRentalCharges.Text),
+                SafeDecimal(lblAdditionalCharges.Text),
+                SafeDecimal(lblCleaningFees.Text),
+                SafeDecimal(lblTotalCharges.Text),   // sub total
+                SafeDecimal(lblDepositPaid.Text),
+                SafeDecimal(lblBalanceDue.Text),
+                SafeDecimal(lblRefund.Text),
+
+                cmbPaymentMethod.SelectedItem?.ToString() ?? "Cash"
+            );
+
+            receipt.ShowDialog();
         }
     }
 }

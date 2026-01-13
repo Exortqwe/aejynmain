@@ -36,10 +36,6 @@
             pictureBox9 = new PictureBox();
             lblUnderMaintenance = new Label();
             label11 = new Label();
-            panel5 = new Panel();
-            pictureBox8 = new PictureBox();
-            label7 = new Label();
-            label8 = new Label();
             panel9 = new Panel();
             lblRole = new Label();
             lblUsername = new Label();
@@ -73,12 +69,11 @@
             pictureBox1 = new PictureBox();
             lblTotalVehicles = new Label();
             label5 = new Label();
+            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgActiveRentals).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel3.SuspendLayout();
@@ -101,9 +96,9 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(dgActiveRentals);
             panel1.Controls.Add(panel6);
-            panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(chartRevenue);
@@ -146,7 +141,7 @@
             dgActiveRentals.DefaultCellStyle = dataGridViewCellStyle2;
             dgActiveRentals.EnableHeadersVisualStyles = false;
             dgActiveRentals.GridColor = SystemColors.GrayText;
-            dgActiveRentals.Location = new Point(50, 446);
+            dgActiveRentals.Location = new Point(53, 998);
             dgActiveRentals.Name = "dgActiveRentals";
             dgActiveRentals.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -159,7 +154,7 @@
             dgActiveRentals.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgActiveRentals.RowHeadersVisible = false;
             dgActiveRentals.RowHeadersWidth = 51;
-            dgActiveRentals.Size = new Size(787, 268);
+            dgActiveRentals.Size = new Size(777, 268);
             dgActiveRentals.TabIndex = 77;
             // 
             // panel6
@@ -203,48 +198,6 @@
             label11.Size = new Size(240, 35);
             label11.TabIndex = 19;
             label11.Text = "Under Maintenance";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.FromArgb(58, 124, 165);
-            panel5.Controls.Add(pictureBox8);
-            panel5.Controls.Add(label7);
-            panel5.Controls.Add(label8);
-            panel5.Location = new Point(854, 114);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(349, 125);
-            panel5.TabIndex = 68;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(300, 3);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(49, 44);
-            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox8.TabIndex = 37;
-            pictureBox8.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(15, 69);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 46);
-            label7.TabIndex = 36;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(0, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(224, 35);
-            label8.TabIndex = 19;
-            label8.Text = " Reserved Vehicles";
             // 
             // panel9
             // 
@@ -369,7 +322,7 @@
             chartRevenue.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chartRevenue.Legends.Add(legend1);
-            chartRevenue.Location = new Point(50, 733);
+            chartRevenue.Location = new Point(53, 446);
             chartRevenue.Name = "chartRevenue";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -385,7 +338,7 @@
             panel10.Controls.Add(pictureBox3);
             panel10.Controls.Add(lblReservedVehicles);
             panel10.Controls.Add(label6);
-            panel10.Location = new Point(1255, 114);
+            panel10.Location = new Point(854, 114);
             panel10.Name = "panel10";
             panel10.Size = new Size(349, 125);
             panel10.TabIndex = 67;
@@ -427,7 +380,7 @@
             chartVehicleStatus.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             chartVehicleStatus.Legends.Add(legend2);
-            chartVehicleStatus.Location = new Point(869, 733);
+            chartVehicleStatus.Location = new Point(854, 446);
             chartVehicleStatus.Name = "chartVehicleStatus";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -444,7 +397,7 @@
             panel8.Controls.Add(lblOverdue);
             panel8.Controls.Add(pictureBox5);
             panel8.Controls.Add(label3);
-            panel8.Location = new Point(1255, 281);
+            panel8.Location = new Point(1250, 114);
             panel8.Name = "panel8";
             panel8.Size = new Size(349, 125);
             panel8.TabIndex = 66;
@@ -606,6 +559,16 @@
             label5.TabIndex = 19;
             label5.Text = "Total Vehicles";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(53, 964);
+            label7.Name = "label7";
+            label7.Size = new Size(158, 31);
+            label7.TabIndex = 78;
+            label7.Text = "Active Rentals";
+            // 
             // UC_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -614,13 +577,11 @@
             Name = "UC_Dashboard";
             Size = new Size(1688, 1377);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgActiveRentals).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -687,10 +648,7 @@
         private PictureBox pictureBox9;
         private Label lblUnderMaintenance;
         private Label label11;
-        private Panel panel5;
-        private PictureBox pictureBox8;
-        private Label label7;
-        private Label label8;
         private DataGridView dgActiveRentals;
+        private Label label7;
     }
 }

@@ -60,22 +60,26 @@
             lblPaymentStatus = new Label();
             lblAmount = new Label();
             lblDate = new Label();
+            panelReceipt = new Panel();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            btnPrint = new Button();
+            panelReceipt.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            label1.Location = new Point(311, 9);
+            label1.Location = new Point(286, 0);
             label1.Name = "label1";
-            label1.Size = new Size(97, 35);
+            label1.Size = new Size(109, 35);
             label1.TabIndex = 0;
-            label1.Text = "Invoice";
+            label1.Text = "RECEIPT";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(645, 9);
+            label3.Location = new Point(576, 12);
             label3.Name = "label3";
             label3.Size = new Size(44, 20);
             label3.TabIndex = 2;
@@ -85,7 +89,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(59, 66);
+            label4.Location = new Point(34, 57);
             label4.Name = "label4";
             label4.Size = new Size(172, 28);
             label4.TabIndex = 3;
@@ -94,7 +98,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(59, 113);
+            label5.Location = new Point(34, 104);
             label5.Name = "label5";
             label5.Size = new Size(123, 20);
             label5.TabIndex = 4;
@@ -103,7 +107,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(59, 152);
+            label6.Location = new Point(34, 143);
             label6.Name = "label6";
             label6.Size = new Size(122, 20);
             label6.TabIndex = 5;
@@ -113,7 +117,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(59, 210);
+            label7.Location = new Point(34, 201);
             label7.Name = "label7";
             label7.Size = new Size(140, 28);
             label7.TabIndex = 6;
@@ -122,7 +126,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(59, 253);
+            label8.Location = new Point(34, 244);
             label8.Name = "label8";
             label8.Size = new Size(59, 20);
             label8.TabIndex = 7;
@@ -131,7 +135,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(59, 285);
+            label9.Location = new Point(34, 276);
             label9.Name = "label9";
             label9.Size = new Size(81, 20);
             label9.TabIndex = 8;
@@ -141,7 +145,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(52, 351);
+            label10.Location = new Point(27, 342);
             label10.Name = "label10";
             label10.Size = new Size(190, 28);
             label10.TabIndex = 9;
@@ -150,7 +154,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(434, 113);
+            label11.Location = new Point(409, 104);
             label11.Name = "label11";
             label11.Size = new Size(137, 20);
             label11.TabIndex = 10;
@@ -159,7 +163,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(434, 152);
+            label12.Location = new Point(409, 143);
             label12.Name = "label12";
             label12.Size = new Size(69, 20);
             label12.TabIndex = 11;
@@ -168,7 +172,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(434, 253);
+            label13.Location = new Point(370, 244);
             label13.Name = "label13";
             label13.Size = new Size(58, 20);
             label13.TabIndex = 12;
@@ -177,7 +181,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(434, 285);
+            label15.Location = new Point(375, 276);
             label15.Name = "label15";
             label15.Size = new Size(42, 20);
             label15.TabIndex = 14;
@@ -186,7 +190,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(52, 388);
+            label16.Location = new Point(27, 379);
             label16.Name = "label16";
             label16.Size = new Size(103, 20);
             label16.TabIndex = 15;
@@ -195,7 +199,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(52, 423);
+            label17.Location = new Point(27, 414);
             label17.Name = "label17";
             label17.Size = new Size(124, 20);
             label17.TabIndex = 16;
@@ -204,7 +208,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(52, 457);
+            label18.Location = new Point(27, 448);
             label18.Name = "label18";
             label18.Size = new Size(81, 20);
             label18.TabIndex = 17;
@@ -213,7 +217,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(423, 388);
+            label19.Location = new Point(398, 379);
             label19.Name = "label19";
             label19.Size = new Size(112, 20);
             label19.TabIndex = 18;
@@ -222,7 +226,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(423, 423);
+            label20.Location = new Point(398, 414);
             label20.Name = "label20";
             label20.Size = new Size(65, 20);
             label20.TabIndex = 19;
@@ -231,7 +235,7 @@
             // lblCustomerName
             // 
             lblCustomerName.AutoSize = true;
-            lblCustomerName.Location = new Point(183, 113);
+            lblCustomerName.Location = new Point(158, 104);
             lblCustomerName.Name = "lblCustomerName";
             lblCustomerName.Size = new Size(58, 20);
             lblCustomerName.TabIndex = 20;
@@ -240,7 +244,7 @@
             // lblLicenseNum
             // 
             lblLicenseNum.AutoSize = true;
-            lblLicenseNum.Location = new Point(187, 152);
+            lblLicenseNum.Location = new Point(162, 143);
             lblLicenseNum.Name = "lblLicenseNum";
             lblLicenseNum.Size = new Size(58, 20);
             lblLicenseNum.TabIndex = 21;
@@ -249,7 +253,7 @@
             // lblCustomerNumber
             // 
             lblCustomerNumber.AutoSize = true;
-            lblCustomerNumber.Location = new Point(577, 113);
+            lblCustomerNumber.Location = new Point(552, 104);
             lblCustomerNumber.Name = "lblCustomerNumber";
             lblCustomerNumber.Size = new Size(58, 20);
             lblCustomerNumber.TabIndex = 22;
@@ -258,7 +262,7 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(509, 152);
+            lblAddress.Location = new Point(484, 143);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(58, 20);
             lblAddress.TabIndex = 23;
@@ -267,7 +271,7 @@
             // lblVehicle
             // 
             lblVehicle.AutoSize = true;
-            lblVehicle.Location = new Point(124, 253);
+            lblVehicle.Location = new Point(99, 244);
             lblVehicle.Name = "lblVehicle";
             lblVehicle.Size = new Size(58, 20);
             lblVehicle.TabIndex = 24;
@@ -276,7 +280,7 @@
             // lblTotalDays
             // 
             lblTotalDays.AutoSize = true;
-            lblTotalDays.Location = new Point(143, 285);
+            lblTotalDays.Location = new Point(118, 276);
             lblTotalDays.Name = "lblTotalDays";
             lblTotalDays.Size = new Size(58, 20);
             lblTotalDays.TabIndex = 25;
@@ -285,7 +289,7 @@
             // lblDates
             // 
             lblDates.AutoSize = true;
-            lblDates.Location = new Point(482, 253);
+            lblDates.Location = new Point(420, 244);
             lblDates.Name = "lblDates";
             lblDates.Size = new Size(58, 20);
             lblDates.TabIndex = 26;
@@ -294,7 +298,7 @@
             // lblRate
             // 
             lblRate.AutoSize = true;
-            lblRate.Location = new Point(477, 285);
+            lblRate.Location = new Point(420, 276);
             lblRate.Name = "lblRate";
             lblRate.Size = new Size(58, 20);
             lblRate.TabIndex = 28;
@@ -303,7 +307,7 @@
             // lblPaymentType
             // 
             lblPaymentType.AutoSize = true;
-            lblPaymentType.Location = new Point(152, 388);
+            lblPaymentType.Location = new Point(127, 379);
             lblPaymentType.Name = "lblPaymentType";
             lblPaymentType.Size = new Size(58, 20);
             lblPaymentType.TabIndex = 29;
@@ -312,7 +316,7 @@
             // lblPaymentMethod
             // 
             lblPaymentMethod.AutoSize = true;
-            lblPaymentMethod.Location = new Point(174, 423);
+            lblPaymentMethod.Location = new Point(149, 414);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(58, 20);
             lblPaymentMethod.TabIndex = 30;
@@ -321,7 +325,7 @@
             // lblTotalPrice
             // 
             lblTotalPrice.AutoSize = true;
-            lblTotalPrice.Location = new Point(139, 457);
+            lblTotalPrice.Location = new Point(114, 448);
             lblTotalPrice.Name = "lblTotalPrice";
             lblTotalPrice.Size = new Size(58, 20);
             lblTotalPrice.TabIndex = 31;
@@ -330,7 +334,7 @@
             // lblPaymentStatus
             // 
             lblPaymentStatus.AutoSize = true;
-            lblPaymentStatus.Location = new Point(541, 388);
+            lblPaymentStatus.Location = new Point(516, 379);
             lblPaymentStatus.Name = "lblPaymentStatus";
             lblPaymentStatus.Size = new Size(58, 20);
             lblPaymentStatus.TabIndex = 32;
@@ -339,7 +343,7 @@
             // lblAmount
             // 
             lblAmount.AutoSize = true;
-            lblAmount.Location = new Point(494, 423);
+            lblAmount.Location = new Point(469, 414);
             lblAmount.Name = "lblAmount";
             lblAmount.Size = new Size(58, 20);
             lblAmount.TabIndex = 33;
@@ -348,54 +352,79 @@
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(691, 9);
+            lblDate.Location = new Point(622, 12);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(58, 20);
             lblDate.TabIndex = 35;
             lblDate.Text = "label36";
             // 
+            // panelReceipt
+            // 
+            panelReceipt.BorderStyle = BorderStyle.FixedSingle;
+            panelReceipt.Controls.Add(lblDate);
+            panelReceipt.Controls.Add(lblAmount);
+            panelReceipt.Controls.Add(lblPaymentStatus);
+            panelReceipt.Controls.Add(lblTotalPrice);
+            panelReceipt.Controls.Add(lblPaymentMethod);
+            panelReceipt.Controls.Add(lblPaymentType);
+            panelReceipt.Controls.Add(lblRate);
+            panelReceipt.Controls.Add(lblDates);
+            panelReceipt.Controls.Add(lblTotalDays);
+            panelReceipt.Controls.Add(lblVehicle);
+            panelReceipt.Controls.Add(lblAddress);
+            panelReceipt.Controls.Add(lblCustomerNumber);
+            panelReceipt.Controls.Add(lblLicenseNum);
+            panelReceipt.Controls.Add(lblCustomerName);
+            panelReceipt.Controls.Add(label20);
+            panelReceipt.Controls.Add(label19);
+            panelReceipt.Controls.Add(label18);
+            panelReceipt.Controls.Add(label17);
+            panelReceipt.Controls.Add(label16);
+            panelReceipt.Controls.Add(label15);
+            panelReceipt.Controls.Add(label13);
+            panelReceipt.Controls.Add(label12);
+            panelReceipt.Controls.Add(label11);
+            panelReceipt.Controls.Add(label10);
+            panelReceipt.Controls.Add(label9);
+            panelReceipt.Controls.Add(label8);
+            panelReceipt.Controls.Add(label7);
+            panelReceipt.Controls.Add(label6);
+            panelReceipt.Controls.Add(label5);
+            panelReceipt.Controls.Add(label4);
+            panelReceipt.Controls.Add(label3);
+            panelReceipt.Controls.Add(label1);
+            panelReceipt.Location = new Point(25, 9);
+            panelReceipt.Name = "panelReceipt";
+            panelReceipt.Size = new Size(736, 489);
+            panelReceipt.TabIndex = 36;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(664, 504);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(97, 34);
+            btnPrint.TabIndex = 37;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Click += btnPrint_Click;
+            // 
             // frmReceipt
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(801, 512);
-            Controls.Add(lblDate);
-            Controls.Add(lblAmount);
-            Controls.Add(lblPaymentStatus);
-            Controls.Add(lblTotalPrice);
-            Controls.Add(lblPaymentMethod);
-            Controls.Add(lblPaymentType);
-            Controls.Add(lblRate);
-            Controls.Add(lblDates);
-            Controls.Add(lblTotalDays);
-            Controls.Add(lblVehicle);
-            Controls.Add(lblAddress);
-            Controls.Add(lblCustomerNumber);
-            Controls.Add(lblLicenseNum);
-            Controls.Add(lblCustomerName);
-            Controls.Add(label20);
-            Controls.Add(label19);
-            Controls.Add(label18);
-            Controls.Add(label17);
-            Controls.Add(label16);
-            Controls.Add(label15);
-            Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label1);
+            ClientSize = new Size(790, 578);
+            Controls.Add(btnPrint);
+            Controls.Add(panelReceipt);
             Name = "frmReceipt";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmReceipt";
+            panelReceipt.ResumeLayout(false);
+            panelReceipt.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -434,5 +463,8 @@
         private Label lblPaymentStatus;
         private Label lblAmount;
         private Label lblDate;
+        private Panel panelReceipt;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private Button btnPrint;
     }
 }

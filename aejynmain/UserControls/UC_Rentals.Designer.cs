@@ -1311,11 +1311,11 @@
             btnReceipt.FlatAppearance.BorderSize = 0;
             btnReceipt.FlatStyle = FlatStyle.Flat;
             btnReceipt.ForeColor = Color.White;
-            btnReceipt.Location = new Point(1268, 725);
+            btnReceipt.Location = new Point(1260, 725);
             btnReceipt.Name = "btnReceipt";
-            btnReceipt.Size = new Size(94, 39);
+            btnReceipt.Size = new Size(102, 39);
             btnReceipt.TabIndex = 36;
-            btnReceipt.Text = "RECEIPT";
+            btnReceipt.Text = " RECEIPT";
             btnReceipt.UseVisualStyleBackColor = false;
             btnReceipt.Click += btnReceipt_Click;
             // 

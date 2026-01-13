@@ -4,6 +4,7 @@ using aejynmain.Models;
 using aejynmain.WinForms;
 using System;
 using System.Data;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace aejynmain.UserControls
@@ -278,5 +279,6 @@ namespace aejynmain.UserControls
 
             receipt.ShowDialog();
         }
+
     }
 }

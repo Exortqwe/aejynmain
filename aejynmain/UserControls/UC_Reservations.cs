@@ -97,7 +97,7 @@ namespace aejynmain.UserControls
                 string customerType = row["CustomerType"]?.ToString() ?? "";
 
                 // Skip Walk-in customers
-                if (customerType.Equals("Walk-in", StringComparison.OrdinalIgnoreCase))
+                if (customerType.Equals("WalkIn", StringComparison.OrdinalIgnoreCase))
                     continue;
 
                 string firstName = row["FirstName"].ToString();

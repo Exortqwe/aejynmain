@@ -135,11 +135,13 @@ namespace aejynmain
             }
 
             // License expiry must be future if license number is provided
-            if (!string.IsNullOrWhiteSpace(txtLicenseNumber.Text) &&
-                dtpLicenseExpiry.Value.Date <= DateTime.Now)
+            if (!string.IsNullOrWhiteSpace(txtLicenseNumber.Text))
             {
-                message = "License expiry date must be in the future.";
-                return false;
+                if (dtpLicenseExpiry.Value.Date <= DateTime.Today)
+                {
+                    message = "Driver’s license has already expired.";
+                    return false;
+                }
             }
 
             message = string.Empty;
@@ -152,7 +154,7 @@ namespace aejynmain
             if (cmbCustomerType.SelectedItem is CustomerType enumVal)
                 return enumVal;
 
-            // If items are strings (e.g., â€œWalkinâ€), normalize and parse
+            // If items are strings (e.g., “Walkin”), normalize and parse
             string text = cmbCustomerType.SelectedItem?.ToString() ?? "Individual";
             string normalized = text.Replace("-", "").Replace(" ", ""); // Walk-in/Walk in -> Walkin
 
