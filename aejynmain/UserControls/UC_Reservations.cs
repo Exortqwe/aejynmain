@@ -278,5 +278,10 @@ namespace aejynmain.UserControls
         {
 
         }
+
+        private void lblCustomerAddress_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

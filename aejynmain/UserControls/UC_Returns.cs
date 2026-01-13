@@ -16,6 +16,7 @@ namespace aejynmain.UserControls
         {
             InitializeComponent();
             LoadUser();
+            LoadCleaningFees();
 
             cbScratches.CheckedChanged += Damage_CheckedChanged;
             cbDents.CheckedChanged += Damage_CheckedChanged;
@@ -23,6 +24,9 @@ namespace aejynmain.UserControls
             cbInteriorStains.CheckedChanged += Damage_CheckedChanged;
             cbTireDamage.CheckedChanged += Damage_CheckedChanged;
             cbPaintDamage.CheckedChanged += Damage_CheckedChanged;
+
+            cmbFuelLevel.SelectedIndexChanged += cmbFuelLevel_SelectedIndexChanged;
+            cmbCleaningFees.SelectedIndexChanged += cmbCleaningFees_SelectedIndexChanged;
         }
 
         private void LoadUser()
@@ -31,6 +35,31 @@ namespace aejynmain.UserControls
             lblRole.Text = UserSession.Role;
         }
 
+        // ===================== CLEANING FEES =====================
+        private void LoadCleaningFees()
+        {
+            cmbCleaningFees.Items.Clear();
+
+            cmbCleaningFees.Items.Add(new CleaningFeeItem("No Cleaning", 0m));
+            cmbCleaningFees.Items.Add(new CleaningFeeItem("Light Cleaning", 300m));
+            cmbCleaningFees.Items.Add(new CleaningFeeItem("Heavy Cleaning", 700m));
+            cmbCleaningFees.Items.Add(new CleaningFeeItem("Extreme / Biohazard", 1500m));
+
+            cmbCleaningFees.DisplayMember = "Name";
+            cmbCleaningFees.ValueMember = "Amount";
+            cmbCleaningFees.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCleaningFees.SelectedIndex = 0;
+        }
+
+        private decimal GetCleaningFee()
+        {
+            if (cmbCleaningFees.SelectedItem is CleaningFeeItem fee)
+                return fee.Amount;
+
+            return 0m;
+        }
+
+        // ===================== BILLING SUMMARY =====================
         private decimal UpdateBillingSummary()
         {
             if (selectedRentalId == 0)
@@ -43,6 +72,8 @@ namespace aejynmain.UserControls
             decimal fuelFee = FuelHelper.CalculateFuelCharge(
                 cmbFuelLevel.SelectedItem?.ToString());
 
+            decimal cleaningFee = GetCleaningFee();
+
             DateTime actualReturn = dtpActualReturnDate.Value.Date;
             DateTime plannedReturn = currentExpectedReturn.Date;
 
@@ -50,7 +81,6 @@ namespace aejynmain.UserControls
             if (overdueDays < 0) overdueDays = 0;
 
             decimal dailyRate = ReturnManager.GetDailyRate(selectedRentalId);
-
             decimal overdueFee = overdueDays * dailyRate;
 
             int rentalDays = (plannedReturn - currentPickup.Date).Days;
@@ -58,11 +88,10 @@ namespace aejynmain.UserControls
 
             decimal baseRental = rentalDays * dailyRate;
 
-            decimal additionalCharges = damageFee + fuelFee + overdueFee;
-
+            decimal additionalCharges = damageFee + fuelFee + overdueFee + cleaningFee;
             decimal totalCharges = baseRental + additionalCharges;
-            decimal depositPaid = ReturnManager.GetDepositPaid(selectedRentalId);
 
+            decimal depositPaid = ReturnManager.GetDepositPaid(selectedRentalId);
             decimal balanceDue = totalCharges - depositPaid;
             decimal refundAmount = 0m;
 
@@ -74,6 +103,7 @@ namespace aejynmain.UserControls
 
             lblRentalCharges.Text = baseRental.ToString("₱#,##0.00");
             lblAdditionalCharges.Text = additionalCharges.ToString("₱#,##0.00");
+            lblCleaningFees.Text = cleaningFee.ToString("₱#,##0.00");
             lblTotalCharges.Text = totalCharges.ToString("₱#,##0.00");
 
             lblDepositPaid.Text = depositPaid.ToString("₱#,##0.00");
@@ -83,26 +113,11 @@ namespace aejynmain.UserControls
             return refundAmount;
         }
 
-
+        // ===================== LOAD RENTALS =====================
         private void UC_Returns_Load(object sender, EventArgs e)
         {
             dgRentedVehicles.AutoGenerateColumns = true;
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
-
-            if (dgRentedVehicles.Columns["PickupDate"] != null)
-                dgRentedVehicles.Columns["PickupDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
-
-            if (dgRentedVehicles.Columns["ReturnDate"] != null)
-                dgRentedVehicles.Columns["ReturnDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
-
-            if (dgRentedVehicles.Columns["ActualReturnDate"] != null)
-                dgRentedVehicles.Columns["ActualReturnDate"].Visible = false;
-
-            if (dgRentedVehicles.Columns["DailyRate"] != null)
-                dgRentedVehicles.Columns["DailyRate"].Visible = false;
-
-            if (dgRentedVehicles.Columns["DaysOverdue"] != null)
-                dgRentedVehicles.Columns["DaysOverdue"].Visible = false;
         }
 
         private void dgRentedVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,8 +125,10 @@ namespace aejynmain.UserControls
             if (e.RowIndex < 0) return;
 
             var row = dgRentedVehicles.Rows[e.RowIndex];
-            selectedRentalId = Convert.ToInt32(row.Cells["RentalID"].Value);
 
+            selectedRentalId = Convert.ToInt32(row.Cells["RentalID"].Value);
+            lblRentalID.Text = selectedRentalId.ToString();
+            lblCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
             lblVehicleInspection.Text = $"{row.Cells["Make"].Value} {row.Cells["Model"].Value}";
             lblLicensePlate.Text = row.Cells["LicensePlate"].Value.ToString();
 
@@ -124,6 +141,7 @@ namespace aejynmain.UserControls
             txtReturnMileage.Clear();
             cmbFuelLevel.SelectedIndex = -1;
             cmbCondition.SelectedIndex = -1;
+            cmbCleaningFees.SelectedIndex = 0;
 
             DamageHelper.ClearAll(
                 cbScratches, cbDents, cbBrokenGlass,
@@ -132,23 +150,9 @@ namespace aejynmain.UserControls
             UpdateBillingSummary();
         }
 
-
+        // ===================== EVENTS =====================
         private void Damage_CheckedChanged(object sender, EventArgs e)
         {
-            if (sender is CheckBox cb && cb.Checked)
-            {
-                if (cmbCondition.Text == "Excellent" || cmbCondition.Text == "Good")
-                {
-                    MessageBox.Show(
-                        $"Cannot mark damage when condition is {cmbCondition.Text}.",
-                        "Validation Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    cb.Checked = false;
-                    return;
-                }
-            }
             UpdateBillingSummary();
         }
 
@@ -157,7 +161,12 @@ namespace aejynmain.UserControls
             UpdateBillingSummary();
         }
 
+        private void cmbCleaningFees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateBillingSummary();
+        }
 
+        // ===================== RETURN VEHICLE =====================
         private void btnReturnVehicle_Click(object sender, EventArgs e)
         {
             if (selectedRentalId == 0) return;
@@ -176,6 +185,7 @@ namespace aejynmain.UserControls
 
             int userId = UserSession.UserID;
 
+            // --- Return vehicle ---
             ReturnManager.ReturnVehicles(
                 selectedRentalId,
                 returnMileage,
@@ -185,6 +195,39 @@ namespace aejynmain.UserControls
 
             ReturnManager.UpdateVehicleMileage(selectedRentalId, returnMileage);
 
+            // --- Calculate fees ---
+            decimal damageFee = DamageHelper.CalculateTotal(
+                cbScratches, cbDents, cbBrokenGlass,
+                cbInteriorStains, cbTireDamage, cbPaintDamage);
+
+            decimal fuelFee = FuelHelper.CalculateFuelCharge(cmbFuelLevel.SelectedItem?.ToString());
+            decimal cleaningFee = GetCleaningFee();
+
+            DateTime actualReturn = dtpActualReturnDate.Value.Date;
+            DateTime plannedReturn = currentExpectedReturn.Date;
+
+            int overdueDays = (actualReturn - plannedReturn).Days;
+            if (overdueDays < 0) overdueDays = 0;
+
+            decimal dailyRate = ReturnManager.GetDailyRate(selectedRentalId);
+            decimal overdueFee = overdueDays * dailyRate;
+
+            int rentalDays = (plannedReturn - currentPickup.Date).Days;
+            if (rentalDays < 1) rentalDays = 1;
+
+            decimal baseRental = rentalDays * dailyRate;
+
+            // --- Insert/Update invoice ---
+            ReturnManager.InsertOrUpdateInvoice(
+                selectedRentalId,
+                baseRental,
+                damageFee,
+                overdueFee,
+                fuelFee,
+                cleaningFee
+            );
+
+            // --- Insert damages ---
             if (cbScratches.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Scratches", 500);
             if (cbDents.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Dents", 1000);
             if (cbBrokenGlass.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Broken Glass", 2000);
@@ -192,10 +235,11 @@ namespace aejynmain.UserControls
             if (cbTireDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Tire Damage", 600);
             if (cbPaintDamage.Checked) ReturnManager.InsertDamage(selectedRentalId, userId, "Paint Damage", 700);
 
+            // --- Update billing summary ---
             decimal refundAmount = UpdateBillingSummary();
-            decimal balanceDue = decimal.Parse(
-                lblBalanceDue.Text.Replace("₱", "").Replace(",", ""));
+            decimal balanceDue = decimal.Parse(lblBalanceDue.Text.Replace("₱", "").Replace(",", ""));
 
+            // --- Save payment ---
             if (balanceDue > 0)
             {
                 string paymentMethod = cmbPaymentMethod.SelectedItem?.ToString() ?? "Cash";
@@ -203,73 +247,20 @@ namespace aejynmain.UserControls
                 ReturnManager.MarkDamagesPaid(selectedRentalId);
             }
 
+            // --- Refund if any ---
             if (refundAmount > 0)
             {
-                MessageBox.Show(
-                    $"Refund customer ₱{refundAmount:N2}",
-                    "Refund Required",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show($"Refund customer ₱{refundAmount:N2}", "Refund Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            // --- Refresh grid ---
             dgRentedVehicles.DataSource = ReturnManager.GetActiveRentals();
             MessageBox.Show("Vehicle successfully returned.");
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel14_Paint(object sender, PaintEventArgs e)
-        {
-
-
-        }
-
-        private void txtReturnMileage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-
+            lblPaymentMethod.Text = cmbPaymentMethod.SelectedItem?.ToString();
         }
     }
 }

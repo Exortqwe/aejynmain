@@ -251,5 +251,10 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Error:\n" + ex.Message);
             }
         }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

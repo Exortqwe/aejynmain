@@ -21,4 +21,20 @@ namespace aejynmain.Models
         public decimal DailyRate { get; set; }
         public int DaysOverdue { get; set; }
     }
+    public class CleaningFeeItem
+    {
+        public string Name { get; set; }
+        public decimal Amount { get; set; }
+
+        public CleaningFeeItem(string name, decimal amount)
+        {
+            Name = name;
+            Amount = amount;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
 }

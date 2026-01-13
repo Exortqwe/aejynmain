@@ -131,7 +131,7 @@ namespace aejynmain.AuthManager
             }
         }
 
-        public static void InsertOrUpdateInvoice(int rentalId, decimal rentalCharges, decimal damageCharges, decimal overdueCharges, decimal fuelCharges)
+        public static void InsertOrUpdateInvoice(int rentalId, decimal rentalCharges, decimal damageCharges, decimal overdueCharges, decimal fuelCharges, decimal cleaningCharges)
         {
             using var con = new MySqlConnection(ConnectionString);
             using var cmd = new MySqlCommand("sp_InsertOrUpdateInvoice", con)
@@ -143,6 +143,7 @@ namespace aejynmain.AuthManager
             cmd.Parameters.AddWithValue("@p_DamageCharges", damageCharges);
             cmd.Parameters.AddWithValue("@p_OverdueCharges", overdueCharges);
             cmd.Parameters.AddWithValue("@p_FuelCharges", fuelCharges);
+            cmd.Parameters.AddWithValue("@p_CleaningCharges", cleaningCharges);
             con.Open();
             cmd.ExecuteNonQuery();
         }
