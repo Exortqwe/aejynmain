@@ -15,6 +15,7 @@ namespace aejynmain.Models
         public int Reservation { get; set; }
         public int Overdue { get; set; }
         public decimal RevenueToday { get; set; }
+        public int UnderMaintenance { get; set; }
     }
 }
 

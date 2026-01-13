@@ -138,6 +138,7 @@
             label38 = new Label();
             label37 = new Label();
             cmbPaymentMethod = new ComboBox();
+            btnReceipt = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -836,7 +837,7 @@
             panel5.Controls.Add(label29);
             panel5.Location = new Point(983, 179);
             panel5.Name = "panel5";
-            panel5.Size = new Size(677, 554);
+            panel5.Size = new Size(677, 539);
             panel5.TabIndex = 8;
             // 
             // lblPaymentType
@@ -1304,9 +1305,25 @@
             cmbPaymentMethod.TabIndex = 1;
             cmbPaymentMethod.SelectedIndexChanged += cmbPaymentMethod_SelectedIndexChanged;
             // 
+            // btnReceipt
+            // 
+            btnReceipt.BackColor = Color.FromArgb(58, 124, 165);
+            btnReceipt.FlatAppearance.BorderSize = 0;
+            btnReceipt.FlatStyle = FlatStyle.Flat;
+            btnReceipt.ForeColor = Color.White;
+            btnReceipt.Location = new Point(1268, 725);
+            btnReceipt.Name = "btnReceipt";
+            btnReceipt.Size = new Size(94, 39);
+            btnReceipt.TabIndex = 36;
+            btnReceipt.Text = "RECEIPT";
+            btnReceipt.UseVisualStyleBackColor = false;
+            btnReceipt.Click += btnReceipt_Click;
+            // 
             // UC_Rentals
             // 
+            AutoScroll = true;
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(btnReceipt);
             Controls.Add(label36);
             Controls.Add(panel7);
             Controls.Add(panel6);
@@ -1459,5 +1476,6 @@
         private Label lblAmount;
         private Label label51;
         private Label lblPaymentType;
+        private Button btnReceipt;
     }
 }

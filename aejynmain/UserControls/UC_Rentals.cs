@@ -1,6 +1,7 @@
 using aejynmain.AuthManager;
 using aejynmain.HelperMethod;
 using aejynmain.Models;
+using aejynmain.WinForms;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -254,6 +255,28 @@ namespace aejynmain.UserControls
             lblPaymentStatus.Text = cmbPaymentStatus.Text;
         }
 
+        private void btnReceipt_Click(object sender, EventArgs e)
+        {
+            frmReceipt receipt = new frmReceipt();
 
+            receipt.LoadInvoice(
+                date: DateTime.Now.ToString("MM/dd/yyyy"),
+                customerName: lblCustomerName.Text,
+                licenseNumber: lblLicenseNum.Text,
+                contactNumber: lblContactNum.Text,
+                address: lblCustomerAddress.Text,
+                vehicle: lblVehicle.Text,
+                dates: lblDates.Text,
+                totalDays: lblDays.Text,
+                rate: lblRate.Text,
+                totalPrice: lblTotalPrice.Text,
+                paymentType: lblPaymentType.Text,
+                amount: lblAmount.Text,
+                paymentMethod: lblPaymentMethod.Text,
+                paymentStatus: lblPaymentStatus.Text
+            );
+
+            receipt.ShowDialog();
+        }
     }
 }

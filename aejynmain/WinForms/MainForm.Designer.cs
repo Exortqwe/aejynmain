@@ -42,7 +42,6 @@
             btnReservations = new Button();
             panelMain = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnBilling = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -67,7 +66,7 @@
             btnUserManagement.ForeColor = Color.White;
             btnUserManagement.Image = (Image)resources.GetObject("btnUserManagement.Image");
             btnUserManagement.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUserManagement.Location = new Point(3, 715);
+            btnUserManagement.Location = new Point(3, 645);
             btnUserManagement.Name = "btnUserManagement";
             btnUserManagement.Padding = new Padding(20, 0, 0, 0);
             btnUserManagement.Size = new Size(244, 64);
@@ -188,7 +187,7 @@
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogOut.Location = new Point(3, 855);
+            btnLogOut.Location = new Point(3, 785);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(20, 0, 0, 0);
             btnLogOut.Size = new Size(247, 64);
@@ -208,7 +207,7 @@
             btnReports.ForeColor = Color.White;
             btnReports.Image = (Image)resources.GetObject("btnReports.Image");
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(3, 785);
+            btnReports.Location = new Point(3, 715);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(20, 0, 0, 0);
             btnReports.Size = new Size(249, 64);
@@ -279,7 +278,6 @@
             flowLayoutPanel1.Controls.Add(btnReservation);
             flowLayoutPanel1.Controls.Add(btnReturns);
             flowLayoutPanel1.Controls.Add(btnMaintenance);
-            flowLayoutPanel1.Controls.Add(btnBilling);
             flowLayoutPanel1.Controls.Add(btnUserManagement);
             flowLayoutPanel1.Controls.Add(btnReports);
             flowLayoutPanel1.Controls.Add(btnLogOut);
@@ -290,26 +288,6 @@
             flowLayoutPanel1.Size = new Size(252, 1055);
             flowLayoutPanel1.TabIndex = 3;
             flowLayoutPanel1.WrapContents = false;
-            // 
-            // btnBilling
-            // 
-            btnBilling.BackColor = Color.FromArgb(28, 73, 102);
-            btnBilling.FlatAppearance.BorderSize = 0;
-            btnBilling.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 58, 82);
-            btnBilling.FlatStyle = FlatStyle.Flat;
-            btnBilling.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnBilling.ForeColor = Color.White;
-            btnBilling.Image = (Image)resources.GetObject("btnBilling.Image");
-            btnBilling.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBilling.Location = new Point(3, 645);
-            btnBilling.Name = "btnBilling";
-            btnBilling.Padding = new Padding(20, 0, 0, 0);
-            btnBilling.Size = new Size(244, 64);
-            btnBilling.TabIndex = 17;
-            btnBilling.Text = "            Billing";
-            btnBilling.TextAlign = ContentAlignment.MiddleLeft;
-            btnBilling.UseVisualStyleBackColor = false;
-            btnBilling.Click += btnBilling_Click;
             // 
             // MainForm
             // 
@@ -347,6 +325,5 @@
         private Label lblRole;
         private PictureBox pictureBox2;
         private Label lblUserName;
-        private Button btnBilling;
     }
 }

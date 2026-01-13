@@ -100,6 +100,7 @@
             label37 = new Label();
             cmbPaymentMethod = new ComboBox();
             cmbPaymentType = new ComboBox();
+            btnReceipt = new Button();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -217,7 +218,7 @@
             BillingSummary.Controls.Add(label29);
             BillingSummary.Location = new Point(983, 179);
             BillingSummary.Name = "BillingSummary";
-            BillingSummary.Size = new Size(677, 554);
+            BillingSummary.Size = new Size(677, 544);
             BillingSummary.TabIndex = 25;
             // 
             // lblPaymentStatus
@@ -846,12 +847,27 @@
             cmbPaymentType.TabIndex = 0;
             cmbPaymentType.SelectedIndexChanged += cmbPaymentType_SelectedIndexChanged;
             // 
+            // btnReceipt
+            // 
+            btnReceipt.BackColor = Color.FromArgb(58, 124, 165);
+            btnReceipt.FlatAppearance.BorderSize = 0;
+            btnReceipt.FlatStyle = FlatStyle.Flat;
+            btnReceipt.ForeColor = Color.White;
+            btnReceipt.Location = new Point(1266, 729);
+            btnReceipt.Name = "btnReceipt";
+            btnReceipt.Size = new Size(94, 39);
+            btnReceipt.TabIndex = 35;
+            btnReceipt.Text = "RECEIPT";
+            btnReceipt.UseVisualStyleBackColor = false;
+            btnReceipt.Click += btnReceipt_Click;
+            // 
             // UC_Reservations
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(245, 247, 250);
+            Controls.Add(btnReceipt);
             Controls.Add(label36);
             Controls.Add(panel7);
             Controls.Add(btnConfirmReservation);
@@ -957,5 +973,6 @@
         private Label lblPaymentMethod;
         private Label lblAmount;
         private Label lblPaymentType;
+        private Button btnReceipt;
     }
 }

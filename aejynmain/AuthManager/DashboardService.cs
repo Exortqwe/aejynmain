@@ -24,7 +24,8 @@ namespace aejynmain.AuthManager
                 ActiveRentals = GetCount("sp_ActiveRentals"),
                 Reservation = GetCount("sp_ReservationCount"),
                 Overdue = GetCount("sp_LateReturnRentals"),
-                RevenueToday = GetRevenueToday()
+                RevenueToday = GetRevenueToday(),
+                UnderMaintenance = GetVehiclesUnderMaintenance()
             };
         }
 
@@ -95,6 +96,44 @@ namespace aejynmain.AuthManager
             }
 
             return dt;
+        }
+        public static DataTable GetActiveRentalsDashboard()
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand("sp_GetActiveRentalsDashboard", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+        private static int GetVehiclesUnderMaintenance()
+        {
+            try
+            {
+                using var conn = new MySqlConnection(connectionString);
+                using var cmd = new MySqlCommand("sp_GetVehiclesUnderMaintenance", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting vehicles under maintenance: " + ex.Message,
+                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
         }
     }
 }

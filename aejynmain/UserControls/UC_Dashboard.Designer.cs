@@ -20,6 +20,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
@@ -28,9 +31,10 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
+            dgActiveRentals = new DataGridView();
             panel6 = new Panel();
             pictureBox9 = new PictureBox();
-            label9 = new Label();
+            lblUnderMaintenance = new Label();
             label11 = new Label();
             panel5 = new Panel();
             pictureBox8 = new PictureBox();
@@ -70,6 +74,7 @@
             lblTotalVehicles = new Label();
             label5 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgActiveRentals).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel5.SuspendLayout();
@@ -94,7 +99,9 @@
             // 
             // panel1
             // 
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.FromArgb(245, 247, 250);
+            panel1.Controls.Add(dgActiveRentals);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel9);
@@ -109,14 +116,57 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1688, 1219);
+            panel1.Size = new Size(1688, 1377);
             panel1.TabIndex = 0;
+            // 
+            // dgActiveRentals
+            // 
+            dgActiveRentals.AllowUserToResizeColumns = false;
+            dgActiveRentals.AllowUserToResizeRows = false;
+            dgActiveRentals.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgActiveRentals.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgActiveRentals.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgActiveRentals.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(58, 124, 165);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgActiveRentals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgActiveRentals.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgActiveRentals.DefaultCellStyle = dataGridViewCellStyle2;
+            dgActiveRentals.EnableHeadersVisualStyles = false;
+            dgActiveRentals.GridColor = SystemColors.GrayText;
+            dgActiveRentals.Location = new Point(50, 446);
+            dgActiveRentals.Name = "dgActiveRentals";
+            dgActiveRentals.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 106, 140);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgActiveRentals.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgActiveRentals.RowHeadersVisible = false;
+            dgActiveRentals.RowHeadersWidth = 51;
+            dgActiveRentals.Size = new Size(787, 268);
+            dgActiveRentals.TabIndex = 77;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(58, 124, 165);
             panel6.Controls.Add(pictureBox9);
-            panel6.Controls.Add(label9);
+            panel6.Controls.Add(lblUnderMaintenance);
             panel6.Controls.Add(label11);
             panel6.Location = new Point(854, 281);
             panel6.Name = "panel6";
@@ -133,15 +183,15 @@
             pictureBox9.TabIndex = 37;
             pictureBox9.TabStop = false;
             // 
-            // label9
+            // lblUnderMaintenance
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(15, 69);
-            label9.Name = "label9";
-            label9.Size = new Size(0, 46);
-            label9.TabIndex = 36;
+            lblUnderMaintenance.AutoSize = true;
+            lblUnderMaintenance.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblUnderMaintenance.ForeColor = Color.White;
+            lblUnderMaintenance.Location = new Point(15, 69);
+            lblUnderMaintenance.Name = "lblUnderMaintenance";
+            lblUnderMaintenance.Size = new Size(0, 46);
+            lblUnderMaintenance.TabIndex = 36;
             // 
             // label11
             // 
@@ -204,7 +254,6 @@
             panel9.Controls.Add(pictureBox7);
             panel9.Controls.Add(label1);
             panel9.Controls.Add(label12);
-            panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
             panel9.Size = new Size(1688, 112);
@@ -320,7 +369,7 @@
             chartRevenue.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chartRevenue.Legends.Add(legend1);
-            chartRevenue.Location = new Point(67, 480);
+            chartRevenue.Location = new Point(50, 733);
             chartRevenue.Name = "chartRevenue";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -350,7 +399,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 37;
             pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
             // 
             // lblReservedVehicles
             // 
@@ -379,7 +427,7 @@
             chartVehicleStatus.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             chartVehicleStatus.Legends.Add(legend2);
-            chartVehicleStatus.Location = new Point(847, 480);
+            chartVehicleStatus.Location = new Point(869, 733);
             chartVehicleStatus.Name = "chartVehicleStatus";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -420,7 +468,6 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 39;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
             // 
             // label3
             // 
@@ -565,8 +612,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "UC_Dashboard";
-            Size = new Size(1688, 1219);
+            Size = new Size(1688, 1377);
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgActiveRentals).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
@@ -637,11 +685,12 @@
         private Label label12;
         private Panel panel6;
         private PictureBox pictureBox9;
-        private Label label9;
+        private Label lblUnderMaintenance;
         private Label label11;
         private Panel panel5;
         private PictureBox pictureBox8;
         private Label label7;
         private Label label8;
+        private DataGridView dgActiveRentals;
     }
 }

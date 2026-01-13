@@ -16,6 +16,7 @@ namespace aejynmain.UserControls
             InitializeComponent();
             LoadDashboardData();
             LoadUser();
+            LoadActiveRentalsGrid();
         }
 
         private void LoadUser()
@@ -38,6 +39,7 @@ namespace aejynmain.UserControls
                 lblOverdue.Text = dashboardData.Overdue.ToString();
                 lblOverdue.Visible = dashboardData.Overdue > 0;
                 lblRevenueToday.Text = dashboardData.RevenueToday.ToString("₱#,###.00");
+                lblUnderMaintenance.Text = dashboardData.UnderMaintenance.ToString();
 
                 // -------------------- Revenue chart --------------------
                 DataTable dtRevenue = DashboardService.RevenueByDate();
@@ -126,15 +128,28 @@ namespace aejynmain.UserControls
                 MessageBox.Show("Error loading dashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void LoadActiveRentalsGrid()
         {
+            try
+            {
+                DataTable dt = DashboardService.GetActiveRentalsDashboard();
+                dgActiveRentals.DataSource = dt;
 
-        }
+                // Optional: reorder columns
+                if (dgActiveRentals.Columns.Contains("RentalID")) dgActiveRentals.Columns["RentalID"].DisplayIndex = 0;
+                if (dgActiveRentals.Columns.Contains("CustomerName")) dgActiveRentals.Columns["CustomerName"].DisplayIndex = 1;
+                if (dgActiveRentals.Columns.Contains("Vehicle")) dgActiveRentals.Columns["Vehicle"].DisplayIndex = 2;
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
+                // Format dates
+                if (dgActiveRentals.Columns.Contains("PickUpDate"))
+                    dgActiveRentals.Columns["PickUpDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+                if (dgActiveRentals.Columns.Contains("ReturnDate"))
+                    dgActiveRentals.Columns["ReturnDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading active rentals: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
